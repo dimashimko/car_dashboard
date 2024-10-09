@@ -1,28 +1,53 @@
+import 'package:car_dashboard/widgets/common/custom_expandable_draggable_fab.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import 'resources/theme/theme_provider.dart';
+
+// ^\s*\/\/.*
+// ^\s*log\(.*
 
 void main() {
-  runApp(MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => ThemeProvider(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Adaptive MacOS App',
-      home: HomeScreen(),
+      home: const HomeScreen(),
+      theme: Provider.of<ThemeProvider>(context).currentTheme,
+      builder: (context, child) {
+        return Stack(
+          children: [
+            if (child != null) child,
+            // if (kDebugMode) const CustomExpandableFab(),
+            const CustomExpandableFab(),
+          ],
+        );
+      },
     );
   }
 }
 
 class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
-    // Get the screen size
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Adaptive Layout Example'),
+        title: const Text('Adaptive Layout Example'),
       ),
       body: Center(
         child: Container(
@@ -36,7 +61,7 @@ class HomeScreen extends StatelessWidget {
           child: Center(
             child: Text(
               'Screen Width: ${size.width}, Screen Height: ${size.height}',
-              style: TextStyle(color: Colors.white, fontSize: 20),
+              style: const TextStyle(color: Colors.white, fontSize: 20),
               textAlign: TextAlign.center,
             ),
           ),
