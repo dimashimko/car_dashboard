@@ -18,6 +18,7 @@ dependencies:
 
   # State manager
   provider: ^6.1.2
+  flutter_keyboard_visibility: ^6.0.0
 
   # Storage
   shared_preferences: ^2.3.2
@@ -30,9 +31,11 @@ dependencies:
   gap: ^3.0.1
   flextras: ^1.0.0
 
-
   #Media
   flutter_svg: ^2.0.10+1
+
+  #Other
+  desktop_window: ^0.4.1
 
 dev_dependencies:
   flutter_test:

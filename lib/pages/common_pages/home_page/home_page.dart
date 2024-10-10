@@ -1,5 +1,7 @@
+import 'package:car_dashboard/pages/common_pages/home_page/widgets/custom_app_bar.dart';
 import 'package:car_dashboard/pages/common_pages/home_page/widgets/custom_drawer.dart';
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({
@@ -21,14 +23,14 @@ class HomePageState extends State<HomePage> {
         body: Row(
           children: [
             const CustomDrawer(),
+            const Gap(1.0),
             Expanded(
               child: Column(
                 children: [
-                  Container(
-                    height: 50.0,
-                    color: Colors.orange,
+                  const CustomAppBar(),
+                  Expanded(
+                    child: widget.child,
                   ),
-                  Expanded(child: widget.child),
                 ],
               ),
             ),

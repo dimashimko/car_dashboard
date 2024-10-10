@@ -13,6 +13,7 @@ mixin _$CustomThemeExtensionTailorMixin
   Color get scaffoldBackgroundColor;
   Color get background;
   Color get onBackground;
+  Color get searchBackground;
   Color get textPrimary;
   Color get textSecondary;
   Color get textSecondarySelected;
@@ -22,6 +23,7 @@ mixin _$CustomThemeExtensionTailorMixin
     Color? scaffoldBackgroundColor,
     Color? background,
     Color? onBackground,
+    Color? searchBackground,
     Color? textPrimary,
     Color? textSecondary,
     Color? textSecondarySelected,
@@ -31,6 +33,7 @@ mixin _$CustomThemeExtensionTailorMixin
           scaffoldBackgroundColor ?? this.scaffoldBackgroundColor,
       background: background ?? this.background,
       onBackground: onBackground ?? this.onBackground,
+      searchBackground: searchBackground ?? this.searchBackground,
       textPrimary: textPrimary ?? this.textPrimary,
       textSecondary: textSecondary ?? this.textSecondary,
       textSecondarySelected:
@@ -47,6 +50,8 @@ mixin _$CustomThemeExtensionTailorMixin
           scaffoldBackgroundColor, other.scaffoldBackgroundColor, t)!,
       background: Color.lerp(background, other.background, t)!,
       onBackground: Color.lerp(onBackground, other.onBackground, t)!,
+      searchBackground:
+          Color.lerp(searchBackground, other.searchBackground, t)!,
       textPrimary: Color.lerp(textPrimary, other.textPrimary, t)!,
       textSecondary: Color.lerp(textSecondary, other.textSecondary, t)!,
       textSecondarySelected:
@@ -66,6 +71,8 @@ mixin _$CustomThemeExtensionTailorMixin
             const DeepCollectionEquality()
                 .equals(onBackground, other.onBackground) &&
             const DeepCollectionEquality()
+                .equals(searchBackground, other.searchBackground) &&
+            const DeepCollectionEquality()
                 .equals(textPrimary, other.textPrimary) &&
             const DeepCollectionEquality()
                 .equals(textSecondary, other.textSecondary) &&
@@ -80,6 +87,7 @@ mixin _$CustomThemeExtensionTailorMixin
       const DeepCollectionEquality().hash(scaffoldBackgroundColor),
       const DeepCollectionEquality().hash(background),
       const DeepCollectionEquality().hash(onBackground),
+      const DeepCollectionEquality().hash(searchBackground),
       const DeepCollectionEquality().hash(textPrimary),
       const DeepCollectionEquality().hash(textSecondary),
       const DeepCollectionEquality().hash(textSecondarySelected),
@@ -94,6 +102,7 @@ extension CustomThemeExtensionBuildContextProps on BuildContext {
       customThemeExtension.scaffoldBackgroundColor;
   Color get background => customThemeExtension.background;
   Color get onBackground => customThemeExtension.onBackground;
+  Color get searchBackground => customThemeExtension.searchBackground;
   Color get textPrimary => customThemeExtension.textPrimary;
   Color get textSecondary => customThemeExtension.textSecondary;
   Color get textSecondarySelected => customThemeExtension.textSecondarySelected;

@@ -42,6 +42,13 @@ class $AssetsIconsGen {
   SvgGenImage get messagesIcon =>
       const SvgGenImage('assets/icons/messages_icon.svg');
 
+  /// File path: assets/icons/notification.svg
+  SvgGenImage get notification =>
+      const SvgGenImage('assets/icons/notification.svg');
+
+  /// File path: assets/icons/search.svg
+  SvgGenImage get search => const SvgGenImage('assets/icons/search.svg');
+
   /// File path: assets/icons/sell_cars_icon.svg
   SvgGenImage get sellCarsIcon =>
       const SvgGenImage('assets/icons/sell_cars_icon.svg');
@@ -63,6 +70,8 @@ class $AssetsIconsGen {
         dashboardIcon,
         logOut,
         messagesIcon,
+        notification,
+        search,
         sellCarsIcon,
         servicesIcon,
         settingsIcon
@@ -72,11 +81,14 @@ class $AssetsIconsGen {
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/avatar.png
+  AssetGenImage get avatar => const AssetGenImage('assets/images/avatar.png');
+
   /// File path: assets/images/logo.png
   AssetGenImage get logo => const AssetGenImage('assets/images/logo.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [logo];
+  List<AssetGenImage> get values => [avatar, logo];
 }
 
 class Assets {

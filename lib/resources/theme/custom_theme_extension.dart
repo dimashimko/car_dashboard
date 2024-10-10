@@ -15,6 +15,7 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension>
     required this.scaffoldBackgroundColor,
     required this.background,
     required this.onBackground,
+    required this.searchBackground,
     required this.textPrimary,
     required this.textSecondary,
     required this.textSecondarySelected,
@@ -26,6 +27,8 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension>
   final Color background;
   @override
   final Color onBackground;
+  @override
+  final Color searchBackground;
   @override
   final Color textPrimary;
   @override
@@ -39,6 +42,7 @@ final lightCustomThemeExtension = CustomThemeExtension(
   scaffoldBackgroundColor: AppColors.grayF5,
   background: AppColors.gray.white,
   onBackground: AppColors.lightShadeBlueGray,
+  searchBackground: AppColors.lightSearchBackground,
   textPrimary: AppColors.gray.dark,
   textSecondary: AppColors.gray.dark2,
   textSecondarySelected: AppColors.gray.dark2,
@@ -47,6 +51,7 @@ final darkCustomThemeExtension = CustomThemeExtension(
   scaffoldBackgroundColor: AppColors.gray.dark,
   background: AppColors.primary.dark1,
   onBackground: AppColors.darkShadeBlueGray,
+  searchBackground: AppColors.gray.dark,
   textPrimary: AppColors.gray.white,
   textSecondary: AppColors.gray.dark5,
   textSecondarySelected: AppColors.gray.white,
