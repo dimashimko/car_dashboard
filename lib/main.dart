@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'resources/theme/theme_provider.dart';
+import 'router/app_router.dart';
 
 // ^\s*\/\/.*
 // ^\s*log\(.*
@@ -21,9 +22,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Adaptive MacOS App',
-      home: const HomeScreen(),
+      routerConfig: AppRouter.routerConfig,
       theme: Provider.of<ThemeProvider>(context).currentTheme,
       builder: (context, child) {
         return Stack(

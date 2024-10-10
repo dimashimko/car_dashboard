@@ -13,17 +13,41 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension>
     with _$CustomThemeExtensionTailorMixin {
   CustomThemeExtension({
     required this.scaffoldBackgroundColor,
+    required this.background,
+    required this.onBackground,
+    required this.textPrimary,
+    required this.textSecondary,
+    required this.textSecondarySelected,
   });
 
   @override
   final Color scaffoldBackgroundColor;
+  @override
+  final Color background;
+  @override
+  final Color onBackground;
+  @override
+  final Color textPrimary;
+  @override
+  final Color textSecondary;
+  @override
+  final Color textSecondarySelected;
 }
 
 /// Create themes manually
 final lightCustomThemeExtension = CustomThemeExtension(
-  // scaffoldBackgroundColor: AppColors.white,
-  scaffoldBackgroundColor: AppColors.gray.white,
+  scaffoldBackgroundColor: AppColors.grayF5,
+  background: AppColors.gray.white,
+  onBackground: AppColors.lightShadeBlueGray,
+  textPrimary: AppColors.gray.dark,
+  textSecondary: AppColors.gray.dark2,
+  textSecondarySelected: AppColors.gray.dark2,
 );
 final darkCustomThemeExtension = CustomThemeExtension(
-  scaffoldBackgroundColor: AppColors.primary.dark1,
+  scaffoldBackgroundColor: AppColors.gray.dark,
+  background: AppColors.primary.dark1,
+  onBackground: AppColors.darkShadeBlueGray,
+  textPrimary: AppColors.gray.white,
+  textSecondary: AppColors.gray.dark5,
+  textSecondarySelected: AppColors.gray.white,
 );

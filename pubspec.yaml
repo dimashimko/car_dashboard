@@ -22,8 +22,17 @@ dependencies:
   # Storage
   shared_preferences: ^2.3.2
 
+  #Navigation
+  go_router: ^14.3.0
+
   #Widgets
   draggable_expandable_fab: ^1.0.0
+  gap: ^3.0.1
+  flextras: ^1.0.0
+
+
+  #Media
+  flutter_svg: ^2.0.10+1
 
 dev_dependencies:
   flutter_test:
@@ -31,6 +40,13 @@ dev_dependencies:
 
   flutter_lints: ^4.0.0
   build_runner: ^2.4.13
+  go_router_builder: ^2.7.1
+  flutter_gen_runner: ^5.8.0
+
+flutter_gen:
+  output: lib/generated/
+  integrations:
+    flutter_svg: true
 
 flutter:
 
