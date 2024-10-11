@@ -13,9 +13,10 @@ import 'router/app_router.dart';
 // ^\s*log\(.*
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   if (Platform.isLinux || Platform.isMacOS || Platform.isWindows) {
     await DesktopWindow.setMinWindowSize(
-      const Size(400, 300),
+      const Size(500, 300),
     );
   }
   runApp(

@@ -10,24 +10,39 @@ class CustomAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    bool isExpanded = size.width > 600;
+
     return Container(
       height: 78.0,
       width: double.infinity,
       color: colors(context).background,
       child: Row(
         children: [
-          const Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: 30.0,
-              vertical: 16.0,
+          if (isExpanded)
+            const Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: 30.0,
+                vertical: 16.0,
+              ),
+              child: SizedBox(
+                width: 358.0,
+                height: 60,
+                child: SearchTextField(),
+                // child: AuthTextField(),
+              ),
+            )
+          else
+            Padding(
+              padding: const EdgeInsets.only(
+                left: 14,
+                right: 16,
+              ),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Assets.icons.search.svg(),
+              ),
             ),
-            child: SizedBox(
-              width: 358.0,
-              height: 60,
-              child: SearchTextField(),
-              // child: AuthTextField(),
-            ),
-          ),
           const Spacer(),
           Assets.icons.notification.svg(),
           const Gap(39.0),

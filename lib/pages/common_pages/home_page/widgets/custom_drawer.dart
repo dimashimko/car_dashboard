@@ -35,40 +35,54 @@ class _CustomDrawerState extends State<CustomDrawer> {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    // bool isExpanded = false;
+    bool isExpanded = size.width > 800;
     return Container(
-      width: 250,
+      width: isExpanded ? 250 : 54,
       color: colors(context).background,
       child: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 24.0,
-          vertical: 30.0,
-        ).copyWith(
-          right: 50.0,
+        padding: EdgeInsets.only(
+          left: isExpanded ? 24.0 : 8.0,
+          right: isExpanded ? 50.0 : 8.0,
+          top: 30.0,
+          bottom: 30.0,
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              children: [
-                Assets.images.logo.image(),
-                const Gap(17.0),
-                Text(
-                  'Motiv.',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w700,
-                    fontSize: 24.0,
-                    color: colors(context).textPrimary,
+            SizedBox(
+              height: 30.0,
+              child: Row(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(
+                      left: isExpanded ? 0.0 : 4.0,
+                    ),
+                    child: Assets.images.logo.image(),
                   ),
-                ),
-              ],
+                  if (isExpanded) ...[
+                    const Gap(17.0),
+                    Text(
+                      'Motiv.',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 24.0,
+                        color: colors(context).textPrimary,
+                      ),
+                    ),
+                  ]
+                ],
+              ),
             ),
             const Gap(35.0),
             Expanded(
               child: SingleChildScrollView(
                 child: SeparatedColumn(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   separatorBuilder: () => const SizedBox(
-                    height: 5.0,
+                    height: 10.0,
                   ),
                   children: [
                     DrawerItem(
@@ -76,49 +90,53 @@ class _CustomDrawerState extends State<CustomDrawer> {
                       onTap: () => onItemTapped(0),
                       iconPath: Assets.icons.dashboardIcon.path,
                       title: 'Dashboard',
+                      isExpanded: isExpanded,
                     ),
                     DrawerItem(
                       isSelected: selectedIndex == 1,
                       onTap: () => onItemTapped(1),
                       iconPath: Assets.icons.assetsIcon.path,
                       title: 'Assets',
+                      isExpanded: isExpanded,
                     ),
                     DrawerItem(
                       isSelected: selectedIndex == 2,
                       onTap: () => onItemTapped(2),
                       iconPath: Assets.icons.bookingIcon.path,
                       title: 'Booking',
+                      isExpanded: isExpanded,
                     ),
                     DrawerItem(
                       isSelected: selectedIndex == 3,
                       onTap: () => onItemTapped(3),
                       iconPath: Assets.icons.sellCarsIcon.path,
                       title: 'Sell Cars',
+                      isExpanded: isExpanded,
                     ),
-                    DrawerItem(
-                      isSelected: selectedIndex == 4,
-                      onTap: () => onItemTapped(4),
-                      iconPath: Assets.icons.buyCarIcon.path,
-                      title: 'Buy Cars',
-                    ),
-                    DrawerItem(
-                      isSelected: selectedIndex == 5,
-                      onTap: () => onItemTapped(5),
-                      iconPath: Assets.icons.servicesIcon.path,
-                      title: 'Services',
-                    ),
-                    DrawerItem(
-                      isSelected: selectedIndex == 6,
-                      onTap: () => onItemTapped(6),
-                      iconPath: Assets.icons.calendarIcon.path,
-                      title: 'Calender',
-                    ),
-                    DrawerItem(
-                      isSelected: selectedIndex == 7,
-                      onTap: () => onItemTapped(7),
-                      iconPath: Assets.icons.messagesIcon.path,
-                      title: 'Messages',
-                    ),
+                    // DrawerItem(
+                    //   isSelected: selectedIndex == 4,
+                    //   onTap: () => onItemTapped(4),
+                    //   iconPath: Assets.icons.buyCarIcon.path,
+                    //   title: 'Buy Cars',
+                    // ),
+                    // DrawerItem(
+                    //   isSelected: selectedIndex == 5,
+                    //   onTap: () => onItemTapped(5),
+                    //   iconPath: Assets.icons.servicesIcon.path,
+                    //   title: 'Services',
+                    // ),
+                    // DrawerItem(
+                    //   isSelected: selectedIndex == 6,
+                    //   onTap: () => onItemTapped(6),
+                    //   iconPath: Assets.icons.calendarIcon.path,
+                    //   title: 'Calender',
+                    // ),
+                    // DrawerItem(
+                    //   isSelected: selectedIndex == 7,
+                    //   onTap: () => onItemTapped(7),
+                    //   iconPath: Assets.icons.messagesIcon.path,
+                    //   title: 'Messages',
+                    // ),
                   ],
                 ),
               ),
@@ -128,6 +146,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
               onTap: () => onItemTapped(8),
               iconPath: Assets.icons.settingsIcon.path,
               title: 'Setting',
+              isExpanded: isExpanded,
             ),
             const Gap(24.0),
             DrawerItem(
@@ -135,6 +154,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
               onTap: () => onItemTapped(9),
               iconPath: Assets.icons.logOut.path,
               title: 'Log out',
+              isExpanded: isExpanded,
             ),
           ],
         ),

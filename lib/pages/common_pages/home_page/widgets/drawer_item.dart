@@ -10,12 +10,14 @@ class DrawerItem extends StatelessWidget {
     required this.onTap,
     required this.iconPath,
     required this.title,
+    required this.isExpanded,
   });
 
   final bool isSelected;
   final VoidCallback onTap;
   final String iconPath;
   final String title;
+  final bool isExpanded;
 
   @override
   Widget build(BuildContext context) {
@@ -31,8 +33,8 @@ class DrawerItem extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Row(
+            mainAxisSize: MainAxisSize.min,
             children: [
-              // icon,
               SvgPicture.asset(
                 iconPath,
                 colorFilter: ColorFilter.mode(
@@ -42,15 +44,17 @@ class DrawerItem extends StatelessWidget {
                   BlendMode.srcIn,
                 ),
               ),
-              const Gap(8.0),
-              Text(
-                title,
-                style: TextStyle(
-                  color: colors(context).textSecondary,
-                  fontSize: 14.0,
-                  fontWeight: FontWeight.w500,
-                ),
-              )
+              if (isExpanded) ...[
+                const Gap(8.0),
+                Text(
+                  title,
+                  style: TextStyle(
+                    color: colors(context).textSecondary,
+                    fontSize: 14.0,
+                    fontWeight: FontWeight.w500,
+                  ),
+                )
+              ]
             ],
           ),
         ),
