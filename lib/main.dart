@@ -36,6 +36,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp.router(
         title: 'Adaptive MacOS App',
         routerConfig: AppRouter.routerConfig,
+        debugShowCheckedModeBanner: false,
         theme: Provider.of<ThemeProvider>(context).currentTheme,
         builder: (context, child) {
           return Stack(

@@ -1,3 +1,4 @@
+import 'package:car_dashboard/pages/common_pages/home_page/widgets/search_dialog.dart';
 import 'package:car_dashboard/pages/common_pages/home_page/widgets/search_text_field.dart';
 import 'package:car_dashboard/resources/theme/custom_theme_extension.dart';
 import 'package:flutter/material.dart';
@@ -32,14 +33,25 @@ class CustomAppBar extends StatelessWidget {
               ),
             )
           else
-            Padding(
-              padding: const EdgeInsets.only(
-                left: 14,
-                right: 16,
-              ),
-              child: Align(
-                alignment: Alignment.centerLeft,
-                child: Assets.icons.search.svg(),
+            InkWell(
+              onTap: () {
+                showSearch(
+                  context: context,
+                  delegate: SearchDialog(
+                    primaryTextColor: colors(context).textPrimary,
+                    searchBackground: colors(context).searchBackground,
+                  ),
+                );
+              },
+              child: Padding(
+                padding: const EdgeInsets.only(
+                  left: 14,
+                  right: 16,
+                ),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Assets.icons.search.svg(),
+                ),
               ),
             ),
           const Spacer(),
