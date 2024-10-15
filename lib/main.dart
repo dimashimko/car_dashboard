@@ -41,7 +41,6 @@ class MyApp extends StatelessWidget {
           return Stack(
             children: [
               if (child != null) child,
-              // if (kDebugMode) const CustomExpandableFab(),
               const CustomExpandableFab(),
             ],
           );

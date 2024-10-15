@@ -36,8 +36,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    // bool isExpanded = false;
-    bool isExpanded = size.width > 800;
+    bool isExpanded = size.width > 900;
     return Container(
       width: isExpanded ? 250 : 54,
       color: colors(context).background,
@@ -113,30 +112,34 @@ class _CustomDrawerState extends State<CustomDrawer> {
                       title: 'Sell Cars',
                       isExpanded: isExpanded,
                     ),
-                    // DrawerItem(
-                    //   isSelected: selectedIndex == 4,
-                    //   onTap: () => onItemTapped(4),
-                    //   iconPath: Assets.icons.buyCarIcon.path,
-                    //   title: 'Buy Cars',
-                    // ),
-                    // DrawerItem(
-                    //   isSelected: selectedIndex == 5,
-                    //   onTap: () => onItemTapped(5),
-                    //   iconPath: Assets.icons.servicesIcon.path,
-                    //   title: 'Services',
-                    // ),
-                    // DrawerItem(
-                    //   isSelected: selectedIndex == 6,
-                    //   onTap: () => onItemTapped(6),
-                    //   iconPath: Assets.icons.calendarIcon.path,
-                    //   title: 'Calender',
-                    // ),
-                    // DrawerItem(
-                    //   isSelected: selectedIndex == 7,
-                    //   onTap: () => onItemTapped(7),
-                    //   iconPath: Assets.icons.messagesIcon.path,
-                    //   title: 'Messages',
-                    // ),
+                    DrawerItem(
+                      isSelected: selectedIndex == 4,
+                      onTap: () => onItemTapped(4),
+                      iconPath: Assets.icons.buyCarIcon.path,
+                      title: 'Buy Cars',
+                      isExpanded: isExpanded,
+                    ),
+                    DrawerItem(
+                      isSelected: selectedIndex == 5,
+                      onTap: () => onItemTapped(5),
+                      iconPath: Assets.icons.servicesIcon.path,
+                      title: 'Services',
+                      isExpanded: isExpanded,
+                    ),
+                    DrawerItem(
+                      isSelected: selectedIndex == 6,
+                      onTap: () => onItemTapped(6),
+                      iconPath: Assets.icons.calendarIcon.path,
+                      title: 'Calender',
+                      isExpanded: isExpanded,
+                    ),
+                    DrawerItem(
+                      isSelected: selectedIndex == 7,
+                      onTap: () => onItemTapped(7),
+                      iconPath: Assets.icons.messagesIcon.path,
+                      title: 'Messages',
+                      isExpanded: isExpanded,
+                    ),
                   ],
                 ),
               ),

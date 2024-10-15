@@ -29,7 +29,6 @@ class CustomAppBar extends StatelessWidget {
                 width: 358.0,
                 height: 60,
                 child: SearchTextField(),
-                // child: AuthTextField(),
               ),
             )
           else
@@ -50,8 +49,6 @@ class CustomAppBar extends StatelessWidget {
             height: 48.0,
             width: 48.0,
           ),
-
-          // SearchTextField(),
         ],
       ),
     );

@@ -23,6 +23,10 @@ class $AssetsIconsGen {
   SvgGenImage get bookingIcon =>
       const SvgGenImage('assets/icons/booking_icon.svg');
 
+  /// File path: assets/icons/break_fluid.svg
+  SvgGenImage get breakFluid =>
+      const SvgGenImage('assets/icons/break_fluid.svg');
+
   /// File path: assets/icons/buy_car_icon.svg
   SvgGenImage get buyCarIcon =>
       const SvgGenImage('assets/icons/buy_car_icon.svg');
@@ -35,6 +39,9 @@ class $AssetsIconsGen {
   SvgGenImage get dashboardIcon =>
       const SvgGenImage('assets/icons/dashboard_icon.svg');
 
+  /// File path: assets/icons/energy.svg
+  SvgGenImage get energy => const SvgGenImage('assets/icons/energy.svg');
+
   /// File path: assets/icons/log_out.svg
   SvgGenImage get logOut => const SvgGenImage('assets/icons/log_out.svg');
 
@@ -45,6 +52,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/notification.svg
   SvgGenImage get notification =>
       const SvgGenImage('assets/icons/notification.svg');
+
+  /// File path: assets/icons/range.svg
+  SvgGenImage get range => const SvgGenImage('assets/icons/range.svg');
 
   /// File path: assets/icons/search.svg
   SvgGenImage get search => const SvgGenImage('assets/icons/search.svg');
@@ -61,20 +71,27 @@ class $AssetsIconsGen {
   SvgGenImage get settingsIcon =>
       const SvgGenImage('assets/icons/settings_icon.svg');
 
+  /// File path: assets/icons/tire_wear.svg
+  SvgGenImage get tireWear => const SvgGenImage('assets/icons/tire_wear.svg');
+
   /// List of all assets
   List<SvgGenImage> get values => [
         assetsIcon,
         bookingIcon,
+        breakFluid,
         buyCarIcon,
         calendarIcon,
         dashboardIcon,
+        energy,
         logOut,
         messagesIcon,
         notification,
+        range,
         search,
         sellCarsIcon,
         servicesIcon,
-        settingsIcon
+        settingsIcon,
+        tireWear
       ];
 }
 

@@ -30,6 +30,9 @@ dependencies:
   draggable_expandable_fab: ^1.0.0
   gap: ^3.0.1
   flextras: ^1.0.0
+  awesome_circular_chart: ^1.1.0
+  syncfusion_flutter_charts: ^27.1.52
+  toggle_switch: ^2.3.0
 
   #Media
   flutter_svg: ^2.0.10+1

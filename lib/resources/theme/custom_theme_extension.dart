@@ -12,6 +12,8 @@ CustomThemeExtension colors(context) =>
 class CustomThemeExtension extends ThemeExtension<CustomThemeExtension>
     with _$CustomThemeExtensionTailorMixin {
   CustomThemeExtension({
+    required this.parametersTextColor,
+    required this.arcBackground,
     required this.scaffoldBackgroundColor,
     required this.background,
     required this.onBackground,
@@ -21,6 +23,10 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension>
     required this.textSecondarySelected,
   });
 
+  @override
+  final Color parametersTextColor;
+  @override
+  final Color arcBackground;
   @override
   final Color scaffoldBackgroundColor;
   @override
@@ -37,8 +43,9 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension>
   final Color textSecondarySelected;
 }
 
-/// Create themes manually
 final lightCustomThemeExtension = CustomThemeExtension(
+  parametersTextColor: AppColors.primary.dark1,
+  arcBackground: AppColors.lightArcBackground,
   scaffoldBackgroundColor: AppColors.grayF5,
   background: AppColors.gray.white,
   onBackground: AppColors.lightShadeBlueGray,
@@ -48,6 +55,8 @@ final lightCustomThemeExtension = CustomThemeExtension(
   textSecondarySelected: AppColors.gray.dark2,
 );
 final darkCustomThemeExtension = CustomThemeExtension(
+  parametersTextColor: AppColors.gray.white,
+  arcBackground: AppColors.gray.dark,
   scaffoldBackgroundColor: AppColors.gray.dark,
   background: AppColors.primary.dark1,
   onBackground: AppColors.darkShadeBlueGray,

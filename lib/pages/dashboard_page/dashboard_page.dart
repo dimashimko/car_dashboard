@@ -1,3 +1,5 @@
+import 'package:car_dashboard/pages/dashboard_page/widgets/parameters.dart';
+import 'package:car_dashboard/pages/dashboard_page/widgets/statistics.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -14,6 +16,7 @@ class DashboardPage extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   'DashboardPage',
@@ -21,7 +24,13 @@ class DashboardPage extends StatelessWidget {
                     color: colors(context).textPrimary,
                   ),
                 ),
-                const Gap(16.0),
+                const SizedBox(
+                  width: double.infinity,
+                  height: 16.0,
+                ),
+                const Parameters(),
+                const Gap(23.0),
+                const Statistics(),
               ],
             ),
           ),

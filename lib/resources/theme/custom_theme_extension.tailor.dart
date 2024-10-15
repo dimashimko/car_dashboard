@@ -10,6 +10,8 @@ part of 'custom_theme_extension.dart';
 
 mixin _$CustomThemeExtensionTailorMixin
     on ThemeExtension<CustomThemeExtension> {
+  Color get parametersTextColor;
+  Color get arcBackground;
   Color get scaffoldBackgroundColor;
   Color get background;
   Color get onBackground;
@@ -20,6 +22,8 @@ mixin _$CustomThemeExtensionTailorMixin
 
   @override
   CustomThemeExtension copyWith({
+    Color? parametersTextColor,
+    Color? arcBackground,
     Color? scaffoldBackgroundColor,
     Color? background,
     Color? onBackground,
@@ -29,6 +33,8 @@ mixin _$CustomThemeExtensionTailorMixin
     Color? textSecondarySelected,
   }) {
     return CustomThemeExtension(
+      parametersTextColor: parametersTextColor ?? this.parametersTextColor,
+      arcBackground: arcBackground ?? this.arcBackground,
       scaffoldBackgroundColor:
           scaffoldBackgroundColor ?? this.scaffoldBackgroundColor,
       background: background ?? this.background,
@@ -46,6 +52,9 @@ mixin _$CustomThemeExtensionTailorMixin
       covariant ThemeExtension<CustomThemeExtension>? other, double t) {
     if (other is! CustomThemeExtension) return this as CustomThemeExtension;
     return CustomThemeExtension(
+      parametersTextColor:
+          Color.lerp(parametersTextColor, other.parametersTextColor, t)!,
+      arcBackground: Color.lerp(arcBackground, other.arcBackground, t)!,
       scaffoldBackgroundColor: Color.lerp(
           scaffoldBackgroundColor, other.scaffoldBackgroundColor, t)!,
       background: Color.lerp(background, other.background, t)!,
@@ -64,6 +73,10 @@ mixin _$CustomThemeExtensionTailorMixin
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is CustomThemeExtension &&
+            const DeepCollectionEquality()
+                .equals(parametersTextColor, other.parametersTextColor) &&
+            const DeepCollectionEquality()
+                .equals(arcBackground, other.arcBackground) &&
             const DeepCollectionEquality().equals(
                 scaffoldBackgroundColor, other.scaffoldBackgroundColor) &&
             const DeepCollectionEquality()
@@ -84,6 +97,8 @@ mixin _$CustomThemeExtensionTailorMixin
   int get hashCode {
     return Object.hash(
       runtimeType.hashCode,
+      const DeepCollectionEquality().hash(parametersTextColor),
+      const DeepCollectionEquality().hash(arcBackground),
       const DeepCollectionEquality().hash(scaffoldBackgroundColor),
       const DeepCollectionEquality().hash(background),
       const DeepCollectionEquality().hash(onBackground),
@@ -98,6 +113,8 @@ mixin _$CustomThemeExtensionTailorMixin
 extension CustomThemeExtensionBuildContextProps on BuildContext {
   CustomThemeExtension get customThemeExtension =>
       Theme.of(this).extension<CustomThemeExtension>()!;
+  Color get parametersTextColor => customThemeExtension.parametersTextColor;
+  Color get arcBackground => customThemeExtension.arcBackground;
   Color get scaffoldBackgroundColor =>
       customThemeExtension.scaffoldBackgroundColor;
   Color get background => customThemeExtension.background;
