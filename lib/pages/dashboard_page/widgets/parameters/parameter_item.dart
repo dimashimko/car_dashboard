@@ -1,4 +1,4 @@
-import 'package:car_dashboard/pages/dashboard_page/widgets/circular_chart.dart';
+import 'package:car_dashboard/pages/dashboard_page/widgets/parameters/circular_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 

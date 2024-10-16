@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../generated/assets.gen.dart';
-import '../../../resources/app_colors.dart';
-import '../../../resources/theme/custom_theme_extension.dart';
+import '../../../../generated/assets.gen.dart';
+import '../../../../resources/app_colors.dart';
+import '../../../../resources/theme/custom_theme_extension.dart';
 import 'parameter_item.dart';
 
 class Parameters extends StatelessWidget {
@@ -29,7 +29,7 @@ class Parameters extends StatelessWidget {
           title: 'Range',
           percent: 57.0,
           arcColor: AppColors.rangeColor,
-          arcBackgroundColor: colors(context).arcBackground,
+          arcBackgroundColor: colors(context).inactive,
           textColor: colors(context).parametersTextColor,
           backgroundColor: colors(context).background,
         ),
@@ -38,7 +38,7 @@ class Parameters extends StatelessWidget {
           title: 'Break fluid',
           percent: 9.0,
           arcColor: AppColors.primary.purple,
-          arcBackgroundColor: colors(context).arcBackground,
+          arcBackgroundColor: colors(context).inactive,
           textColor: colors(context).parametersTextColor,
           backgroundColor: colors(context).background,
         ),
@@ -47,7 +47,7 @@ class Parameters extends StatelessWidget {
           title: 'Tire Wear',
           percent: 25.0,
           arcColor: AppColors.secondary.yellow,
-          arcBackgroundColor: colors(context).arcBackground,
+          arcBackgroundColor: colors(context).inactive,
           textColor: colors(context).parametersTextColor,
           backgroundColor: colors(context).background,
         ),

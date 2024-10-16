@@ -10,8 +10,12 @@ part of 'custom_theme_extension.dart';
 
 mixin _$CustomThemeExtensionTailorMixin
     on ThemeExtension<CustomThemeExtension> {
+  Color get statisticsDivider;
+  Color get statisticsTextLabel;
+  Color get statisticsTextSecondary;
+  Color get dateRangeSelectorBackground;
   Color get parametersTextColor;
-  Color get arcBackground;
+  Color get inactive;
   Color get scaffoldBackgroundColor;
   Color get background;
   Color get onBackground;
@@ -22,8 +26,12 @@ mixin _$CustomThemeExtensionTailorMixin
 
   @override
   CustomThemeExtension copyWith({
+    Color? statisticsDivider,
+    Color? statisticsTextLabel,
+    Color? statisticsTextSecondary,
+    Color? dateRangeSelectorBackground,
     Color? parametersTextColor,
-    Color? arcBackground,
+    Color? inactive,
     Color? scaffoldBackgroundColor,
     Color? background,
     Color? onBackground,
@@ -33,8 +41,14 @@ mixin _$CustomThemeExtensionTailorMixin
     Color? textSecondarySelected,
   }) {
     return CustomThemeExtension(
+      statisticsDivider: statisticsDivider ?? this.statisticsDivider,
+      statisticsTextLabel: statisticsTextLabel ?? this.statisticsTextLabel,
+      statisticsTextSecondary:
+          statisticsTextSecondary ?? this.statisticsTextSecondary,
+      dateRangeSelectorBackground:
+          dateRangeSelectorBackground ?? this.dateRangeSelectorBackground,
       parametersTextColor: parametersTextColor ?? this.parametersTextColor,
-      arcBackground: arcBackground ?? this.arcBackground,
+      inactive: inactive ?? this.inactive,
       scaffoldBackgroundColor:
           scaffoldBackgroundColor ?? this.scaffoldBackgroundColor,
       background: background ?? this.background,
@@ -52,9 +66,17 @@ mixin _$CustomThemeExtensionTailorMixin
       covariant ThemeExtension<CustomThemeExtension>? other, double t) {
     if (other is! CustomThemeExtension) return this as CustomThemeExtension;
     return CustomThemeExtension(
+      statisticsDivider:
+          Color.lerp(statisticsDivider, other.statisticsDivider, t)!,
+      statisticsTextLabel:
+          Color.lerp(statisticsTextLabel, other.statisticsTextLabel, t)!,
+      statisticsTextSecondary: Color.lerp(
+          statisticsTextSecondary, other.statisticsTextSecondary, t)!,
+      dateRangeSelectorBackground: Color.lerp(
+          dateRangeSelectorBackground, other.dateRangeSelectorBackground, t)!,
       parametersTextColor:
           Color.lerp(parametersTextColor, other.parametersTextColor, t)!,
-      arcBackground: Color.lerp(arcBackground, other.arcBackground, t)!,
+      inactive: Color.lerp(inactive, other.inactive, t)!,
       scaffoldBackgroundColor: Color.lerp(
           scaffoldBackgroundColor, other.scaffoldBackgroundColor, t)!,
       background: Color.lerp(background, other.background, t)!,
@@ -74,9 +96,16 @@ mixin _$CustomThemeExtensionTailorMixin
         (other.runtimeType == runtimeType &&
             other is CustomThemeExtension &&
             const DeepCollectionEquality()
-                .equals(parametersTextColor, other.parametersTextColor) &&
+                .equals(statisticsDivider, other.statisticsDivider) &&
             const DeepCollectionEquality()
-                .equals(arcBackground, other.arcBackground) &&
+                .equals(statisticsTextLabel, other.statisticsTextLabel) &&
+            const DeepCollectionEquality().equals(
+                statisticsTextSecondary, other.statisticsTextSecondary) &&
+            const DeepCollectionEquality().equals(dateRangeSelectorBackground,
+                other.dateRangeSelectorBackground) &&
+            const DeepCollectionEquality()
+                .equals(parametersTextColor, other.parametersTextColor) &&
+            const DeepCollectionEquality().equals(inactive, other.inactive) &&
             const DeepCollectionEquality().equals(
                 scaffoldBackgroundColor, other.scaffoldBackgroundColor) &&
             const DeepCollectionEquality()
@@ -97,8 +126,12 @@ mixin _$CustomThemeExtensionTailorMixin
   int get hashCode {
     return Object.hash(
       runtimeType.hashCode,
+      const DeepCollectionEquality().hash(statisticsDivider),
+      const DeepCollectionEquality().hash(statisticsTextLabel),
+      const DeepCollectionEquality().hash(statisticsTextSecondary),
+      const DeepCollectionEquality().hash(dateRangeSelectorBackground),
       const DeepCollectionEquality().hash(parametersTextColor),
-      const DeepCollectionEquality().hash(arcBackground),
+      const DeepCollectionEquality().hash(inactive),
       const DeepCollectionEquality().hash(scaffoldBackgroundColor),
       const DeepCollectionEquality().hash(background),
       const DeepCollectionEquality().hash(onBackground),
@@ -113,8 +146,14 @@ mixin _$CustomThemeExtensionTailorMixin
 extension CustomThemeExtensionBuildContextProps on BuildContext {
   CustomThemeExtension get customThemeExtension =>
       Theme.of(this).extension<CustomThemeExtension>()!;
+  Color get statisticsDivider => customThemeExtension.statisticsDivider;
+  Color get statisticsTextLabel => customThemeExtension.statisticsTextLabel;
+  Color get statisticsTextSecondary =>
+      customThemeExtension.statisticsTextSecondary;
+  Color get dateRangeSelectorBackground =>
+      customThemeExtension.dateRangeSelectorBackground;
   Color get parametersTextColor => customThemeExtension.parametersTextColor;
-  Color get arcBackground => customThemeExtension.arcBackground;
+  Color get inactive => customThemeExtension.inactive;
   Color get scaffoldBackgroundColor =>
       customThemeExtension.scaffoldBackgroundColor;
   Color get background => customThemeExtension.background;

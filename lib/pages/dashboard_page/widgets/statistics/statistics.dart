@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'car_statistic.dart';
 import 'miles_statistic.dart';
 
 class Statistics extends StatelessWidget {
@@ -13,7 +14,7 @@ class Statistics extends StatelessWidget {
       alignment: WrapAlignment.spaceBetween,
       children: [
         MilesStatistic(),
-        MilesStatistic(),
+        CarStatistic(),
       ],
     );
   }

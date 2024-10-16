@@ -8,7 +8,7 @@ class AppThemes {
 
   static ThemeData light() {
     return ThemeData(
-      fontFamily: AppFonts.fontFamily,
+      fontFamily: AppFonts.fontFamilyDMSans,
       listTileTheme: const ListTileThemeData(
         horizontalTitleGap: 20,
       ),
@@ -33,7 +33,7 @@ class AppThemes {
 
   static ThemeData dark() {
     return ThemeData(
-      fontFamily: AppFonts.fontFamily,
+      fontFamily: AppFonts.fontFamilyDMSans,
       textSelectionTheme: const TextSelectionThemeData(
         cursorColor: Color(0xFFFFFFFF),
         selectionColor: Color(0xFFB8B8D2),

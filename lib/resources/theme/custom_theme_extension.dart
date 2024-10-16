@@ -12,8 +12,12 @@ CustomThemeExtension colors(context) =>
 class CustomThemeExtension extends ThemeExtension<CustomThemeExtension>
     with _$CustomThemeExtensionTailorMixin {
   CustomThemeExtension({
+    required this.statisticsDivider,
+    required this.statisticsTextLabel,
+    required this.statisticsTextSecondary,
+    required this.dateRangeSelectorBackground,
     required this.parametersTextColor,
-    required this.arcBackground,
+    required this.inactive,
     required this.scaffoldBackgroundColor,
     required this.background,
     required this.onBackground,
@@ -24,9 +28,17 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension>
   });
 
   @override
+  final Color statisticsDivider;
+  @override
+  final Color statisticsTextLabel;
+  @override
+  final Color statisticsTextSecondary;
+  @override
+  final Color dateRangeSelectorBackground;
+  @override
   final Color parametersTextColor;
   @override
-  final Color arcBackground;
+  final Color inactive;
   @override
   final Color scaffoldBackgroundColor;
   @override
@@ -44,8 +56,12 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension>
 }
 
 final lightCustomThemeExtension = CustomThemeExtension(
+  statisticsDivider: AppColors.statisticsDividerLight,
+  statisticsTextLabel: AppColors.gray.dark5,
+  statisticsTextSecondary: AppColors.gray.dark2,
+  dateRangeSelectorBackground: AppColors.lightSearchBackground,
   parametersTextColor: AppColors.primary.dark1,
-  arcBackground: AppColors.lightArcBackground,
+  inactive: AppColors.lightArcBackground,
   scaffoldBackgroundColor: AppColors.grayF5,
   background: AppColors.gray.white,
   onBackground: AppColors.lightShadeBlueGray,
@@ -55,8 +71,12 @@ final lightCustomThemeExtension = CustomThemeExtension(
   textSecondarySelected: AppColors.gray.dark2,
 );
 final darkCustomThemeExtension = CustomThemeExtension(
+  statisticsDivider: AppColors.statisticsDividerDark,
+  statisticsTextLabel: AppColors.gray.dark4,
+  statisticsTextSecondary: AppColors.darkTextStatistic,
+  dateRangeSelectorBackground: AppColors.dateRangeSelectorBackgroundDark,
   parametersTextColor: AppColors.gray.white,
-  arcBackground: AppColors.gray.dark,
+  inactive: AppColors.gray.dark,
   scaffoldBackgroundColor: AppColors.gray.dark,
   background: AppColors.primary.dark1,
   onBackground: AppColors.darkShadeBlueGray,

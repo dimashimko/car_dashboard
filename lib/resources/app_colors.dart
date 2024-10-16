@@ -13,10 +13,15 @@ class AppColors {
   static const Color lightShadeBlueGray = Color(0xffF3F5F8);
   static const Color darkShadeBlueGray = Color(0xff292E3D);
   static const Color lightSearchBackground = Color(0xffF5F4F6);
+  static const Color dateRangeSelectorBackgroundDark = Color(0xff2B2E38);
   static const Color searchOrange = Color(0xffEF9011);
   static const Color lightPurple = Color(0xffb37efc);
   static const Color lightArcBackground = Color(0xffF4F5F9);
   static const Color rangeColor = Color(0xffFF7E86);
+  static const Color darkTextStatistic = Color(0xffBFC3C9);
+  static const Color statisticsDividerLight = Color(0xffF2F2F2);
+  static const Color statisticsDividerDark = Color(0xff282C2F);
+  static const Color statisticsTooltipBackground = Color(0xff282B32);
 }
 
 class Primary {
