@@ -22,6 +22,7 @@ class AppColors {
   static const Color statisticsDividerLight = Color(0xffF2F2F2);
   static const Color statisticsDividerDark = Color(0xff282C2F);
   static const Color statisticsTooltipBackground = Color(0xff282B32);
+  static const Color palePinkishPeach = Color(0xFFF4E3E5);
 }
 
 class Primary {

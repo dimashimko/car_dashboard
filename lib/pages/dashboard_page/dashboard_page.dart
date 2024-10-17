@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
 import '../../resources/theme/custom_theme_extension.dart';
+import 'widgets/cars_panel/cars_panel.dart';
 
 class DashboardPage extends StatelessWidget {
   const DashboardPage({super.key});
@@ -31,6 +32,8 @@ class DashboardPage extends StatelessWidget {
                 const Parameters(),
                 const Gap(23.0),
                 const Statistics(),
+                const Gap(23.0),
+                CarsPanel(),
               ],
             ),
           ),

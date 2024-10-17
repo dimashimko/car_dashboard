@@ -42,6 +42,10 @@ class $AssetsIconsGen {
   /// File path: assets/icons/energy.svg
   SvgGenImage get energy => const SvgGenImage('assets/icons/energy.svg');
 
+  /// File path: assets/icons/energy_small.svg
+  SvgGenImage get energySmall =>
+      const SvgGenImage('assets/icons/energy_small.svg');
+
   /// File path: assets/icons/log_out.svg
   SvgGenImage get logOut => const SvgGenImage('assets/icons/log_out.svg');
 
@@ -55,6 +59,13 @@ class $AssetsIconsGen {
 
   /// File path: assets/icons/range.svg
   SvgGenImage get range => const SvgGenImage('assets/icons/range.svg');
+
+  /// File path: assets/icons/recomended.svg
+  SvgGenImage get recomended =>
+      const SvgGenImage('assets/icons/recomended.svg');
+
+  /// File path: assets/icons/repeat.svg
+  SvgGenImage get repeat => const SvgGenImage('assets/icons/repeat.svg');
 
   /// File path: assets/icons/search.svg
   SvgGenImage get search => const SvgGenImage('assets/icons/search.svg');
@@ -71,6 +82,9 @@ class $AssetsIconsGen {
   SvgGenImage get settingsIcon =>
       const SvgGenImage('assets/icons/settings_icon.svg');
 
+  /// File path: assets/icons/star.svg
+  SvgGenImage get star => const SvgGenImage('assets/icons/star.svg');
+
   /// File path: assets/icons/tire_wear.svg
   SvgGenImage get tireWear => const SvgGenImage('assets/icons/tire_wear.svg');
 
@@ -83,14 +97,18 @@ class $AssetsIconsGen {
         calendarIcon,
         dashboardIcon,
         energy,
+        energySmall,
         logOut,
         messagesIcon,
         notification,
         range,
+        recomended,
+        repeat,
         search,
         sellCarsIcon,
         servicesIcon,
         settingsIcon,
+        star,
         tireWear
       ];
 }
@@ -104,8 +122,21 @@ class $AssetsImagesGen {
   /// File path: assets/images/logo.png
   AssetGenImage get logo => const AssetGenImage('assets/images/logo.png');
 
+  /// File path: assets/images/mini_cooper.png
+  AssetGenImage get miniCooper =>
+      const AssetGenImage('assets/images/mini_cooper.png');
+
+  /// File path: assets/images/porsche_carella_1.png
+  AssetGenImage get porscheCarella1 =>
+      const AssetGenImage('assets/images/porsche_carella_1.png');
+
+  /// File path: assets/images/porsche_carella_2.png
+  AssetGenImage get porscheCarella2 =>
+      const AssetGenImage('assets/images/porsche_carella_2.png');
+
   /// List of all assets
-  List<AssetGenImage> get values => [avatar, logo];
+  List<AssetGenImage> get values =>
+      [avatar, logo, miniCooper, porscheCarella1, porscheCarella2];
 }
 
 class Assets {
