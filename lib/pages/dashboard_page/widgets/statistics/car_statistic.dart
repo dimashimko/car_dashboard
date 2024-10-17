@@ -2,8 +2,11 @@ import 'package:car_dashboard/resources/app_colors.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_toggle_button/flutter_toggle_button.dart';
+import 'package:gap/gap.dart';
 
+import '../../../../resources/app_typography.dart';
 import '../../../../resources/theme/custom_theme_extension.dart';
+import 'car_chart.dart';
 
 class CarStatistic extends StatelessWidget {
   const CarStatistic({super.key});
@@ -11,11 +14,6 @@ class CarStatistic extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      constraints: const BoxConstraints(
-        minWidth: 400,
-        maxWidth: 500,
-      ),
-      height: 332.0,
       decoration: BoxDecoration(
         color: colors(context).background,
         borderRadius: const BorderRadius.all(
@@ -50,8 +48,18 @@ class CarStatistic extends StatelessWidget {
                 ),
               ],
             ),
+            const Gap(20.0),
             Row(
               children: [
+                Expanded(
+                  child: Text(
+                    '20 February 2022',
+                    style: AppTypography.title14b.copyWith(
+                      color: colors(context).statisticsTextSecondary,
+                    ),
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ),
                 FlutterToggleButton(
                   buttonTextFontSize: 10,
                   enableTextFontWeight: FontWeight.w700,
@@ -70,20 +78,9 @@ class CarStatistic extends StatelessWidget {
                     }
                   },
                 ),
-                // ToggleSwitch(
-                //   initialLabelIndex: 0,
-                //   totalSwitches: 3,
-                //   labels: const ['Day', 'Week', 'Month'],
-                //   animate: true,
-                //   curve: Curves.decelerate,
-                //   onToggle: (index) {
-                //     if (kDebugMode) {
-                //       print('switched to: $index');
-                //     }
-                //   },
-                // ),
               ],
-            )
+            ),
+            const CarChart(),
           ],
         ),
       ),

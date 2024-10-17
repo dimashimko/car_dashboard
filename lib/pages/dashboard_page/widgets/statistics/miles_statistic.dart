@@ -2,6 +2,7 @@ import 'package:car_dashboard/resources/app_colors.dart';
 import 'package:car_dashboard/resources/app_typography.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_toggle_button/flutter_toggle_button.dart';
+import 'package:gap/gap.dart';
 
 import '../../../../resources/app_fonts.dart';
 import '../../../../resources/theme/custom_theme_extension.dart';
@@ -13,11 +14,6 @@ class MilesStatistic extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      constraints: const BoxConstraints(
-        minWidth: 400,
-        maxWidth: 500,
-      ),
-      height: 332.0,
       decoration: BoxDecoration(
         color: colors(context).background,
         borderRadius: const BorderRadius.all(
@@ -50,6 +46,7 @@ class MilesStatistic extends StatelessWidget {
                 ),
               ],
             ),
+            const Gap(20.0),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
