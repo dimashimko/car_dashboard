@@ -1,4 +1,5 @@
 import 'package:car_dashboard/resources/app_colors.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_toggle_button/flutter_toggle_button.dart';
 
@@ -64,7 +65,9 @@ class CarStatistic extends StatelessWidget {
                   disableTextColor: colors(context).textSecondary,
                   items: const ['Day', 'Week', 'Month'],
                   onTap: (index) {
-                    print('Selected index = $index');
+                    if (kDebugMode) {
+                      print('Selected index = $index');
+                    }
                   },
                 ),
                 // ToggleSwitch(

@@ -59,13 +59,13 @@ class BarChartState extends State<BarChart> {
       primaryXAxis: CategoryAxis(
         edgeLabelPlacement: EdgeLabelPlacement.none,
         // isVisible: false,
-        labelStyle: TextStyle(
+        labelStyle: const TextStyle(
           color: Colors.grey,
         ),
-        axisLine: AxisLine(
+        axisLine: const AxisLine(
           color: Colors.transparent,
         ),
-        majorTickLines: MajorTickLines(
+        majorTickLines: const MajorTickLines(
           color: Colors.transparent,
         ),
         majorGridLines: const MajorGridLines(
@@ -74,7 +74,7 @@ class BarChartState extends State<BarChart> {
         ),
         plotBands: data.asMap().entries.map((entry) {
           int index = entry.key;
-          log('*** index: ${index}');
+          log('*** index: $index');
           log('*** data.length: ${data.length}');
 
           return PlotBand(

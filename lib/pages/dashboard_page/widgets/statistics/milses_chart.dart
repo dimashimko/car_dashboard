@@ -3,6 +3,8 @@ import 'package:car_dashboard/resources/theme/custom_theme_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
+import '../../../../models/chart_data.dart';
+
 class MilesChart extends StatefulWidget {
   const MilesChart({super.key});
 
@@ -116,11 +118,4 @@ class MilesChartState extends State<MilesChart> {
       ),
     );
   }
-}
-
-class ChartData {
-  ChartData(this.x, this.y);
-
-  final String x;
-  final double y;
 }

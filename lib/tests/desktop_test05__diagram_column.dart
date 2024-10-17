@@ -17,7 +17,7 @@ class _ChartApp extends StatelessWidget {
 
 class _MyHomePage extends StatefulWidget {
   // ignore: prefer_const_constructors_in_immutables
-  _MyHomePage({Key? key}) : super(key: key);
+  _MyHomePage();
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -49,8 +49,8 @@ class _MyHomePageState extends State<_MyHomePage> {
         title: const Text('Syncfusion Flutter chart'),
       ),
       body: SfCartesianChart(
-        primaryXAxis: CategoryAxis(),
-        primaryYAxis: NumericAxis(
+        primaryXAxis: const CategoryAxis(),
+        primaryYAxis: const NumericAxis(
           minimum: 0,
           maximum: 198,
           interval: 200,

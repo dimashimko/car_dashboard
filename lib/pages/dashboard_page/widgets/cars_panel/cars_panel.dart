@@ -2,7 +2,7 @@ import 'package:car_dashboard/generated/assets.gen.dart';
 import 'package:car_dashboard/resources/app_colors.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../models/car_model/car_model.dart';
+import '../../../../models/car.dart';
 import 'car_card.dart';
 
 class CarsPanel extends StatelessWidget {

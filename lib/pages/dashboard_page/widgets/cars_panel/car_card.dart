@@ -1,4 +1,4 @@
-import 'package:car_dashboard/models/car_model/car_model.dart';
+import 'package:car_dashboard/models/car.dart';
 import 'package:car_dashboard/resources/app_colors.dart';
 import 'package:car_dashboard/resources/app_typography.dart';
 import 'package:flutter/material.dart';
