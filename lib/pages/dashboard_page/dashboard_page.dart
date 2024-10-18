@@ -2,7 +2,6 @@ import 'package:car_dashboard/pages/dashboard_page/widgets/statistics/statistics
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
-import '../../resources/theme/custom_theme_extension.dart';
 import 'widgets/cars_panel/cars_panel.dart';
 import 'widgets/parameters/parameters.dart';
 
@@ -19,16 +18,6 @@ class DashboardPage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  'DashboardPage',
-                  style: TextStyle(
-                    color: colors(context).textPrimary,
-                  ),
-                ),
-                const SizedBox(
-                  width: double.infinity,
-                  height: 16.0,
-                ),
                 const Parameters(),
                 const Gap(23.0),
                 const Statistics(),
