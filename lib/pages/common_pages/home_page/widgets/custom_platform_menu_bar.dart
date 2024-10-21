@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../../../../navigation/navigation_provider.dart';
+import '../../../../resources/theme/theme_provider.dart';
 import '../../../../router/app_routes.dart';
-
-enum MenuSelection {
-  about,
-  showMessage,
-}
 
 class CustomPlatformMenuBar extends StatefulWidget {
   const CustomPlatformMenuBar({
@@ -20,98 +18,136 @@ class CustomPlatformMenuBar extends StatefulWidget {
 }
 
 class _CustomPlatformMenuBarState extends State<CustomPlatformMenuBar> {
-  void _handleMenuSelection(MenuSelection value) {
-    switch (value) {
-      case MenuSelection.about:
-      case MenuSelection.showMessage:
-    }
+  void onMenuTapped(int index) {
+    Provider.of<NavigationProvider>(
+      context,
+      listen: false,
+    ).changeIndex(
+      index,
+    );
+    if (index == 1) const DashboardRoute().go(context);
+    if (index == 2) const AssetsRoute().go(context);
+    if (index == 3) const BookingRoute().go(context);
+    if (index == 4) const SellCarsRoute().go(context);
+    if (index == 5) const BuyCarsRoute().go(context);
+    if (index == 6) const ServicesRoute().go(context);
+    if (index == 7) const CalenderRoute().go(context);
+    if (index == 8) const MessagesRoute().go(context);
+    if (index == 9) const SettingRoute().go(context);
+    if (index == 0) const SignInRoute().go(context);
   }
 
   @override
   Widget build(BuildContext context) {
-    return PlatformMenuBar(
-      menus: <PlatformMenuItem>[
-        PlatformMenu(
-          label: 'Car Dashboard',
+    return Consumer<ThemeProvider>(
+      builder: (BuildContext context, value, Widget? child) {
+        return PlatformMenuBar(
           menus: <PlatformMenuItem>[
-            PlatformMenuItemGroup(
-              members: <PlatformMenuItem>[
-                PlatformMenuItem(
-                  label: 'About',
-                  onSelected: () {
-                    _handleMenuSelection(MenuSelection.about);
-                  },
+            PlatformMenu(
+              label: 'Car Dashboard',
+              menus: <PlatformMenuItem>[
+                PlatformMenuItemGroup(
+                  members: <PlatformMenuItem>[
+                    PlatformMenuItem(
+                      label: 'About',
+                      onSelected: () {},
+                    ),
+                  ],
                 ),
+                PlatformMenuItemGroup(
+                  members: <PlatformMenuItem>[
+                    PlatformMenu(
+                      label: 'Theme',
+                      menus: <PlatformMenuItem>[
+                        PlatformMenuItem(
+                          onSelected: () {
+                            value.toggleToLight();
+                          },
+                          shortcut: const CharacterActivator('l'),
+                          label: 'Light',
+                        ),
+                        PlatformMenuItem(
+                          onSelected: () {
+                            value.toggleToDark();
+                          },
+                          shortcut: const CharacterActivator('d'),
+                          label: 'Dark',
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                if (PlatformProvidedMenuItem.hasMenu(
+                  PlatformProvidedMenuItemType.quit,
+                ))
+                  const PlatformProvidedMenuItem(
+                    type: PlatformProvidedMenuItemType.quit,
+                  ),
               ],
             ),
-            PlatformMenuItemGroup(
-              members: <PlatformMenuItem>[
-                PlatformMenu(
-                  label: 'Theme',
-                  menus: <PlatformMenuItem>[
+            PlatformMenu(
+              label: 'Navigation',
+              menus: <PlatformMenuItem>[
+                PlatformMenuItemGroup(
+                  members: <PlatformMenuItem>[
                     PlatformMenuItem(
-                      onSelected: () {
-                        _handleMenuSelection(MenuSelection.showMessage);
-                        const DashboardRoute().go(context);
-                      },
-                      shortcut: const CharacterActivator('l'),
-                      label: 'Light',
+                      onSelected: () => onMenuTapped(1),
+                      shortcut: const CharacterActivator('1'),
+                      label: 'Dashboard',
                     ),
                     PlatformMenuItem(
-                      onSelected: () {
-                        _handleMenuSelection(MenuSelection.showMessage);
-                        const AssetsRoute().go(context);
-                      },
-                      shortcut: const CharacterActivator('d'),
-                      label: 'Dark',
+                      onSelected: () => onMenuTapped(2),
+                      shortcut: const CharacterActivator('2'),
+                      label: 'Assets',
+                    ),
+                    PlatformMenuItem(
+                      onSelected: () => onMenuTapped(3),
+                      shortcut: const CharacterActivator('3'),
+                      label: 'Booking',
+                    ),
+                    PlatformMenuItem(
+                      onSelected: () => onMenuTapped(4),
+                      shortcut: const CharacterActivator('4'),
+                      label: 'Sell Cars',
+                    ),
+                    PlatformMenuItem(
+                      onSelected: () => onMenuTapped(5),
+                      shortcut: const CharacterActivator('5'),
+                      label: 'Buy Cars',
+                    ),
+                    PlatformMenuItem(
+                      onSelected: () => onMenuTapped(6),
+                      shortcut: const CharacterActivator('6'),
+                      label: 'Services',
+                    ),
+                    PlatformMenuItem(
+                      onSelected: () => onMenuTapped(7),
+                      shortcut: const CharacterActivator('7'),
+                      label: 'Calendar',
+                    ),
+                    PlatformMenuItem(
+                      onSelected: () => onMenuTapped(8),
+                      shortcut: const CharacterActivator('8'),
+                      label: 'Messages',
+                    ),
+                    PlatformMenuItem(
+                      onSelected: () => onMenuTapped(9),
+                      shortcut: const CharacterActivator('9'),
+                      label: 'Setting',
+                    ),
+                    PlatformMenuItem(
+                      onSelected: () => onMenuTapped(0),
+                      shortcut: const CharacterActivator('0'),
+                      label: 'Log out',
                     ),
                   ],
                 ),
               ],
             ),
-            if (PlatformProvidedMenuItem.hasMenu(
-              PlatformProvidedMenuItemType.quit,
-            ))
-              const PlatformProvidedMenuItem(
-                type: PlatformProvidedMenuItemType.quit,
-              ),
           ],
-        ),
-        PlatformMenu(
-          label: 'Navigation',
-          menus: <PlatformMenuItem>[
-            PlatformMenuItemGroup(
-              members: <PlatformMenuItem>[
-                PlatformMenuItem(
-                  onSelected: () {
-                    _handleMenuSelection(MenuSelection.showMessage);
-                    const DashboardRoute().go(context);
-                  },
-                  shortcut: const CharacterActivator('1'),
-                  label: 'Dashboard',
-                ),
-                PlatformMenuItem(
-                  onSelected: () {
-                    _handleMenuSelection(MenuSelection.showMessage);
-                    const AssetsRoute().go(context);
-                  },
-                  shortcut: const CharacterActivator('2'),
-                  label: 'Assets',
-                ),
-                PlatformMenuItem(
-                  onSelected: () {
-                    _handleMenuSelection(MenuSelection.showMessage);
-                    const BookingRoute().go(context);
-                  },
-                  shortcut: const CharacterActivator('3'),
-                  label: 'Booking',
-                ),
-              ],
-            ),
-          ],
-        ),
-      ],
-      child: widget.child,
+          child: widget.child,
+        );
+      },
     );
   }
 }

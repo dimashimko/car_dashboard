@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:provider/provider.dart';
 
+import 'navigation/navigation_provider.dart';
 import 'resources/theme/theme_provider.dart';
 import 'router/app_router.dart';
 
@@ -22,7 +23,10 @@ void main() async {
   runApp(
     ChangeNotifierProvider(
       create: (context) => ThemeProvider(),
-      child: const MyApp(),
+      child: ChangeNotifierProvider(
+        create: (context) => NavigationProvider(),
+        child: const MyApp(),
+      ),
     ),
   );
 }
@@ -46,39 +50,6 @@ class MyApp extends StatelessWidget {
             ],
           );
         },
-      ),
-    );
-  }
-}
-
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Adaptive Layout Example'),
-      ),
-      body: Center(
-        child: Container(
-          width: size.width > 800
-              ? 400
-              : size.width * 0.9, // Example responsive width
-          height: size.height > 600
-              ? 300
-              : size.height * 0.7, // Example responsive height
-          color: Colors.blue,
-          child: Center(
-            child: Text(
-              'Screen Width: ${size.width}, Screen Height: ${size.height}',
-              style: const TextStyle(color: Colors.white, fontSize: 20),
-              textAlign: TextAlign.center,
-            ),
-          ),
-        ),
       ),
     );
   }

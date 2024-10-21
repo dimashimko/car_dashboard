@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -24,14 +22,19 @@ class ThemeProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  void toggleToLight() async {
+    if (_currentTheme == AppThemes.dark()) toggleTheme();
+  }
+
+  void toggleToDark() async {
+    if (_currentTheme == AppThemes.light()) toggleTheme();
+  }
+
   void toggleTheme() async {
     _currentTheme = _currentTheme == AppThemes.light()
         ? AppThemes.dark()
         : AppThemes.light();
 
-    log(
-      '*** _currentTheme: ${_currentTheme == AppThemes.dark() ? 'dark' : 'light'}',
-    );
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.setBool('isDark', _currentTheme == AppThemes.dark());
 
