@@ -1,5 +1,6 @@
 import 'package:car_dashboard/pages/common_pages/home_page/widgets/custom_app_bar.dart';
 import 'package:car_dashboard/pages/common_pages/home_page/widgets/custom_drawer.dart';
+import 'package:car_dashboard/pages/common_pages/home_page/widgets/custom_platform_menu_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -18,23 +19,25 @@ class HomePage extends StatefulWidget {
 class HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Row(
-          children: [
-            const CustomDrawer(),
-            const Gap(1.0),
-            Expanded(
-              child: Column(
-                children: [
-                  const CustomAppBar(),
-                  Expanded(
-                    child: widget.child,
-                  ),
-                ],
+    return CustomPlatformMenuBar(
+      child: SafeArea(
+        child: Scaffold(
+          body: Row(
+            children: [
+              const CustomDrawer(),
+              const Gap(1.0),
+              Expanded(
+                child: Column(
+                  children: [
+                    const CustomAppBar(),
+                    Expanded(
+                      child: widget.child,
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

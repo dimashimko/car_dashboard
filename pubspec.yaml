@@ -16,6 +16,7 @@ dependencies:
   theme_tailor: ^3.0.1
   theme_tailor_annotation: ^3.0.1
 
+
   # State manager
   provider: ^6.1.2
   flutter_keyboard_visibility: ^6.0.0
@@ -39,6 +40,7 @@ dependencies:
 
   #Other
   desktop_window: ^0.4.1
+  menu_bar: ^0.5.3
 
 dev_dependencies:
   flutter_test:
