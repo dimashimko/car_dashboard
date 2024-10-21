@@ -23,6 +23,11 @@ class AppColors {
   static const Color statisticsDividerDark = Color(0xff282C2F);
   static const Color statisticsTooltipBackground = Color(0xff282B32);
   static const Color palePinkishPeach = Color(0xFFF4E3E5);
+  static const Color carWidgetBackgroundLight = Color(0xFF438FFE);
+  static const Color carWidgetTextLight = Color(0xFFC6DCFC);
+  static const Color dividerLight = Color(0xFF579BFF);
+  static const Color dividerDark = Color(0xFF333642);
+  static const Color notesCardShadowLight = Color(0xFF939090);
 }
 
 class Primary {

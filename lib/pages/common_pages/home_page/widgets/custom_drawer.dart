@@ -8,6 +8,7 @@ import '../../../../generated/assets.gen.dart';
 import '../../../../navigation/navigation_provider.dart';
 import '../../../../resources/theme/custom_theme_extension.dart';
 import '../../../../router/app_routes.dart';
+import '../../../../utils/constants.dart';
 
 class CustomDrawer extends StatefulWidget {
   const CustomDrawer({super.key});
@@ -39,7 +40,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    bool isExpanded = size.width > 900;
+    bool isExpanded = size.width > minWidthForExpandedDrawer;
 
     return Consumer<NavigationProvider>(
       builder: (BuildContext context, NavigationProvider value, Widget? child) {

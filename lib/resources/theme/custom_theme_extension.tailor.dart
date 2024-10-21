@@ -23,6 +23,12 @@ mixin _$CustomThemeExtensionTailorMixin
   Color get textPrimary;
   Color get textSecondary;
   Color get textSecondarySelected;
+  Color get carWidgetBackground;
+  Color get divider;
+  Color get assetsGrayText;
+  Color get notesCardIcon;
+  Color get notesCardShadow;
+  Color get textGray;
 
   @override
   CustomThemeExtension copyWith({
@@ -39,6 +45,12 @@ mixin _$CustomThemeExtensionTailorMixin
     Color? textPrimary,
     Color? textSecondary,
     Color? textSecondarySelected,
+    Color? carWidgetBackground,
+    Color? divider,
+    Color? assetsGrayText,
+    Color? notesCardIcon,
+    Color? notesCardShadow,
+    Color? textGray,
   }) {
     return CustomThemeExtension(
       statisticsDivider: statisticsDivider ?? this.statisticsDivider,
@@ -58,6 +70,12 @@ mixin _$CustomThemeExtensionTailorMixin
       textSecondary: textSecondary ?? this.textSecondary,
       textSecondarySelected:
           textSecondarySelected ?? this.textSecondarySelected,
+      carWidgetBackground: carWidgetBackground ?? this.carWidgetBackground,
+      divider: divider ?? this.divider,
+      assetsGrayText: assetsGrayText ?? this.assetsGrayText,
+      notesCardIcon: notesCardIcon ?? this.notesCardIcon,
+      notesCardShadow: notesCardShadow ?? this.notesCardShadow,
+      textGray: textGray ?? this.textGray,
     );
   }
 
@@ -87,6 +105,13 @@ mixin _$CustomThemeExtensionTailorMixin
       textSecondary: Color.lerp(textSecondary, other.textSecondary, t)!,
       textSecondarySelected:
           Color.lerp(textSecondarySelected, other.textSecondarySelected, t)!,
+      carWidgetBackground:
+          Color.lerp(carWidgetBackground, other.carWidgetBackground, t)!,
+      divider: Color.lerp(divider, other.divider, t)!,
+      assetsGrayText: Color.lerp(assetsGrayText, other.assetsGrayText, t)!,
+      notesCardIcon: Color.lerp(notesCardIcon, other.notesCardIcon, t)!,
+      notesCardShadow: Color.lerp(notesCardShadow, other.notesCardShadow, t)!,
+      textGray: Color.lerp(textGray, other.textGray, t)!,
     );
   }
 
@@ -119,7 +144,17 @@ mixin _$CustomThemeExtensionTailorMixin
             const DeepCollectionEquality()
                 .equals(textSecondary, other.textSecondary) &&
             const DeepCollectionEquality()
-                .equals(textSecondarySelected, other.textSecondarySelected));
+                .equals(textSecondarySelected, other.textSecondarySelected) &&
+            const DeepCollectionEquality()
+                .equals(carWidgetBackground, other.carWidgetBackground) &&
+            const DeepCollectionEquality().equals(divider, other.divider) &&
+            const DeepCollectionEquality()
+                .equals(assetsGrayText, other.assetsGrayText) &&
+            const DeepCollectionEquality()
+                .equals(notesCardIcon, other.notesCardIcon) &&
+            const DeepCollectionEquality()
+                .equals(notesCardShadow, other.notesCardShadow) &&
+            const DeepCollectionEquality().equals(textGray, other.textGray));
   }
 
   @override
@@ -139,6 +174,12 @@ mixin _$CustomThemeExtensionTailorMixin
       const DeepCollectionEquality().hash(textPrimary),
       const DeepCollectionEquality().hash(textSecondary),
       const DeepCollectionEquality().hash(textSecondarySelected),
+      const DeepCollectionEquality().hash(carWidgetBackground),
+      const DeepCollectionEquality().hash(divider),
+      const DeepCollectionEquality().hash(assetsGrayText),
+      const DeepCollectionEquality().hash(notesCardIcon),
+      const DeepCollectionEquality().hash(notesCardShadow),
+      const DeepCollectionEquality().hash(textGray),
     );
   }
 }
@@ -162,4 +203,10 @@ extension CustomThemeExtensionBuildContextProps on BuildContext {
   Color get textPrimary => customThemeExtension.textPrimary;
   Color get textSecondary => customThemeExtension.textSecondary;
   Color get textSecondarySelected => customThemeExtension.textSecondarySelected;
+  Color get carWidgetBackground => customThemeExtension.carWidgetBackground;
+  Color get divider => customThemeExtension.divider;
+  Color get assetsGrayText => customThemeExtension.assetsGrayText;
+  Color get notesCardIcon => customThemeExtension.notesCardIcon;
+  Color get notesCardShadow => customThemeExtension.notesCardShadow;
+  Color get textGray => customThemeExtension.textGray;
 }

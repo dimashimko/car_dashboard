@@ -49,6 +49,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/log_out.svg
   SvgGenImage get logOut => const SvgGenImage('assets/icons/log_out.svg');
 
+  /// File path: assets/icons/message.svg
+  SvgGenImage get message => const SvgGenImage('assets/icons/message.svg');
+
   /// File path: assets/icons/messages_icon.svg
   SvgGenImage get messagesIcon =>
       const SvgGenImage('assets/icons/messages_icon.svg');
@@ -78,6 +81,9 @@ class $AssetsIconsGen {
   SvgGenImage get servicesIcon =>
       const SvgGenImage('assets/icons/services_icon.svg');
 
+  /// File path: assets/icons/setting.svg
+  SvgGenImage get setting => const SvgGenImage('assets/icons/setting.svg');
+
   /// File path: assets/icons/settings_icon.svg
   SvgGenImage get settingsIcon =>
       const SvgGenImage('assets/icons/settings_icon.svg');
@@ -87,6 +93,9 @@ class $AssetsIconsGen {
 
   /// File path: assets/icons/tire_wear.svg
   SvgGenImage get tireWear => const SvgGenImage('assets/icons/tire_wear.svg');
+
+  /// File path: assets/icons/warning.svg
+  SvgGenImage get warning => const SvgGenImage('assets/icons/warning.svg');
 
   /// List of all assets
   List<SvgGenImage> get values => [
@@ -99,6 +108,7 @@ class $AssetsIconsGen {
         energy,
         energySmall,
         logOut,
+        message,
         messagesIcon,
         notification,
         range,
@@ -107,9 +117,11 @@ class $AssetsIconsGen {
         search,
         sellCarsIcon,
         servicesIcon,
+        setting,
         settingsIcon,
         star,
-        tireWear
+        tireWear,
+        warning
       ];
 }
 
@@ -118,6 +130,10 @@ class $AssetsImagesGen {
 
   /// File path: assets/images/avatar.png
   AssetGenImage get avatar => const AssetGenImage('assets/images/avatar.png');
+
+  /// File path: assets/images/car_assets.png
+  AssetGenImage get carAssets =>
+      const AssetGenImage('assets/images/car_assets.png');
 
   /// File path: assets/images/logo.png
   AssetGenImage get logo => const AssetGenImage('assets/images/logo.png');
@@ -136,7 +152,7 @@ class $AssetsImagesGen {
 
   /// List of all assets
   List<AssetGenImage> get values =>
-      [avatar, logo, miniCooper, porscheCarella1, porscheCarella2];
+      [avatar, carAssets, logo, miniCooper, porscheCarella1, porscheCarella2];
 }
 
 class Assets {

@@ -25,6 +25,12 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension>
     required this.textPrimary,
     required this.textSecondary,
     required this.textSecondarySelected,
+    required this.carWidgetBackground,
+    required this.divider,
+    required this.assetsGrayText,
+    required this.notesCardIcon,
+    required this.notesCardShadow,
+    required this.textGray,
   });
 
   @override
@@ -53,6 +59,18 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension>
   final Color textSecondary;
   @override
   final Color textSecondarySelected;
+  @override
+  final Color carWidgetBackground;
+  @override
+  final Color divider;
+  @override
+  final Color assetsGrayText;
+  @override
+  final Color notesCardIcon;
+  @override
+  final Color notesCardShadow;
+  @override
+  final Color textGray;
 }
 
 final lightCustomThemeExtension = CustomThemeExtension(
@@ -69,6 +87,12 @@ final lightCustomThemeExtension = CustomThemeExtension(
   textPrimary: AppColors.gray.dark,
   textSecondary: AppColors.gray.dark2,
   textSecondarySelected: AppColors.gray.dark2,
+  carWidgetBackground: AppColors.carWidgetBackgroundLight,
+  divider: AppColors.dividerLight,
+  assetsGrayText: AppColors.gray.dark6,
+  notesCardIcon: AppColors.white,
+  notesCardShadow: AppColors.notesCardShadowLight,
+  textGray: AppColors.gray.dark3,
 );
 final darkCustomThemeExtension = CustomThemeExtension(
   statisticsDivider: AppColors.statisticsDividerDark,
@@ -84,4 +108,10 @@ final darkCustomThemeExtension = CustomThemeExtension(
   textPrimary: AppColors.gray.white,
   textSecondary: AppColors.gray.dark5,
   textSecondarySelected: AppColors.gray.white,
+  carWidgetBackground: AppColors.primary.dark1,
+  divider: AppColors.dividerDark,
+  assetsGrayText: AppColors.primary.white1,
+  notesCardIcon: AppColors.dateRangeSelectorBackgroundDark,
+  notesCardShadow: Colors.transparent,
+  textGray: AppColors.gray.dark4,
 );
