@@ -1,3 +1,4 @@
+import 'package:car_dashboard/pages/assets_page/widgets/assets_parameters/reminder_table.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -18,6 +19,8 @@ class AssetsParameters extends StatelessWidget {
         Notes(),
         Gap(20.0),
         AvailableSensors(),
+        Gap(20.0),
+        ReminderTable(),
       ],
     );
   }
