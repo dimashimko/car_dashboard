@@ -50,7 +50,13 @@ class _CustomPlatformMenuBarState extends State<CustomPlatformMenuBar> {
                   members: <PlatformMenuItem>[
                     PlatformMenuItem(
                       label: 'About',
-                      onSelected: () {},
+                      onSelected: () {
+                        showAboutDialog(
+                          context: context,
+                          applicationName: 'Car Dashboard',
+                          applicationVersion: '1.0.0',
+                        );
+                      },
                     ),
                   ],
                 ),
