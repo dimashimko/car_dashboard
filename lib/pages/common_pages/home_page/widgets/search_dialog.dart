@@ -63,17 +63,6 @@ class SearchDialog extends SearchDelegate {
     );
   }
 
-  // @override
-  // TextStyle? get searchFieldStyle => super.searchFieldStyle?.copyWith(
-  //   color: colors(context).textPrimary
-  // );
-
-  // @override
-  // TextStyle? get searchFieldStyle => super.searchFieldStyle?.copyWith(
-  //       color: Colors.red,
-  //     );
-
-  // Override the searchFieldStyle to customize the text field's text color
   @override
   TextStyle? get searchFieldStyle => TextStyle(
         color: primaryTextColor,
@@ -136,7 +125,6 @@ class SearchDialog extends SearchDelegate {
     );
   }
 
-  // Override buildBottom to add a widget at the bottom of the search app bar
   @override
   PreferredSizeWidget? buildBottom(BuildContext context) {
     return PreferredSize(
@@ -155,7 +143,6 @@ class SearchDialog extends SearchDelegate {
     );
   }
 
-  // Override buildFlexibleSpace to add a flexible widget to the app bar
   @override
   Widget? buildFlexibleSpace(BuildContext context) {
     return Container(
