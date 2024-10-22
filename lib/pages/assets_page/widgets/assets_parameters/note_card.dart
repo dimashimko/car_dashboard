@@ -1,4 +1,5 @@
 import 'package:car_dashboard/generated/assets.gen.dart';
+import 'package:car_dashboard/resources/app_colors.dart';
 import 'package:car_dashboard/resources/app_typography.dart';
 import 'package:car_dashboard/resources/theme/custom_theme_extension.dart';
 import 'package:flutter/material.dart';
@@ -43,7 +44,7 @@ class NoteCard extends StatelessWidget {
           child: Builder(builder: (context) {
             if (noteType == NoteType.notification) {
               return Center(
-                child: Assets.icons.notification.svg(),
+                child: Assets.icons.message.svg(),
               );
             }
             if (noteType == NoteType.warning) {
@@ -71,6 +72,31 @@ class NoteCard extends StatelessWidget {
                 text,
                 style: AppTypography.title11R.copyWith(
                   color: colors(context).textGray,
+                ),
+              ),
+              Container(
+                height: 21.0,
+                decoration: BoxDecoration(
+                  color: isCompleted
+                      ? AppColors.secondary.green
+                      : colors(context).notesStatusBanner,
+                  borderRadius: BorderRadius.circular(4.0),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 3.0,
+                    horizontal: 10.0,
+                  ),
+                  child: Text(
+                    date,
+                    style: TextStyle(
+                      fontSize: 10.0,
+                      fontWeight: FontWeight.bold,
+                      color: isCompleted
+                          ? AppColors.gray.white
+                          : colors(context).notesStatusBannerText,
+                    ),
+                  ),
                 ),
               ),
             ],

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
 import 'activity_statistic.dart';
+import 'available_sensors.dart';
 import 'notes.dart';
 
 class AssetsParameters extends StatelessWidget {
@@ -15,8 +16,8 @@ class AssetsParameters extends StatelessWidget {
         ActivityStatistic(),
         Gap(20.0),
         Notes(),
-        Text('data'),
-        // Text('data'),
+        Gap(20.0),
+        AvailableSensors(),
       ],
     );
   }

@@ -29,6 +29,10 @@ mixin _$CustomThemeExtensionTailorMixin
   Color get notesCardIcon;
   Color get notesCardShadow;
   Color get textGray;
+  Color get notesStatusBanner;
+  Color get notesStatusBannerText;
+  Color get dividerSensor;
+  Color get assetsSensorColor;
 
   @override
   CustomThemeExtension copyWith({
@@ -51,6 +55,10 @@ mixin _$CustomThemeExtensionTailorMixin
     Color? notesCardIcon,
     Color? notesCardShadow,
     Color? textGray,
+    Color? notesStatusBanner,
+    Color? notesStatusBannerText,
+    Color? dividerSensor,
+    Color? assetsSensorColor,
   }) {
     return CustomThemeExtension(
       statisticsDivider: statisticsDivider ?? this.statisticsDivider,
@@ -76,6 +84,11 @@ mixin _$CustomThemeExtensionTailorMixin
       notesCardIcon: notesCardIcon ?? this.notesCardIcon,
       notesCardShadow: notesCardShadow ?? this.notesCardShadow,
       textGray: textGray ?? this.textGray,
+      notesStatusBanner: notesStatusBanner ?? this.notesStatusBanner,
+      notesStatusBannerText:
+          notesStatusBannerText ?? this.notesStatusBannerText,
+      dividerSensor: dividerSensor ?? this.dividerSensor,
+      assetsSensorColor: assetsSensorColor ?? this.assetsSensorColor,
     );
   }
 
@@ -112,6 +125,13 @@ mixin _$CustomThemeExtensionTailorMixin
       notesCardIcon: Color.lerp(notesCardIcon, other.notesCardIcon, t)!,
       notesCardShadow: Color.lerp(notesCardShadow, other.notesCardShadow, t)!,
       textGray: Color.lerp(textGray, other.textGray, t)!,
+      notesStatusBanner:
+          Color.lerp(notesStatusBanner, other.notesStatusBanner, t)!,
+      notesStatusBannerText:
+          Color.lerp(notesStatusBannerText, other.notesStatusBannerText, t)!,
+      dividerSensor: Color.lerp(dividerSensor, other.dividerSensor, t)!,
+      assetsSensorColor:
+          Color.lerp(assetsSensorColor, other.assetsSensorColor, t)!,
     );
   }
 
@@ -154,12 +174,20 @@ mixin _$CustomThemeExtensionTailorMixin
                 .equals(notesCardIcon, other.notesCardIcon) &&
             const DeepCollectionEquality()
                 .equals(notesCardShadow, other.notesCardShadow) &&
-            const DeepCollectionEquality().equals(textGray, other.textGray));
+            const DeepCollectionEquality().equals(textGray, other.textGray) &&
+            const DeepCollectionEquality()
+                .equals(notesStatusBanner, other.notesStatusBanner) &&
+            const DeepCollectionEquality()
+                .equals(notesStatusBannerText, other.notesStatusBannerText) &&
+            const DeepCollectionEquality()
+                .equals(dividerSensor, other.dividerSensor) &&
+            const DeepCollectionEquality()
+                .equals(assetsSensorColor, other.assetsSensorColor));
   }
 
   @override
   int get hashCode {
-    return Object.hash(
+    return Object.hashAll([
       runtimeType.hashCode,
       const DeepCollectionEquality().hash(statisticsDivider),
       const DeepCollectionEquality().hash(statisticsTextLabel),
@@ -180,7 +208,11 @@ mixin _$CustomThemeExtensionTailorMixin
       const DeepCollectionEquality().hash(notesCardIcon),
       const DeepCollectionEquality().hash(notesCardShadow),
       const DeepCollectionEquality().hash(textGray),
-    );
+      const DeepCollectionEquality().hash(notesStatusBanner),
+      const DeepCollectionEquality().hash(notesStatusBannerText),
+      const DeepCollectionEquality().hash(dividerSensor),
+      const DeepCollectionEquality().hash(assetsSensorColor),
+    ]);
   }
 }
 
@@ -209,4 +241,8 @@ extension CustomThemeExtensionBuildContextProps on BuildContext {
   Color get notesCardIcon => customThemeExtension.notesCardIcon;
   Color get notesCardShadow => customThemeExtension.notesCardShadow;
   Color get textGray => customThemeExtension.textGray;
+  Color get notesStatusBanner => customThemeExtension.notesStatusBanner;
+  Color get notesStatusBannerText => customThemeExtension.notesStatusBannerText;
+  Color get dividerSensor => customThemeExtension.dividerSensor;
+  Color get assetsSensorColor => customThemeExtension.assetsSensorColor;
 }

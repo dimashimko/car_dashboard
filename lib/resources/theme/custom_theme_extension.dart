@@ -31,6 +31,10 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension>
     required this.notesCardIcon,
     required this.notesCardShadow,
     required this.textGray,
+    required this.notesStatusBanner,
+    required this.notesStatusBannerText,
+    required this.dividerSensor,
+    required this.assetsSensorColor,
   });
 
   @override
@@ -71,6 +75,14 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension>
   final Color notesCardShadow;
   @override
   final Color textGray;
+  @override
+  final Color notesStatusBanner;
+  @override
+  final Color notesStatusBannerText;
+  @override
+  final Color dividerSensor;
+  @override
+  final Color assetsSensorColor;
 }
 
 final lightCustomThemeExtension = CustomThemeExtension(
@@ -93,12 +105,17 @@ final lightCustomThemeExtension = CustomThemeExtension(
   notesCardIcon: AppColors.white,
   notesCardShadow: AppColors.notesCardShadowLight,
   textGray: AppColors.gray.dark3,
+  notesStatusBanner: AppColors.notesStatusBannerLight,
+  notesStatusBannerText: AppColors.primary.dark1,
+  dividerSensor: AppColors.dividerSensorLight,
+  assetsSensorColor: AppColors.assetsSensorColorLight,
 );
+
 final darkCustomThemeExtension = CustomThemeExtension(
   statisticsDivider: AppColors.statisticsDividerDark,
   statisticsTextLabel: AppColors.gray.dark4,
   statisticsTextSecondary: AppColors.darkTextStatistic,
-  dateRangeSelectorBackground: AppColors.dateRangeSelectorBackgroundDark,
+  dateRangeSelectorBackground: AppColors.backgroundDark,
   parametersTextColor: AppColors.gray.white,
   inactive: AppColors.gray.dark,
   scaffoldBackgroundColor: AppColors.gray.dark,
@@ -111,7 +128,11 @@ final darkCustomThemeExtension = CustomThemeExtension(
   carWidgetBackground: AppColors.primary.dark1,
   divider: AppColors.dividerDark,
   assetsGrayText: AppColors.primary.white1,
-  notesCardIcon: AppColors.dateRangeSelectorBackgroundDark,
+  notesCardIcon: AppColors.backgroundDark,
   notesCardShadow: Colors.transparent,
   textGray: AppColors.gray.dark4,
+  notesStatusBanner: AppColors.backgroundDark,
+  notesStatusBannerText: AppColors.primary.white1,
+  dividerSensor: AppColors.dividerSensorDark,
+  assetsSensorColor: AppColors.secondary.red,
 );

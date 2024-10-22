@@ -25,7 +25,7 @@ class Notes extends StatelessWidget {
           vertical: 13.0,
         ),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Text(

@@ -15,6 +15,9 @@ import 'package:vector_graphics/vector_graphics.dart' as _vg;
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
+  /// File path: assets/icons/analyze.svg
+  SvgGenImage get analyze => const SvgGenImage('assets/icons/analyze.svg');
+
   /// File path: assets/icons/assets_icon.svg
   SvgGenImage get assetsIcon =>
       const SvgGenImage('assets/icons/assets_icon.svg');
@@ -35,9 +38,20 @@ class $AssetsIconsGen {
   SvgGenImage get calendarIcon =>
       const SvgGenImage('assets/icons/calendar_icon.svg');
 
+  /// File path: assets/icons/checkbox_off.svg
+  SvgGenImage get checkboxOff =>
+      const SvgGenImage('assets/icons/checkbox_off.svg');
+
+  /// File path: assets/icons/checkbox_on.svg
+  SvgGenImage get checkboxOn =>
+      const SvgGenImage('assets/icons/checkbox_on.svg');
+
   /// File path: assets/icons/dashboard_icon.svg
   SvgGenImage get dashboardIcon =>
       const SvgGenImage('assets/icons/dashboard_icon.svg');
+
+  /// File path: assets/icons/drop_down.svg
+  SvgGenImage get dropDown => const SvgGenImage('assets/icons/drop_down.svg');
 
   /// File path: assets/icons/energy.svg
   SvgGenImage get energy => const SvgGenImage('assets/icons/energy.svg');
@@ -99,12 +113,16 @@ class $AssetsIconsGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
+        analyze,
         assetsIcon,
         bookingIcon,
         breakFluid,
         buyCarIcon,
         calendarIcon,
+        checkboxOff,
+        checkboxOn,
         dashboardIcon,
+        dropDown,
         energy,
         energySmall,
         logOut,
