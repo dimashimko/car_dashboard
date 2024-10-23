@@ -11,16 +11,32 @@ class AssetsParameters extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        ActivityStatistic(),
-        Gap(20.0),
-        Notes(),
-        Gap(20.0),
-        AvailableSensors(),
-        Gap(20.0),
-        ReminderTable(),
+        const ActivityStatistic(),
+        const Gap(20.0),
+        GridView.builder(
+          shrinkWrap: true,
+          // primary: true,
+          // primary: false,
+          physics: const NeverScrollableScrollPhysics(),
+          itemCount: 2,
+          gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+            maxCrossAxisExtent: 550.0,
+            mainAxisExtent: 314.0,
+            crossAxisSpacing: 25.0,
+            mainAxisSpacing: 20.0,
+          ),
+          itemBuilder: (context, index) {
+            if (index == 0) {
+              return const Notes();
+            }
+            return const AvailableSensors();
+          },
+        ),
+        const Gap(20.0),
+        const ReminderTable(),
       ],
     );
   }

@@ -63,14 +63,15 @@ class _AvailableSensorsState extends State<AvailableSensors> {
           children: [
             Row(
               children: [
-                Text(
-                  'Available Sensors ',
-                  style: AppTypography.headingH3.copyWith(
-                    color: colors(context).parametersTextColor,
+                Expanded(
+                  child: Text(
+                    'Available Sensors ',
+                    style: AppTypography.headingH3.copyWith(
+                      color: colors(context).parametersTextColor,
+                    ),
+                    overflow: TextOverflow.ellipsis,
                   ),
-                  overflow: TextOverflow.ellipsis,
                 ),
-                const Spacer(),
                 Text(
                   'Assets',
                   style: AppTypography.title12m.copyWith(
@@ -87,22 +88,25 @@ class _AvailableSensorsState extends State<AvailableSensors> {
               color: colors(context).dividerSensor,
             ),
             const Gap(20.0),
-            ListView.separated(
-              itemCount: sensors.length,
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              separatorBuilder: (_, __) => const SizedBox(
-                height: 16.0,
-              ),
-              itemBuilder: (context, index) => SensorCard(
-                name: sensors[index].name,
-                unit: sensors[index].unit,
-                value: sensors[index].isSelected,
-                onChanged: (bool newValue) {
-                  setState(() {
-                    sensors[index].isSelected = newValue;
-                  });
-                },
+            Expanded(
+              child: ListView.separated(
+                itemCount: sensors.length,
+                shrinkWrap: true,
+                primary: true,
+                physics: const NeverScrollableScrollPhysics(),
+                separatorBuilder: (_, __) => const SizedBox(
+                  height: 16.0,
+                ),
+                itemBuilder: (context, index) => SensorCard(
+                  name: sensors[index].name,
+                  unit: sensors[index].unit,
+                  value: sensors[index].isSelected,
+                  onChanged: (bool newValue) {
+                    setState(() {
+                      sensors[index].isSelected = newValue;
+                    });
+                  },
+                ),
               ),
             ),
             const Gap(20.0),
