@@ -7,7 +7,7 @@ class AppRouter {
 
   static final GoRouter routerConfig = GoRouter(
     debugLogDiagnostics: true,
-    initialLocation: const AssetsRoute().location,
+    initialLocation: const BookingRoute().location,
     routes: $appRoutes,
     observers: [],
   );

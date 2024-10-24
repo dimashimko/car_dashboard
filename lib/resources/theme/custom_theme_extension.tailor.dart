@@ -33,6 +33,8 @@ mixin _$CustomThemeExtensionTailorMixin
   Color get notesStatusBannerText;
   Color get dividerSensor;
   Color get assetsSensorColor;
+  Color get bookingDropdown;
+  Color get bookingIconColor;
 
   @override
   CustomThemeExtension copyWith({
@@ -59,6 +61,8 @@ mixin _$CustomThemeExtensionTailorMixin
     Color? notesStatusBannerText,
     Color? dividerSensor,
     Color? assetsSensorColor,
+    Color? bookingDropdown,
+    Color? bookingIconColor,
   }) {
     return CustomThemeExtension(
       statisticsDivider: statisticsDivider ?? this.statisticsDivider,
@@ -89,6 +93,8 @@ mixin _$CustomThemeExtensionTailorMixin
           notesStatusBannerText ?? this.notesStatusBannerText,
       dividerSensor: dividerSensor ?? this.dividerSensor,
       assetsSensorColor: assetsSensorColor ?? this.assetsSensorColor,
+      bookingDropdown: bookingDropdown ?? this.bookingDropdown,
+      bookingIconColor: bookingIconColor ?? this.bookingIconColor,
     );
   }
 
@@ -132,6 +138,9 @@ mixin _$CustomThemeExtensionTailorMixin
       dividerSensor: Color.lerp(dividerSensor, other.dividerSensor, t)!,
       assetsSensorColor:
           Color.lerp(assetsSensorColor, other.assetsSensorColor, t)!,
+      bookingDropdown: Color.lerp(bookingDropdown, other.bookingDropdown, t)!,
+      bookingIconColor:
+          Color.lerp(bookingIconColor, other.bookingIconColor, t)!,
     );
   }
 
@@ -182,7 +191,11 @@ mixin _$CustomThemeExtensionTailorMixin
             const DeepCollectionEquality()
                 .equals(dividerSensor, other.dividerSensor) &&
             const DeepCollectionEquality()
-                .equals(assetsSensorColor, other.assetsSensorColor));
+                .equals(assetsSensorColor, other.assetsSensorColor) &&
+            const DeepCollectionEquality()
+                .equals(bookingDropdown, other.bookingDropdown) &&
+            const DeepCollectionEquality()
+                .equals(bookingIconColor, other.bookingIconColor));
   }
 
   @override
@@ -212,6 +225,8 @@ mixin _$CustomThemeExtensionTailorMixin
       const DeepCollectionEquality().hash(notesStatusBannerText),
       const DeepCollectionEquality().hash(dividerSensor),
       const DeepCollectionEquality().hash(assetsSensorColor),
+      const DeepCollectionEquality().hash(bookingDropdown),
+      const DeepCollectionEquality().hash(bookingIconColor),
     ]);
   }
 }
@@ -245,4 +260,6 @@ extension CustomThemeExtensionBuildContextProps on BuildContext {
   Color get notesStatusBannerText => customThemeExtension.notesStatusBannerText;
   Color get dividerSensor => customThemeExtension.dividerSensor;
   Color get assetsSensorColor => customThemeExtension.assetsSensorColor;
+  Color get bookingDropdown => customThemeExtension.bookingDropdown;
+  Color get bookingIconColor => customThemeExtension.bookingIconColor;
 }

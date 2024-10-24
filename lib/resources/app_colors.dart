@@ -33,6 +33,7 @@ class AppColors {
   static const Color dividerSensorLight = Color(0xFFF3F3F3);
   static const Color dividerSensorDark = Color(0xFF2C303D);
   static const Color assetsSensorColorLight = Color(0xFFD43B3B);
+  static const Color bookingIconColorLight = Color(0xFF777E90);
 }
 
 class Primary {

@@ -35,6 +35,8 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension>
     required this.notesStatusBannerText,
     required this.dividerSensor,
     required this.assetsSensorColor,
+    required this.bookingDropdown,
+    required this.bookingIconColor,
   });
 
   @override
@@ -83,6 +85,10 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension>
   final Color dividerSensor;
   @override
   final Color assetsSensorColor;
+  @override
+  final Color bookingDropdown;
+  @override
+  final Color bookingIconColor;
 }
 
 final lightCustomThemeExtension = CustomThemeExtension(
@@ -109,6 +115,8 @@ final lightCustomThemeExtension = CustomThemeExtension(
   notesStatusBannerText: AppColors.primary.dark1,
   dividerSensor: AppColors.dividerSensorLight,
   assetsSensorColor: AppColors.assetsSensorColorLight,
+  bookingDropdown: AppColors.gray.dark2,
+  bookingIconColor: AppColors.bookingIconColorLight,
 );
 
 final darkCustomThemeExtension = CustomThemeExtension(
@@ -135,4 +143,6 @@ final darkCustomThemeExtension = CustomThemeExtension(
   notesStatusBannerText: AppColors.primary.white1,
   dividerSensor: AppColors.dividerSensorDark,
   assetsSensorColor: AppColors.secondary.red,
+  bookingDropdown: AppColors.primary.white1,
+  bookingIconColor: AppColors.primary.white1,
 );

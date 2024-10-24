@@ -60,6 +60,9 @@ class $AssetsIconsGen {
   SvgGenImage get energySmall =>
       const SvgGenImage('assets/icons/energy_small.svg');
 
+  /// File path: assets/icons/grid.svg
+  SvgGenImage get grid => const SvgGenImage('assets/icons/grid.svg');
+
   /// File path: assets/icons/log_out.svg
   SvgGenImage get logOut => const SvgGenImage('assets/icons/log_out.svg');
 
@@ -98,6 +101,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/setting.svg
   SvgGenImage get setting => const SvgGenImage('assets/icons/setting.svg');
 
+  /// File path: assets/icons/settings.svg
+  SvgGenImage get settings => const SvgGenImage('assets/icons/settings.svg');
+
   /// File path: assets/icons/settings_icon.svg
   SvgGenImage get settingsIcon =>
       const SvgGenImage('assets/icons/settings_icon.svg');
@@ -125,6 +131,7 @@ class $AssetsIconsGen {
         dropDown,
         energy,
         energySmall,
+        grid,
         logOut,
         message,
         messagesIcon,
@@ -136,6 +143,7 @@ class $AssetsIconsGen {
         sellCarsIcon,
         servicesIcon,
         setting,
+        settings,
         settingsIcon,
         star,
         tireWear,
