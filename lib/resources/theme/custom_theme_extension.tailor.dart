@@ -35,6 +35,7 @@ mixin _$CustomThemeExtensionTailorMixin
   Color get assetsSensorColor;
   Color get bookingDropdown;
   Color get bookingIconColor;
+  Color get bookingPassengerText;
 
   @override
   CustomThemeExtension copyWith({
@@ -63,6 +64,7 @@ mixin _$CustomThemeExtensionTailorMixin
     Color? assetsSensorColor,
     Color? bookingDropdown,
     Color? bookingIconColor,
+    Color? bookingPassengerText,
   }) {
     return CustomThemeExtension(
       statisticsDivider: statisticsDivider ?? this.statisticsDivider,
@@ -95,6 +97,7 @@ mixin _$CustomThemeExtensionTailorMixin
       assetsSensorColor: assetsSensorColor ?? this.assetsSensorColor,
       bookingDropdown: bookingDropdown ?? this.bookingDropdown,
       bookingIconColor: bookingIconColor ?? this.bookingIconColor,
+      bookingPassengerText: bookingPassengerText ?? this.bookingPassengerText,
     );
   }
 
@@ -141,6 +144,8 @@ mixin _$CustomThemeExtensionTailorMixin
       bookingDropdown: Color.lerp(bookingDropdown, other.bookingDropdown, t)!,
       bookingIconColor:
           Color.lerp(bookingIconColor, other.bookingIconColor, t)!,
+      bookingPassengerText:
+          Color.lerp(bookingPassengerText, other.bookingPassengerText, t)!,
     );
   }
 
@@ -195,7 +200,9 @@ mixin _$CustomThemeExtensionTailorMixin
             const DeepCollectionEquality()
                 .equals(bookingDropdown, other.bookingDropdown) &&
             const DeepCollectionEquality()
-                .equals(bookingIconColor, other.bookingIconColor));
+                .equals(bookingIconColor, other.bookingIconColor) &&
+            const DeepCollectionEquality()
+                .equals(bookingPassengerText, other.bookingPassengerText));
   }
 
   @override
@@ -227,6 +234,7 @@ mixin _$CustomThemeExtensionTailorMixin
       const DeepCollectionEquality().hash(assetsSensorColor),
       const DeepCollectionEquality().hash(bookingDropdown),
       const DeepCollectionEquality().hash(bookingIconColor),
+      const DeepCollectionEquality().hash(bookingPassengerText),
     ]);
   }
 }
@@ -262,4 +270,5 @@ extension CustomThemeExtensionBuildContextProps on BuildContext {
   Color get assetsSensorColor => customThemeExtension.assetsSensorColor;
   Color get bookingDropdown => customThemeExtension.bookingDropdown;
   Color get bookingIconColor => customThemeExtension.bookingIconColor;
+  Color get bookingPassengerText => customThemeExtension.bookingPassengerText;
 }

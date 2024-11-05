@@ -37,6 +37,7 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension>
     required this.assetsSensorColor,
     required this.bookingDropdown,
     required this.bookingIconColor,
+    required this.bookingPassengerText,
   });
 
   @override
@@ -89,6 +90,8 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension>
   final Color bookingDropdown;
   @override
   final Color bookingIconColor;
+  @override
+  final Color bookingPassengerText;
 }
 
 final lightCustomThemeExtension = CustomThemeExtension(
@@ -117,6 +120,7 @@ final lightCustomThemeExtension = CustomThemeExtension(
   assetsSensorColor: AppColors.assetsSensorColorLight,
   bookingDropdown: AppColors.gray.dark2,
   bookingIconColor: AppColors.bookingIconColorLight,
+  bookingPassengerText: AppColors.gray.dark3,
 );
 
 final darkCustomThemeExtension = CustomThemeExtension(
@@ -145,4 +149,5 @@ final darkCustomThemeExtension = CustomThemeExtension(
   assetsSensorColor: AppColors.secondary.red,
   bookingDropdown: AppColors.primary.white1,
   bookingIconColor: AppColors.primary.white1,
+  bookingPassengerText: AppColors.primary.white1,
 );

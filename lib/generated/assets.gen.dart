@@ -63,6 +63,12 @@ class $AssetsIconsGen {
   /// File path: assets/icons/grid.svg
   SvgGenImage get grid => const SvgGenImage('assets/icons/grid.svg');
 
+  /// File path: assets/icons/heart_off.svg
+  SvgGenImage get heartOff => const SvgGenImage('assets/icons/heart_off.svg');
+
+  /// File path: assets/icons/heart_on.svg
+  SvgGenImage get heartOn => const SvgGenImage('assets/icons/heart_on.svg');
+
   /// File path: assets/icons/log_out.svg
   SvgGenImage get logOut => const SvgGenImage('assets/icons/log_out.svg');
 
@@ -77,6 +83,10 @@ class $AssetsIconsGen {
   SvgGenImage get notification =>
       const SvgGenImage('assets/icons/notification.svg');
 
+  /// File path: assets/icons/passengers.svg
+  SvgGenImage get passengers =>
+      const SvgGenImage('assets/icons/passengers.svg');
+
   /// File path: assets/icons/range.svg
   SvgGenImage get range => const SvgGenImage('assets/icons/range.svg');
 
@@ -86,6 +96,9 @@ class $AssetsIconsGen {
 
   /// File path: assets/icons/repeat.svg
   SvgGenImage get repeat => const SvgGenImage('assets/icons/repeat.svg');
+
+  /// File path: assets/icons/returning.svg
+  SvgGenImage get returning => const SvgGenImage('assets/icons/returning.svg');
 
   /// File path: assets/icons/search.svg
   SvgGenImage get search => const SvgGenImage('assets/icons/search.svg');
@@ -132,13 +145,17 @@ class $AssetsIconsGen {
         energy,
         energySmall,
         grid,
+        heartOff,
+        heartOn,
         logOut,
         message,
         messagesIcon,
         notification,
+        passengers,
         range,
         recomended,
         repeat,
+        returning,
         search,
         sellCarsIcon,
         servicesIcon,
@@ -161,6 +178,30 @@ class $AssetsImagesGen {
   AssetGenImage get carAssets =>
       const AssetGenImage('assets/images/car_assets.png');
 
+  /// File path: assets/images/car_audi_a4.png
+  AssetGenImage get carAudiA4 =>
+      const AssetGenImage('assets/images/car_audi_a4.png');
+
+  /// File path: assets/images/car_audi_q5.png
+  AssetGenImage get carAudiQ5 =>
+      const AssetGenImage('assets/images/car_audi_q5.png');
+
+  /// File path: assets/images/car_maruti_suzuki_dzire.png
+  AssetGenImage get carMarutiSuzukiDzire =>
+      const AssetGenImage('assets/images/car_maruti_suzuki_dzire.png');
+
+  /// File path: assets/images/car_mercedes_benz_m_class.png
+  AssetGenImage get carMercedesBenzMClass =>
+      const AssetGenImage('assets/images/car_mercedes_benz_m_class.png');
+
+  /// File path: assets/images/car_suzuki_ertiga.png
+  AssetGenImage get carSuzukiErtiga =>
+      const AssetGenImage('assets/images/car_suzuki_ertiga.png');
+
+  /// File path: assets/images/car_toyota_innova.png
+  AssetGenImage get carToyotaInnova =>
+      const AssetGenImage('assets/images/car_toyota_innova.png');
+
   /// File path: assets/images/logo.png
   AssetGenImage get logo => const AssetGenImage('assets/images/logo.png');
 
@@ -177,8 +218,20 @@ class $AssetsImagesGen {
       const AssetGenImage('assets/images/porsche_carella_2.png');
 
   /// List of all assets
-  List<AssetGenImage> get values =>
-      [avatar, carAssets, logo, miniCooper, porscheCarella1, porscheCarella2];
+  List<AssetGenImage> get values => [
+        avatar,
+        carAssets,
+        carAudiA4,
+        carAudiQ5,
+        carMarutiSuzukiDzire,
+        carMercedesBenzMClass,
+        carSuzukiErtiga,
+        carToyotaInnova,
+        logo,
+        miniCooper,
+        porscheCarella1,
+        porscheCarella2
+      ];
 }
 
 class Assets {
