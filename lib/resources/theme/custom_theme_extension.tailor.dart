@@ -36,6 +36,10 @@ mixin _$CustomThemeExtensionTailorMixin
   Color get bookingDropdown;
   Color get bookingIconColor;
   Color get bookingPassengerText;
+  Color get sellCarsGridLine;
+  Color get inactiveRed;
+  Color get sellCarsTooltip;
+  Color get sellCarsTooltipText;
 
   @override
   CustomThemeExtension copyWith({
@@ -65,6 +69,10 @@ mixin _$CustomThemeExtensionTailorMixin
     Color? bookingDropdown,
     Color? bookingIconColor,
     Color? bookingPassengerText,
+    Color? sellCarsGridLine,
+    Color? inactiveRed,
+    Color? sellCarsTooltip,
+    Color? sellCarsTooltipText,
   }) {
     return CustomThemeExtension(
       statisticsDivider: statisticsDivider ?? this.statisticsDivider,
@@ -98,6 +106,10 @@ mixin _$CustomThemeExtensionTailorMixin
       bookingDropdown: bookingDropdown ?? this.bookingDropdown,
       bookingIconColor: bookingIconColor ?? this.bookingIconColor,
       bookingPassengerText: bookingPassengerText ?? this.bookingPassengerText,
+      sellCarsGridLine: sellCarsGridLine ?? this.sellCarsGridLine,
+      inactiveRed: inactiveRed ?? this.inactiveRed,
+      sellCarsTooltip: sellCarsTooltip ?? this.sellCarsTooltip,
+      sellCarsTooltipText: sellCarsTooltipText ?? this.sellCarsTooltipText,
     );
   }
 
@@ -146,6 +158,12 @@ mixin _$CustomThemeExtensionTailorMixin
           Color.lerp(bookingIconColor, other.bookingIconColor, t)!,
       bookingPassengerText:
           Color.lerp(bookingPassengerText, other.bookingPassengerText, t)!,
+      sellCarsGridLine:
+          Color.lerp(sellCarsGridLine, other.sellCarsGridLine, t)!,
+      inactiveRed: Color.lerp(inactiveRed, other.inactiveRed, t)!,
+      sellCarsTooltip: Color.lerp(sellCarsTooltip, other.sellCarsTooltip, t)!,
+      sellCarsTooltipText:
+          Color.lerp(sellCarsTooltipText, other.sellCarsTooltipText, t)!,
     );
   }
 
@@ -202,7 +220,15 @@ mixin _$CustomThemeExtensionTailorMixin
             const DeepCollectionEquality()
                 .equals(bookingIconColor, other.bookingIconColor) &&
             const DeepCollectionEquality()
-                .equals(bookingPassengerText, other.bookingPassengerText));
+                .equals(bookingPassengerText, other.bookingPassengerText) &&
+            const DeepCollectionEquality()
+                .equals(sellCarsGridLine, other.sellCarsGridLine) &&
+            const DeepCollectionEquality()
+                .equals(inactiveRed, other.inactiveRed) &&
+            const DeepCollectionEquality()
+                .equals(sellCarsTooltip, other.sellCarsTooltip) &&
+            const DeepCollectionEquality()
+                .equals(sellCarsTooltipText, other.sellCarsTooltipText));
   }
 
   @override
@@ -235,6 +261,10 @@ mixin _$CustomThemeExtensionTailorMixin
       const DeepCollectionEquality().hash(bookingDropdown),
       const DeepCollectionEquality().hash(bookingIconColor),
       const DeepCollectionEquality().hash(bookingPassengerText),
+      const DeepCollectionEquality().hash(sellCarsGridLine),
+      const DeepCollectionEquality().hash(inactiveRed),
+      const DeepCollectionEquality().hash(sellCarsTooltip),
+      const DeepCollectionEquality().hash(sellCarsTooltipText),
     ]);
   }
 }
@@ -271,4 +301,8 @@ extension CustomThemeExtensionBuildContextProps on BuildContext {
   Color get bookingDropdown => customThemeExtension.bookingDropdown;
   Color get bookingIconColor => customThemeExtension.bookingIconColor;
   Color get bookingPassengerText => customThemeExtension.bookingPassengerText;
+  Color get sellCarsGridLine => customThemeExtension.sellCarsGridLine;
+  Color get inactiveRed => customThemeExtension.inactiveRed;
+  Color get sellCarsTooltip => customThemeExtension.sellCarsTooltip;
+  Color get sellCarsTooltipText => customThemeExtension.sellCarsTooltipText;
 }

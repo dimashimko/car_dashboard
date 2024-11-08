@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:car_dashboard/widgets/common/custom_expandable_draggable_fab.dart';
 import 'package:desktop_window/desktop_window.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:provider/provider.dart';
@@ -15,10 +16,12 @@ import 'router/app_router.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  if (Platform.isLinux || Platform.isMacOS || Platform.isWindows) {
-    await DesktopWindow.setMinWindowSize(
-      const Size(400, 300),
-    );
+  if (!kIsWeb) {
+    if (Platform.isLinux || Platform.isMacOS || Platform.isWindows) {
+      await DesktopWindow.setMinWindowSize(
+        const Size(400, 300),
+      );
+    }
   }
   runApp(
     ChangeNotifierProvider(

@@ -38,6 +38,10 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension>
     required this.bookingDropdown,
     required this.bookingIconColor,
     required this.bookingPassengerText,
+    required this.sellCarsGridLine,
+    required this.inactiveRed,
+    required this.sellCarsTooltip,
+    required this.sellCarsTooltipText,
   });
 
   @override
@@ -92,6 +96,14 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension>
   final Color bookingIconColor;
   @override
   final Color bookingPassengerText;
+  @override
+  final Color sellCarsGridLine;
+  @override
+  final Color inactiveRed;
+  @override
+  final Color sellCarsTooltip;
+  @override
+  final Color sellCarsTooltipText;
 }
 
 final lightCustomThemeExtension = CustomThemeExtension(
@@ -121,6 +133,10 @@ final lightCustomThemeExtension = CustomThemeExtension(
   bookingDropdown: AppColors.gray.dark2,
   bookingIconColor: AppColors.bookingIconColorLight,
   bookingPassengerText: AppColors.gray.dark3,
+  sellCarsGridLine: AppColors.statisticsDividerLight,
+  inactiveRed: AppColors.inactiveRedLight,
+  sellCarsTooltip: AppColors.sellCarsTooltipLight,
+  sellCarsTooltipText: AppColors.gray.white,
 );
 
 final darkCustomThemeExtension = CustomThemeExtension(
@@ -150,4 +166,8 @@ final darkCustomThemeExtension = CustomThemeExtension(
   bookingDropdown: AppColors.primary.white1,
   bookingIconColor: AppColors.primary.white1,
   bookingPassengerText: AppColors.primary.white1,
+  sellCarsGridLine: AppColors.dividerSensorDark,
+  inactiveRed: AppColors.inactiveRedDark,
+  sellCarsTooltip: AppColors.gray.white,
+  sellCarsTooltipText: AppColors.gray.dark2,
 );

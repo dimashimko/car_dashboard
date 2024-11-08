@@ -69,6 +69,15 @@ class $AssetsIconsGen {
   /// File path: assets/icons/heart_on.svg
   SvgGenImage get heartOn => const SvgGenImage('assets/icons/heart_on.svg');
 
+  /// File path: assets/icons/layer01.svg
+  SvgGenImage get layer01 => const SvgGenImage('assets/icons/layer01.svg');
+
+  /// File path: assets/icons/layer02.svg
+  SvgGenImage get layer02 => const SvgGenImage('assets/icons/layer02.svg');
+
+  /// File path: assets/icons/layer03.svg
+  SvgGenImage get layer03 => const SvgGenImage('assets/icons/layer03.svg');
+
   /// File path: assets/icons/log_out.svg
   SvgGenImage get logOut => const SvgGenImage('assets/icons/log_out.svg');
 
@@ -147,6 +156,9 @@ class $AssetsIconsGen {
         grid,
         heartOff,
         heartOn,
+        layer01,
+        layer02,
+        layer03,
         logOut,
         message,
         messagesIcon,
@@ -237,8 +249,37 @@ class $AssetsImagesGen {
 class Assets {
   Assets._();
 
+  static const String mustangMtl = 'assets/Mustang.mtl';
+  static const String mustangObj = 'assets/Mustang.obj';
+  static const String flutterDashMtl = 'assets/flutter_dash.mtl';
+  static const String flutterDashObj = 'assets/flutter_dash.obj';
+  static const String fordMustangMtl = 'assets/ford_mustang.mtl';
+  static const String fordMustangObj = 'assets/ford_mustang.obj';
   static const $AssetsIconsGen icons = $AssetsIconsGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
+  static const String lowPolyTeslaRoadster =
+      'assets/low_poly_tesla_roadster.glb';
+  static const String mercedesBenzGls580Mtl =
+      'assets/mercedes_benz_gls_580.mtl';
+  static const String mercedesBenzGls580Obj =
+      'assets/mercedes_benz_gls_580.obj';
+  static const String teslaMtl = 'assets/tesla.mtl';
+  static const String teslaObj = 'assets/tesla.obj';
+
+  /// List of all assets
+  static List<String> get values => [
+        mustangMtl,
+        mustangObj,
+        flutterDashMtl,
+        flutterDashObj,
+        fordMustangMtl,
+        fordMustangObj,
+        lowPolyTeslaRoadster,
+        mercedesBenzGls580Mtl,
+        mercedesBenzGls580Obj,
+        teslaMtl,
+        teslaObj
+      ];
 }
 
 class AssetGenImage {
