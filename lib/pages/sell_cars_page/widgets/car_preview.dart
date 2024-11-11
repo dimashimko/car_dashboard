@@ -63,8 +63,8 @@ class _CarPreviewState extends State<CarPreview> {
                   // ),
                   Flutter3DViewer.obj(
                     // src: 'assets/flutter_dash.obj',
-                    // src: 'assets/ford_mustang.obj',
-                    src: 'assets/tesla.obj',
+                    src: 'assets/ford_mustang.obj',
+                    // src: 'assets/tesla.obj',
                     // src: 'assets/mercedes_benz_gls_580.obj',
                     // src:
                     //     'https://raw.githubusercontent.com/m-r-davari/content-holder/refs/heads/master/flutter_3d_controller/flutter_dash_model/flutter_dash.obj',

@@ -1,4 +1,5 @@
 import 'package:car_dashboard/pages/sell_cars_page/widgets/car_preview.dart';
+import 'package:car_dashboard/pages/sell_cars_page/widgets/offers_table.dart';
 import 'package:car_dashboard/pages/sell_cars_page/widgets/tracking_history.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -51,7 +52,7 @@ class SellCarsPage extends StatelessWidget {
                     } else {
                       return const Column(
                         children: [
-                          // CarPreview(),
+                          CarPreview(),
                           Gap(27.0),
                           TrackingHistory(),
                         ],
@@ -59,6 +60,8 @@ class SellCarsPage extends StatelessWidget {
                     }
                   },
                 ),
+                const Gap(30.0),
+                const OffersTable(),
               ],
             ),
           ),

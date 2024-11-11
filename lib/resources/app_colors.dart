@@ -30,13 +30,14 @@ class AppColors {
   static const Color dividerDark = Color(0xFF333642);
   static const Color notesCardShadowLight = Color(0xFF939090);
   static const Color notesStatusBannerLight = Color(0xFFECEEF0);
-  static const Color dividerSensorLight = Color(0xFFF3F3F3);
+  static const Color grayF3 = Color(0xFFF3F3F3);
   static const Color dividerSensorDark = Color(0xFF2C303D);
   static const Color assetsSensorColorLight = Color(0xFFD43B3B);
   static const Color bookingIconColorLight = Color(0xFF777E90);
   static const Color inactiveRedLight = Color(0xFFFFF3F3);
   static const Color inactiveRedDark = Color(0xFF312b36);
   static const Color sellCarsTooltipLight = Color(0xFF2B2945);
+  static const Color offerBlue = Color(0xFF407EF9);
 }
 
 class Primary {

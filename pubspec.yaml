@@ -15,7 +15,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   theme_tailor: ^3.0.1
   theme_tailor_annotation: ^3.0.1
-
+  intl: ^0.19.0
 
   # State manager
   provider: ^6.1.2

@@ -40,6 +40,9 @@ mixin _$CustomThemeExtensionTailorMixin
   Color get inactiveRed;
   Color get sellCarsTooltip;
   Color get sellCarsTooltipText;
+  Color get averagePrice;
+  Color get arcBackground;
+  Color get offerParameters;
 
   @override
   CustomThemeExtension copyWith({
@@ -73,6 +76,9 @@ mixin _$CustomThemeExtensionTailorMixin
     Color? inactiveRed,
     Color? sellCarsTooltip,
     Color? sellCarsTooltipText,
+    Color? averagePrice,
+    Color? arcBackground,
+    Color? offerParameters,
   }) {
     return CustomThemeExtension(
       statisticsDivider: statisticsDivider ?? this.statisticsDivider,
@@ -110,6 +116,9 @@ mixin _$CustomThemeExtensionTailorMixin
       inactiveRed: inactiveRed ?? this.inactiveRed,
       sellCarsTooltip: sellCarsTooltip ?? this.sellCarsTooltip,
       sellCarsTooltipText: sellCarsTooltipText ?? this.sellCarsTooltipText,
+      averagePrice: averagePrice ?? this.averagePrice,
+      arcBackground: arcBackground ?? this.arcBackground,
+      offerParameters: offerParameters ?? this.offerParameters,
     );
   }
 
@@ -164,6 +173,9 @@ mixin _$CustomThemeExtensionTailorMixin
       sellCarsTooltip: Color.lerp(sellCarsTooltip, other.sellCarsTooltip, t)!,
       sellCarsTooltipText:
           Color.lerp(sellCarsTooltipText, other.sellCarsTooltipText, t)!,
+      averagePrice: Color.lerp(averagePrice, other.averagePrice, t)!,
+      arcBackground: Color.lerp(arcBackground, other.arcBackground, t)!,
+      offerParameters: Color.lerp(offerParameters, other.offerParameters, t)!,
     );
   }
 
@@ -228,7 +240,13 @@ mixin _$CustomThemeExtensionTailorMixin
             const DeepCollectionEquality()
                 .equals(sellCarsTooltip, other.sellCarsTooltip) &&
             const DeepCollectionEquality()
-                .equals(sellCarsTooltipText, other.sellCarsTooltipText));
+                .equals(sellCarsTooltipText, other.sellCarsTooltipText) &&
+            const DeepCollectionEquality()
+                .equals(averagePrice, other.averagePrice) &&
+            const DeepCollectionEquality()
+                .equals(arcBackground, other.arcBackground) &&
+            const DeepCollectionEquality()
+                .equals(offerParameters, other.offerParameters));
   }
 
   @override
@@ -265,6 +283,9 @@ mixin _$CustomThemeExtensionTailorMixin
       const DeepCollectionEquality().hash(inactiveRed),
       const DeepCollectionEquality().hash(sellCarsTooltip),
       const DeepCollectionEquality().hash(sellCarsTooltipText),
+      const DeepCollectionEquality().hash(averagePrice),
+      const DeepCollectionEquality().hash(arcBackground),
+      const DeepCollectionEquality().hash(offerParameters),
     ]);
   }
 }
@@ -305,4 +326,7 @@ extension CustomThemeExtensionBuildContextProps on BuildContext {
   Color get inactiveRed => customThemeExtension.inactiveRed;
   Color get sellCarsTooltip => customThemeExtension.sellCarsTooltip;
   Color get sellCarsTooltipText => customThemeExtension.sellCarsTooltipText;
+  Color get averagePrice => customThemeExtension.averagePrice;
+  Color get arcBackground => customThemeExtension.arcBackground;
+  Color get offerParameters => customThemeExtension.offerParameters;
 }

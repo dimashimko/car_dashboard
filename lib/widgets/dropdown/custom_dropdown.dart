@@ -4,8 +4,8 @@ import 'package:car_dashboard/resources/theme/custom_theme_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
-class BookingDropdown extends StatelessWidget {
-  const BookingDropdown({
+class CustomDropdown extends StatelessWidget {
+  const CustomDropdown({
     super.key,
     required this.text,
   });

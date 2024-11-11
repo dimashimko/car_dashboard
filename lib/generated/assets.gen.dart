@@ -18,6 +18,14 @@ class $AssetsIconsGen {
   /// File path: assets/icons/analyze.svg
   SvgGenImage get analyze => const SvgGenImage('assets/icons/analyze.svg');
 
+  /// File path: assets/icons/arrow_bold_forvard.svg
+  SvgGenImage get arrowBoldForvard =>
+      const SvgGenImage('assets/icons/arrow_bold_forvard.svg');
+
+  /// File path: assets/icons/arrow_white_rigth.svg
+  SvgGenImage get arrowWhiteRigth =>
+      const SvgGenImage('assets/icons/arrow_white_rigth.svg');
+
   /// File path: assets/icons/assets_icon.svg
   SvgGenImage get assetsIcon =>
       const SvgGenImage('assets/icons/assets_icon.svg');
@@ -38,6 +46,9 @@ class $AssetsIconsGen {
   SvgGenImage get calendarIcon =>
       const SvgGenImage('assets/icons/calendar_icon.svg');
 
+  /// File path: assets/icons/car.svg
+  SvgGenImage get car => const SvgGenImage('assets/icons/car.svg');
+
   /// File path: assets/icons/checkbox_off.svg
   SvgGenImage get checkboxOff =>
       const SvgGenImage('assets/icons/checkbox_off.svg');
@@ -49,6 +60,10 @@ class $AssetsIconsGen {
   /// File path: assets/icons/dashboard_icon.svg
   SvgGenImage get dashboardIcon =>
       const SvgGenImage('assets/icons/dashboard_icon.svg');
+
+  /// File path: assets/icons/dollar_sign.svg
+  SvgGenImage get dollarSign =>
+      const SvgGenImage('assets/icons/dollar_sign.svg');
 
   /// File path: assets/icons/drop_down.svg
   SvgGenImage get dropDown => const SvgGenImage('assets/icons/drop_down.svg');
@@ -142,14 +157,18 @@ class $AssetsIconsGen {
   /// List of all assets
   List<SvgGenImage> get values => [
         analyze,
+        arrowBoldForvard,
+        arrowWhiteRigth,
         assetsIcon,
         bookingIcon,
         breakFluid,
         buyCarIcon,
         calendarIcon,
+        car,
         checkboxOff,
         checkboxOn,
         dashboardIcon,
+        dollarSign,
         dropDown,
         energy,
         energySmall,

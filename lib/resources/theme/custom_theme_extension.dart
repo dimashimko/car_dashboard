@@ -42,6 +42,9 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension>
     required this.inactiveRed,
     required this.sellCarsTooltip,
     required this.sellCarsTooltipText,
+    required this.averagePrice,
+    required this.arcBackground,
+    required this.offerParameters,
   });
 
   @override
@@ -104,6 +107,12 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension>
   final Color sellCarsTooltip;
   @override
   final Color sellCarsTooltipText;
+  @override
+  final Color averagePrice;
+  @override
+  final Color arcBackground;
+  @override
+  final Color offerParameters;
 }
 
 final lightCustomThemeExtension = CustomThemeExtension(
@@ -128,7 +137,7 @@ final lightCustomThemeExtension = CustomThemeExtension(
   textGray: AppColors.gray.dark3,
   notesStatusBanner: AppColors.notesStatusBannerLight,
   notesStatusBannerText: AppColors.primary.dark1,
-  dividerSensor: AppColors.dividerSensorLight,
+  dividerSensor: AppColors.grayF3,
   assetsSensorColor: AppColors.assetsSensorColorLight,
   bookingDropdown: AppColors.gray.dark2,
   bookingIconColor: AppColors.bookingIconColorLight,
@@ -137,6 +146,9 @@ final lightCustomThemeExtension = CustomThemeExtension(
   inactiveRed: AppColors.inactiveRedLight,
   sellCarsTooltip: AppColors.sellCarsTooltipLight,
   sellCarsTooltipText: AppColors.gray.white,
+  averagePrice: AppColors.gray.dark6,
+  arcBackground: AppColors.grayF3,
+  offerParameters: AppColors.gray.dark5,
 );
 
 final darkCustomThemeExtension = CustomThemeExtension(
@@ -170,4 +182,7 @@ final darkCustomThemeExtension = CustomThemeExtension(
   inactiveRed: AppColors.inactiveRedDark,
   sellCarsTooltip: AppColors.gray.white,
   sellCarsTooltipText: AppColors.gray.dark2,
+  averagePrice: AppColors.gray.dark4,
+  arcBackground: AppColors.gray.dark,
+  offerParameters: AppColors.primary.white1,
 );

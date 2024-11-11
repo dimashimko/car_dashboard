@@ -6,8 +6,8 @@ import '../../generated/assets.gen.dart';
 import '../../models/booking_car.dart';
 import '../../resources/app_typography.dart';
 import '../../resources/theme/custom_theme_extension.dart';
+import '../../widgets/dropdown/custom_dropdown.dart';
 import 'widgets/booking_car_card.dart';
-import 'widgets/booking_dropdown.dart';
 
 class BookingPage extends StatefulWidget {
   const BookingPage({super.key});
@@ -100,11 +100,11 @@ class _BookingPageState extends State<BookingPage> {
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            BookingDropdown(
+                            CustomDropdown(
                               text: 'New',
                             ),
                             Gap(16.0),
-                            BookingDropdown(
+                            CustomDropdown(
                               text: 'Toyota',
                             ),
                           ],
