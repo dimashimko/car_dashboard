@@ -43,6 +43,9 @@ mixin _$CustomThemeExtensionTailorMixin
   Color get averagePrice;
   Color get arcBackground;
   Color get offerParameters;
+  Color get calendarDaysOfWeek;
+  Color get calendarDays;
+  Color get calendarToggleBackground;
 
   @override
   CustomThemeExtension copyWith({
@@ -79,6 +82,9 @@ mixin _$CustomThemeExtensionTailorMixin
     Color? averagePrice,
     Color? arcBackground,
     Color? offerParameters,
+    Color? calendarDaysOfWeek,
+    Color? calendarDays,
+    Color? calendarToggleBackground,
   }) {
     return CustomThemeExtension(
       statisticsDivider: statisticsDivider ?? this.statisticsDivider,
@@ -119,6 +125,10 @@ mixin _$CustomThemeExtensionTailorMixin
       averagePrice: averagePrice ?? this.averagePrice,
       arcBackground: arcBackground ?? this.arcBackground,
       offerParameters: offerParameters ?? this.offerParameters,
+      calendarDaysOfWeek: calendarDaysOfWeek ?? this.calendarDaysOfWeek,
+      calendarDays: calendarDays ?? this.calendarDays,
+      calendarToggleBackground:
+          calendarToggleBackground ?? this.calendarToggleBackground,
     );
   }
 
@@ -176,6 +186,11 @@ mixin _$CustomThemeExtensionTailorMixin
       averagePrice: Color.lerp(averagePrice, other.averagePrice, t)!,
       arcBackground: Color.lerp(arcBackground, other.arcBackground, t)!,
       offerParameters: Color.lerp(offerParameters, other.offerParameters, t)!,
+      calendarDaysOfWeek:
+          Color.lerp(calendarDaysOfWeek, other.calendarDaysOfWeek, t)!,
+      calendarDays: Color.lerp(calendarDays, other.calendarDays, t)!,
+      calendarToggleBackground: Color.lerp(
+          calendarToggleBackground, other.calendarToggleBackground, t)!,
     );
   }
 
@@ -246,7 +261,13 @@ mixin _$CustomThemeExtensionTailorMixin
             const DeepCollectionEquality()
                 .equals(arcBackground, other.arcBackground) &&
             const DeepCollectionEquality()
-                .equals(offerParameters, other.offerParameters));
+                .equals(offerParameters, other.offerParameters) &&
+            const DeepCollectionEquality()
+                .equals(calendarDaysOfWeek, other.calendarDaysOfWeek) &&
+            const DeepCollectionEquality()
+                .equals(calendarDays, other.calendarDays) &&
+            const DeepCollectionEquality().equals(
+                calendarToggleBackground, other.calendarToggleBackground));
   }
 
   @override
@@ -286,6 +307,9 @@ mixin _$CustomThemeExtensionTailorMixin
       const DeepCollectionEquality().hash(averagePrice),
       const DeepCollectionEquality().hash(arcBackground),
       const DeepCollectionEquality().hash(offerParameters),
+      const DeepCollectionEquality().hash(calendarDaysOfWeek),
+      const DeepCollectionEquality().hash(calendarDays),
+      const DeepCollectionEquality().hash(calendarToggleBackground),
     ]);
   }
 }
@@ -329,4 +353,8 @@ extension CustomThemeExtensionBuildContextProps on BuildContext {
   Color get averagePrice => customThemeExtension.averagePrice;
   Color get arcBackground => customThemeExtension.arcBackground;
   Color get offerParameters => customThemeExtension.offerParameters;
+  Color get calendarDaysOfWeek => customThemeExtension.calendarDaysOfWeek;
+  Color get calendarDays => customThemeExtension.calendarDays;
+  Color get calendarToggleBackground =>
+      customThemeExtension.calendarToggleBackground;
 }

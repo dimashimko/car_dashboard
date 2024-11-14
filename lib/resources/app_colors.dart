@@ -38,6 +38,9 @@ class AppColors {
   static const Color inactiveRedDark = Color(0xFF312b36);
   static const Color sellCarsTooltipLight = Color(0xFF2B2945);
   static const Color offerBlue = Color(0xFF407EF9);
+  static const Color grayC3 = Color(0xFFC3C3C3);
+  static const Color grayF9 = Color(0xFFF9F9F9);
+  static const Color calendarToggleBackgroundDark = Color(0xFF2B2E38);
 }
 
 class Primary {

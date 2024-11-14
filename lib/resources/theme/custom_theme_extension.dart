@@ -45,6 +45,9 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension>
     required this.averagePrice,
     required this.arcBackground,
     required this.offerParameters,
+    required this.calendarDaysOfWeek,
+    required this.calendarDays,
+    required this.calendarToggleBackground,
   });
 
   @override
@@ -113,6 +116,12 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension>
   final Color arcBackground;
   @override
   final Color offerParameters;
+  @override
+  final Color calendarDaysOfWeek;
+  @override
+  final Color calendarDays;
+  @override
+  final Color calendarToggleBackground;
 }
 
 final lightCustomThemeExtension = CustomThemeExtension(
@@ -149,6 +158,9 @@ final lightCustomThemeExtension = CustomThemeExtension(
   averagePrice: AppColors.gray.dark6,
   arcBackground: AppColors.grayF3,
   offerParameters: AppColors.gray.dark5,
+  calendarDaysOfWeek: AppColors.grayC3,
+  calendarDays: AppColors.gray.dark2,
+  calendarToggleBackground: AppColors.grayF9,
 );
 
 final darkCustomThemeExtension = CustomThemeExtension(
@@ -185,4 +197,7 @@ final darkCustomThemeExtension = CustomThemeExtension(
   averagePrice: AppColors.gray.dark4,
   arcBackground: AppColors.gray.dark,
   offerParameters: AppColors.primary.white1,
+  calendarDaysOfWeek: AppColors.primary.white1,
+  calendarDays: AppColors.primary.white1,
+  calendarToggleBackground: AppColors.calendarToggleBackgroundDark,
 );
