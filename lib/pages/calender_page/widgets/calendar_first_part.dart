@@ -4,6 +4,7 @@ import 'package:gap/gap.dart';
 import '../../../resources/app_typography.dart';
 import '../../../resources/theme/custom_theme_extension.dart';
 import 'custom_calendar.dart';
+import 'upcoming_events.dart';
 
 class CalendarFirstPart extends StatelessWidget {
   const CalendarFirstPart({super.key});
@@ -28,6 +29,7 @@ class CalendarFirstPart extends StatelessWidget {
           isShowAdjacentDays: false,
         ),
         const Gap(16.0),
+        const UpcomingEvents(),
       ],
     );
   }

@@ -41,10 +41,13 @@ class AppColors {
   static const Color grayC3 = Color(0xFFC3C3C3);
   static const Color grayF9 = Color(0xFFF9F9F9);
   static const Color calendarToggleBackgroundDark = Color(0xFF2B2E38);
+  static const Color upcomingEventsTimeNowText = Color(0xFFF65E5E);
+  static const Color upcomingEventsTimeNowDivider = Color(0xFFFAAEAE);
 }
 
 class Primary {
   Color purple = const Color(0xFFA162F7);
+  Color onPurple = const Color(0xFFB37DFC);
   Color dark1 = const Color(0xFF242731);
   Color white1 = const Color(0xFFE0E4E7);
 }
@@ -53,7 +56,9 @@ class Secondary {
   Color red = const Color(0xFFFF6370);
   Color yellow = const Color(0xFFF6CC0D);
   Color blue = const Color(0xFF2884FF);
+  Color onBlue = const Color(0xFF549CFD);
   Color green = const Color(0xFF70CF97);
+  Color onGreen = const Color(0xFF50C777);
   Color orange = const Color(0xFFFF764C);
 }
 

@@ -27,6 +27,12 @@ class AppTypography {
     fontFamily: AppFonts.fontFamilyDMSans,
   );
 
+  static const TextStyle title11B = TextStyle(
+    fontSize: 11.0,
+    fontWeight: AppFonts.bold,
+    fontFamily: AppFonts.fontFamilyDMSans,
+  );
+
   static const TextStyle title18R = TextStyle(
     fontSize: 18.0,
     fontWeight: AppFonts.regular,

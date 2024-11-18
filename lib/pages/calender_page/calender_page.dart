@@ -18,7 +18,6 @@ class CalenderPage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // if (false)
                 LayoutBuilder(
                   builder: (context, constraints) {
                     double availableWidth = constraints.maxWidth;

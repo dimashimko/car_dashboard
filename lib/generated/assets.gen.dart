@@ -111,6 +111,9 @@ class $AssetsIconsGen {
   SvgGenImage get passengers =>
       const SvgGenImage('assets/icons/passengers.svg');
 
+  /// File path: assets/icons/point.svg
+  SvgGenImage get point => const SvgGenImage('assets/icons/point.svg');
+
   /// File path: assets/icons/range.svg
   SvgGenImage get range => const SvgGenImage('assets/icons/range.svg');
 
@@ -183,6 +186,7 @@ class $AssetsIconsGen {
         messagesIcon,
         notification,
         passengers,
+        point,
         range,
         recomended,
         repeat,
@@ -204,6 +208,18 @@ class $AssetsImagesGen {
 
   /// File path: assets/images/avatar.png
   AssetGenImage get avatar => const AssetGenImage('assets/images/avatar.png');
+
+  /// File path: assets/images/avatar02.png
+  AssetGenImage get avatar02 =>
+      const AssetGenImage('assets/images/avatar02.png');
+
+  /// File path: assets/images/avatar03.png
+  AssetGenImage get avatar03 =>
+      const AssetGenImage('assets/images/avatar03.png');
+
+  /// File path: assets/images/avatar04.png
+  AssetGenImage get avatar04 =>
+      const AssetGenImage('assets/images/avatar04.png');
 
   /// File path: assets/images/car_assets.png
   AssetGenImage get carAssets =>
@@ -240,6 +256,22 @@ class $AssetsImagesGen {
   AssetGenImage get miniCooper =>
       const AssetGenImage('assets/images/mini_cooper.png');
 
+  /// File path: assets/images/photo-02.jpg
+  AssetGenImage get photo02 =>
+      const AssetGenImage('assets/images/photo-02.jpg');
+
+  /// File path: assets/images/photo-03.jpeg
+  AssetGenImage get photo03 =>
+      const AssetGenImage('assets/images/photo-03.jpeg');
+
+  /// File path: assets/images/photo-04.jpeg
+  AssetGenImage get photo04 =>
+      const AssetGenImage('assets/images/photo-04.jpeg');
+
+  /// File path: assets/images/photo-05.jpeg
+  AssetGenImage get photo05 =>
+      const AssetGenImage('assets/images/photo-05.jpeg');
+
   /// File path: assets/images/porsche_carella_1.png
   AssetGenImage get porscheCarella1 =>
       const AssetGenImage('assets/images/porsche_carella_1.png');
@@ -251,6 +283,9 @@ class $AssetsImagesGen {
   /// List of all assets
   List<AssetGenImage> get values => [
         avatar,
+        avatar02,
+        avatar03,
+        avatar04,
         carAssets,
         carAudiA4,
         carAudiQ5,
@@ -260,6 +295,10 @@ class $AssetsImagesGen {
         carToyotaInnova,
         logo,
         miniCooper,
+        photo02,
+        photo03,
+        photo04,
+        photo05,
         porscheCarella1,
         porscheCarella2
       ];

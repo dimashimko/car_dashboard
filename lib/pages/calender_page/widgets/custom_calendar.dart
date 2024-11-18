@@ -69,7 +69,6 @@ class _CustomCalendarState extends State<CustomCalendar> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  // Calendar header
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -120,15 +119,13 @@ class _CustomCalendarState extends State<CustomCalendar> {
                     color: AppColors.secondary.red,
                     textStyleSelected: AppTypography.title16b.copyWith(
                       color: AppColors.white,
-                      // fontSize: 16.toResponsive(constraints),
-                      fontSize: 16,
+                      fontSize: 16.toResponsive(constraints),
                     ),
                     textStyleNoSelected: AppTypography.title16b.copyWith(
                       color: colors(context).parametersTextColor,
                       fontSize: 16.toResponsive(constraints),
                     ),
                   ),
-                  // Weekday headers
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 8.0),
                     child: DefaultTextStyle(
@@ -150,9 +147,9 @@ class _CustomCalendarState extends State<CustomCalendar> {
                       ),
                     ),
                   ),
-                  // Calendar grid
                   GridView.count(
                     shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
                     crossAxisCount: 7,
                     children: _getDaysInMonth(_currentMonth).map((date) {
                       bool isSelected = date.year == _selectedDate.year &&
@@ -201,7 +198,6 @@ class _CustomCalendarState extends State<CustomCalendar> {
                                               ? Colors.grey
                                               : Colors.transparent
                                           : isSelected
-                                              // ? Colors.white
                                               ? AppColors.gray.white
                                               : colors(context).calendarDays,
                                     ),
