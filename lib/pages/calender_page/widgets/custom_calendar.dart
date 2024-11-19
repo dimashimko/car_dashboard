@@ -167,7 +167,7 @@ class _CustomCalendarState extends State<CustomCalendar> {
                               splashColor: Colors.transparent,
                               focusColor: Colors.transparent,
                               highlightColor: Colors.transparent,
-                              hoverColor: widget.isShowAdjacentDays
+                              hoverColor: isCurrentMonth
                                   ? Colors.grey.withOpacity(0.5)
                                   : Colors.transparent,
                               onTap: () {},

@@ -13,6 +13,7 @@ class CalendarEvent with _$CalendarEvent {
     @ColorConverter() required Color? onColor,
     required String title,
     required String type,
+    String? info,
     required List<String> participants,
   }) = _CalendarEvent;
 

@@ -96,12 +96,16 @@ class _CustomSmallPlanerState extends State<CustomSmallPlaner> {
             ...List.generate(
               hourlyList.length,
               (index) {
+                if (dateTimeNow.difference(hourlyList[index]).inMinutes.modulo <
+                    15) {
+                  return const SizedBox();
+                }
                 return Padding(
                   padding: EdgeInsets.only(
                     top: widget.scaleFactor * index,
                   ),
                   child: PlanerTimeCard(
-                    time: hourlyList[index].toHourMinuteAmPm,
+                    time: hourlyList[index].toHourMinute,
                     timeWidth: widget.timeWidth,
                   ),
                 );
@@ -112,7 +116,7 @@ class _CustomSmallPlanerState extends State<CustomSmallPlaner> {
                 top: dateTimeNow.toPadding(widget.scaleFactor),
               ),
               child: PlanerTimeNowLine(
-                time: dateTimeNow.toHourMinuteAmPm,
+                time: dateTimeNow.toHourMinute,
                 timeWidth: widget.timeWidth,
               ),
             ),

@@ -16,6 +16,7 @@ _$CalendarEventImpl _$$CalendarEventImplFromJson(Map<String, dynamic> json) =>
           json['onColor'], const ColorConverter().fromJson),
       title: json['title'] as String,
       type: json['type'] as String,
+      info: json['info'] as String?,
       participants: (json['participants'] as List<dynamic>)
           .map((e) => e as String)
           .toList(),
@@ -31,6 +32,7 @@ Map<String, dynamic> _$$CalendarEventImplToJson(_$CalendarEventImpl instance) =>
           instance.onColor, const ColorConverter().toJson),
       'title': instance.title,
       'type': instance.type,
+      'info': instance.info,
       'participants': instance.participants,
     };
 

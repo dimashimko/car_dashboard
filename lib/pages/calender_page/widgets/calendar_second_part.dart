@@ -3,6 +3,7 @@ import 'package:gap/gap.dart';
 
 import '../../../resources/app_typography.dart';
 import '../../../resources/theme/custom_theme_extension.dart';
+import 'task_board.dart';
 
 class CalendarSecondPart extends StatelessWidget {
   const CalendarSecondPart({super.key});
@@ -18,6 +19,7 @@ class CalendarSecondPart extends StatelessWidget {
           ),
         ),
         const Gap(16.0),
+        const TaskBoard(),
       ],
     );
   }

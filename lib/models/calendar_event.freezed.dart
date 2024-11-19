@@ -28,6 +28,7 @@ mixin _$CalendarEvent {
   Color? get onColor => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get type => throw _privateConstructorUsedError;
+  String? get info => throw _privateConstructorUsedError;
   List<String> get participants => throw _privateConstructorUsedError;
 
   /// Serializes this CalendarEvent to a JSON map.
@@ -53,6 +54,7 @@ abstract class $CalendarEventCopyWith<$Res> {
       @ColorConverter() Color? onColor,
       String title,
       String type,
+      String? info,
       List<String> participants});
 }
 
@@ -77,6 +79,7 @@ class _$CalendarEventCopyWithImpl<$Res, $Val extends CalendarEvent>
     Object? onColor = freezed,
     Object? title = null,
     Object? type = null,
+    Object? info = freezed,
     Object? participants = null,
   }) {
     return _then(_value.copyWith(
@@ -104,6 +107,10 @@ class _$CalendarEventCopyWithImpl<$Res, $Val extends CalendarEvent>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
+      info: freezed == info
+          ? _value.info
+          : info // ignore: cast_nullable_to_non_nullable
+              as String?,
       participants: null == participants
           ? _value.participants
           : participants // ignore: cast_nullable_to_non_nullable
@@ -127,6 +134,7 @@ abstract class _$$CalendarEventImplCopyWith<$Res>
       @ColorConverter() Color? onColor,
       String title,
       String type,
+      String? info,
       List<String> participants});
 }
 
@@ -149,6 +157,7 @@ class __$$CalendarEventImplCopyWithImpl<$Res>
     Object? onColor = freezed,
     Object? title = null,
     Object? type = null,
+    Object? info = freezed,
     Object? participants = null,
   }) {
     return _then(_$CalendarEventImpl(
@@ -176,6 +185,10 @@ class __$$CalendarEventImplCopyWithImpl<$Res>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
+      info: freezed == info
+          ? _value.info
+          : info // ignore: cast_nullable_to_non_nullable
+              as String?,
       participants: null == participants
           ? _value._participants
           : participants // ignore: cast_nullable_to_non_nullable
@@ -194,6 +207,7 @@ class _$CalendarEventImpl implements _CalendarEvent {
       @ColorConverter() required this.onColor,
       required this.title,
       required this.type,
+      this.info,
       required final List<String> participants})
       : _participants = participants;
 
@@ -214,6 +228,8 @@ class _$CalendarEventImpl implements _CalendarEvent {
   final String title;
   @override
   final String type;
+  @override
+  final String? info;
   final List<String> _participants;
   @override
   List<String> get participants {
@@ -224,7 +240,7 @@ class _$CalendarEventImpl implements _CalendarEvent {
 
   @override
   String toString() {
-    return 'CalendarEvent(startTime: $startTime, endTime: $endTime, color: $color, onColor: $onColor, title: $title, type: $type, participants: $participants)';
+    return 'CalendarEvent(startTime: $startTime, endTime: $endTime, color: $color, onColor: $onColor, title: $title, type: $type, info: $info, participants: $participants)';
   }
 
   @override
@@ -239,14 +255,23 @@ class _$CalendarEventImpl implements _CalendarEvent {
             (identical(other.onColor, onColor) || other.onColor == onColor) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.type, type) || other.type == type) &&
+            (identical(other.info, info) || other.info == info) &&
             const DeepCollectionEquality()
                 .equals(other._participants, _participants));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, startTime, endTime, color,
-      onColor, title, type, const DeepCollectionEquality().hash(_participants));
+  int get hashCode => Object.hash(
+      runtimeType,
+      startTime,
+      endTime,
+      color,
+      onColor,
+      title,
+      type,
+      info,
+      const DeepCollectionEquality().hash(_participants));
 
   /// Create a copy of CalendarEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -272,6 +297,7 @@ abstract class _CalendarEvent implements CalendarEvent {
       @ColorConverter() required final Color? onColor,
       required final String title,
       required final String type,
+      final String? info,
       required final List<String> participants}) = _$CalendarEventImpl;
 
   factory _CalendarEvent.fromJson(Map<String, dynamic> json) =
@@ -291,6 +317,8 @@ abstract class _CalendarEvent implements CalendarEvent {
   String get title;
   @override
   String get type;
+  @override
+  String? get info;
   @override
   List<String> get participants;
 

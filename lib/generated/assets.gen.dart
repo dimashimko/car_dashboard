@@ -22,6 +22,16 @@ class $AssetsIconsGen {
   SvgGenImage get arrowBoldForvard =>
       const SvgGenImage('assets/icons/arrow_bold_forvard.svg');
 
+  /// File path: assets/icons/arrow_down.svg
+  SvgGenImage get arrowDown => const SvgGenImage('assets/icons/arrow_down.svg');
+
+  /// File path: assets/icons/arrow_left.svg
+  SvgGenImage get arrowLeft => const SvgGenImage('assets/icons/arrow_left.svg');
+
+  /// File path: assets/icons/arrow_rigth.svg
+  SvgGenImage get arrowRigth =>
+      const SvgGenImage('assets/icons/arrow_rigth.svg');
+
   /// File path: assets/icons/arrow_white_rigth.svg
   SvgGenImage get arrowWhiteRigth =>
       const SvgGenImage('assets/icons/arrow_white_rigth.svg');
@@ -41,6 +51,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/buy_car_icon.svg
   SvgGenImage get buyCarIcon =>
       const SvgGenImage('assets/icons/buy_car_icon.svg');
+
+  /// File path: assets/icons/calendar.svg
+  SvgGenImage get calendar => const SvgGenImage('assets/icons/calendar.svg');
 
   /// File path: assets/icons/calendar_icon.svg
   SvgGenImage get calendarIcon =>
@@ -161,11 +174,15 @@ class $AssetsIconsGen {
   List<SvgGenImage> get values => [
         analyze,
         arrowBoldForvard,
+        arrowDown,
+        arrowLeft,
+        arrowRigth,
         arrowWhiteRigth,
         assetsIcon,
         bookingIcon,
         breakFluid,
         buyCarIcon,
+        calendar,
         calendarIcon,
         car,
         checkboxOff,

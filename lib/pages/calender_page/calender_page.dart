@@ -14,7 +14,7 @@ class CalenderPage extends StatelessWidget {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.all(30.0),
+            padding: const EdgeInsets.all(16.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -26,11 +26,13 @@ class CalenderPage extends StatelessWidget {
                       return const Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Flexible(
-                            fit: FlexFit.tight,
-                            flex: 3,
-                            child: CalendarFirstPart(),
-                          ),
+                          if (true)
+                            // if (false)
+                            Flexible(
+                              fit: FlexFit.tight,
+                              flex: 3,
+                              child: CalendarFirstPart(),
+                            ),
                           Gap(24.0),
                           Flexible(
                             fit: FlexFit.tight,
@@ -42,7 +44,8 @@ class CalenderPage extends StatelessWidget {
                     } else {
                       return const Column(
                         children: [
-                          CalendarFirstPart(),
+                          // if (false)
+                          if (true) CalendarFirstPart(),
                           CalendarSecondPart(),
                         ],
                       );
