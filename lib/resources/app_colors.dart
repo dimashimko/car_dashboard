@@ -43,6 +43,7 @@ class AppColors {
   static const Color calendarToggleBackgroundDark = Color(0xFF2B2E38);
   static const Color upcomingEventsTimeNowText = Color(0xFFF65E5E);
   static const Color upcomingEventsTimeNowDivider = Color(0xFFFAAEAE);
+  static const Color violet = Color(0xFF725CFF);
 }
 
 class Primary {
