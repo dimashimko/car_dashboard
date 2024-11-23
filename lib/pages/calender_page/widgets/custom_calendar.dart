@@ -112,6 +112,7 @@ class _CustomCalendarState extends State<CustomCalendar> {
                       ),
                     ],
                   ),
+                  const Gap(24.0),
                   CustomToggleButton(
                     options: ['Week', 'Month'],
                     height: 37.0,
@@ -126,6 +127,7 @@ class _CustomCalendarState extends State<CustomCalendar> {
                       fontSize: 16.toResponsive(constraints),
                     ),
                   ),
+                  const Gap(24.0),
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 8.0),
                     child: DefaultTextStyle(
@@ -147,6 +149,7 @@ class _CustomCalendarState extends State<CustomCalendar> {
                       ),
                     ),
                   ),
+                  const Gap(16.0),
                   GridView.count(
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
