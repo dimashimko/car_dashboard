@@ -23,6 +23,7 @@ class _CustomSmallPlanerState extends State<CustomSmallPlaner> {
   DateTime dateTimeNow = DateTime.now();
   List<CalendarEvent> events = [
     CalendarEvent(
+      id: 1,
       startTime: DateTime(2024, 11, 15, 0, 0),
       endTime: DateTime(2024, 11, 15, 2, 0),
       color: AppColors.primary.purple,
@@ -40,6 +41,7 @@ class _CustomSmallPlanerState extends State<CustomSmallPlaner> {
       ],
     ),
     CalendarEvent(
+      id: 2,
       startTime: DateTime(2024, 11, 15, 2, 10),
       endTime: DateTime(2024, 11, 15, 4, 0),
       color: AppColors.secondary.blue,
@@ -55,6 +57,7 @@ class _CustomSmallPlanerState extends State<CustomSmallPlaner> {
       ],
     ),
     CalendarEvent(
+      id: 3,
       startTime: DateTime(2024, 11, 15, 4, 30),
       endTime: DateTime(2024, 11, 15, 5, 15),
       color: AppColors.secondary.green,

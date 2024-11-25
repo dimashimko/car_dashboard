@@ -22,6 +22,7 @@ class _TaskBoardPlanerState extends State<TaskBoardPlaner> {
   DateTime dateTimeNow = DateTime.now();
   List<CalendarEvent> events = [
     CalendarEvent(
+      id: 1,
       startTime: DateTime(2024, 11, 15, 0, 0),
       endTime: DateTime(2024, 11, 15, 2, 0),
       color: AppColors.primary.purple,
@@ -32,6 +33,7 @@ class _TaskBoardPlanerState extends State<TaskBoardPlaner> {
       participants: [],
     ),
     CalendarEvent(
+      id: 2,
       startTime: DateTime(2024, 11, 15, 2, 10),
       endTime: DateTime(2024, 11, 15, 4, 0),
       color: AppColors.secondary.blue,
@@ -42,6 +44,7 @@ class _TaskBoardPlanerState extends State<TaskBoardPlaner> {
       participants: [],
     ),
     CalendarEvent(
+      id: 3,
       startTime: DateTime(2024, 11, 15, 4, 30),
       endTime: DateTime(2024, 11, 15, 5, 15),
       color: AppColors.secondary.green,
@@ -52,6 +55,7 @@ class _TaskBoardPlanerState extends State<TaskBoardPlaner> {
       participants: [],
     ),
     CalendarEvent(
+      id: 4,
       startTime: DateTime(2024, 11, 15, 6, 0),
       endTime: DateTime(2024, 11, 15, 8, 0),
       // color: AppColors.secondary.orange,
@@ -62,6 +66,39 @@ class _TaskBoardPlanerState extends State<TaskBoardPlaner> {
       participants: [],
     ),
   ];
+
+  void changeCalendarEvent({
+    required CalendarEvent calendarEvent,
+    required Offset offset,
+  }) {
+    if (offset.dy <= 0 || offset.dy >= widget.scaleFactor * 24) {
+      return;
+    }
+
+    setState(() {
+      events = events.map((event) {
+        if (event.id == calendarEvent.id) {
+          final DateTime newStartTime = _calculateNewStartTime(offset.dy);
+          final Duration duration = event.endTime.difference(event.startTime);
+          final DateTime newEndTime = newStartTime.add(duration);
+
+          return event.copyWith(
+            startTime: newStartTime,
+            endTime: newEndTime,
+          );
+        }
+        return event;
+      }).toList();
+    });
+  }
+
+  DateTime _calculateNewStartTime(double offsetY) {
+    final double time = offsetY / widget.scaleFactor;
+    final int hour = time.toInt();
+    final int minute = ((time - hour) * 60).toInt();
+
+    return DateTime(2024, 11, 15, hour, minute);
+  }
 
   List<DateTime> generateHourlyTimestamps(DateTime day) {
     return List.generate(24, (index) {
@@ -81,7 +118,7 @@ class _TaskBoardPlanerState extends State<TaskBoardPlaner> {
   Widget build(BuildContext context) {
     return Container(
       color: colors(context).background,
-      // height: 820,
+      height: 420,
       width: double.infinity,
       child: SingleChildScrollView(
         child: Stack(
@@ -105,6 +142,30 @@ class _TaskBoardPlanerState extends State<TaskBoardPlaner> {
                 );
               },
             ),
+            LayoutBuilder(
+              builder: (context, constraints) {
+                return DragTarget<CalendarEvent>(
+                  builder: (context, candidateData, rejectedData) {
+                    return Container(
+                      color: Colors.transparent,
+                      width: double.infinity,
+                      height: hourlyList.length * widget.scaleFactor,
+                    );
+                  },
+                  onWillAcceptWithDetails: (data) => true,
+                  onAcceptWithDetails: (details) {
+                    RenderBox renderBox =
+                        context.findRenderObject() as RenderBox;
+                    Offset localPosition =
+                        renderBox.globalToLocal(details.offset);
+                    changeCalendarEvent(
+                      calendarEvent: details.data,
+                      offset: localPosition,
+                    );
+                  },
+                );
+              },
+            ),
             ...List.generate(
               events.length,
               (index) {
@@ -112,10 +173,25 @@ class _TaskBoardPlanerState extends State<TaskBoardPlaner> {
                   padding: EdgeInsets.only(
                     top: events[index].startTime.toPadding(widget.scaleFactor),
                   ),
-                  child: TaskBoardEventCard(
-                    calendarEvent: events[index],
-                    timeWidth: widget.timeWidth,
-                    scaleFactor: widget.scaleFactor,
+                  child: LongPressDraggable<CalendarEvent>(
+                    data: events[index],
+                    feedback: SizedBox(
+                      width: 400,
+                      child: Opacity(
+                        opacity: 0.5,
+                        child: TaskBoardEventCard(
+                          calendarEvent: events[index],
+                          timeWidth: widget.timeWidth,
+                          scaleFactor: widget.scaleFactor,
+                        ),
+                      ),
+                    ),
+                    childWhenDragging: const SizedBox(),
+                    child: TaskBoardEventCard(
+                      calendarEvent: events[index],
+                      timeWidth: widget.timeWidth,
+                      scaleFactor: widget.scaleFactor,
+                    ),
                   ),
                 );
               },

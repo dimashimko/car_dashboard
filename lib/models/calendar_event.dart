@@ -7,6 +7,7 @@ part 'calendar_event.g.dart';
 @freezed
 class CalendarEvent with _$CalendarEvent {
   const factory CalendarEvent({
+    required int id,
     required DateTime startTime,
     required DateTime endTime,
     @ColorConverter() Color? color,

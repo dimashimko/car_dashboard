@@ -20,6 +20,7 @@ CalendarEvent _$CalendarEventFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$CalendarEvent {
+  int get id => throw _privateConstructorUsedError;
   DateTime get startTime => throw _privateConstructorUsedError;
   DateTime get endTime => throw _privateConstructorUsedError;
   @ColorConverter()
@@ -48,7 +49,8 @@ abstract class $CalendarEventCopyWith<$Res> {
       _$CalendarEventCopyWithImpl<$Res, CalendarEvent>;
   @useResult
   $Res call(
-      {DateTime startTime,
+      {int id,
+      DateTime startTime,
       DateTime endTime,
       @ColorConverter() Color? color,
       @ColorConverter() Color? onColor,
@@ -73,6 +75,7 @@ class _$CalendarEventCopyWithImpl<$Res, $Val extends CalendarEvent>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? startTime = null,
     Object? endTime = null,
     Object? color = freezed,
@@ -83,6 +86,10 @@ class _$CalendarEventCopyWithImpl<$Res, $Val extends CalendarEvent>
     Object? participants = null,
   }) {
     return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
       startTime: null == startTime
           ? _value.startTime
           : startTime // ignore: cast_nullable_to_non_nullable
@@ -128,7 +135,8 @@ abstract class _$$CalendarEventImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {DateTime startTime,
+      {int id,
+      DateTime startTime,
       DateTime endTime,
       @ColorConverter() Color? color,
       @ColorConverter() Color? onColor,
@@ -151,6 +159,7 @@ class __$$CalendarEventImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? startTime = null,
     Object? endTime = null,
     Object? color = freezed,
@@ -161,6 +170,10 @@ class __$$CalendarEventImplCopyWithImpl<$Res>
     Object? participants = null,
   }) {
     return _then(_$CalendarEventImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
       startTime: null == startTime
           ? _value.startTime
           : startTime // ignore: cast_nullable_to_non_nullable
@@ -201,7 +214,8 @@ class __$$CalendarEventImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$CalendarEventImpl implements _CalendarEvent {
   const _$CalendarEventImpl(
-      {required this.startTime,
+      {required this.id,
+      required this.startTime,
       required this.endTime,
       @ColorConverter() this.color,
       @ColorConverter() this.onColor,
@@ -214,6 +228,8 @@ class _$CalendarEventImpl implements _CalendarEvent {
   factory _$CalendarEventImpl.fromJson(Map<String, dynamic> json) =>
       _$$CalendarEventImplFromJson(json);
 
+  @override
+  final int id;
   @override
   final DateTime startTime;
   @override
@@ -240,7 +256,7 @@ class _$CalendarEventImpl implements _CalendarEvent {
 
   @override
   String toString() {
-    return 'CalendarEvent(startTime: $startTime, endTime: $endTime, color: $color, onColor: $onColor, title: $title, type: $type, info: $info, participants: $participants)';
+    return 'CalendarEvent(id: $id, startTime: $startTime, endTime: $endTime, color: $color, onColor: $onColor, title: $title, type: $type, info: $info, participants: $participants)';
   }
 
   @override
@@ -248,6 +264,7 @@ class _$CalendarEventImpl implements _CalendarEvent {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CalendarEventImpl &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.startTime, startTime) ||
                 other.startTime == startTime) &&
             (identical(other.endTime, endTime) || other.endTime == endTime) &&
@@ -264,6 +281,7 @@ class _$CalendarEventImpl implements _CalendarEvent {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      id,
       startTime,
       endTime,
       color,
@@ -291,7 +309,8 @@ class _$CalendarEventImpl implements _CalendarEvent {
 
 abstract class _CalendarEvent implements CalendarEvent {
   const factory _CalendarEvent(
-      {required final DateTime startTime,
+      {required final int id,
+      required final DateTime startTime,
       required final DateTime endTime,
       @ColorConverter() final Color? color,
       @ColorConverter() final Color? onColor,
@@ -303,6 +322,8 @@ abstract class _CalendarEvent implements CalendarEvent {
   factory _CalendarEvent.fromJson(Map<String, dynamic> json) =
       _$CalendarEventImpl.fromJson;
 
+  @override
+  int get id;
   @override
   DateTime get startTime;
   @override
