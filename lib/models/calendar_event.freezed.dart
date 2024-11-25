@@ -203,8 +203,8 @@ class _$CalendarEventImpl implements _CalendarEvent {
   const _$CalendarEventImpl(
       {required this.startTime,
       required this.endTime,
-      @ColorConverter() required this.color,
-      @ColorConverter() required this.onColor,
+      @ColorConverter() this.color,
+      @ColorConverter() this.onColor,
       required this.title,
       required this.type,
       this.info,
@@ -293,8 +293,8 @@ abstract class _CalendarEvent implements CalendarEvent {
   const factory _CalendarEvent(
       {required final DateTime startTime,
       required final DateTime endTime,
-      @ColorConverter() required final Color? color,
-      @ColorConverter() required final Color? onColor,
+      @ColorConverter() final Color? color,
+      @ColorConverter() final Color? onColor,
       required final String title,
       required final String type,
       final String? info,

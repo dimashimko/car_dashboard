@@ -10,6 +10,7 @@ class AppColors {
 
   static const Color transparent = Colors.transparent;
   static const Color white = Color(0xffffffff);
+  static const Color grayishWhite = Color(0xffF0F1F4);
   static const Color grayF5 = Color(0xffF5F5F5);
   static const Color lightShadeBlueGray = Color(0xffF3F5F8);
   static const Color darkShadeBlueGray = Color(0xff292E3D);
@@ -39,6 +40,7 @@ class AppColors {
   static const Color sellCarsTooltipLight = Color(0xFF2B2945);
   static const Color offerBlue = Color(0xFF407EF9);
   static const Color grayC3 = Color(0xFFC3C3C3);
+  static const Color grayC4 = Color(0xFFC4C4C4);
   static const Color grayF9 = Color(0xFFF9F9F9);
   static const Color calendarToggleBackgroundDark = Color(0xFF2B2E38);
   static const Color upcomingEventsTimeNowText = Color(0xFFF65E5E);

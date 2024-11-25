@@ -6,6 +6,7 @@ import 'package:gap/gap.dart';
 
 import '../../../models/calendar_event.dart';
 import 'planer_event_participant_card.dart';
+import 'task_board_container.dart';
 
 class TaskBoardEventCard extends StatelessWidget {
   const TaskBoardEventCard({
@@ -27,7 +28,7 @@ class TaskBoardEventCard extends StatelessWidget {
         right: 52.0,
       ),
       child: ClipRRect(
-        child: Container(
+        child: TaskBoardContainer(
           width: double.infinity,
           height: calendarEvent.endTime
               .difference(
@@ -36,12 +37,7 @@ class TaskBoardEventCard extends StatelessWidget {
               .toHeight(
                 scaleFactor,
               ),
-          decoration: BoxDecoration(
-            color: calendarEvent.color,
-            borderRadius: const BorderRadius.all(
-              Radius.circular(10.0),
-            ),
-          ),
+          calendarEventColor: calendarEvent.color,
           child: Padding(
             padding: const EdgeInsets.all(10.0),
             child: LayoutBuilder(
@@ -60,13 +56,17 @@ class TaskBoardEventCard extends StatelessWidget {
                             Text(
                               calendarEvent.startTime.toHourMinuteAmPm,
                               style: AppTypography.title12m.copyWith(
-                                color: AppColors.white,
+                                color: calendarEvent.color == null
+                                    ? AppColors.primary.dark1
+                                    : AppColors.white,
                               ),
                             ),
                             Text(
                               calendarEvent.info ?? '',
                               style: AppTypography.title12m.copyWith(
-                                color: AppColors.white,
+                                color: calendarEvent.color == null
+                                    ? AppColors.primary.dark1
+                                    : AppColors.white,
                               ),
                             ),
                           ],
@@ -74,7 +74,9 @@ class TaskBoardEventCard extends StatelessWidget {
                         Text(
                           calendarEvent.title,
                           style: AppTypography.title14m.copyWith(
-                            color: AppColors.white,
+                            color: calendarEvent.color == null
+                                ? AppColors.gray.dark2
+                                : AppColors.white,
                           ),
                         ),
                         Row(
@@ -83,7 +85,9 @@ class TaskBoardEventCard extends StatelessWidget {
                             Text(
                               calendarEvent.type,
                               style: AppTypography.title14m.copyWith(
-                                color: AppColors.white,
+                                color: calendarEvent.color == null
+                                    ? AppColors.gray.dark3
+                                    : AppColors.white,
                               ),
                             ),
                             const Gap(8.0),

@@ -9,8 +9,8 @@ class CalendarEvent with _$CalendarEvent {
   const factory CalendarEvent({
     required DateTime startTime,
     required DateTime endTime,
-    @ColorConverter() required Color? color,
-    @ColorConverter() required Color? onColor,
+    @ColorConverter() Color? color,
+    @ColorConverter() Color? onColor,
     required String title,
     required String type,
     String? info,

@@ -54,7 +54,7 @@ class _TaskBoardPlanerState extends State<TaskBoardPlaner> {
     CalendarEvent(
       startTime: DateTime(2024, 11, 15, 6, 0),
       endTime: DateTime(2024, 11, 15, 8, 0),
-      color: AppColors.secondary.orange,
+      // color: AppColors.secondary.orange,
       onColor: AppColors.gray.white,
       title: 'Private Event',
       type: 'All Motorbikes',
