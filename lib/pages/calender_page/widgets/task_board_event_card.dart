@@ -12,139 +12,143 @@ class TaskBoardEventCard extends StatelessWidget {
   const TaskBoardEventCard({
     super.key,
     required this.calendarEvent,
-    required this.timeWidth,
+    required this.leftPadding,
+    required this.width,
     required this.scaleFactor,
   });
 
   final CalendarEvent calendarEvent;
-  final double timeWidth;
+  final double leftPadding;
+  final double width;
   final double scaleFactor;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
-        left: timeWidth + 20.0,
-        right: 52.0,
+        left: leftPadding,
       ),
-      child: ClipRRect(
-        child: TaskBoardContainer(
-          width: double.infinity,
-          height: calendarEvent.endTime
-              .difference(
-                calendarEvent.startTime,
-              )
-              .toHeight(
-                scaleFactor,
-              ),
-          calendarEventColor: calendarEvent.color,
-          child: Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: LayoutBuilder(
-              builder: (context, constraints) {
-                return SingleChildScrollView(
-                  child: ConstrainedBox(
-                    constraints:
-                        BoxConstraints(minHeight: constraints.maxHeight),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              calendarEvent.startTime.toHourMinuteAmPm,
-                              style: AppTypography.title12m.copyWith(
-                                color: calendarEvent.color == null
-                                    ? AppColors.primary.dark1
-                                    : AppColors.white,
+      child: SizedBox(
+        width: width,
+        child: ClipRRect(
+          child: TaskBoardContainer(
+            width: double.infinity,
+            height: calendarEvent.endTime
+                .difference(
+                  calendarEvent.startTime,
+                )
+                .toHeight(
+                  scaleFactor,
+                ),
+            calendarEventColor: calendarEvent.color,
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: LayoutBuilder(
+                builder: (context, constraints) {
+                  return SingleChildScrollView(
+                    child: ConstrainedBox(
+                      constraints:
+                          BoxConstraints(minHeight: constraints.maxHeight),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                calendarEvent.startTime.toHourMinuteAmPm,
+                                style: AppTypography.title12m.copyWith(
+                                  color: calendarEvent.color == null
+                                      ? AppColors.primary.dark1
+                                      : AppColors.white,
+                                ),
                               ),
-                            ),
-                            Text(
-                              calendarEvent.info ?? '',
-                              style: AppTypography.title12m.copyWith(
-                                color: calendarEvent.color == null
-                                    ? AppColors.primary.dark1
-                                    : AppColors.white,
+                              Text(
+                                calendarEvent.info ?? '',
+                                style: AppTypography.title12m.copyWith(
+                                  color: calendarEvent.color == null
+                                      ? AppColors.primary.dark1
+                                      : AppColors.white,
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                        Text(
-                          calendarEvent.title,
-                          style: AppTypography.title14m.copyWith(
-                            color: calendarEvent.color == null
-                                ? AppColors.gray.dark2
-                                : AppColors.white,
+                            ],
                           ),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              calendarEvent.type,
-                              style: AppTypography.title14m.copyWith(
-                                color: calendarEvent.color == null
-                                    ? AppColors.gray.dark3
-                                    : AppColors.white,
-                              ),
+                          Text(
+                            calendarEvent.title,
+                            style: AppTypography.title14m.copyWith(
+                              color: calendarEvent.color == null
+                                  ? AppColors.gray.dark2
+                                  : AppColors.white,
                             ),
-                            const Gap(8.0),
-                            Builder(
-                              builder: (context) {
-                                List<String> sublist = [
-                                  ...calendarEvent.participants
-                                ];
-                                if (sublist.length > 3) {
-                                  sublist = sublist.sublist(0, 3);
-                                }
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                calendarEvent.type,
+                                style: AppTypography.title14m.copyWith(
+                                  color: calendarEvent.color == null
+                                      ? AppColors.gray.dark3
+                                      : AppColors.white,
+                                ),
+                              ),
+                              const Gap(8.0),
+                              Builder(
+                                builder: (context) {
+                                  List<String> sublist = [
+                                    ...calendarEvent.participants
+                                  ];
+                                  if (sublist.length > 3) {
+                                    sublist = sublist.sublist(0, 3);
+                                  }
 
-                                return Stack(
-                                  alignment: Alignment.centerRight,
-                                  children: List.generate(
-                                    sublist.length,
-                                    (index) {
-                                      if (index == 2) {
-                                        return PlanerEventParticipantCard(
-                                          backgroundColor:
-                                              calendarEvent.onColor,
-                                          paddingColor: calendarEvent.color,
-                                          child: Text(
-                                            '+${calendarEvent.participants.length - 2}',
-                                            style:
-                                                AppTypography.title11B.copyWith(
-                                              color: AppColors.white,
+                                  return Stack(
+                                    alignment: Alignment.centerRight,
+                                    children: List.generate(
+                                      sublist.length,
+                                      (index) {
+                                        if (index == 2) {
+                                          return PlanerEventParticipantCard(
+                                            backgroundColor:
+                                                calendarEvent.onColor,
+                                            paddingColor: calendarEvent.color,
+                                            child: Text(
+                                              '+${calendarEvent.participants.length - 2}',
+                                              style: AppTypography.title11B
+                                                  .copyWith(
+                                                color: AppColors.white,
+                                              ),
+                                            ),
+                                          );
+                                        }
+                                        return Padding(
+                                          padding: EdgeInsets.only(
+                                            right:
+                                                ((sublist.length - 1) - index) *
+                                                    20.0,
+                                          ),
+                                          child: PlanerEventParticipantCard(
+                                            paddingColor: calendarEvent.color,
+                                            child: Image.asset(
+                                              fit: BoxFit.cover,
+                                              sublist[index],
                                             ),
                                           ),
                                         );
-                                      }
-                                      return Padding(
-                                        padding: EdgeInsets.only(
-                                          right:
-                                              ((sublist.length - 1) - index) *
-                                                  20.0,
-                                        ),
-                                        child: PlanerEventParticipantCard(
-                                          paddingColor: calendarEvent.color,
-                                          child: Image.asset(
-                                            fit: BoxFit.cover,
-                                            sublist[index],
-                                          ),
-                                        ),
-                                      );
-                                    },
-                                  ),
-                                );
-                              },
-                            ),
-                          ],
-                        ),
-                      ],
+                                      },
+                                    ),
+                                  );
+                                },
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                );
-              },
+                  );
+                },
+              ),
             ),
           ),
         ),

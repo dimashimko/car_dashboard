@@ -11,6 +11,8 @@ class TaskBoardPlaner extends StatefulWidget {
   const TaskBoardPlaner({super.key});
 
   final double timeWidth = 80;
+  final double defaultLeftPadding = 20;
+  final double defaultRightPadding = 52;
   final double scaleFactor = 50;
 
   @override
@@ -106,6 +108,58 @@ class _TaskBoardPlanerState extends State<TaskBoardPlaner> {
     });
   }
 
+  int countOverlappingEvents(CalendarEvent calendarEvent) {
+    return events
+            .where((event) =>
+                event != calendarEvent &&
+                event.startTime.isBefore(calendarEvent.endTime) &&
+                calendarEvent.startTime.isBefore(event.endTime))
+            .length +
+        1;
+  }
+
+  int countPreviousOverlappingEvents(CalendarEvent calendarEvent) {
+    return events
+        .takeWhile((event) => event != calendarEvent)
+        .where((event) =>
+            event.startTime.isBefore(calendarEvent.endTime) &&
+            calendarEvent.startTime.isBefore(event.endTime))
+        .length;
+  }
+
+  double countLeftPadding({
+    required double maxWidth,
+    required CalendarEvent event,
+  }) {
+    double leftPadding = widget.timeWidth + widget.defaultLeftPadding;
+
+    double availableWidth = maxWidth - leftPadding - widget.defaultRightPadding;
+
+    int quantityInRow = countOverlappingEvents(event);
+
+    int quantityPreviousOverlap = countPreviousOverlappingEvents(event);
+
+    double width = availableWidth / quantityInRow;
+
+    leftPadding = leftPadding + (quantityPreviousOverlap * width);
+    return leftPadding;
+  }
+
+  double countWidth({
+    required double maxWidth,
+    required CalendarEvent event,
+  }) {
+    double leftPadding = widget.timeWidth + widget.defaultLeftPadding;
+
+    double availableWidth = maxWidth - leftPadding - widget.defaultRightPadding;
+
+    int quantityInRow = countOverlappingEvents(event);
+
+    double width = availableWidth / quantityInRow;
+
+    return width;
+  }
+
   @override
   void initState() {
     super.initState();
@@ -118,7 +172,7 @@ class _TaskBoardPlanerState extends State<TaskBoardPlaner> {
   Widget build(BuildContext context) {
     return Container(
       color: colors(context).background,
-      height: 420,
+      height: 820,
       width: double.infinity,
       child: SingleChildScrollView(
         child: Stack(
@@ -145,9 +199,11 @@ class _TaskBoardPlanerState extends State<TaskBoardPlaner> {
             LayoutBuilder(
               builder: (context, constraints) {
                 return DragTarget<CalendarEvent>(
+                  hitTestBehavior: HitTestBehavior.opaque,
                   builder: (context, candidateData, rejectedData) {
                     return Container(
                       color: Colors.transparent,
+                      // color: Color(0xFFFFFFFF & Random().nextInt(0xFFFFFFFF)),
                       width: double.infinity,
                       height: hourlyList.length * widget.scaleFactor,
                     );
@@ -173,25 +229,53 @@ class _TaskBoardPlanerState extends State<TaskBoardPlaner> {
                   padding: EdgeInsets.only(
                     top: events[index].startTime.toPadding(widget.scaleFactor),
                   ),
-                  child: LongPressDraggable<CalendarEvent>(
-                    data: events[index],
-                    feedback: SizedBox(
-                      width: 400,
-                      child: Opacity(
-                        opacity: 0.5,
-                        child: TaskBoardEventCard(
-                          calendarEvent: events[index],
-                          timeWidth: widget.timeWidth,
-                          scaleFactor: widget.scaleFactor,
+                  child: LayoutBuilder(
+                    builder: (context, constraints) {
+                      // double leftPadding =
+                      //     widget.timeWidth + widget.defaultLeftPadding;
+                      //
+                      // double availableWidth = constraints.maxWidth -
+                      //     leftPadding -
+                      //     widget.defaultRightPadding;
+                      //
+                      // int quantityInRow = countOverlappingEvents(events[index]);
+                      //
+                      // int quantityPreviousOverlap =
+                      //     countPreviousOverlappingEvents(
+                      //   events[index],
+                      // );
+                      //
+                      // double width = availableWidth / quantityInRow;
+                      //
+                      // leftPadding =
+                      //     leftPadding + (quantityPreviousOverlap * width);
+
+                      TaskBoardEventCard card = TaskBoardEventCard(
+                        calendarEvent: events[index],
+                        // leftPadding: leftPadding,
+                        leftPadding: countLeftPadding(
+                          maxWidth: constraints.maxWidth,
+                          event: events[index],
                         ),
-                      ),
-                    ),
-                    childWhenDragging: const SizedBox(),
-                    child: TaskBoardEventCard(
-                      calendarEvent: events[index],
-                      timeWidth: widget.timeWidth,
-                      scaleFactor: widget.scaleFactor,
-                    ),
+                        // width: width,
+                        width: countWidth(
+                          maxWidth: constraints.maxWidth,
+                          event: events[index],
+                        ),
+                        scaleFactor: widget.scaleFactor,
+                      );
+
+                      return LongPressDraggable<CalendarEvent>(
+                        hitTestBehavior: HitTestBehavior.deferToChild,
+                        data: events[index],
+                        feedback: Opacity(
+                          opacity: 0.5,
+                          child: card,
+                        ),
+                        childWhenDragging: const SizedBox(),
+                        child: card,
+                      );
+                    },
                   ),
                 );
               },
