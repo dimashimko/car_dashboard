@@ -48,6 +48,8 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension>
     required this.calendarDaysOfWeek,
     required this.calendarDays,
     required this.calendarToggleBackground,
+    required this.stripeContainerBaseColor,
+    required this.stripeContainerStripeColor,
   });
 
   @override
@@ -122,6 +124,10 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension>
   final Color calendarDays;
   @override
   final Color calendarToggleBackground;
+  @override
+  final Color stripeContainerBaseColor;
+  @override
+  final Color stripeContainerStripeColor;
 }
 
 final lightCustomThemeExtension = CustomThemeExtension(
@@ -161,6 +167,8 @@ final lightCustomThemeExtension = CustomThemeExtension(
   calendarDaysOfWeek: AppColors.grayC3,
   calendarDays: AppColors.gray.dark2,
   calendarToggleBackground: AppColors.grayF9,
+  stripeContainerBaseColor: AppColors.grayishWhite,
+  stripeContainerStripeColor: AppColors.white,
 );
 
 final darkCustomThemeExtension = CustomThemeExtension(
@@ -200,4 +208,6 @@ final darkCustomThemeExtension = CustomThemeExtension(
   calendarDaysOfWeek: AppColors.primary.white1,
   calendarDays: AppColors.primary.white1,
   calendarToggleBackground: AppColors.calendarToggleBackgroundDark,
+  stripeContainerBaseColor: AppColors.stripeContainerBaseColorDark,
+  stripeContainerStripeColor: AppColors.stripeContainerStripeColorDark,
 );

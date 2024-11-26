@@ -46,6 +46,8 @@ mixin _$CustomThemeExtensionTailorMixin
   Color get calendarDaysOfWeek;
   Color get calendarDays;
   Color get calendarToggleBackground;
+  Color get stripeContainerBaseColor;
+  Color get stripeContainerStripeColor;
 
   @override
   CustomThemeExtension copyWith({
@@ -85,6 +87,8 @@ mixin _$CustomThemeExtensionTailorMixin
     Color? calendarDaysOfWeek,
     Color? calendarDays,
     Color? calendarToggleBackground,
+    Color? stripeContainerBaseColor,
+    Color? stripeContainerStripeColor,
   }) {
     return CustomThemeExtension(
       statisticsDivider: statisticsDivider ?? this.statisticsDivider,
@@ -129,6 +133,10 @@ mixin _$CustomThemeExtensionTailorMixin
       calendarDays: calendarDays ?? this.calendarDays,
       calendarToggleBackground:
           calendarToggleBackground ?? this.calendarToggleBackground,
+      stripeContainerBaseColor:
+          stripeContainerBaseColor ?? this.stripeContainerBaseColor,
+      stripeContainerStripeColor:
+          stripeContainerStripeColor ?? this.stripeContainerStripeColor,
     );
   }
 
@@ -191,6 +199,10 @@ mixin _$CustomThemeExtensionTailorMixin
       calendarDays: Color.lerp(calendarDays, other.calendarDays, t)!,
       calendarToggleBackground: Color.lerp(
           calendarToggleBackground, other.calendarToggleBackground, t)!,
+      stripeContainerBaseColor: Color.lerp(
+          stripeContainerBaseColor, other.stripeContainerBaseColor, t)!,
+      stripeContainerStripeColor: Color.lerp(
+          stripeContainerStripeColor, other.stripeContainerStripeColor, t)!,
     );
   }
 
@@ -267,7 +279,11 @@ mixin _$CustomThemeExtensionTailorMixin
             const DeepCollectionEquality()
                 .equals(calendarDays, other.calendarDays) &&
             const DeepCollectionEquality().equals(
-                calendarToggleBackground, other.calendarToggleBackground));
+                calendarToggleBackground, other.calendarToggleBackground) &&
+            const DeepCollectionEquality().equals(
+                stripeContainerBaseColor, other.stripeContainerBaseColor) &&
+            const DeepCollectionEquality().equals(
+                stripeContainerStripeColor, other.stripeContainerStripeColor));
   }
 
   @override
@@ -310,6 +326,8 @@ mixin _$CustomThemeExtensionTailorMixin
       const DeepCollectionEquality().hash(calendarDaysOfWeek),
       const DeepCollectionEquality().hash(calendarDays),
       const DeepCollectionEquality().hash(calendarToggleBackground),
+      const DeepCollectionEquality().hash(stripeContainerBaseColor),
+      const DeepCollectionEquality().hash(stripeContainerStripeColor),
     ]);
   }
 }
@@ -357,4 +375,8 @@ extension CustomThemeExtensionBuildContextProps on BuildContext {
   Color get calendarDays => customThemeExtension.calendarDays;
   Color get calendarToggleBackground =>
       customThemeExtension.calendarToggleBackground;
+  Color get stripeContainerBaseColor =>
+      customThemeExtension.stripeContainerBaseColor;
+  Color get stripeContainerStripeColor =>
+      customThemeExtension.stripeContainerStripeColor;
 }

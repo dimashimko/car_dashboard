@@ -46,6 +46,8 @@ class AppColors {
   static const Color upcomingEventsTimeNowText = Color(0xFFF65E5E);
   static const Color upcomingEventsTimeNowDivider = Color(0xFFFAAEAE);
   static const Color violet = Color(0xFF725CFF);
+  static const Color stripeContainerBaseColorDark = Color(0xff252731);
+  static const Color stripeContainerStripeColorDark = Color(0xff292E3E);
 }
 
 class Primary {
