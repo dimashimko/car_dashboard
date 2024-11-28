@@ -56,12 +56,15 @@ class TaskBoardEventCard extends StatelessWidget {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(
-                                calendarEvent.startTime.toHourMinuteAmPm,
-                                style: AppTypography.title12m.copyWith(
-                                  color: calendarEvent.color == null
-                                      ? AppColors.primary.dark1
-                                      : AppColors.white,
+                              Expanded(
+                                child: Text(
+                                  calendarEvent.startTime.toHourMinuteAmPm,
+                                  style: AppTypography.title12m.copyWith(
+                                    color: calendarEvent.color == null
+                                        ? AppColors.primary.dark1
+                                        : AppColors.white,
+                                  ),
+                                  overflow: TextOverflow.ellipsis,
                                 ),
                               ),
                               Text(
@@ -71,6 +74,7 @@ class TaskBoardEventCard extends StatelessWidget {
                                       ? AppColors.primary.dark1
                                       : AppColors.white,
                                 ),
+                                overflow: TextOverflow.ellipsis,
                               ),
                             ],
                           ),
@@ -81,16 +85,20 @@ class TaskBoardEventCard extends StatelessWidget {
                                   ? AppColors.gray.dark2
                                   : AppColors.white,
                             ),
+                            overflow: TextOverflow.ellipsis,
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(
-                                calendarEvent.type,
-                                style: AppTypography.title14m.copyWith(
-                                  color: calendarEvent.color == null
-                                      ? AppColors.gray.dark3
-                                      : AppColors.white,
+                              Expanded(
+                                child: Text(
+                                  calendarEvent.type,
+                                  style: AppTypography.title14m.copyWith(
+                                    color: calendarEvent.color == null
+                                        ? AppColors.gray.dark3
+                                        : AppColors.white,
+                                  ),
+                                  overflow: TextOverflow.ellipsis,
                                 ),
                               ),
                               const Gap(8.0),

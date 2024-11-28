@@ -2,6 +2,7 @@ import 'package:car_dashboard/pages/calender_page/widgets/task_board_date_button
 import 'package:car_dashboard/resources/app_colors.dart';
 import 'package:flutter/material.dart';
 
+import '../../../widgets/common/row_scrollable.dart';
 import 'task_board_date.dart';
 import 'task_board_dropdown.dart';
 import 'task_board_planer.dart';
@@ -60,7 +61,7 @@ class _TaskBoardState extends State<TaskBoard> {
               vertical: 15.0,
               horizontal: 20.0,
             ),
-            child: Row(
+            child: RowScrollable(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
