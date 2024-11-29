@@ -58,9 +58,9 @@ class _TaskBoardPlanerState extends State<TaskBoardPlaner> {
     ),
     CalendarEvent(
       id: 4,
-      startTime: DateTime(2024, 11, 15, 6, 0),
-      endTime: DateTime(2024, 11, 15, 8, 0),
-      // color: AppColors.secondary.orange,
+      startTime: DateTime(2024, 11, 15, 5, 0),
+      endTime: DateTime(2024, 11, 15, 6, 0),
+      color: AppColors.secondary.orange,
       onColor: AppColors.gray.white,
       title: 'Private Event',
       type: 'All Motorbikes',
@@ -69,8 +69,41 @@ class _TaskBoardPlanerState extends State<TaskBoardPlaner> {
     ),
     CalendarEvent(
       id: 5,
-      startTime: DateTime(2024, 11, 15, 5, 0),
-      endTime: DateTime(2024, 11, 15, 7, 0),
+      startTime: DateTime(2024, 11, 15, 7, 10),
+      endTime: DateTime(2024, 11, 15, 11, 0),
+      color: AppColors.secondary.blue,
+      onColor: AppColors.gray.white,
+      title: 'Drift Series Firs Round',
+      type: 'JDM',
+      info: '1h 45 min',
+      participants: [],
+    ),
+    CalendarEvent(
+      id: 6,
+      startTime: DateTime(2024, 11, 15, 7, 30),
+      endTime: DateTime(2024, 11, 15, 9, 0),
+      color: AppColors.secondary.green,
+      onColor: AppColors.gray.white,
+      title: 'Drift Series Firs Round',
+      type: 'JDM',
+      info: '154K',
+      participants: [],
+    ),
+    CalendarEvent(
+      id: 7,
+      startTime: DateTime(2024, 11, 15, 9, 30),
+      endTime: DateTime(2024, 11, 15, 10, 30),
+      color: AppColors.secondary.orange,
+      onColor: AppColors.gray.white,
+      title: 'Private Event',
+      type: 'All Motorbikes',
+      info: '154K',
+      participants: [],
+    ),
+    CalendarEvent(
+      id: 8,
+      startTime: DateTime(2024, 11, 15, 16, 0),
+      endTime: DateTime(2024, 11, 15, 18, 0),
       // color: AppColors.secondary.orange,
       onColor: AppColors.gray.white,
       title: 'Private Event',
@@ -102,6 +135,7 @@ class _TaskBoardPlanerState extends State<TaskBoardPlaner> {
         }
         return event;
       }).toList();
+      events.sorted;
     });
   }
 
@@ -174,6 +208,7 @@ class _TaskBoardPlanerState extends State<TaskBoardPlaner> {
   @override
   void initState() {
     super.initState();
+    events = events.sorted;
     hourlyList = generateHourlyTimestamps(
       DateTime.now(),
     );
@@ -210,7 +245,6 @@ class _TaskBoardPlanerState extends State<TaskBoardPlaner> {
             LayoutBuilder(
               builder: (context, constraints) {
                 return DragTarget<CalendarEvent>(
-                  hitTestBehavior: HitTestBehavior.opaque,
                   builder: (context, candidateData, rejectedData) {
                     return Container(
                       color: Colors.transparent,
@@ -242,25 +276,6 @@ class _TaskBoardPlanerState extends State<TaskBoardPlaner> {
                   ),
                   child: LayoutBuilder(
                     builder: (context, constraints) {
-                      // double leftPadding =
-                      //     widget.timeWidth + widget.defaultLeftPadding;
-                      //
-                      // double availableWidth = constraints.maxWidth -
-                      //     leftPadding -
-                      //     widget.defaultRightPadding;
-                      //
-                      // int quantityInRow = countOverlappingEvents(events[index]);
-                      //
-                      // int quantityPreviousOverlap =
-                      //     countPreviousOverlappingEvents(
-                      //   events[index],
-                      // );
-                      //
-                      // double width = availableWidth / quantityInRow;
-                      //
-                      // leftPadding =
-                      //     leftPadding + (quantityPreviousOverlap * width);
-
                       TaskBoardEventCard card = TaskBoardEventCard(
                         calendarEvent: events[index],
                         // leftPadding: leftPadding,
@@ -276,8 +291,7 @@ class _TaskBoardPlanerState extends State<TaskBoardPlaner> {
                         scaleFactor: widget.scaleFactor,
                       );
 
-                      return LongPressDraggable<CalendarEvent>(
-                        hitTestBehavior: HitTestBehavior.deferToChild,
+                      return Draggable<CalendarEvent>(
                         data: events[index],
                         feedback: Opacity(
                           opacity: 0.5,

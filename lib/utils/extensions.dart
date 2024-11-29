@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import '../models/calendar_event.dart';
+
+extension ListCalendarEventX on List<CalendarEvent> {
+  List<CalendarEvent> get sorted {
+    final sortedList = [...this];
+    sortedList.sort((a, b) => a.startTime.compareTo(b.startTime));
+    return sortedList;
+  }
+}
+
 extension ModuloExtension on int {
-  /// Returns the modulo of the integer.
-  /// Ensures the result is always non-negative, even for negative integers.
   int get modulo {
     if (this > 0) return this;
     return this * -1;

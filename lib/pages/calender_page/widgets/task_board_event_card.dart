@@ -2,10 +2,8 @@ import 'package:car_dashboard/resources/app_colors.dart';
 import 'package:car_dashboard/resources/app_typography.dart';
 import 'package:car_dashboard/utils/extensions.dart';
 import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
 
 import '../../../models/calendar_event.dart';
-import 'planer_event_participant_card.dart';
 import 'task_board_container.dart';
 
 class TaskBoardEventCard extends StatelessWidget {
@@ -87,69 +85,14 @@ class TaskBoardEventCard extends StatelessWidget {
                             ),
                             overflow: TextOverflow.ellipsis,
                           ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Expanded(
-                                child: Text(
-                                  calendarEvent.type,
-                                  style: AppTypography.title14m.copyWith(
-                                    color: calendarEvent.color == null
-                                        ? AppColors.gray.dark3
-                                        : AppColors.white,
-                                  ),
-                                  overflow: TextOverflow.ellipsis,
-                                ),
-                              ),
-                              const Gap(8.0),
-                              Builder(
-                                builder: (context) {
-                                  List<String> sublist = [
-                                    ...calendarEvent.participants
-                                  ];
-                                  if (sublist.length > 3) {
-                                    sublist = sublist.sublist(0, 3);
-                                  }
-
-                                  return Stack(
-                                    alignment: Alignment.centerRight,
-                                    children: List.generate(
-                                      sublist.length,
-                                      (index) {
-                                        if (index == 2) {
-                                          return PlanerEventParticipantCard(
-                                            backgroundColor:
-                                                calendarEvent.onColor,
-                                            paddingColor: calendarEvent.color,
-                                            child: Text(
-                                              '+${calendarEvent.participants.length - 2}',
-                                              style: AppTypography.title11B
-                                                  .copyWith(
-                                                color: AppColors.white,
-                                              ),
-                                            ),
-                                          );
-                                        }
-                                        return Padding(
-                                          padding: EdgeInsets.only(
-                                            right:
-                                                ((sublist.length - 1) - index) *
-                                                    20.0,
-                                          ),
-                                          child: PlanerEventParticipantCard(
-                                            paddingColor: calendarEvent.color,
-                                            child: Image.asset(
-                                              fit: BoxFit.cover,
-                                              sublist[index],
-                                            ),
-                                          ),
-                                        );
-                                      },
-                                    ),
-                                  );
-                                },
-                              ),
-                            ],
+                          Text(
+                            calendarEvent.type,
+                            style: AppTypography.title14m.copyWith(
+                              color: calendarEvent.color == null
+                                  ? AppColors.gray.dark3
+                                  : AppColors.white,
+                            ),
+                            overflow: TextOverflow.ellipsis,
                           ),
                         ],
                       ),
