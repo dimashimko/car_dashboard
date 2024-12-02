@@ -48,6 +48,8 @@ class AppColors {
   static const Color violet = Color(0xFF725CFF);
   static const Color stripeContainerBaseColorDark = Color(0xff252731);
   static const Color stripeContainerStripeColorDark = Color(0xff292E3E);
+  static const Color stripeContainerBorderColorLight = Color(0xffE0E4EC);
+  static const Color stripeContainerBorderColorDark = Color(0xff343847);
 }
 
 class Primary {

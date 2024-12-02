@@ -23,40 +23,70 @@ class TaskBoardContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return calendarEventColor == null
-        ? Container(
+        ? SizedBox(
             width: width,
             height: height,
-            clipBehavior: Clip.hardEdge,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(
-                Radius.circular(
-                  borderRadius,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 4.0),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: colors(context).stripeContainerBorderColor,
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(10.0),
+                  ),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(4.0),
+                  child: Container(
+                    clipBehavior: Clip.hardEdge,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(
+                          borderRadius,
+                        ),
+                      ),
+                    ),
+                    child: CustomPaint(
+                      painter: StripePainter(
+                        baseColor: colors(context).stripeContainerBaseColor,
+                        stripeColor: colors(context).stripeContainerStripeColor,
+                        stripeWidth: 24.0,
+                        gapWidth: 20.0,
+                        angle: 45.0,
+                      ),
+                      child: child,
+                    ),
+                  ),
                 ),
               ),
-            ),
-            child: CustomPaint(
-              painter: StripePainter(
-                baseColor: colors(context).stripeContainerBaseColor,
-                stripeColor: colors(context).stripeContainerStripeColor,
-                stripeWidth: 24.0,
-                gapWidth: 20.0,
-                angle: 45.0,
-              ),
-              child: child,
             ),
           )
-        : Container(
+        : SizedBox(
             width: width,
             height: height,
-            decoration: BoxDecoration(
-              color: calendarEventColor,
-              borderRadius: BorderRadius.all(
-                Radius.circular(
-                  borderRadius,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 4.0),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: calendarEventColor?.withOpacity(0.5),
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(10.0),
+                  ),
+                ),
+                padding: const EdgeInsets.all(4.0),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: calendarEventColor,
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(
+                        borderRadius,
+                      ),
+                    ),
+                  ),
+                  child: child,
                 ),
               ),
             ),
-            child: child,
           );
   }
 }

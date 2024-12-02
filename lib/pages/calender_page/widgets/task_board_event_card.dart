@@ -26,81 +26,75 @@ class TaskBoardEventCard extends StatelessWidget {
       padding: EdgeInsets.only(
         left: leftPadding,
       ),
-      child: SizedBox(
+      child: TaskBoardContainer(
         width: width,
-        child: ClipRRect(
-          child: TaskBoardContainer(
-            width: double.infinity,
-            height: calendarEvent.endTime
-                .difference(
-                  calendarEvent.startTime,
-                )
-                .toHeight(
-                  scaleFactor,
-                ),
-            calendarEventColor: calendarEvent.color,
-            child: Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: LayoutBuilder(
-                builder: (context, constraints) {
-                  return SingleChildScrollView(
-                    child: ConstrainedBox(
-                      constraints:
-                          BoxConstraints(minHeight: constraints.maxHeight),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
+        height: calendarEvent.endTime
+            .difference(
+              calendarEvent.startTime,
+            )
+            .toHeight(
+              scaleFactor,
+            ),
+        calendarEventColor: calendarEvent.color,
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: LayoutBuilder(
+            builder: (context, constraints) {
+              return SingleChildScrollView(
+                child: ConstrainedBox(
+                  constraints: BoxConstraints(minHeight: constraints.maxHeight),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Expanded(
-                                child: Text(
-                                  calendarEvent.startTime.toHourMinuteAmPm,
-                                  style: AppTypography.title12m.copyWith(
-                                    color: calendarEvent.color == null
-                                        ? AppColors.primary.dark1
-                                        : AppColors.white,
-                                  ),
-                                  overflow: TextOverflow.ellipsis,
-                                ),
+                          Expanded(
+                            child: Text(
+                              calendarEvent.startTime.toHourMinuteAmPm,
+                              style: AppTypography.title12m.copyWith(
+                                color: calendarEvent.color == null
+                                    ? AppColors.primary.dark1
+                                    : AppColors.white,
                               ),
-                              Text(
-                                calendarEvent.info ?? '',
-                                style: AppTypography.title12m.copyWith(
-                                  color: calendarEvent.color == null
-                                      ? AppColors.primary.dark1
-                                      : AppColors.white,
-                                ),
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                            ],
-                          ),
-                          Text(
-                            calendarEvent.title,
-                            style: AppTypography.title14m.copyWith(
-                              color: calendarEvent.color == null
-                                  ? AppColors.gray.dark2
-                                  : AppColors.white,
+                              overflow: TextOverflow.ellipsis,
                             ),
-                            overflow: TextOverflow.ellipsis,
                           ),
                           Text(
-                            calendarEvent.type,
-                            style: AppTypography.title14m.copyWith(
+                            calendarEvent.info ?? '',
+                            style: AppTypography.title12m.copyWith(
                               color: calendarEvent.color == null
-                                  ? AppColors.gray.dark3
+                                  ? AppColors.primary.dark1
                                   : AppColors.white,
                             ),
                             overflow: TextOverflow.ellipsis,
                           ),
                         ],
                       ),
-                    ),
-                  );
-                },
-              ),
-            ),
+                      Text(
+                        calendarEvent.title,
+                        style: AppTypography.title14m.copyWith(
+                          color: calendarEvent.color == null
+                              ? AppColors.gray.dark2
+                              : AppColors.white,
+                        ),
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      Text(
+                        calendarEvent.type,
+                        style: AppTypography.title14m.copyWith(
+                          color: calendarEvent.color == null
+                              ? AppColors.gray.dark3
+                              : AppColors.white,
+                        ),
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ],
+                  ),
+                ),
+              );
+            },
           ),
         ),
       ),

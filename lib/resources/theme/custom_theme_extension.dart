@@ -50,6 +50,7 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension>
     required this.calendarToggleBackground,
     required this.stripeContainerBaseColor,
     required this.stripeContainerStripeColor,
+    required this.stripeContainerBorderColor,
   });
 
   @override
@@ -128,6 +129,8 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension>
   final Color stripeContainerBaseColor;
   @override
   final Color stripeContainerStripeColor;
+  @override
+  final Color stripeContainerBorderColor;
 }
 
 final lightCustomThemeExtension = CustomThemeExtension(
@@ -169,6 +172,7 @@ final lightCustomThemeExtension = CustomThemeExtension(
   calendarToggleBackground: AppColors.grayF9,
   stripeContainerBaseColor: AppColors.grayishWhite,
   stripeContainerStripeColor: AppColors.white,
+  stripeContainerBorderColor: AppColors.stripeContainerBorderColorLight,
 );
 
 final darkCustomThemeExtension = CustomThemeExtension(
@@ -210,4 +214,5 @@ final darkCustomThemeExtension = CustomThemeExtension(
   calendarToggleBackground: AppColors.calendarToggleBackgroundDark,
   stripeContainerBaseColor: AppColors.stripeContainerBaseColorDark,
   stripeContainerStripeColor: AppColors.stripeContainerStripeColorDark,
+  stripeContainerBorderColor: AppColors.stripeContainerBorderColorDark,
 );

@@ -21,6 +21,12 @@ _$CalendarEventImpl _$$CalendarEventImplFromJson(Map<String, dynamic> json) =>
       participants: (json['participants'] as List<dynamic>)
           .map((e) => e as String)
           .toList(),
+      columnNumber: (json['columnNumber'] as num?)?.toInt() ?? 1,
+      widthLevel: (json['widthLevel'] as num?)?.toInt() ?? 1,
+      relatedId: (json['relatedId'] as List<dynamic>?)
+              ?.map((e) => (e as num).toInt())
+              .toList() ??
+          const [],
     );
 
 Map<String, dynamic> _$$CalendarEventImplToJson(_$CalendarEventImpl instance) =>
@@ -36,6 +42,9 @@ Map<String, dynamic> _$$CalendarEventImplToJson(_$CalendarEventImpl instance) =>
       'type': instance.type,
       'info': instance.info,
       'participants': instance.participants,
+      'columnNumber': instance.columnNumber,
+      'widthLevel': instance.widthLevel,
+      'relatedId': instance.relatedId,
     };
 
 Value? _$JsonConverterFromJson<Json, Value>(

@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import '../../../widgets/common/row_scrollable.dart';
 import 'task_board_date.dart';
 import 'task_board_dropdown.dart';
-import 'task_board_planer.dart';
+import 'task_board_planer2.dart';
 
 class TaskBoard extends StatefulWidget {
   const TaskBoard({super.key});
@@ -81,7 +81,9 @@ class _TaskBoardState extends State<TaskBoard> {
             ),
           ),
         ),
-        TaskBoardPlaner(),
+        // TaskBoardPlaner(),
+        TaskBoardPlaner2(),
+        // TaskBoardPlaner3(),
       ],
     );
   }

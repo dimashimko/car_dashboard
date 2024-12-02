@@ -48,6 +48,7 @@ mixin _$CustomThemeExtensionTailorMixin
   Color get calendarToggleBackground;
   Color get stripeContainerBaseColor;
   Color get stripeContainerStripeColor;
+  Color get stripeContainerBorderColor;
 
   @override
   CustomThemeExtension copyWith({
@@ -89,6 +90,7 @@ mixin _$CustomThemeExtensionTailorMixin
     Color? calendarToggleBackground,
     Color? stripeContainerBaseColor,
     Color? stripeContainerStripeColor,
+    Color? stripeContainerBorderColor,
   }) {
     return CustomThemeExtension(
       statisticsDivider: statisticsDivider ?? this.statisticsDivider,
@@ -137,6 +139,8 @@ mixin _$CustomThemeExtensionTailorMixin
           stripeContainerBaseColor ?? this.stripeContainerBaseColor,
       stripeContainerStripeColor:
           stripeContainerStripeColor ?? this.stripeContainerStripeColor,
+      stripeContainerBorderColor:
+          stripeContainerBorderColor ?? this.stripeContainerBorderColor,
     );
   }
 
@@ -203,6 +207,8 @@ mixin _$CustomThemeExtensionTailorMixin
           stripeContainerBaseColor, other.stripeContainerBaseColor, t)!,
       stripeContainerStripeColor: Color.lerp(
           stripeContainerStripeColor, other.stripeContainerStripeColor, t)!,
+      stripeContainerBorderColor: Color.lerp(
+          stripeContainerBorderColor, other.stripeContainerBorderColor, t)!,
     );
   }
 
@@ -283,7 +289,9 @@ mixin _$CustomThemeExtensionTailorMixin
             const DeepCollectionEquality().equals(
                 stripeContainerBaseColor, other.stripeContainerBaseColor) &&
             const DeepCollectionEquality().equals(
-                stripeContainerStripeColor, other.stripeContainerStripeColor));
+                stripeContainerStripeColor, other.stripeContainerStripeColor) &&
+            const DeepCollectionEquality().equals(
+                stripeContainerBorderColor, other.stripeContainerBorderColor));
   }
 
   @override
@@ -328,6 +336,7 @@ mixin _$CustomThemeExtensionTailorMixin
       const DeepCollectionEquality().hash(calendarToggleBackground),
       const DeepCollectionEquality().hash(stripeContainerBaseColor),
       const DeepCollectionEquality().hash(stripeContainerStripeColor),
+      const DeepCollectionEquality().hash(stripeContainerBorderColor),
     ]);
   }
 }
@@ -379,4 +388,6 @@ extension CustomThemeExtensionBuildContextProps on BuildContext {
       customThemeExtension.stripeContainerBaseColor;
   Color get stripeContainerStripeColor =>
       customThemeExtension.stripeContainerStripeColor;
+  Color get stripeContainerBorderColor =>
+      customThemeExtension.stripeContainerBorderColor;
 }

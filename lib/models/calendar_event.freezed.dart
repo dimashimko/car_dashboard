@@ -31,6 +31,9 @@ mixin _$CalendarEvent {
   String get type => throw _privateConstructorUsedError;
   String? get info => throw _privateConstructorUsedError;
   List<String> get participants => throw _privateConstructorUsedError;
+  int get columnNumber => throw _privateConstructorUsedError;
+  int get widthLevel => throw _privateConstructorUsedError;
+  List<int> get relatedId => throw _privateConstructorUsedError;
 
   /// Serializes this CalendarEvent to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -57,7 +60,10 @@ abstract class $CalendarEventCopyWith<$Res> {
       String title,
       String type,
       String? info,
-      List<String> participants});
+      List<String> participants,
+      int columnNumber,
+      int widthLevel,
+      List<int> relatedId});
 }
 
 /// @nodoc
@@ -84,6 +90,9 @@ class _$CalendarEventCopyWithImpl<$Res, $Val extends CalendarEvent>
     Object? type = null,
     Object? info = freezed,
     Object? participants = null,
+    Object? columnNumber = null,
+    Object? widthLevel = null,
+    Object? relatedId = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -122,6 +131,18 @@ class _$CalendarEventCopyWithImpl<$Res, $Val extends CalendarEvent>
           ? _value.participants
           : participants // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      columnNumber: null == columnNumber
+          ? _value.columnNumber
+          : columnNumber // ignore: cast_nullable_to_non_nullable
+              as int,
+      widthLevel: null == widthLevel
+          ? _value.widthLevel
+          : widthLevel // ignore: cast_nullable_to_non_nullable
+              as int,
+      relatedId: null == relatedId
+          ? _value.relatedId
+          : relatedId // ignore: cast_nullable_to_non_nullable
+              as List<int>,
     ) as $Val);
   }
 }
@@ -143,7 +164,10 @@ abstract class _$$CalendarEventImplCopyWith<$Res>
       String title,
       String type,
       String? info,
-      List<String> participants});
+      List<String> participants,
+      int columnNumber,
+      int widthLevel,
+      List<int> relatedId});
 }
 
 /// @nodoc
@@ -168,6 +192,9 @@ class __$$CalendarEventImplCopyWithImpl<$Res>
     Object? type = null,
     Object? info = freezed,
     Object? participants = null,
+    Object? columnNumber = null,
+    Object? widthLevel = null,
+    Object? relatedId = null,
   }) {
     return _then(_$CalendarEventImpl(
       id: null == id
@@ -206,6 +233,18 @@ class __$$CalendarEventImplCopyWithImpl<$Res>
           ? _value._participants
           : participants // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      columnNumber: null == columnNumber
+          ? _value.columnNumber
+          : columnNumber // ignore: cast_nullable_to_non_nullable
+              as int,
+      widthLevel: null == widthLevel
+          ? _value.widthLevel
+          : widthLevel // ignore: cast_nullable_to_non_nullable
+              as int,
+      relatedId: null == relatedId
+          ? _value._relatedId
+          : relatedId // ignore: cast_nullable_to_non_nullable
+              as List<int>,
     ));
   }
 }
@@ -222,8 +261,12 @@ class _$CalendarEventImpl implements _CalendarEvent {
       required this.title,
       required this.type,
       this.info,
-      required final List<String> participants})
-      : _participants = participants;
+      required final List<String> participants,
+      this.columnNumber = 1,
+      this.widthLevel = 1,
+      final List<int> relatedId = const []})
+      : _participants = participants,
+        _relatedId = relatedId;
 
   factory _$CalendarEventImpl.fromJson(Map<String, dynamic> json) =>
       _$$CalendarEventImplFromJson(json);
@@ -255,8 +298,23 @@ class _$CalendarEventImpl implements _CalendarEvent {
   }
 
   @override
+  @JsonKey()
+  final int columnNumber;
+  @override
+  @JsonKey()
+  final int widthLevel;
+  final List<int> _relatedId;
+  @override
+  @JsonKey()
+  List<int> get relatedId {
+    if (_relatedId is EqualUnmodifiableListView) return _relatedId;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_relatedId);
+  }
+
+  @override
   String toString() {
-    return 'CalendarEvent(id: $id, startTime: $startTime, endTime: $endTime, color: $color, onColor: $onColor, title: $title, type: $type, info: $info, participants: $participants)';
+    return 'CalendarEvent(id: $id, startTime: $startTime, endTime: $endTime, color: $color, onColor: $onColor, title: $title, type: $type, info: $info, participants: $participants, columnNumber: $columnNumber, widthLevel: $widthLevel, relatedId: $relatedId)';
   }
 
   @override
@@ -274,7 +332,13 @@ class _$CalendarEventImpl implements _CalendarEvent {
             (identical(other.type, type) || other.type == type) &&
             (identical(other.info, info) || other.info == info) &&
             const DeepCollectionEquality()
-                .equals(other._participants, _participants));
+                .equals(other._participants, _participants) &&
+            (identical(other.columnNumber, columnNumber) ||
+                other.columnNumber == columnNumber) &&
+            (identical(other.widthLevel, widthLevel) ||
+                other.widthLevel == widthLevel) &&
+            const DeepCollectionEquality()
+                .equals(other._relatedId, _relatedId));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -289,7 +353,10 @@ class _$CalendarEventImpl implements _CalendarEvent {
       title,
       type,
       info,
-      const DeepCollectionEquality().hash(_participants));
+      const DeepCollectionEquality().hash(_participants),
+      columnNumber,
+      widthLevel,
+      const DeepCollectionEquality().hash(_relatedId));
 
   /// Create a copy of CalendarEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -317,7 +384,10 @@ abstract class _CalendarEvent implements CalendarEvent {
       required final String title,
       required final String type,
       final String? info,
-      required final List<String> participants}) = _$CalendarEventImpl;
+      required final List<String> participants,
+      final int columnNumber,
+      final int widthLevel,
+      final List<int> relatedId}) = _$CalendarEventImpl;
 
   factory _CalendarEvent.fromJson(Map<String, dynamic> json) =
       _$CalendarEventImpl.fromJson;
@@ -342,6 +412,12 @@ abstract class _CalendarEvent implements CalendarEvent {
   String? get info;
   @override
   List<String> get participants;
+  @override
+  int get columnNumber;
+  @override
+  int get widthLevel;
+  @override
+  List<int> get relatedId;
 
   /// Create a copy of CalendarEvent
   /// with the given fields replaced by the non-null parameter values.
