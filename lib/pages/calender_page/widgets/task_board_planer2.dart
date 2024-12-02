@@ -47,7 +47,7 @@ class _TaskBoardPlaner2State extends State<TaskBoardPlaner2> {
       info: '1h 45 min',
       participants: [],
     ),
-    CalendarEvent(
+/*    CalendarEvent(
       id: 3,
       startTime: DateTime(2024, 11, 15, 3, 30),
       endTime: DateTime(2024, 11, 15, 5, 15),
@@ -113,8 +113,23 @@ class _TaskBoardPlaner2State extends State<TaskBoardPlaner2> {
       type: 'All Motorbikes',
       info: '154K',
       participants: [],
-    ),
+    ),*/
   ];
+
+  void changeCalendarEventDelta({
+    required CalendarEvent calendarEvent,
+    required Offset delta,
+  }) {
+    log('*** calendarEvent id: ${calendarEvent.id}');
+    Offset original = Offset(
+      0,
+      calendarEvent.startTime.toPadding(widget.scaleFactor),
+    );
+    changeCalendarEvent(
+      calendarEvent: calendarEvent,
+      offset: original + delta,
+    );
+  }
 
   void changeCalendarEvent({
     required CalendarEvent calendarEvent,
@@ -125,20 +140,23 @@ class _TaskBoardPlaner2State extends State<TaskBoardPlaner2> {
     }
 
     setState(() {
-      events = events.map((event) {
-        if (event.id == calendarEvent.id) {
-          final DateTime newStartTime = _calculateNewStartTime(offset.dy);
-          final Duration duration = event.endTime.difference(event.startTime);
-          final DateTime newEndTime = newStartTime.add(duration);
+      events = events
+          .map((event) {
+            if (event.id == calendarEvent.id) {
+              final DateTime newStartTime = _calculateNewStartTime(offset.dy);
+              final Duration duration =
+                  event.endTime.difference(event.startTime);
+              final DateTime newEndTime = newStartTime.add(duration);
 
-          return event.copyWith(
-            startTime: newStartTime,
-            endTime: newEndTime,
-          );
-        }
-        return event;
-      }).toList();
-      events = events.sorted;
+              return event.copyWith(
+                startTime: newStartTime,
+                endTime: newEndTime,
+              );
+            }
+            return event;
+          })
+          .toList()
+          .sorted;
       events = [
         ...calculatePositionParameters(),
       ];
@@ -165,8 +183,7 @@ class _TaskBoardPlaner2State extends State<TaskBoardPlaner2> {
     newList = [];
 
     for (int i = 0; i < events.length; i++) {
-      CalendarEvent newCalendarEvent = events[i];
-      newCalendarEvent = newCalendarEvent.copyWith(
+      CalendarEvent newCalendarEvent = events[i].copyWith(
         widthLevel: 1,
         columnNumber: 1,
         relatedId: [],
@@ -218,8 +235,8 @@ class _TaskBoardPlaner2State extends State<TaskBoardPlaner2> {
       setWidthLevelToRelated(event);
     }
 
-    // if(true) {
-    if (false) {
+    if (true) {
+      // if (false) {
       for (CalendarEvent event in newList) {
         log('*** event.id: ${event.id}');
         log('*** event.startTime: ${event.startTime}');
@@ -314,30 +331,6 @@ class _TaskBoardPlaner2State extends State<TaskBoardPlaner2> {
                 );
               },
             ),
-/*            LayoutBuilder(
-              builder: (context, constraints) {
-                return DragTarget<CalendarEvent>(
-                  builder: (context, candidateData, rejectedData) {
-                    return Container(
-                      color: Colors.transparent,
-                      width: double.infinity,
-                      height: hourlyList.length * widget.scaleFactor,
-                    );
-                  },
-                  onWillAcceptWithDetails: (data) => true,
-                  onAcceptWithDetails: (details) {
-                    RenderBox renderBox =
-                        context.findRenderObject() as RenderBox;
-                    Offset localPosition =
-                        renderBox.globalToLocal(details.offset);
-                    changeCalendarEvent(
-                      calendarEvent: details.data,
-                      offset: localPosition,
-                    );
-                  },
-                );
-              },
-            ),*/
             LayoutBuilder(
               builder: (context, constraints) {
                 double leftPadding =
@@ -346,77 +339,70 @@ class _TaskBoardPlaner2State extends State<TaskBoardPlaner2> {
                 double availableWidth = constraints.maxWidth -
                     leftPadding -
                     widget.defaultRightPadding;
+
                 RenderBox renderBox = context.findRenderObject() as RenderBox;
+
                 return Stack(
                   children: [
                     ...List.generate(
                       events.length,
                       (index) {
+                        double widthCard =
+                            availableWidth / events[index].widthLevel;
+
+                        double cardLeftPadding = leftPadding +
+                            (widthCard) * (events[index].columnNumber - 1);
+
+                        TaskBoardEventCard card = TaskBoardEventCard(
+                          calendarEvent: events[index],
+                          leftPadding: cardLeftPadding,
+                          width: widthCard,
+                          scaleFactor: widget.scaleFactor,
+                        );
                         return Padding(
                           padding: EdgeInsets.only(
                             top: events[index]
                                 .startTime
                                 .toPadding(widget.scaleFactor),
+                            left: cardLeftPadding,
                           ),
-                          child: Builder(
-                            builder: (_) {
-                              double widthCard =
-                                  availableWidth / events[index].widthLevel;
+                          child: Draggable<CalendarEvent>(
+                            // hitTestBehavior: HitTestBehavior.opaque,
+                            // hitTestBehavior: HitTestBehavior.translucent,
+                            hitTestBehavior: HitTestBehavior.deferToChild,
+                            data: events[index],
+                            feedback: Opacity(
+                              opacity: 0.5,
+                              // opacity: 0,
+                              child: card,
+                            ),
+                            // feedback: const SizedBox(),
+                            childWhenDragging: const SizedBox(),
+                            child: card,
+                            onDragUpdate: (DragUpdateDetails details) {
+                              // Offset localPosition = renderBox
+                              //     .globalToLocal(details.localPosition);
+                              // Offset localPosition = details.localPosition;
+                              // log('***  details globalPosition: ${details.globalPosition}');
+                              // log('***  details  localPosition: ${details.localPosition}');
+                              log('***  details  delta: ${details.delta}');
+                              // log('*** renderBox localPosition: ${localPosition}');
+                              log('');
 
-                              double cardLeftPadding = leftPadding +
-                                  (widthCard) *
-                                      (events[index].columnNumber - 1);
-                              TaskBoardEventCard card = TaskBoardEventCard(
+                              // log('*** calendarEvent id: ${events[index].id}');
+                              changeCalendarEventDelta(
                                 calendarEvent: events[index],
-                                leftPadding: cardLeftPadding,
-                                width: widthCard,
-                                scaleFactor: widget.scaleFactor,
+                                delta: details.delta,
                               );
+                            },
+                            onDragEnd: (details) {
+                              Offset localPosition =
+                                  renderBox.globalToLocal(details.offset);
+                              log('*** localPosition: ${localPosition}');
 
-                              return Draggable<CalendarEvent>(
-                                data: events[index],
-                                feedback: Opacity(
-                                  opacity: 0.5,
-                                  child: card,
-                                ),
-                                childWhenDragging: const SizedBox(),
-                                onDragUpdate: (DragUpdateDetails details) {
-                                  // log('*** dragUpdateDetails: ${dragUpdateDetails}');
-                                  // log('*** dragUpdateDetails: ${dragUpdateDetails.localPosition}');
-                                  // log('*** dragUpdateDetails: ${dragUpdateDetails.globalPosition}');
-                                  // log(' ');
-                                  // events = [
-                                  //   ...calculatePositionParameters(),
-                                  // ];
-
-                                  Offset localPosition = renderBox
-                                      .globalToLocal(details.localPosition);
-
-                                  // Offset localPosition = details.localPosition;
-
-                                  log('***  details globalPosition: ${details.globalPosition}');
-                                  log('***  details  localPosition: ${details.localPosition}');
-                                  log('*** renderBox localPosition: ${localPosition}');
-                                  log('');
-
-                                  // changeCalendarEvent(
-                                  //   calendarEvent: events[index],
-                                  //   offset: localPosition,
-                                  // );
-                                },
-                                onDragEnd: (details) {
-                                  // RenderBox renderBox =
-                                  //     context.findRenderObject() as RenderBox;
-                                  Offset localPosition =
-                                      renderBox.globalToLocal(details.offset);
-                                  log('*** localPosition: ${localPosition}');
-
-                                  changeCalendarEvent(
-                                    calendarEvent: events[index],
-                                    offset: localPosition,
-                                  );
-                                },
-                                child: card,
+                              changeCalendarEvent(
+                                calendarEvent: events[index],
+                                offset: localPosition,
                               );
                             },
                           ),

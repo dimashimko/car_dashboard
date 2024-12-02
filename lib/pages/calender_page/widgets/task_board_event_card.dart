@@ -24,8 +24,8 @@ class TaskBoardEventCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
-        left: leftPadding,
-      ),
+          // left: leftPadding,
+          ),
       child: TaskBoardContainer(
         width: width,
         height: calendarEvent.endTime
