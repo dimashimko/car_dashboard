@@ -3,7 +3,10 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(DraggableRectanglesApp());
+  runApp(
+    DraggableRectanglesApp(),
+    // DraggableRectanglesPage(),
+  );
 }
 
 class DraggableRectanglesApp extends StatelessWidget {
@@ -29,19 +32,14 @@ class _DraggableRectanglesPageState extends State<DraggableRectanglesPage> {
   // List to store rectangle positions
   List<Offset> rectanglePositions = [];
 
-  // Generate a unique color for each rectangle
-  Color _generateUniqueColor(int index) {
-    return Colors.primaries[index % Colors.primaries.length].shade300;
-  }
-
   @override
   void initState() {
     super.initState();
     // Initialize with a few rectangles
     rectanglePositions = [
-      Offset(100, 100),
-      Offset(200, 200),
-      Offset(300, 300),
+      const Offset(100, 100),
+      const Offset(200, 200),
+      const Offset(300, 300),
     ];
   }
 
@@ -93,7 +91,11 @@ class _DraggableRectanglesPageState extends State<DraggableRectanglesPage> {
                           left: rectanglePositions[index].dx,
                           top: rectanglePositions[index].dy,
                           child: Draggable(
-                            feedback: _buildRectangle(index, true),
+                            feedback: Text('data'),
+/*                            feedback: RectangleCard(
+                              index: index,
+                              isDragging: true,
+                            ),*/
                             childWhenDragging:
                                 Container(), // Empty when dragging
                             onDragEnd: (details) {
@@ -109,7 +111,10 @@ class _DraggableRectanglesPageState extends State<DraggableRectanglesPage> {
                                 },
                               );
                             },
-                            child: _buildRectangle(index, false),
+                            child: RectangleCard(
+                              index: index,
+                              isDragging: false,
+                            ),
                           ),
                         );
                       },
@@ -123,14 +128,30 @@ class _DraggableRectanglesPageState extends State<DraggableRectanglesPage> {
       ),
     );
   }
+}
 
-  // Build rectangle widget
-  Widget _buildRectangle(int index, bool isDragging) {
+class RectangleCard extends StatelessWidget {
+  const RectangleCard({
+    super.key,
+    required this.index,
+    required this.isDragging,
+  });
+
+  final int index;
+  final bool isDragging;
+
+  Color _generateUniqueColor(int index) {
+    return Colors.primaries[index % Colors.primaries.length].shade300;
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Container(
       width: 100,
       height: 100,
       decoration: BoxDecoration(
-        color: _generateUniqueColor(index).withOpacity(isDragging ? 0.5 : 1),
+        // color: _generateUniqueColor(index).withOpacity(isDragging ? 0.5 : 1),
+        color: Colors.orange,
         border: Border.all(
           color: Colors.black,
           width: 2,
@@ -140,7 +161,7 @@ class _DraggableRectanglesPageState extends State<DraggableRectanglesPage> {
       child: Center(
         child: Text(
           'Rect ${index + 1}',
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.black,
             fontWeight: FontWeight.bold,
           ),

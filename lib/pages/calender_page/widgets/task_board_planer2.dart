@@ -138,7 +138,7 @@ class _TaskBoardPlaner2State extends State<TaskBoardPlaner2> {
         }
         return event;
       }).toList();
-      events.sorted;
+      events = events.sorted;
       events = [
         ...calculatePositionParameters(),
       ];
@@ -216,6 +216,18 @@ class _TaskBoardPlaner2State extends State<TaskBoardPlaner2> {
 
     for (CalendarEvent event in newList) {
       setWidthLevelToRelated(event);
+    }
+
+    // if(true) {
+    if (false) {
+      for (CalendarEvent event in newList) {
+        log('*** event.id: ${event.id}');
+        log('*** event.startTime: ${event.startTime}');
+        log('*** event.columnNumber: ${event.columnNumber}');
+        log('*** event.widthLevel: ${event.widthLevel}');
+        log('*** event.relatedId: ${event.relatedId}');
+        log('');
+      }
     }
 
     return newList;
@@ -302,7 +314,7 @@ class _TaskBoardPlaner2State extends State<TaskBoardPlaner2> {
                 );
               },
             ),
-            LayoutBuilder(
+/*            LayoutBuilder(
               builder: (context, constraints) {
                 return DragTarget<CalendarEvent>(
                   builder: (context, candidateData, rejectedData) {
@@ -325,56 +337,93 @@ class _TaskBoardPlaner2State extends State<TaskBoardPlaner2> {
                   },
                 );
               },
-            ),
-            ...List.generate(
-              events.length,
-              (index) {
-                return Padding(
-                  padding: EdgeInsets.only(
-                    top: events[index].startTime.toPadding(widget.scaleFactor),
-                  ),
-                  child: LayoutBuilder(
-                    builder: (context, constraints) {
-                      double leftPadding =
-                          widget.timeWidth + widget.defaultLeftPadding;
+            ),*/
+            LayoutBuilder(
+              builder: (context, constraints) {
+                double leftPadding =
+                    widget.timeWidth + widget.defaultLeftPadding;
 
-                      double availableWidth = constraints.maxWidth -
-                          leftPadding -
-                          widget.defaultRightPadding;
+                double availableWidth = constraints.maxWidth -
+                    leftPadding -
+                    widget.defaultRightPadding;
+                RenderBox renderBox = context.findRenderObject() as RenderBox;
+                return Stack(
+                  children: [
+                    ...List.generate(
+                      events.length,
+                      (index) {
+                        return Padding(
+                          padding: EdgeInsets.only(
+                            top: events[index]
+                                .startTime
+                                .toPadding(widget.scaleFactor),
+                          ),
+                          child: Builder(
+                            builder: (_) {
+                              double widthCard =
+                                  availableWidth / events[index].widthLevel;
 
-                      double widthCard =
-                          availableWidth / events[index].widthLevel;
+                              double cardLeftPadding = leftPadding +
+                                  (widthCard) *
+                                      (events[index].columnNumber - 1);
+                              TaskBoardEventCard card = TaskBoardEventCard(
+                                calendarEvent: events[index],
+                                leftPadding: cardLeftPadding,
+                                width: widthCard,
+                                scaleFactor: widget.scaleFactor,
+                              );
 
-                      leftPadding = leftPadding +
-                          (widthCard) * (events[index].columnNumber - 1);
+                              return Draggable<CalendarEvent>(
+                                data: events[index],
+                                feedback: Opacity(
+                                  opacity: 0.5,
+                                  child: card,
+                                ),
+                                childWhenDragging: const SizedBox(),
+                                onDragUpdate: (DragUpdateDetails details) {
+                                  // log('*** dragUpdateDetails: ${dragUpdateDetails}');
+                                  // log('*** dragUpdateDetails: ${dragUpdateDetails.localPosition}');
+                                  // log('*** dragUpdateDetails: ${dragUpdateDetails.globalPosition}');
+                                  // log(' ');
+                                  // events = [
+                                  //   ...calculatePositionParameters(),
+                                  // ];
 
-                      TaskBoardEventCard card = TaskBoardEventCard(
-                        calendarEvent: events[index],
-                        leftPadding: leftPadding,
-                        width: widthCard,
-                        scaleFactor: widget.scaleFactor,
-                      );
+                                  Offset localPosition = renderBox
+                                      .globalToLocal(details.localPosition);
 
-                      return Draggable<CalendarEvent>(
-                        data: events[index],
-                        feedback: Opacity(
-                          opacity: 0.5,
-                          child: card,
-                        ),
-                        childWhenDragging: const SizedBox(),
-                        onDragUpdate: (DragUpdateDetails dragUpdateDetails) {
-                          // log('*** dragUpdateDetails: ${dragUpdateDetails}');
-                          log('*** dragUpdateDetails: ${dragUpdateDetails.localPosition}');
-                          log('*** dragUpdateDetails: ${dragUpdateDetails.globalPosition}');
-                          log(' ');
-                          events = [
-                            ...calculatePositionParameters(),
-                          ];
-                        },
-                        child: card,
-                      );
-                    },
-                  ),
+                                  // Offset localPosition = details.localPosition;
+
+                                  log('***  details globalPosition: ${details.globalPosition}');
+                                  log('***  details  localPosition: ${details.localPosition}');
+                                  log('*** renderBox localPosition: ${localPosition}');
+                                  log('');
+
+                                  // changeCalendarEvent(
+                                  //   calendarEvent: events[index],
+                                  //   offset: localPosition,
+                                  // );
+                                },
+                                onDragEnd: (details) {
+                                  // RenderBox renderBox =
+                                  //     context.findRenderObject() as RenderBox;
+                                  Offset localPosition =
+                                      renderBox.globalToLocal(details.offset);
+                                  log('*** localPosition: ${localPosition}');
+
+                                  changeCalendarEvent(
+                                    calendarEvent: events[index],
+                                    offset: localPosition,
+                                  );
+                                },
+                                child: card,
+                              );
+                            },
+                          ),
+                        );
+                      },
+                    ),
+                  ],
                 );
               },
             ),

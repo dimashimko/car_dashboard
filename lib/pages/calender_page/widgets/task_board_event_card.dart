@@ -42,7 +42,9 @@ class TaskBoardEventCard extends StatelessWidget {
             builder: (context, constraints) {
               return SingleChildScrollView(
                 child: ConstrainedBox(
-                  constraints: BoxConstraints(minHeight: constraints.maxHeight),
+                  constraints: BoxConstraints(
+                    minHeight: constraints.maxHeight,
+                  ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -61,14 +63,17 @@ class TaskBoardEventCard extends StatelessWidget {
                               overflow: TextOverflow.ellipsis,
                             ),
                           ),
-                          Text(
-                            calendarEvent.info ?? '',
-                            style: AppTypography.title12m.copyWith(
-                              color: calendarEvent.color == null
-                                  ? AppColors.primary.dark1
-                                  : AppColors.white,
+                          Expanded(
+                            child: Text(
+                              calendarEvent.info ?? '',
+                              style: AppTypography.title12m.copyWith(
+                                color: calendarEvent.color == null
+                                    ? AppColors.primary.dark1
+                                    : AppColors.white,
+                              ),
+                              textAlign: TextAlign.end,
+                              overflow: TextOverflow.ellipsis,
                             ),
-                            overflow: TextOverflow.ellipsis,
                           ),
                         ],
                       ),
