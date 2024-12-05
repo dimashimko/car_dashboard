@@ -60,10 +60,13 @@ class ServiceScheduleCard extends StatelessWidget {
                     const Gap(16.0),
                     const CustomSmallDivider(),
                     const Gap(16.0),
-                    Text(
-                      'Fix Price: \$${serviceSchedule.fixPrice.toCurrencyString()}',
-                      style: AppTypography.title14m.copyWith(
-                        color: colors(context).textGray,
+                    Expanded(
+                      child: Text(
+                        'Fix Price: \$${serviceSchedule.fixPrice.toCurrencyString()}',
+                        style: AppTypography.title14m.copyWith(
+                          color: colors(context).textGray,
+                        ),
+                        overflow: TextOverflow.ellipsis,
                       ),
                     ),
                   ],
