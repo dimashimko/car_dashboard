@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
 import '../../utils/constants.dart';
-import 'widgets/service_required_and_schedule.dart';
+import 'widgets/service_required_and_schedule/service_required_and_schedule.dart';
 import 'widgets/service_station/service_station.dart';
 
 class ServicesPage extends StatelessWidget {

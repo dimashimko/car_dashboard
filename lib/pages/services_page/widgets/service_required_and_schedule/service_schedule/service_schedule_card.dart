@@ -5,8 +5,8 @@ import 'package:car_dashboard/utils/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
-import '../../../../models/service_schedule.dart';
-import '../../../../widgets/dividers/custom_small_divider.dart';
+import '../../../../../models/service_schedule.dart';
+import '../../../../../widgets/dividers/custom_small_divider.dart';
 
 class ServiceScheduleCard extends StatelessWidget {
   const ServiceScheduleCard({

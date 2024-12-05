@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 
-import '../../../../models/service_required.dart';
-import '../../../../resources/app_typography.dart';
-import '../../../../resources/theme/custom_theme_extension.dart';
-import '../../../../widgets/dividers/custom_small_divider.dart';
+import '../../../../../models/service_required.dart';
+import '../../../../../resources/app_typography.dart';
+import '../../../../../resources/theme/custom_theme_extension.dart';
+import '../../../../../widgets/dividers/custom_small_divider.dart';
 
 class ServiceRequiredCard extends StatelessWidget {
   const ServiceRequiredCard({

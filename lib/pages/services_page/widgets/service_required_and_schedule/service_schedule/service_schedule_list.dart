@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../../models/service_schedule.dart';
-import '../../../../resources/app_typography.dart';
-import '../../../../resources/theme/custom_theme_extension.dart';
+import '../../../../../models/service_schedule.dart';
+import '../../../../../resources/app_typography.dart';
+import '../../../../../resources/theme/custom_theme_extension.dart';
 import 'service_schedule_card.dart';
 
 class ServiceScheduleList extends StatefulWidget {

@@ -2,9 +2,9 @@ import 'package:car_dashboard/generated/assets.gen.dart';
 import 'package:car_dashboard/resources/app_colors.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../models/service_required.dart';
-import '../../../../resources/app_typography.dart';
-import '../../../../resources/theme/custom_theme_extension.dart';
+import '../../../../../models/service_required.dart';
+import '../../../../../resources/app_typography.dart';
+import '../../../../../resources/theme/custom_theme_extension.dart';
 import 'service_required_card.dart';
 
 class ServiceRequiredList extends StatelessWidget {
