@@ -42,6 +42,8 @@ class AppColors {
   static const Color grayC3 = Color(0xFFC3C3C3);
   static const Color grayC4 = Color(0xFFC4C4C4);
   static const Color grayF9 = Color(0xFFF9F9F9);
+  static const Color grayF6 = Color(0xFFF6F6F6);
+  static const Color grayEC = Color(0xFFECECEC);
   static const Color calendarToggleBackgroundDark = Color(0xFF2B2E38);
   static const Color upcomingEventsTimeNowText = Color(0xFFF65E5E);
   static const Color upcomingEventsTimeNowDivider = Color(0xFFFAAEAE);
@@ -50,6 +52,9 @@ class AppColors {
   static const Color stripeContainerStripeColorDark = Color(0xff292E3E);
   static const Color stripeContainerBorderColorLight = Color(0xffE0E4EC);
   static const Color stripeContainerBorderColorDark = Color(0xff343847);
+  static const Color addServicesButtonColorLight = Color(0xffE0E4EC);
+  static const Color addServicesButtonBorderColorLight = Color(0xffD8D2E7);
+  static const Color addServicesButtonBorderColorDark = Color(0xff464155);
 }
 
 class Primary {

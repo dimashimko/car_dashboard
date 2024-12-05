@@ -5,7 +5,7 @@ class RowScrollable extends StatelessWidget {
     super.key,
     required this.children,
     this.mainAxisAlignment = MainAxisAlignment.start,
-    this.crossAxisAlignment = CrossAxisAlignment.center,
+    this.crossAxisAlignment = CrossAxisAlignment.start,
   });
 
   final List<Widget> children;
@@ -21,7 +21,7 @@ class RowScrollable extends StatelessWidget {
           constraints: BoxConstraints(minWidth: constraints.maxWidth),
           child: Row(
             mainAxisAlignment: mainAxisAlignment,
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: crossAxisAlignment,
             children: children,
           ),
         ),

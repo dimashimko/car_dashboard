@@ -52,6 +52,7 @@ class _CustomCalendarState extends State<CustomCalendar> {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
+        double maxWidth = constraints.maxWidth;
         return Container(
           decoration: BoxDecoration(
             color: colors(context).background,
@@ -76,7 +77,7 @@ class _CustomCalendarState extends State<CustomCalendar> {
                         DateFormat('MMMM yyyy').format(_currentMonth),
                         style: TextStyle(
                           color: colors(context).parametersTextColor,
-                          fontSize: 24.toResponsive(constraints),
+                          fontSize: 24.toResponsive(maxWidth),
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -120,11 +121,11 @@ class _CustomCalendarState extends State<CustomCalendar> {
                     color: AppColors.secondary.red,
                     textStyleSelected: AppTypography.title16b.copyWith(
                       color: AppColors.white,
-                      fontSize: 16.toResponsive(constraints),
+                      fontSize: 16.toResponsive(maxWidth),
                     ),
                     textStyleNoSelected: AppTypography.title16b.copyWith(
                       color: colors(context).parametersTextColor,
-                      fontSize: 16.toResponsive(constraints),
+                      fontSize: 16.toResponsive(maxWidth),
                     ),
                   ),
                   const Gap(24.0),
@@ -132,7 +133,7 @@ class _CustomCalendarState extends State<CustomCalendar> {
                     padding: const EdgeInsets.symmetric(vertical: 8.0),
                     child: DefaultTextStyle(
                       style: AppTypography.title16m.copyWith(
-                        fontSize: 16.toResponsive(constraints),
+                        fontSize: 16.toResponsive(maxWidth),
                         color: colors(context).calendarDaysOfWeek,
                       ),
                       child: const Row(
@@ -195,7 +196,7 @@ class _CustomCalendarState extends State<CustomCalendar> {
                                   child: Text(
                                     '${date.day}',
                                     style: TextStyle(
-                                      fontSize: 16.toResponsive(constraints),
+                                      fontSize: 16.toResponsive(maxWidth),
                                       color: !isCurrentMonth
                                           ? widget.isShowAdjacentDays
                                               ? Colors.grey

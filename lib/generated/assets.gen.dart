@@ -147,6 +147,18 @@ class $AssetsIconsGen {
   SvgGenImage get sellCarsIcon =>
       const SvgGenImage('assets/icons/sell_cars_icon.svg');
 
+  /// File path: assets/icons/service_center.svg
+  SvgGenImage get serviceCenter =>
+      const SvgGenImage('assets/icons/service_center.svg');
+
+  /// File path: assets/icons/service_repair.svg
+  SvgGenImage get serviceRepair =>
+      const SvgGenImage('assets/icons/service_repair.svg');
+
+  /// File path: assets/icons/service_washing.svg
+  SvgGenImage get serviceWashing =>
+      const SvgGenImage('assets/icons/service_washing.svg');
+
   /// File path: assets/icons/services_icon.svg
   SvgGenImage get servicesIcon =>
       const SvgGenImage('assets/icons/services_icon.svg');
@@ -210,6 +222,9 @@ class $AssetsIconsGen {
         returning,
         search,
         sellCarsIcon,
+        serviceCenter,
+        serviceRepair,
+        serviceWashing,
         servicesIcon,
         setting,
         settings,

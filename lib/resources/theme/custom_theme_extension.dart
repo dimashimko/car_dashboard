@@ -51,6 +51,12 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension>
     required this.stripeContainerBaseColor,
     required this.stripeContainerStripeColor,
     required this.stripeContainerBorderColor,
+    required this.white,
+    required this.dark,
+    required this.addServicesButtonColor,
+    required this.addServicesButtonBorderColor,
+    required this.dividerServiceRequired,
+    required this.procesingLabel,
   });
 
   @override
@@ -131,6 +137,18 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension>
   final Color stripeContainerStripeColor;
   @override
   final Color stripeContainerBorderColor;
+  @override
+  final Color white;
+  @override
+  final Color dark;
+  @override
+  final Color addServicesButtonColor;
+  @override
+  final Color addServicesButtonBorderColor;
+  @override
+  final Color dividerServiceRequired;
+  @override
+  final Color procesingLabel;
 }
 
 final lightCustomThemeExtension = CustomThemeExtension(
@@ -172,7 +190,13 @@ final lightCustomThemeExtension = CustomThemeExtension(
   calendarToggleBackground: AppColors.grayF9,
   stripeContainerBaseColor: AppColors.grayishWhite,
   stripeContainerStripeColor: AppColors.white,
-  stripeContainerBorderColor: AppColors.stripeContainerBorderColorLight,
+  stripeContainerBorderColor: AppColors.gray.white,
+  white: AppColors.gray.white,
+  dark: AppColors.gray.dark3,
+  addServicesButtonColor: AppColors.addServicesButtonColorLight,
+  addServicesButtonBorderColor: AppColors.addServicesButtonBorderColorLight,
+  dividerServiceRequired: AppColors.grayEC,
+  procesingLabel: AppColors.gray.dark2,
 );
 
 final darkCustomThemeExtension = CustomThemeExtension(
@@ -215,4 +239,10 @@ final darkCustomThemeExtension = CustomThemeExtension(
   stripeContainerBaseColor: AppColors.stripeContainerBaseColorDark,
   stripeContainerStripeColor: AppColors.stripeContainerStripeColorDark,
   stripeContainerBorderColor: AppColors.stripeContainerBorderColorDark,
+  white: AppColors.primary.white1,
+  dark: AppColors.gray.dark2,
+  addServicesButtonColor: AppColors.primary.dark1,
+  addServicesButtonBorderColor: AppColors.addServicesButtonBorderColorDark,
+  dividerServiceRequired: AppColors.dividerSensorDark,
+  procesingLabel: AppColors.gray.dark4,
 );

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
-import '../../resources/theme/custom_theme_extension.dart';
+import '../../utils/constants.dart';
+import 'widgets/service_required/service_required_list.dart';
+import 'widgets/service_station/service_station.dart';
 
 class ServicesPage extends StatelessWidget {
   const ServicesPage({super.key});
@@ -12,16 +14,45 @@ class ServicesPage extends StatelessWidget {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(30.0),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  'ServicesPage',
-                  style: TextStyle(
-                    color: colors(context).textPrimary,
-                  ),
-                ),
                 const Gap(16.0),
+                LayoutBuilder(
+                  builder: (context, constraints) {
+                    double availableWidth = constraints.maxWidth;
+
+                    if (availableWidth > minWidthForExpandedService) {
+                      return Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Flexible(
+                            fit: FlexFit.tight,
+                            flex: 2,
+                            child: ServiceStation(),
+                          ),
+                          const Gap(24.0),
+                          Flexible(
+                            fit: FlexFit.tight,
+                            flex: 1,
+                            child: ServiceRequiredList(),
+                          ),
+                        ],
+                      );
+                    } else {
+                      return Column(
+                        children: [
+                          const ServiceStation(),
+                          const Gap(27.0),
+                          ServiceRequiredList(),
+                        ],
+                      );
+                    }
+                  },
+                ),
+                const Gap(30.0),
+                const Placeholder(),
               ],
             ),
           ),

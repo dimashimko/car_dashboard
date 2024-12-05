@@ -49,6 +49,12 @@ mixin _$CustomThemeExtensionTailorMixin
   Color get stripeContainerBaseColor;
   Color get stripeContainerStripeColor;
   Color get stripeContainerBorderColor;
+  Color get white;
+  Color get dark;
+  Color get addServicesButtonColor;
+  Color get addServicesButtonBorderColor;
+  Color get dividerServiceRequired;
+  Color get procesingLabel;
 
   @override
   CustomThemeExtension copyWith({
@@ -91,6 +97,12 @@ mixin _$CustomThemeExtensionTailorMixin
     Color? stripeContainerBaseColor,
     Color? stripeContainerStripeColor,
     Color? stripeContainerBorderColor,
+    Color? white,
+    Color? dark,
+    Color? addServicesButtonColor,
+    Color? addServicesButtonBorderColor,
+    Color? dividerServiceRequired,
+    Color? procesingLabel,
   }) {
     return CustomThemeExtension(
       statisticsDivider: statisticsDivider ?? this.statisticsDivider,
@@ -141,6 +153,15 @@ mixin _$CustomThemeExtensionTailorMixin
           stripeContainerStripeColor ?? this.stripeContainerStripeColor,
       stripeContainerBorderColor:
           stripeContainerBorderColor ?? this.stripeContainerBorderColor,
+      white: white ?? this.white,
+      dark: dark ?? this.dark,
+      addServicesButtonColor:
+          addServicesButtonColor ?? this.addServicesButtonColor,
+      addServicesButtonBorderColor:
+          addServicesButtonBorderColor ?? this.addServicesButtonBorderColor,
+      dividerServiceRequired:
+          dividerServiceRequired ?? this.dividerServiceRequired,
+      procesingLabel: procesingLabel ?? this.procesingLabel,
     );
   }
 
@@ -209,6 +230,15 @@ mixin _$CustomThemeExtensionTailorMixin
           stripeContainerStripeColor, other.stripeContainerStripeColor, t)!,
       stripeContainerBorderColor: Color.lerp(
           stripeContainerBorderColor, other.stripeContainerBorderColor, t)!,
+      white: Color.lerp(white, other.white, t)!,
+      dark: Color.lerp(dark, other.dark, t)!,
+      addServicesButtonColor:
+          Color.lerp(addServicesButtonColor, other.addServicesButtonColor, t)!,
+      addServicesButtonBorderColor: Color.lerp(
+          addServicesButtonBorderColor, other.addServicesButtonBorderColor, t)!,
+      dividerServiceRequired:
+          Color.lerp(dividerServiceRequired, other.dividerServiceRequired, t)!,
+      procesingLabel: Color.lerp(procesingLabel, other.procesingLabel, t)!,
     );
   }
 
@@ -291,7 +321,17 @@ mixin _$CustomThemeExtensionTailorMixin
             const DeepCollectionEquality().equals(
                 stripeContainerStripeColor, other.stripeContainerStripeColor) &&
             const DeepCollectionEquality().equals(
-                stripeContainerBorderColor, other.stripeContainerBorderColor));
+                stripeContainerBorderColor, other.stripeContainerBorderColor) &&
+            const DeepCollectionEquality().equals(white, other.white) &&
+            const DeepCollectionEquality().equals(dark, other.dark) &&
+            const DeepCollectionEquality()
+                .equals(addServicesButtonColor, other.addServicesButtonColor) &&
+            const DeepCollectionEquality().equals(addServicesButtonBorderColor,
+                other.addServicesButtonBorderColor) &&
+            const DeepCollectionEquality()
+                .equals(dividerServiceRequired, other.dividerServiceRequired) &&
+            const DeepCollectionEquality()
+                .equals(procesingLabel, other.procesingLabel));
   }
 
   @override
@@ -337,6 +377,12 @@ mixin _$CustomThemeExtensionTailorMixin
       const DeepCollectionEquality().hash(stripeContainerBaseColor),
       const DeepCollectionEquality().hash(stripeContainerStripeColor),
       const DeepCollectionEquality().hash(stripeContainerBorderColor),
+      const DeepCollectionEquality().hash(white),
+      const DeepCollectionEquality().hash(dark),
+      const DeepCollectionEquality().hash(addServicesButtonColor),
+      const DeepCollectionEquality().hash(addServicesButtonBorderColor),
+      const DeepCollectionEquality().hash(dividerServiceRequired),
+      const DeepCollectionEquality().hash(procesingLabel),
     ]);
   }
 }
@@ -390,4 +436,13 @@ extension CustomThemeExtensionBuildContextProps on BuildContext {
       customThemeExtension.stripeContainerStripeColor;
   Color get stripeContainerBorderColor =>
       customThemeExtension.stripeContainerBorderColor;
+  Color get white => customThemeExtension.white;
+  Color get dark => customThemeExtension.dark;
+  Color get addServicesButtonColor =>
+      customThemeExtension.addServicesButtonColor;
+  Color get addServicesButtonBorderColor =>
+      customThemeExtension.addServicesButtonBorderColor;
+  Color get dividerServiceRequired =>
+      customThemeExtension.dividerServiceRequired;
+  Color get procesingLabel => customThemeExtension.procesingLabel;
 }

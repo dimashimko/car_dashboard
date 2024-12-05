@@ -1,7 +1,12 @@
-import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 import '../models/calendar_event.dart';
+
+extension DoubleExtensions on double {
+  String toFormattedString() {
+    return (this % 1 == 0) ? toStringAsFixed(0) : toStringAsFixed(2);
+  }
+}
 
 extension ListCalendarEventX on List<CalendarEvent> {
   List<CalendarEvent> get sorted {
@@ -19,8 +24,8 @@ extension ModuloExtension on int {
 }
 
 extension SizeExtension on num {
-  double toResponsive(BoxConstraints constraints) {
-    return this * constraints.maxWidth * 0.0024;
+  double toResponsive(double maxWidth) {
+    return this * maxWidth * 0.0024;
   }
 }
 
