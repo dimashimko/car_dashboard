@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
 import '../../utils/constants.dart';
-import 'widgets/service_required/service_required_list.dart';
+import 'widgets/service_required_and_schedule.dart';
 import 'widgets/service_station/service_station.dart';
 
 class ServicesPage extends StatelessWidget {
@@ -36,7 +36,7 @@ class ServicesPage extends StatelessWidget {
                           Flexible(
                             fit: FlexFit.tight,
                             flex: 1,
-                            child: ServiceRequiredList(),
+                            child: ServiceRequiredAndSchedule(),
                           ),
                         ],
                       );
@@ -45,7 +45,7 @@ class ServicesPage extends StatelessWidget {
                         children: [
                           const ServiceStation(),
                           const Gap(27.0),
-                          ServiceRequiredList(),
+                          ServiceRequiredAndSchedule(),
                         ],
                       );
                     }

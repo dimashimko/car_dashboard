@@ -61,6 +61,7 @@ class AppTypography {
     fontSize: 16.0,
     fontWeight: AppFonts.medium,
     fontFamily: AppFonts.fontFamilyDMSans,
+    letterSpacing: 0.0,
   );
 
   static const TextStyle title16r = TextStyle(

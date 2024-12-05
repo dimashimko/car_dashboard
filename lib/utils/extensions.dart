@@ -3,6 +3,11 @@ import 'package:intl/intl.dart';
 import '../models/calendar_event.dart';
 
 extension DoubleExtensions on double {
+  String toCurrencyString() {
+    final formatter = NumberFormat('#,###.##');
+    return '${formatter.format(this)}';
+  }
+
   String toFormattedString() {
     return (this % 1 == 0) ? toStringAsFixed(0) : toStringAsFixed(2);
   }

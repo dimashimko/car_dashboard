@@ -127,6 +127,12 @@ class $AssetsIconsGen {
   /// File path: assets/icons/point.svg
   SvgGenImage get point => const SvgGenImage('assets/icons/point.svg');
 
+  /// File path: assets/icons/radio_off.svg
+  SvgGenImage get radioOff => const SvgGenImage('assets/icons/radio_off.svg');
+
+  /// File path: assets/icons/radio_on.svg
+  SvgGenImage get radioOn => const SvgGenImage('assets/icons/radio_on.svg');
+
   /// File path: assets/icons/range.svg
   SvgGenImage get range => const SvgGenImage('assets/icons/range.svg');
 
@@ -216,6 +222,8 @@ class $AssetsIconsGen {
         notification,
         passengers,
         point,
+        radioOff,
+        radioOn,
         range,
         recomended,
         repeat,
