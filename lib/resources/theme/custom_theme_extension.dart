@@ -59,6 +59,7 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension>
     required this.processingLabel,
     required this.blackWhite,
     required this.conditionIndicatorBackground,
+    required this.serviceTimeBackground,
   });
 
   @override
@@ -155,6 +156,8 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension>
   final Color blackWhite;
   @override
   final Color conditionIndicatorBackground;
+  @override
+  final Color serviceTimeBackground;
 }
 
 final lightCustomThemeExtension = CustomThemeExtension(
@@ -205,6 +208,7 @@ final lightCustomThemeExtension = CustomThemeExtension(
   processingLabel: AppColors.gray.dark2,
   blackWhite: AppColors.black,
   conditionIndicatorBackground: AppColors.grayF5,
+  serviceTimeBackground: AppColors.grayF6,
 );
 
 final darkCustomThemeExtension = CustomThemeExtension(
@@ -255,4 +259,5 @@ final darkCustomThemeExtension = CustomThemeExtension(
   processingLabel: AppColors.gray.dark4,
   blackWhite: AppColors.white,
   conditionIndicatorBackground: AppColors.backgroundDark,
+  serviceTimeBackground: AppColors.backgroundDark,
 );

@@ -1,6 +1,7 @@
 import 'package:car_dashboard/generated/assets.gen.dart';
 import 'package:car_dashboard/resources/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 
 import '../../../../../models/service_required.dart';
 import '../../../../../resources/app_typography.dart';
@@ -44,6 +45,7 @@ class ServiceRequiredList extends StatelessWidget {
             color: colors(context).parametersTextColor,
           ),
         ),
+        Gap(22.0),
         Container(
           height: 330.0,
           decoration: BoxDecoration(

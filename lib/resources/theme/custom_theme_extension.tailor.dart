@@ -57,6 +57,7 @@ mixin _$CustomThemeExtensionTailorMixin
   Color get processingLabel;
   Color get blackWhite;
   Color get conditionIndicatorBackground;
+  Color get serviceTimeBackground;
 
   @override
   CustomThemeExtension copyWith({
@@ -107,6 +108,7 @@ mixin _$CustomThemeExtensionTailorMixin
     Color? processingLabel,
     Color? blackWhite,
     Color? conditionIndicatorBackground,
+    Color? serviceTimeBackground,
   }) {
     return CustomThemeExtension(
       statisticsDivider: statisticsDivider ?? this.statisticsDivider,
@@ -169,6 +171,8 @@ mixin _$CustomThemeExtensionTailorMixin
       blackWhite: blackWhite ?? this.blackWhite,
       conditionIndicatorBackground:
           conditionIndicatorBackground ?? this.conditionIndicatorBackground,
+      serviceTimeBackground:
+          serviceTimeBackground ?? this.serviceTimeBackground,
     );
   }
 
@@ -249,6 +253,8 @@ mixin _$CustomThemeExtensionTailorMixin
       blackWhite: Color.lerp(blackWhite, other.blackWhite, t)!,
       conditionIndicatorBackground: Color.lerp(
           conditionIndicatorBackground, other.conditionIndicatorBackground, t)!,
+      serviceTimeBackground:
+          Color.lerp(serviceTimeBackground, other.serviceTimeBackground, t)!,
     );
   }
 
@@ -344,7 +350,8 @@ mixin _$CustomThemeExtensionTailorMixin
                 .equals(processingLabel, other.processingLabel) &&
             const DeepCollectionEquality()
                 .equals(blackWhite, other.blackWhite) &&
-            const DeepCollectionEquality().equals(conditionIndicatorBackground, other.conditionIndicatorBackground));
+            const DeepCollectionEquality().equals(conditionIndicatorBackground, other.conditionIndicatorBackground) &&
+            const DeepCollectionEquality().equals(serviceTimeBackground, other.serviceTimeBackground));
   }
 
   @override
@@ -398,6 +405,7 @@ mixin _$CustomThemeExtensionTailorMixin
       const DeepCollectionEquality().hash(processingLabel),
       const DeepCollectionEquality().hash(blackWhite),
       const DeepCollectionEquality().hash(conditionIndicatorBackground),
+      const DeepCollectionEquality().hash(serviceTimeBackground),
     ]);
   }
 }
@@ -463,4 +471,5 @@ extension CustomThemeExtensionBuildContextProps on BuildContext {
   Color get blackWhite => customThemeExtension.blackWhite;
   Color get conditionIndicatorBackground =>
       customThemeExtension.conditionIndicatorBackground;
+  Color get serviceTimeBackground => customThemeExtension.serviceTimeBackground;
 }

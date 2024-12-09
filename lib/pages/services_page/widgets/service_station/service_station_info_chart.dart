@@ -18,81 +18,90 @@ class ServiceStationInfoChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: colors(context).background,
-        borderRadius: const BorderRadius.all(
-          Radius.circular(14.0),
-        ),
+    return ConstrainedBox(
+      constraints: BoxConstraints(
+        maxHeight: 250.0,
+        maxWidth: 250.0,
       ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 24.0,
-          vertical: 20.0,
+      child: Container(
+        decoration: BoxDecoration(
+          color: colors(context).background,
+          borderRadius: const BorderRadius.all(
+            Radius.circular(14.0),
+          ),
         ),
-        child: Column(
-          children: [
-            Text(
-              'Your Order',
-              style: AppTypography.headingH2,
-            ),
-            Center(
-              child: LayoutBuilder(
-                builder: (context, constrains) {
-                  return Stack(
-                    alignment: Alignment.center,
-                    children: [
-                      RotatedBox(
-                        quarterTurns: 3,
-                        child: SizedBox.square(
-                          dimension: constrains.maxWidth,
-                          child: CustomPaint(
-                            painter: CircularChartPainter(
-                              numberOfPoints: list.length,
-                              colorMap: list.map((e) => e.color).toList(),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 24.0,
+            vertical: 20.0,
+          ),
+          child: Column(
+            children: [
+              Text(
+                'Your Order',
+                style: AppTypography.headingH2.copyWith(
+                  color: colors(context).parametersTextColor,
+                ),
+              ),
+              Expanded(
+                child: LayoutBuilder(
+                  builder: (context, constrains) {
+                    return Stack(
+                      alignment: Alignment.center,
+                      children: [
+                        RotatedBox(
+                          quarterTurns: 3,
+                          child: SizedBox.square(
+                            dimension: constrains.maxWidth,
+                            child: CustomPaint(
+                              painter: CircularChartPainter(
+                                numberOfPoints: list.length,
+                                colorMap: list.map((e) => e.color).toList(),
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                      Container(
-                        decoration: const BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: AppColors.grayF6,
-                        ),
-                        width: (constrains.maxWidth - chartPadding) / 2,
-                        height: (constrains.maxWidth - chartPadding) / 2,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              'Service Time',
-                              style: AppTypography.title14b.copyWith(
-                                color: colors(context).bookingDropdown,
-                                fontSize: 28.toResponsive(
-                                  constrains.maxWidth,
+                        Container(
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: colors(context).serviceTimeBackground,
+                          ),
+                          width: (constrains.maxWidth - chartPadding) / 2,
+                          height: (constrains.maxWidth - chartPadding) / 2,
+                          // height: constrains.,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                'Service Time',
+                                style: AppTypography.title14b.copyWith(
+                                  color: colors(context).bookingDropdown,
+                                  fontSize: 28.toResponsive(
+                                    constrains.maxWidth,
+                                  ),
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                              Text(
+                                '5, 2h',
+                                style: AppTypography.title14b.copyWith(
+                                  color: AppColors.primary.purple,
+                                  fontSize: 32.toResponsive(
+                                    constrains.maxWidth,
+                                  ),
                                 ),
                               ),
-                              textAlign: TextAlign.center,
-                            ),
-                            Text(
-                              '5, 2h',
-                              style: AppTypography.title14b.copyWith(
-                                color: AppColors.primary.purple,
-                                fontSize: 32.toResponsive(
-                                  constrains.maxWidth,
-                                ),
-                              ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
-                      ),
-                    ],
-                  );
-                },
+                      ],
+                    );
+                  },
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

@@ -32,13 +32,13 @@ class ServicesPage extends StatelessWidget {
                           children: [
                             const Flexible(
                               fit: FlexFit.tight,
-                              flex: 2,
+                              flex: 5,
                               child: ServiceStation(),
                             ),
                             const Gap(24.0),
                             Flexible(
                               fit: FlexFit.tight,
-                              flex: 1,
+                              flex: 4,
                               child: ServiceRequiredAndSchedule(),
                             ),
                           ],

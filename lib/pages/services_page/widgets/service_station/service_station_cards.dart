@@ -31,7 +31,6 @@ class _ServiceStationCardsState extends State<ServiceStationCards> {
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraint) {
       double maxWidth = constraint.maxWidth;
-
       return Column(
         children: [
           GridView.builder(
@@ -42,7 +41,7 @@ class _ServiceStationCardsState extends State<ServiceStationCards> {
               crossAxisCount: 10,
               mainAxisSpacing: 8.0,
               crossAxisSpacing: 8.0,
-              childAspectRatio: 0.7,
+              childAspectRatio: 0.8,
             ),
             itemBuilder: (context, index) => ServiceStationCard(
               station: stations[index],
