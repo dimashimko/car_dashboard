@@ -67,7 +67,7 @@ class ServiceRequiredCard extends StatelessWidget {
                       child: Text(
                         'Processing : ${serviceRequired.processing} hours',
                         style: AppTypography.title16m.copyWith(
-                          color: colors(context).procesingLabel,
+                          color: colors(context).processingLabel,
                         ),
                         overflow: TextOverflow.ellipsis,
                       ),

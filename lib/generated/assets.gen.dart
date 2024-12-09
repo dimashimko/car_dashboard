@@ -15,6 +15,9 @@ import 'package:vector_graphics/vector_graphics.dart' as _vg;
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
+  /// File path: assets/icons/_sprite.svg
+  SvgGenImage get aSprite => const SvgGenImage('assets/icons/_sprite.svg');
+
   /// File path: assets/icons/analyze.svg
   SvgGenImage get analyze => const SvgGenImage('assets/icons/analyze.svg');
 
@@ -28,13 +31,33 @@ class $AssetsIconsGen {
   /// File path: assets/icons/arrow_left.svg
   SvgGenImage get arrowLeft => const SvgGenImage('assets/icons/arrow_left.svg');
 
+  /// File path: assets/icons/arrow_left_elongated.svg
+  SvgGenImage get arrowLeftElongated =>
+      const SvgGenImage('assets/icons/arrow_left_elongated.svg');
+
+  /// File path: assets/icons/arrow_left_wide.svg
+  SvgGenImage get arrowLeftWide =>
+      const SvgGenImage('assets/icons/arrow_left_wide.svg');
+
   /// File path: assets/icons/arrow_rigth.svg
   SvgGenImage get arrowRigth =>
       const SvgGenImage('assets/icons/arrow_rigth.svg');
 
+  /// File path: assets/icons/arrow_rigth_elongated.svg
+  SvgGenImage get arrowRigthElongated =>
+      const SvgGenImage('assets/icons/arrow_rigth_elongated.svg');
+
   /// File path: assets/icons/arrow_white_rigth.svg
   SvgGenImage get arrowWhiteRigth =>
       const SvgGenImage('assets/icons/arrow_white_rigth.svg');
+
+  /// File path: assets/icons/arrows_left_elongated2.svg
+  SvgGenImage get arrowsLeftElongated2 =>
+      const SvgGenImage('assets/icons/arrows_left_elongated2.svg');
+
+  /// File path: assets/icons/arrows_right_elongated2.svg
+  SvgGenImage get arrowsRightElongated2 =>
+      const SvgGenImage('assets/icons/arrows_right_elongated2.svg');
 
   /// File path: assets/icons/assets_icon.svg
   SvgGenImage get assetsIcon =>
@@ -190,12 +213,18 @@ class $AssetsIconsGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
+        aSprite,
         analyze,
         arrowBoldForvard,
         arrowDown,
         arrowLeft,
+        arrowLeftElongated,
+        arrowLeftWide,
         arrowRigth,
+        arrowRigthElongated,
         arrowWhiteRigth,
+        arrowsLeftElongated2,
+        arrowsRightElongated2,
         assetsIcon,
         bookingIcon,
         breakFluid,
@@ -320,6 +349,18 @@ class $AssetsImagesGen {
   AssetGenImage get porscheCarella2 =>
       const AssetGenImage('assets/images/porsche_carella_2.png');
 
+  /// File path: assets/images/service_brake_pads.jpg
+  AssetGenImage get serviceBrakePads =>
+      const AssetGenImage('assets/images/service_brake_pads.jpg');
+
+  /// File path: assets/images/service_oil_level.jpg
+  AssetGenImage get serviceOilLevel =>
+      const AssetGenImage('assets/images/service_oil_level.jpg');
+
+  /// File path: assets/images/service_steering.png
+  AssetGenImage get serviceSteering =>
+      const AssetGenImage('assets/images/service_steering.png');
+
   /// List of all assets
   List<AssetGenImage> get values => [
         avatar,
@@ -340,7 +381,10 @@ class $AssetsImagesGen {
         photo04,
         photo05,
         porscheCarella1,
-        porscheCarella2
+        porscheCarella2,
+        serviceBrakePads,
+        serviceOilLevel,
+        serviceSteering
       ];
 }
 

@@ -54,7 +54,9 @@ mixin _$CustomThemeExtensionTailorMixin
   Color get addServicesButtonColor;
   Color get addServicesButtonBorderColor;
   Color get dividerServiceRequired;
-  Color get procesingLabel;
+  Color get processingLabel;
+  Color get blackWhite;
+  Color get conditionIndicatorBackground;
 
   @override
   CustomThemeExtension copyWith({
@@ -102,7 +104,9 @@ mixin _$CustomThemeExtensionTailorMixin
     Color? addServicesButtonColor,
     Color? addServicesButtonBorderColor,
     Color? dividerServiceRequired,
-    Color? procesingLabel,
+    Color? processingLabel,
+    Color? blackWhite,
+    Color? conditionIndicatorBackground,
   }) {
     return CustomThemeExtension(
       statisticsDivider: statisticsDivider ?? this.statisticsDivider,
@@ -161,7 +165,10 @@ mixin _$CustomThemeExtensionTailorMixin
           addServicesButtonBorderColor ?? this.addServicesButtonBorderColor,
       dividerServiceRequired:
           dividerServiceRequired ?? this.dividerServiceRequired,
-      procesingLabel: procesingLabel ?? this.procesingLabel,
+      processingLabel: processingLabel ?? this.processingLabel,
+      blackWhite: blackWhite ?? this.blackWhite,
+      conditionIndicatorBackground:
+          conditionIndicatorBackground ?? this.conditionIndicatorBackground,
     );
   }
 
@@ -238,7 +245,10 @@ mixin _$CustomThemeExtensionTailorMixin
           addServicesButtonBorderColor, other.addServicesButtonBorderColor, t)!,
       dividerServiceRequired:
           Color.lerp(dividerServiceRequired, other.dividerServiceRequired, t)!,
-      procesingLabel: Color.lerp(procesingLabel, other.procesingLabel, t)!,
+      processingLabel: Color.lerp(processingLabel, other.processingLabel, t)!,
+      blackWhite: Color.lerp(blackWhite, other.blackWhite, t)!,
+      conditionIndicatorBackground: Color.lerp(
+          conditionIndicatorBackground, other.conditionIndicatorBackground, t)!,
     );
   }
 
@@ -331,7 +341,10 @@ mixin _$CustomThemeExtensionTailorMixin
             const DeepCollectionEquality()
                 .equals(dividerServiceRequired, other.dividerServiceRequired) &&
             const DeepCollectionEquality()
-                .equals(procesingLabel, other.procesingLabel));
+                .equals(processingLabel, other.processingLabel) &&
+            const DeepCollectionEquality()
+                .equals(blackWhite, other.blackWhite) &&
+            const DeepCollectionEquality().equals(conditionIndicatorBackground, other.conditionIndicatorBackground));
   }
 
   @override
@@ -382,7 +395,9 @@ mixin _$CustomThemeExtensionTailorMixin
       const DeepCollectionEquality().hash(addServicesButtonColor),
       const DeepCollectionEquality().hash(addServicesButtonBorderColor),
       const DeepCollectionEquality().hash(dividerServiceRequired),
-      const DeepCollectionEquality().hash(procesingLabel),
+      const DeepCollectionEquality().hash(processingLabel),
+      const DeepCollectionEquality().hash(blackWhite),
+      const DeepCollectionEquality().hash(conditionIndicatorBackground),
     ]);
   }
 }
@@ -444,5 +459,8 @@ extension CustomThemeExtensionBuildContextProps on BuildContext {
       customThemeExtension.addServicesButtonBorderColor;
   Color get dividerServiceRequired =>
       customThemeExtension.dividerServiceRequired;
-  Color get procesingLabel => customThemeExtension.procesingLabel;
+  Color get processingLabel => customThemeExtension.processingLabel;
+  Color get blackWhite => customThemeExtension.blackWhite;
+  Color get conditionIndicatorBackground =>
+      customThemeExtension.conditionIndicatorBackground;
 }

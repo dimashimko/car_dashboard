@@ -56,7 +56,9 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension>
     required this.addServicesButtonColor,
     required this.addServicesButtonBorderColor,
     required this.dividerServiceRequired,
-    required this.procesingLabel,
+    required this.processingLabel,
+    required this.blackWhite,
+    required this.conditionIndicatorBackground,
   });
 
   @override
@@ -148,7 +150,11 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension>
   @override
   final Color dividerServiceRequired;
   @override
-  final Color procesingLabel;
+  final Color processingLabel;
+  @override
+  final Color blackWhite;
+  @override
+  final Color conditionIndicatorBackground;
 }
 
 final lightCustomThemeExtension = CustomThemeExtension(
@@ -196,7 +202,9 @@ final lightCustomThemeExtension = CustomThemeExtension(
   addServicesButtonColor: AppColors.addServicesButtonColorLight,
   addServicesButtonBorderColor: AppColors.addServicesButtonBorderColorLight,
   dividerServiceRequired: AppColors.grayEC,
-  procesingLabel: AppColors.gray.dark2,
+  processingLabel: AppColors.gray.dark2,
+  blackWhite: AppColors.black,
+  conditionIndicatorBackground: AppColors.grayF5,
 );
 
 final darkCustomThemeExtension = CustomThemeExtension(
@@ -235,7 +243,7 @@ final darkCustomThemeExtension = CustomThemeExtension(
   offerParameters: AppColors.primary.white1,
   calendarDaysOfWeek: AppColors.primary.white1,
   calendarDays: AppColors.primary.white1,
-  calendarToggleBackground: AppColors.calendarToggleBackgroundDark,
+  calendarToggleBackground: AppColors.backgroundDark,
   stripeContainerBaseColor: AppColors.stripeContainerBaseColorDark,
   stripeContainerStripeColor: AppColors.stripeContainerStripeColorDark,
   stripeContainerBorderColor: AppColors.stripeContainerBorderColorDark,
@@ -244,5 +252,7 @@ final darkCustomThemeExtension = CustomThemeExtension(
   addServicesButtonColor: AppColors.primary.dark1,
   addServicesButtonBorderColor: AppColors.addServicesButtonBorderColorDark,
   dividerServiceRequired: AppColors.dividerSensorDark,
-  procesingLabel: AppColors.gray.dark4,
+  processingLabel: AppColors.gray.dark4,
+  blackWhite: AppColors.white,
+  conditionIndicatorBackground: AppColors.backgroundDark,
 );

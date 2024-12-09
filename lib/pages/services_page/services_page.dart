@@ -4,6 +4,7 @@ import 'package:gap/gap.dart';
 import '../../utils/constants.dart';
 import 'widgets/service_required_and_schedule/service_required_and_schedule.dart';
 import 'widgets/service_station/service_station.dart';
+import 'widgets/service_status_bar/service_status_bar.dart';
 
 class ServicesPage extends StatelessWidget {
   const ServicesPage({super.key});
@@ -19,40 +20,42 @@ class ServicesPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Gap(16.0),
-                LayoutBuilder(
-                  builder: (context, constraints) {
-                    double availableWidth = constraints.maxWidth;
+                if (true)
+                  // if (false)
+                  LayoutBuilder(
+                    builder: (context, constraints) {
+                      double availableWidth = constraints.maxWidth;
 
-                    if (availableWidth > minWidthForExpandedService) {
-                      return Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Flexible(
-                            fit: FlexFit.tight,
-                            flex: 2,
-                            child: ServiceStation(),
-                          ),
-                          const Gap(24.0),
-                          Flexible(
-                            fit: FlexFit.tight,
-                            flex: 1,
-                            child: ServiceRequiredAndSchedule(),
-                          ),
-                        ],
-                      );
-                    } else {
-                      return Column(
-                        children: [
-                          const ServiceStation(),
-                          const Gap(27.0),
-                          ServiceRequiredAndSchedule(),
-                        ],
-                      );
-                    }
-                  },
-                ),
+                      if (availableWidth > minWidthForExpandedService) {
+                        return Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Flexible(
+                              fit: FlexFit.tight,
+                              flex: 2,
+                              child: ServiceStation(),
+                            ),
+                            const Gap(24.0),
+                            Flexible(
+                              fit: FlexFit.tight,
+                              flex: 1,
+                              child: ServiceRequiredAndSchedule(),
+                            ),
+                          ],
+                        );
+                      } else {
+                        return Column(
+                          children: [
+                            const ServiceStation(),
+                            const Gap(27.0),
+                            ServiceRequiredAndSchedule(),
+                          ],
+                        );
+                      }
+                    },
+                  ),
                 const Gap(30.0),
-                const Placeholder(),
+                const ServiceStatusBar(),
               ],
             ),
           ),
