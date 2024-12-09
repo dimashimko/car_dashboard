@@ -23,10 +23,11 @@ class CircularChartPainter extends CustomPainter {
     double lN = l / numberOfPoints;
     double lNew = lN - smallCircleRadius;
     double arcPadding = lNew / r;
+    // arcPadding = (pi / 360) * 2;
 
     for (int i = 0; i < numberOfPoints; i++) {
       final paint = Paint()
-        ..color = colorMap[i % colorMap.length]
+        ..color = colorMap[(i % numberOfPoints) % colorMap.length]
         ..style = PaintingStyle.stroke
         ..strokeWidth = strokeWidth;
       double angle = arcLength * i;
@@ -42,7 +43,7 @@ class CircularChartPainter extends CustomPainter {
 
     for (int i = 0; i < numberOfPoints; i++) {
       final paint = Paint()
-        ..color = colorMap[(i - 1) % colorMap.length]
+        ..color = colorMap[((i - 1) % numberOfPoints) % colorMap.length]
         ..style = PaintingStyle.stroke
         ..strokeWidth = strokeWidth;
       double angle = arcLength * i;

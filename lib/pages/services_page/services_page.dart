@@ -27,15 +27,15 @@ class ServicesPage extends StatelessWidget {
                       double availableWidth = constraints.maxWidth;
 
                       if (availableWidth > minWidthForExpandedService) {
-                        return Row(
+                        return const Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Flexible(
+                            Flexible(
                               fit: FlexFit.tight,
                               flex: 5,
                               child: ServiceStation(),
                             ),
-                            const Gap(24.0),
+                            Gap(24.0),
                             Flexible(
                               fit: FlexFit.tight,
                               flex: 4,
@@ -44,10 +44,10 @@ class ServicesPage extends StatelessWidget {
                           ],
                         );
                       } else {
-                        return Column(
+                        return const Column(
                           children: [
-                            const ServiceStation(),
-                            const Gap(27.0),
+                            ServiceStation(),
+                            Gap(27.0),
                             ServiceRequiredAndSchedule(),
                           ],
                         );

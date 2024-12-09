@@ -15,14 +15,28 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         backgroundColor: Colors.white,
-        body: CustomPaint(
-          painter: CircularChartPainter(
-            numberOfPoints: 3,
-            colorMap: [
-              AppColors.primary.purple,
-              AppColors.secondary.red,
-              AppColors.secondary.green,
-            ],
+        body: Center(
+          child: LayoutBuilder(
+            builder: (context, constrains) {
+              return RotatedBox(
+                quarterTurns: 3,
+                child: SizedBox.square(
+                  dimension: constrains.maxWidth,
+                  child: CustomPaint(
+                    painter: CircularChartPainter(
+                      numberOfPoints: 3,
+                      colorMap: [
+                        AppColors.primary.purple,
+                        AppColors.secondary.red,
+                        AppColors.secondary.green,
+                        AppColors.secondary.blue,
+                        AppColors.secondary.yellow,
+                      ],
+                    ),
+                  ),
+                ),
+              );
+            },
           ),
         ),
       ),
