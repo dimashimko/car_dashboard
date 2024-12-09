@@ -58,6 +58,8 @@ mixin _$CustomThemeExtensionTailorMixin
   Color get blackWhite;
   Color get conditionIndicatorBackground;
   Color get serviceTimeBackground;
+  Color get contactName;
+  Color get contactLastMessage;
 
   @override
   CustomThemeExtension copyWith({
@@ -109,6 +111,8 @@ mixin _$CustomThemeExtensionTailorMixin
     Color? blackWhite,
     Color? conditionIndicatorBackground,
     Color? serviceTimeBackground,
+    Color? contactName,
+    Color? contactLastMessage,
   }) {
     return CustomThemeExtension(
       statisticsDivider: statisticsDivider ?? this.statisticsDivider,
@@ -173,6 +177,8 @@ mixin _$CustomThemeExtensionTailorMixin
           conditionIndicatorBackground ?? this.conditionIndicatorBackground,
       serviceTimeBackground:
           serviceTimeBackground ?? this.serviceTimeBackground,
+      contactName: contactName ?? this.contactName,
+      contactLastMessage: contactLastMessage ?? this.contactLastMessage,
     );
   }
 
@@ -255,6 +261,9 @@ mixin _$CustomThemeExtensionTailorMixin
           conditionIndicatorBackground, other.conditionIndicatorBackground, t)!,
       serviceTimeBackground:
           Color.lerp(serviceTimeBackground, other.serviceTimeBackground, t)!,
+      contactName: Color.lerp(contactName, other.contactName, t)!,
+      contactLastMessage:
+          Color.lerp(contactLastMessage, other.contactLastMessage, t)!,
     );
   }
 
@@ -351,7 +360,9 @@ mixin _$CustomThemeExtensionTailorMixin
             const DeepCollectionEquality()
                 .equals(blackWhite, other.blackWhite) &&
             const DeepCollectionEquality().equals(conditionIndicatorBackground, other.conditionIndicatorBackground) &&
-            const DeepCollectionEquality().equals(serviceTimeBackground, other.serviceTimeBackground));
+            const DeepCollectionEquality().equals(serviceTimeBackground, other.serviceTimeBackground) &&
+            const DeepCollectionEquality().equals(contactName, other.contactName) &&
+            const DeepCollectionEquality().equals(contactLastMessage, other.contactLastMessage));
   }
 
   @override
@@ -406,6 +417,8 @@ mixin _$CustomThemeExtensionTailorMixin
       const DeepCollectionEquality().hash(blackWhite),
       const DeepCollectionEquality().hash(conditionIndicatorBackground),
       const DeepCollectionEquality().hash(serviceTimeBackground),
+      const DeepCollectionEquality().hash(contactName),
+      const DeepCollectionEquality().hash(contactLastMessage),
     ]);
   }
 }
@@ -472,4 +485,6 @@ extension CustomThemeExtensionBuildContextProps on BuildContext {
   Color get conditionIndicatorBackground =>
       customThemeExtension.conditionIndicatorBackground;
   Color get serviceTimeBackground => customThemeExtension.serviceTimeBackground;
+  Color get contactName => customThemeExtension.contactName;
+  Color get contactLastMessage => customThemeExtension.contactLastMessage;
 }

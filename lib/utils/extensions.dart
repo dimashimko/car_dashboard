@@ -35,6 +35,21 @@ extension SizeExtension on num {
 }
 
 extension DateTimeFormatter on DateTime {
+  String toFriendlyString() {
+    final now = DateTime.now();
+    final today = DateTime(now.year, now.month, now.day);
+    final yesterday = today.subtract(Duration(days: 1));
+    final date = DateTime(year, month, day);
+
+    if (date == today) {
+      return DateFormat.jm().format(this); // e.g., "4:30 PM"
+    } else if (date == yesterday) {
+      return "Yesterday";
+    } else {
+      return DateFormat('MMM d, yyyy').format(this); // e.g., "Dec 8, 2024"
+    }
+  }
+
   String get toFormattedString {
     return DateFormat('MMM d, y').format(this);
   }

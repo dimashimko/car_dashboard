@@ -60,6 +60,8 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension>
     required this.blackWhite,
     required this.conditionIndicatorBackground,
     required this.serviceTimeBackground,
+    required this.contactName,
+    required this.contactLastMessage,
   });
 
   @override
@@ -158,6 +160,10 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension>
   final Color conditionIndicatorBackground;
   @override
   final Color serviceTimeBackground;
+  @override
+  final Color contactName;
+  @override
+  final Color contactLastMessage;
 }
 
 final lightCustomThemeExtension = CustomThemeExtension(
@@ -209,6 +215,8 @@ final lightCustomThemeExtension = CustomThemeExtension(
   blackWhite: AppColors.black,
   conditionIndicatorBackground: AppColors.grayF5,
   serviceTimeBackground: AppColors.grayF6,
+  contactName: AppColors.contactNameDark,
+  contactLastMessage: AppColors.contactLastMessageLight,
 );
 
 final darkCustomThemeExtension = CustomThemeExtension(
@@ -260,4 +268,6 @@ final darkCustomThemeExtension = CustomThemeExtension(
   blackWhite: AppColors.white,
   conditionIndicatorBackground: AppColors.backgroundDark,
   serviceTimeBackground: AppColors.backgroundDark,
+  contactName: AppColors.gray.white,
+  contactLastMessage: AppColors.grayPinnedChats,
 );

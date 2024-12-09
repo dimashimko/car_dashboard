@@ -6,7 +6,12 @@ import 'package:flutter/material.dart';
 class SearchTextField extends StatelessWidget {
   const SearchTextField({
     super.key,
+    this.hintText = ' Search or type',
+    this.prefixIconWidth = 20.0,
   });
+
+  final String hintText;
+  final double prefixIconWidth;
 
   @override
   Widget build(BuildContext context) {
@@ -27,13 +32,15 @@ class SearchTextField extends StatelessWidget {
           ),
           child: Align(
             alignment: Alignment.centerLeft,
-            child: Assets.icons.search.svg(),
+            child: Assets.icons.search.svg(
+              width: prefixIconWidth,
+            ),
           ),
         ),
         prefixIconConstraints: const BoxConstraints(
           maxWidth: 50.0,
         ),
-        hintText: ' Search or type',
+        hintText: hintText,
         hintStyle: TextStyle(
           fontSize: 16.0,
           fontWeight: FontWeight.w500,

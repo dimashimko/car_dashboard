@@ -55,6 +55,10 @@ class AppColors {
   static const Color addServicesButtonColorLight = Color(0xffE0E4EC);
   static const Color addServicesButtonBorderColorLight = Color(0xffD8D2E7);
   static const Color addServicesButtonBorderColorDark = Color(0xff464155);
+  static const Color grayPinnedChats = Color(0xffA9ABAD);
+  static const Color contactNameDark = Color(0xff1A1D1F);
+  static const Color contactTyping = Color(0xff258C60);
+  static const Color contactLastMessageLight = Color(0xff292C31);
 }
 
 class Primary {

@@ -6,6 +6,7 @@ const int minWidthForExpandedSellCars = 650;
 const int minWidthForExpandedCalendar = 750;
 const int minWidthForExpandedService = 750;
 const int minWidthForExpandedServiceStationInfo = 480;
+const int minWidthForExpandedMessages = 550;
 
 List<Station> listStations = [
   Station(

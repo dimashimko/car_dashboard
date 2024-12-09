@@ -12,6 +12,16 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart' as _svg;
 import 'package:vector_graphics/vector_graphics.dart' as _vg;
 
+class $AssetsAudioGen {
+  const $AssetsAudioGen();
+
+  /// File path: assets/audio/voice_message.mp3
+  String get voiceMessage => 'assets/audio/voice_message.mp3';
+
+  /// List of all assets
+  List<String> get values => [voiceMessage];
+}
+
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
@@ -135,6 +145,10 @@ class $AssetsIconsGen {
   /// File path: assets/icons/message.svg
   SvgGenImage get message => const SvgGenImage('assets/icons/message.svg');
 
+  /// File path: assets/icons/message_small.svg
+  SvgGenImage get messageSmall =>
+      const SvgGenImage('assets/icons/message_small.svg');
+
   /// File path: assets/icons/messages_icon.svg
   SvgGenImage get messagesIcon =>
       const SvgGenImage('assets/icons/messages_icon.svg');
@@ -147,8 +161,14 @@ class $AssetsIconsGen {
   SvgGenImage get passengers =>
       const SvgGenImage('assets/icons/passengers.svg');
 
+  /// File path: assets/icons/pencil.svg
+  SvgGenImage get pencil => const SvgGenImage('assets/icons/pencil.svg');
+
   /// File path: assets/icons/point.svg
   SvgGenImage get point => const SvgGenImage('assets/icons/point.svg');
+
+  /// File path: assets/icons/pushpin.svg
+  SvgGenImage get pushpin => const SvgGenImage('assets/icons/pushpin.svg');
 
   /// File path: assets/icons/radio_off.svg
   SvgGenImage get radioOff => const SvgGenImage('assets/icons/radio_off.svg');
@@ -247,10 +267,13 @@ class $AssetsIconsGen {
         layer03,
         logOut,
         message,
+        messageSmall,
         messagesIcon,
         notification,
         passengers,
+        pencil,
         point,
+        pushpin,
         radioOff,
         radioOn,
         range,
@@ -361,6 +384,38 @@ class $AssetsImagesGen {
   AssetGenImage get serviceSteering =>
       const AssetGenImage('assets/images/service_steering.png');
 
+  /// File path: assets/images/user_aditya.png
+  AssetGenImage get userAditya =>
+      const AssetGenImage('assets/images/user_aditya.png');
+
+  /// File path: assets/images/user_ahmed_medi.png
+  AssetGenImage get userAhmedMedi =>
+      const AssetGenImage('assets/images/user_ahmed_medi.png');
+
+  /// File path: assets/images/user_claudia_maudi.png
+  AssetGenImage get userClaudiaMaudi =>
+      const AssetGenImage('assets/images/user_claudia_maudi.png');
+
+  /// File path: assets/images/user_desian_tam.png
+  AssetGenImage get userDesianTam =>
+      const AssetGenImage('assets/images/user_desian_tam.png');
+
+  /// File path: assets/images/user_ikhsan_sd.png
+  AssetGenImage get userIkhsanSd =>
+      const AssetGenImage('assets/images/user_ikhsan_sd.png');
+
+  /// File path: assets/images/user_killan_james.png
+  AssetGenImage get userKillanJames =>
+      const AssetGenImage('assets/images/user_killan_james.png');
+
+  /// File path: assets/images/user_milie_nose.png
+  AssetGenImage get userMilieNose =>
+      const AssetGenImage('assets/images/user_milie_nose.png');
+
+  /// File path: assets/images/user_novita.png
+  AssetGenImage get userNovita =>
+      const AssetGenImage('assets/images/user_novita.png');
+
   /// List of all assets
   List<AssetGenImage> get values => [
         avatar,
@@ -384,7 +439,15 @@ class $AssetsImagesGen {
         porscheCarella2,
         serviceBrakePads,
         serviceOilLevel,
-        serviceSteering
+        serviceSteering,
+        userAditya,
+        userAhmedMedi,
+        userClaudiaMaudi,
+        userDesianTam,
+        userIkhsanSd,
+        userKillanJames,
+        userMilieNose,
+        userNovita
       ];
 }
 
@@ -393,6 +456,7 @@ class Assets {
 
   static const String mustangMtl = 'assets/Mustang.mtl';
   static const String mustangObj = 'assets/Mustang.obj';
+  static const $AssetsAudioGen audio = $AssetsAudioGen();
   static const String flutterDashMtl = 'assets/flutter_dash.mtl';
   static const String flutterDashObj = 'assets/flutter_dash.obj';
   static const String fordMustangMtl = 'assets/ford_mustang.mtl';
