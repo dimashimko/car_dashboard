@@ -35,7 +35,7 @@ class _ServiceStationState extends State<ServiceStation> {
       color: AppColors.primary.purple,
       price: 32,
     ),
-/*    ServiceOrder(
+    ServiceOrder(
       name: 'Diagnostics',
       color: AppColors.secondary.blue,
       price: 32,
@@ -44,7 +44,32 @@ class _ServiceStationState extends State<ServiceStation> {
       name: 'External Washing',
       color: AppColors.secondary.yellow,
       price: 32,
-    ),*/
+    ),
+    ServiceOrder(
+      name: 'Brake fluid change',
+      color: AppColors.secondary.green,
+      price: 32,
+    ),
+    ServiceOrder(
+      name: 'Diagnostics',
+      color: AppColors.secondary.red,
+      price: 32,
+    ),
+    ServiceOrder(
+      name: 'External Washing',
+      color: AppColors.primary.purple,
+      price: 32,
+    ),
+    ServiceOrder(
+      name: 'Diagnostics',
+      color: AppColors.secondary.blue,
+      price: 32,
+    ),
+    ServiceOrder(
+      name: 'External Washing',
+      color: AppColors.secondary.yellow,
+      price: 32,
+    ),
   ];
 
   @override

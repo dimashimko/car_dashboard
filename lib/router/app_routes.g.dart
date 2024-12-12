@@ -67,6 +67,12 @@ RouteBase get $homeRoute => ShellRouteData.$route(
         GoRouteData.$route(
           path: '/messages',
           factory: $MessagesRouteExtension._fromState,
+          routes: [
+            GoRouteData.$route(
+              path: 'chat',
+              factory: $ChatRouteExtension._fromState,
+            ),
+          ],
         ),
         GoRouteData.$route(
           path: '/setting',
@@ -204,6 +210,23 @@ extension $MessagesRouteExtension on MessagesRoute {
 
   String get location => GoRouteData.$location(
         '/messages',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $ChatRouteExtension on ChatRoute {
+  static ChatRoute _fromState(GoRouterState state) => const ChatRoute();
+
+  String get location => GoRouteData.$location(
+        '/messages/chat',
       );
 
   void go(BuildContext context) => context.go(location);

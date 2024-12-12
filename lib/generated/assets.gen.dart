@@ -95,6 +95,16 @@ class $AssetsIconsGen {
   /// File path: assets/icons/car.svg
   SvgGenImage get car => const SvgGenImage('assets/icons/car.svg');
 
+  /// File path: assets/icons/chat_call.svg
+  SvgGenImage get chatCall => const SvgGenImage('assets/icons/chat_call.svg');
+
+  /// File path: assets/icons/chat_three_point.svg
+  SvgGenImage get chatThreePoint =>
+      const SvgGenImage('assets/icons/chat_three_point.svg');
+
+  /// File path: assets/icons/chat_video.svg
+  SvgGenImage get chatVideo => const SvgGenImage('assets/icons/chat_video.svg');
+
   /// File path: assets/icons/checkbox_off.svg
   SvgGenImage get checkboxOff =>
       const SvgGenImage('assets/icons/checkbox_off.svg');
@@ -252,6 +262,9 @@ class $AssetsIconsGen {
         calendar,
         calendarIcon,
         car,
+        chatCall,
+        chatThreePoint,
+        chatVideo,
         checkboxOff,
         checkboxOn,
         dashboardIcon,

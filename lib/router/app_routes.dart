@@ -1,3 +1,4 @@
+import 'package:car_dashboard/models/contact.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -5,6 +6,7 @@ import '../pages/assets_page/assets_page.dart';
 import '../pages/booking_page/booking_page.dart';
 import '../pages/buy_cars_page/buy_cars_page.dart';
 import '../pages/calender_page/calender_page.dart';
+import '../pages/chat_page/chat_page.dart';
 import '../pages/common_pages/home_page/home_page.dart';
 import '../pages/dashboard_page/dashboard_page.dart';
 import '../pages/messages_page/messages_page.dart';
@@ -54,6 +56,11 @@ class SignInRoute extends GoRouteData {
     ),
     TypedGoRoute<MessagesRoute>(
       path: '/messages',
+      routes: [
+        TypedGoRoute<ChatRoute>(
+          path: 'chat',
+        ),
+      ],
     ),
     TypedGoRoute<SettingRoute>(
       path: '/setting',
@@ -137,6 +144,17 @@ class MessagesRoute extends GoRouteData {
   @override
   Widget build(BuildContext context, GoRouterState state) =>
       const MessagesPage();
+}
+
+class ChatRoute extends GoRouteData {
+  const ChatRoute();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return ChatPage(
+      contact: state.extra as Contact?,
+    );
+  }
 }
 
 class SettingRoute extends GoRouteData {

@@ -11,7 +11,12 @@ import '../../../common_pages/home_page/widgets/search_text_field.dart';
 import 'contact_card.dart';
 
 class ContactsList extends StatefulWidget {
-  const ContactsList({super.key});
+  const ContactsList({
+    super.key,
+    required this.onTap,
+  });
+
+  final ValueChanged<Contact> onTap;
 
   @override
   State<ContactsList> createState() => _ContactsListState();
@@ -30,7 +35,7 @@ class _ContactsListState extends State<ContactsList> {
       messages: [
         Message(
           text: 'first',
-          isMy: false,
+          isMy: true,
           dateTime: DateTime(2024, 12, 09, 15, 30, 00),
           isRead: true,
         ),
@@ -66,7 +71,7 @@ class _ContactsListState extends State<ContactsList> {
               ' i am very happy for this.yesterday you have gave a pen This very nice',
           isMy: false,
           dateTime: DateTime(2024, 12, 09, 15, 34, 00),
-          isRead: true,
+          isRead: false,
         ),
         Message(
           text:
@@ -79,12 +84,94 @@ class _ContactsListState extends State<ContactsList> {
           text: 'no read message 01',
           isMy: false,
           dateTime: DateTime(2024, 12, 09, 15, 36, 00),
+          isRead: false,
+        ),
+        Message(
+          text: 'no read message 02 last',
+          isMy: false,
+          dateTime: DateTime(2024, 12, 09, 15, 38, 00),
+          isRead: false,
+        ),
+      ],
+    ),
+    Contact(
+      id: 2,
+      name: 'Test',
+      avatar: Assets.images.photo02.path,
+      isTyping: false,
+      isPinned: true,
+      isOnline: false,
+      messages: [
+        Message(
+          text: '000',
+          isMy: true,
+          dateTime: DateTime(2023, 12, 12, 11, 42, 00),
           isRead: true,
         ),
         Message(
-          text: 'no read message 02',
+          text: '001',
+          isMy: true,
+          dateTime: DateTime(2023, 12, 12, 11, 42, 00),
+          isRead: true,
+        ),
+        Message(
+          text: '002',
           isMy: false,
-          dateTime: DateTime(2024, 12, 09, 15, 38, 00),
+          dateTime: DateTime(2024, 12, 09, 09, 36, 00),
+          isRead: true,
+        ),
+        Message(
+          text: '003',
+          isMy: false,
+          dateTime: DateTime(2024, 10, 30, 03, 33, 00),
+          isRead: true,
+        ),
+        Message(
+          text: '004',
+          isMy: true,
+          dateTime: DateTime(2024, 12, 09, 09, 36, 00),
+          isRead: true,
+        ),
+        Message(
+          text: '005',
+          isMy: true,
+          dateTime: DateTime(2024, 12, 09, 09, 36, 00),
+          isRead: true,
+        ),
+        Message(
+          text: '006',
+          isMy: false,
+          dateTime: DateTime(2024, 12, 09, 09, 36, 00),
+          isRead: true,
+        ),
+        Message(
+          text: '007',
+          isMy: false,
+          dateTime: DateTime(2024, 12, 09, 09, 36, 00),
+          isRead: true,
+        ),
+        Message(
+          text: '008',
+          isMy: false,
+          dateTime: DateTime(2024, 12, 12, 09, 36, 00),
+          isRead: true,
+        ),
+        Message(
+          text: '009',
+          isMy: true,
+          dateTime: DateTime(2024, 12, 09, 09, 36, 00),
+          isRead: true,
+        ),
+        Message(
+          text: '010',
+          isMy: true,
+          dateTime: DateTime(2024, 12, 09, 09, 36, 00),
+          isRead: true,
+        ),
+        Message(
+          text: '011',
+          isMy: true,
+          dateTime: DateTime(2024, 12, 12, 09, 37, 00),
           isRead: true,
         ),
       ],
@@ -118,7 +205,7 @@ class _ContactsListState extends State<ContactsList> {
           text: 'Wow really Cool 🔥',
           isMy: true,
           dateTime: DateTime(2024, 12, 09, 01, 15, 00),
-          isRead: false,
+          isRead: true,
         ),
       ],
     ),
@@ -134,7 +221,7 @@ class _ContactsListState extends State<ContactsList> {
           text: 'Nice',
           isMy: true,
           dateTime: DateTime(2024, 12, 09, 16, 30, 00),
-          isRead: false,
+          isRead: true,
         ),
       ],
     ),
@@ -146,6 +233,12 @@ class _ContactsListState extends State<ContactsList> {
       isPinned: false,
       isOnline: true,
       messages: [
+        Message(
+          text: 'hi',
+          isMy: false,
+          dateTime: DateTime(2024, 12, 09, 16, 30, 00),
+          isRead: false,
+        ),
         Message(
           text: 'yah, nice design',
           isMy: false,
@@ -183,7 +276,7 @@ class _ContactsListState extends State<ContactsList> {
           audio: Assets.audio.voiceMessage,
           isMy: false,
           dateTime: DateTime(2024, 12, 08, 16, 30, 00),
-          isRead: false,
+          isRead: true,
         ),
       ],
     ),
@@ -199,7 +292,7 @@ class _ContactsListState extends State<ContactsList> {
           text: 'publish now',
           isMy: false,
           dateTime: DateTime(2024, 12, 08, 15, 30, 00),
-          isRead: false,
+          isRead: true,
         ),
       ],
     ),
@@ -207,109 +300,101 @@ class _ContactsListState extends State<ContactsList> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 400.0,
-      decoration: BoxDecoration(
-        color: colors(context).background,
-        borderRadius: const BorderRadius.all(
-          Radius.circular(14.0),
-        ),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(30.0),
-        child: Column(
+    return Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            Text(
+              'Messages',
+              style: AppTypography.headingH1.copyWith(
+                color: colors(context).parametersTextColor,
+              ),
+            ),
+            Assets.icons.pencil.svg(),
+          ],
+        ),
+        const Gap(30.0),
+        const SearchTextField(
+          hintText: 'Search...',
+          prefixIconWidth: 16.0,
+        ),
+        const Gap(40.0),
+        Expanded(
+          child: SingleChildScrollView(
+            child: Column(
               children: [
-                Text(
-                  'Messages',
-                  style: AppTypography.headingH1.copyWith(
-                    color: colors(context).parametersTextColor,
-                  ),
-                ),
-                Assets.icons.pencil.svg(),
-              ],
-            ),
-            const Gap(30.0),
-            const SearchTextField(
-              hintText: 'Search...',
-              prefixIconWidth: 16.0,
-            ),
-            const Gap(40.0),
-            Expanded(
-              child: SingleChildScrollView(
-                child: Column(
+                Row(
                   children: [
-                    Row(
-                      children: [
-                        Assets.icons.pushpin.svg(),
-                        const Gap(6.0),
-                        Text(
-                          'PINNED',
-                          style: AppTypography.title12m.copyWith(
-                            color: AppColors.grayPinnedChats,
-                          ),
-                        ),
-                      ],
-                    ),
-                    const Gap(16.0),
-                    Builder(
-                      builder: (context) {
-                        List<Contact> listPinned =
-                            contacts.where((e) => e.isPinned).toList();
-                        return ListView.separated(
-                          itemCount: listPinned.length,
-                          shrinkWrap: true,
-                          physics: const NeverScrollableScrollPhysics(),
-                          separatorBuilder: (_, __) => const SizedBox(
-                            height: 26.0,
-                          ),
-                          itemBuilder: (context, index) => ContactCard(
-                            contact: listPinned[index],
-                          ),
-                        );
-                      },
-                    ),
-                    //
-                    const Gap(40.0),
-                    Row(
-                      children: [
-                        Assets.icons.messageSmall.svg(),
-                        const Gap(6.0),
-                        Text(
-                          'All Message',
-                          style: AppTypography.title12m.copyWith(
-                            color: AppColors.grayPinnedChats,
-                          ),
-                        ),
-                      ],
-                    ),
-                    const Gap(16.0),
-                    Builder(
-                      builder: (context) {
-                        List<Contact> listPinned =
-                            contacts.where((e) => !e.isPinned).toList();
-                        return ListView.separated(
-                          itemCount: listPinned.length,
-                          shrinkWrap: true,
-                          physics: const NeverScrollableScrollPhysics(),
-                          separatorBuilder: (_, __) => const SizedBox(
-                            height: 26.0,
-                          ),
-                          itemBuilder: (context, index) => ContactCard(
-                            contact: listPinned[index],
-                          ),
-                        );
-                      },
+                    Assets.icons.pushpin.svg(),
+                    const Gap(6.0),
+                    Text(
+                      'PINNED',
+                      style: AppTypography.title12m.copyWith(
+                        color: AppColors.grayPinnedChats,
+                      ),
                     ),
                   ],
                 ),
-              ),
+                const Gap(16.0),
+                Builder(
+                  builder: (context) {
+                    List<Contact> listPinned =
+                        contacts.where((e) => e.isPinned).toList();
+                    return ListView.separated(
+                      itemCount: listPinned.length,
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      separatorBuilder: (_, __) => const SizedBox(
+                        height: 26.0,
+                      ),
+                      itemBuilder: (context, index) => ContactCard(
+                        contact: listPinned[index],
+                        onTap: () => widget.onTap(
+                          listPinned[index],
+                        ),
+                      ),
+                    );
+                  },
+                ),
+                //
+                const Gap(40.0),
+                Row(
+                  children: [
+                    Assets.icons.messageSmall.svg(),
+                    const Gap(6.0),
+                    Text(
+                      'All Message',
+                      style: AppTypography.title12m.copyWith(
+                        color: AppColors.grayPinnedChats,
+                      ),
+                    ),
+                  ],
+                ),
+                const Gap(16.0),
+                Builder(
+                  builder: (context) {
+                    List<Contact> listNoPinned =
+                        contacts.where((e) => !e.isPinned).toList();
+                    return ListView.separated(
+                      itemCount: listNoPinned.length,
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      separatorBuilder: (_, __) => const SizedBox(
+                        height: 26.0,
+                      ),
+                      itemBuilder: (context, index) => ContactCard(
+                        contact: listNoPinned[index],
+                        onTap: () => widget.onTap(listNoPinned[index]),
+                      ),
+                    );
+                  },
+                ),
+              ],
             ),
-          ],
+          ),
         ),
-      ),
+      ],
     );
   }
 }

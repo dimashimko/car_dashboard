@@ -20,7 +20,7 @@ class _ServiceStatusBarState extends State<ServiceStatusBar> {
       name: 'Oil Level',
       carPart: 'Engine',
       status: 'Don’t Replace',
-      condition: 75.0,
+      condition: 30.0,
       color: AppColors.primary.purple,
     ),
     PartCarStatus(

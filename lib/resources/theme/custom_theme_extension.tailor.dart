@@ -60,6 +60,11 @@ mixin _$CustomThemeExtensionTailorMixin
   Color get serviceTimeBackground;
   Color get contactName;
   Color get contactLastMessage;
+  Color get chatFrame;
+  Color get chatContactName;
+  Color get chatActionButtonBackground;
+  Color get chatActionButtonIcon;
+  Color get messageBackground;
 
   @override
   CustomThemeExtension copyWith({
@@ -113,6 +118,11 @@ mixin _$CustomThemeExtensionTailorMixin
     Color? serviceTimeBackground,
     Color? contactName,
     Color? contactLastMessage,
+    Color? chatFrame,
+    Color? chatContactName,
+    Color? chatActionButtonBackground,
+    Color? chatActionButtonIcon,
+    Color? messageBackground,
   }) {
     return CustomThemeExtension(
       statisticsDivider: statisticsDivider ?? this.statisticsDivider,
@@ -179,6 +189,12 @@ mixin _$CustomThemeExtensionTailorMixin
           serviceTimeBackground ?? this.serviceTimeBackground,
       contactName: contactName ?? this.contactName,
       contactLastMessage: contactLastMessage ?? this.contactLastMessage,
+      chatFrame: chatFrame ?? this.chatFrame,
+      chatContactName: chatContactName ?? this.chatContactName,
+      chatActionButtonBackground:
+          chatActionButtonBackground ?? this.chatActionButtonBackground,
+      chatActionButtonIcon: chatActionButtonIcon ?? this.chatActionButtonIcon,
+      messageBackground: messageBackground ?? this.messageBackground,
     );
   }
 
@@ -264,6 +280,14 @@ mixin _$CustomThemeExtensionTailorMixin
       contactName: Color.lerp(contactName, other.contactName, t)!,
       contactLastMessage:
           Color.lerp(contactLastMessage, other.contactLastMessage, t)!,
+      chatFrame: Color.lerp(chatFrame, other.chatFrame, t)!,
+      chatContactName: Color.lerp(chatContactName, other.chatContactName, t)!,
+      chatActionButtonBackground: Color.lerp(
+          chatActionButtonBackground, other.chatActionButtonBackground, t)!,
+      chatActionButtonIcon:
+          Color.lerp(chatActionButtonIcon, other.chatActionButtonIcon, t)!,
+      messageBackground:
+          Color.lerp(messageBackground, other.messageBackground, t)!,
     );
   }
 
@@ -362,7 +386,12 @@ mixin _$CustomThemeExtensionTailorMixin
             const DeepCollectionEquality().equals(conditionIndicatorBackground, other.conditionIndicatorBackground) &&
             const DeepCollectionEquality().equals(serviceTimeBackground, other.serviceTimeBackground) &&
             const DeepCollectionEquality().equals(contactName, other.contactName) &&
-            const DeepCollectionEquality().equals(contactLastMessage, other.contactLastMessage));
+            const DeepCollectionEquality().equals(contactLastMessage, other.contactLastMessage) &&
+            const DeepCollectionEquality().equals(chatFrame, other.chatFrame) &&
+            const DeepCollectionEquality().equals(chatContactName, other.chatContactName) &&
+            const DeepCollectionEquality().equals(chatActionButtonBackground, other.chatActionButtonBackground) &&
+            const DeepCollectionEquality().equals(chatActionButtonIcon, other.chatActionButtonIcon) &&
+            const DeepCollectionEquality().equals(messageBackground, other.messageBackground));
   }
 
   @override
@@ -419,6 +448,11 @@ mixin _$CustomThemeExtensionTailorMixin
       const DeepCollectionEquality().hash(serviceTimeBackground),
       const DeepCollectionEquality().hash(contactName),
       const DeepCollectionEquality().hash(contactLastMessage),
+      const DeepCollectionEquality().hash(chatFrame),
+      const DeepCollectionEquality().hash(chatContactName),
+      const DeepCollectionEquality().hash(chatActionButtonBackground),
+      const DeepCollectionEquality().hash(chatActionButtonIcon),
+      const DeepCollectionEquality().hash(messageBackground),
     ]);
   }
 }
@@ -487,4 +521,10 @@ extension CustomThemeExtensionBuildContextProps on BuildContext {
   Color get serviceTimeBackground => customThemeExtension.serviceTimeBackground;
   Color get contactName => customThemeExtension.contactName;
   Color get contactLastMessage => customThemeExtension.contactLastMessage;
+  Color get chatFrame => customThemeExtension.chatFrame;
+  Color get chatContactName => customThemeExtension.chatContactName;
+  Color get chatActionButtonBackground =>
+      customThemeExtension.chatActionButtonBackground;
+  Color get chatActionButtonIcon => customThemeExtension.chatActionButtonIcon;
+  Color get messageBackground => customThemeExtension.messageBackground;
 }

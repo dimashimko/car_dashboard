@@ -25,6 +25,16 @@ class _ServiceScheduleListState extends State<ServiceScheduleList> {
       when: 'Today, 14.00',
       fixPrice: 1400,
     ),
+    const ServiceSchedule(
+      text: 'Upgrade your favorite car periodically',
+      when: 'Today, 10.00',
+      fixPrice: 1200,
+    ),
+    const ServiceSchedule(
+      text: 'Buy spare parts for suspension',
+      when: 'Today, 14.00',
+      fixPrice: 1400,
+    ),
   ];
 
   @override

@@ -34,6 +34,51 @@ extension SizeExtension on num {
   }
 }
 
+extension FormattedDateTime on DateTime {
+  String toCustomFormat() {
+    final now = DateTime.now();
+
+    if (year == now.year && month == now.month && day == now.day) {
+      return "${_formatTime()}";
+    }
+
+    if (year == now.year) {
+      return "${_formatMonthDay()} ${_formatTime()}";
+    }
+
+    return "${_formatMonthDayYear()} ${_formatTime()}";
+  }
+
+  String _formatTime() {
+    final hourFormat = hour % 12 == 0 ? 12 : hour % 12;
+    final minuteFormat = minute.toString().padLeft(2, '0');
+    final amPm = hour < 12 ? 'AM' : 'PM';
+    return "$hourFormat:$minuteFormat $amPm";
+  }
+
+  String _formatMonthDay() {
+    final monthNames = [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec"
+    ];
+    return "${monthNames[month - 1]} $day";
+  }
+
+  String _formatMonthDayYear() {
+    return "${_formatMonthDay()} $year";
+  }
+}
+
 extension DateTimeFormatter on DateTime {
   String toFriendlyString() {
     final now = DateTime.now();

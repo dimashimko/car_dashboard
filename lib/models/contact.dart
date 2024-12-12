@@ -14,7 +14,7 @@ class Contact with _$Contact {
     required bool isTyping,
     required bool isPinned,
     required bool isOnline,
-    required List<Message> messages,
+    @Default([]) List<Message> messages,
   }) = _Contact;
 
   factory Contact.fromJson(Map<String, dynamic> json) =>

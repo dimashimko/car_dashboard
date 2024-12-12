@@ -62,6 +62,11 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension>
     required this.serviceTimeBackground,
     required this.contactName,
     required this.contactLastMessage,
+    required this.chatFrame,
+    required this.chatContactName,
+    required this.chatActionButtonBackground,
+    required this.chatActionButtonIcon,
+    required this.messageBackground,
   });
 
   @override
@@ -164,6 +169,16 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension>
   final Color contactName;
   @override
   final Color contactLastMessage;
+  @override
+  final Color chatFrame;
+  @override
+  final Color chatContactName;
+  @override
+  final Color chatActionButtonBackground;
+  @override
+  final Color chatActionButtonIcon;
+  @override
+  final Color messageBackground;
 }
 
 final lightCustomThemeExtension = CustomThemeExtension(
@@ -217,6 +232,11 @@ final lightCustomThemeExtension = CustomThemeExtension(
   serviceTimeBackground: AppColors.grayF6,
   contactName: AppColors.contactNameDark,
   contactLastMessage: AppColors.contactLastMessageLight,
+  chatFrame: AppColors.lightSearchBackground,
+  chatContactName: AppColors.chatContactNameWhite,
+  chatActionButtonBackground: AppColors.chatActionButtonBackgroundWhite,
+  chatActionButtonIcon: AppColors.gray.dark4,
+  messageBackground: AppColors.messageBackgroundWhite,
 );
 
 final darkCustomThemeExtension = CustomThemeExtension(
@@ -270,4 +290,9 @@ final darkCustomThemeExtension = CustomThemeExtension(
   serviceTimeBackground: AppColors.backgroundDark,
   contactName: AppColors.gray.white,
   contactLastMessage: AppColors.grayPinnedChats,
+  chatFrame: AppColors.dividerSensorDark,
+  chatContactName: AppColors.gray.white,
+  chatActionButtonBackground: AppColors.dividerSensorDark,
+  chatActionButtonIcon: AppColors.primary.white1,
+  messageBackground: AppColors.backgroundDark,
 );

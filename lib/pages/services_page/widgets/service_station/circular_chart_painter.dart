@@ -23,7 +23,7 @@ class CircularChartPainter extends CustomPainter {
     double lN = l / numberOfPoints;
     double lNew = lN - smallCircleRadius;
     double arcPadding = lNew / r;
-    // arcPadding = (pi / 360) * 2;
+    // arcPadding = (pi / 180) * 2;
 
     for (int i = 0; i < numberOfPoints; i++) {
       final paint = Paint()

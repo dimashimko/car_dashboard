@@ -33,6 +33,20 @@ class ServiceRequiredList extends StatelessWidget {
       color: AppColors.secondary.red,
       processing: 1,
     ),
+    ServiceRequired(
+      name: 'Diagnostics',
+      iconPath: Assets.icons.serviceRepair.path,
+      price: 78.0,
+      color: AppColors.primary.purple,
+      processing: 2,
+    ),
+    ServiceRequired(
+      name: 'Inner Cleaning',
+      iconPath: Assets.icons.serviceWashing.path,
+      price: 78.0,
+      color: AppColors.secondary.red,
+      processing: 1,
+    ),
   ];
 
   @override

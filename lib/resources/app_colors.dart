@@ -59,6 +59,12 @@ class AppColors {
   static const Color contactNameDark = Color(0xff1A1D1F);
   static const Color contactTyping = Color(0xff258C60);
   static const Color contactLastMessageLight = Color(0xff292C31);
+  static const Color isOnlineIndicatorBackground = Color(0xffFEFDFD);
+  static const Color isOnlineIndicator = Color(0xff41D37E);
+  static const Color chatContactNameWhite = Color(0xff363D48);
+  static const Color chatActiveNowMessage = Color(0xff818891);
+  static const Color chatActionButtonBackgroundWhite = Color(0xffF2F6F8);
+  static const Color messageBackgroundWhite = Color(0xFFF5F6FA);
 }
 
 class Primary {

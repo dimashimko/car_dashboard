@@ -189,7 +189,7 @@ class _$ContactImpl implements _Contact {
       required this.isTyping,
       required this.isPinned,
       required this.isOnline,
-      required final List<Message> messages})
+      final List<Message> messages = const []})
       : _messages = messages;
 
   factory _$ContactImpl.fromJson(Map<String, dynamic> json) =>
@@ -209,6 +209,7 @@ class _$ContactImpl implements _Contact {
   final bool isOnline;
   final List<Message> _messages;
   @override
+  @JsonKey()
   List<Message> get messages {
     if (_messages is EqualUnmodifiableListView) return _messages;
     // ignore: implicit_dynamic_type
@@ -266,7 +267,7 @@ abstract class _Contact implements Contact {
       required final bool isTyping,
       required final bool isPinned,
       required final bool isOnline,
-      required final List<Message> messages}) = _$ContactImpl;
+      final List<Message> messages}) = _$ContactImpl;
 
   factory _Contact.fromJson(Map<String, dynamic> json) = _$ContactImpl.fromJson;
 
