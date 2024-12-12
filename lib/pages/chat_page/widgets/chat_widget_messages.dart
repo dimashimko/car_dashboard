@@ -8,9 +8,11 @@ class ChatWidgetMessages extends StatelessWidget {
   const ChatWidgetMessages({
     super.key,
     required this.contact,
+    required this.myContact,
   });
 
   final Contact contact;
+  final Contact myContact;
 
   @override
   Widget build(BuildContext context) {
@@ -41,6 +43,7 @@ class ChatWidgetMessages extends StatelessWidget {
               isFirstInGroup: isFirstInGroup,
               isLastInGroup: isLastInGroup,
               contact: contact,
+              myContact: myContact,
             );
           },
         );

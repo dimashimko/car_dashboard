@@ -15,12 +15,14 @@ class MessageCard extends StatelessWidget {
     required this.isFirstInGroup,
     required this.isLastInGroup,
     required this.contact,
+    required this.myContact,
   });
 
   final Message message;
   final bool isFirstInGroup;
   final bool isLastInGroup;
   final Contact contact;
+  final Contact myContact;
 
   @override
   Widget build(BuildContext context) {
@@ -41,6 +43,7 @@ class MessageCard extends StatelessWidget {
                     padding: const EdgeInsets.only(right: 14.0),
                     child: ContactAvatar(
                       contact: contact,
+                      isNeedShowStatus: false,
                     ),
                   ),
                 Expanded(
@@ -76,7 +79,8 @@ class MessageCard extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(left: 14.0),
                     child: ContactAvatar(
-                      contact: contact,
+                      contact: myContact,
+                      isNeedShowStatus: false,
                     ),
                   ),
               ],

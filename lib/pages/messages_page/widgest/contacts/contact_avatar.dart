@@ -7,9 +7,11 @@ class ContactAvatar extends StatelessWidget {
   const ContactAvatar({
     super.key,
     required this.contact,
+    this.isNeedShowStatus = true,
   });
 
   final Contact contact;
+  final bool isNeedShowStatus;
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +32,7 @@ class ContactAvatar extends StatelessWidget {
               ),
             ),
           ),
-          if (contact.isOnline)
+          if (isNeedShowStatus && contact.isOnline)
             const Positioned(
               bottom: 3,
               right: 1,

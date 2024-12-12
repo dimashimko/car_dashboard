@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../generated/assets.gen.dart';
 import '../../models/contact.dart';
 import '../../resources/theme/custom_theme_extension.dart';
 import '../../router/app_routes.dart';
@@ -20,6 +21,20 @@ class MessagesPage extends StatefulWidget {
 
 class _MessagesPageState extends State<MessagesPage> {
   Contact? currentContact;
+  late Contact myContact;
+
+  @override
+  void initState() {
+    super.initState();
+    myContact = Contact(
+      id: 4,
+      name: 'User',
+      avatar: Assets.images.photo04.path,
+      isTyping: false,
+      isPinned: false,
+      isOnline: true,
+    );
+  }
 
   void onTap({
     required Contact? newContact,
@@ -74,6 +89,7 @@ class _MessagesPageState extends State<MessagesPage> {
                           Expanded(
                             child: ChatWidget(
                               contact: currentContact,
+                              myContact: myContact,
                               isNeedBackButton: false,
                               onTapBackButton: () => onTap(
                                 newContact: null,
@@ -94,6 +110,7 @@ class _MessagesPageState extends State<MessagesPage> {
                             )
                           : ChatWidget(
                               contact: currentContact,
+                              myContact: myContact,
                               isNeedBackButton: true,
                               onTapBackButton: () => onTap(
                                 newContact: null,

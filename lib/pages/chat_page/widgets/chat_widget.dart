@@ -9,11 +9,13 @@ class ChatWidget extends StatelessWidget {
   const ChatWidget({
     super.key,
     required this.contact,
+    required this.myContact,
     required this.isNeedBackButton,
     required this.onTapBackButton,
   });
 
   final Contact? contact;
+  final Contact myContact;
   final bool isNeedBackButton;
   final VoidCallback onTapBackButton;
 
@@ -45,6 +47,7 @@ class ChatWidget extends StatelessWidget {
             Expanded(
               child: ChatWidgetMessages(
                 contact: contact!,
+                myContact: myContact,
               ),
             ),
           ],
