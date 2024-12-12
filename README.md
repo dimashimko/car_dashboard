@@ -1,2 +1,2 @@
-Car dashboard - desktop app for MacOS, Windows
-(UI only)
+**Car Dashboard - Desktop app for MacOS, Windows
+(UI only)**
