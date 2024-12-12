@@ -16,7 +16,7 @@ class ContactsList extends StatefulWidget {
     required this.contacts,
   });
 
-  final ValueChanged<Contact> onTap;
+  final ValueChanged<int> onTap;
   final List<Contact> contacts;
 
   @override
@@ -77,7 +77,7 @@ class _ContactsListState extends State<ContactsList> {
                       itemBuilder: (context, index) => ContactCard(
                         contact: listPinned[index],
                         onTap: () => widget.onTap(
-                          listPinned[index],
+                          listPinned[index].id,
                         ),
                       ),
                     );
@@ -111,7 +111,9 @@ class _ContactsListState extends State<ContactsList> {
                       ),
                       itemBuilder: (context, index) => ContactCard(
                         contact: listNoPinned[index],
-                        onTap: () => widget.onTap(listNoPinned[index]),
+                        onTap: () => widget.onTap(
+                          listNoPinned[index].id,
+                        ),
                       ),
                     );
                   },

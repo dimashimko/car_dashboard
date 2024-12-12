@@ -19,7 +19,7 @@ class MessagesPage extends StatefulWidget {
 }
 
 class _MessagesPageState extends State<MessagesPage> {
-  Contact? currentContact;
+  int? currentContactId;
   late Contact myContact;
 
   List<Contact> contacts = [
@@ -311,41 +311,37 @@ class _MessagesPageState extends State<MessagesPage> {
   }
 
   void onTap({
-    required Contact? newContact,
+    required int? newContactId,
   }) {
     setState(() {
-      currentContact = newContact;
+      currentContactId = newContactId;
     });
   }
 
   void onSubmitMessage(String newMessage) {
     setState(() {
-      contacts = [];
-    });
-    if (false)
-      setState(() {
-        List<Contact> newListContact = [];
-        for (Contact contact in contacts) {
-          if (contact.id == currentContact?.id) {
-            List<Message> messages = [
-              ...contact.messages,
-              Message(
-                text: newMessage,
-                isMy: true,
-                dateTime: DateTime.now(),
-                isRead: true,
-              ),
-            ];
-            contact = contact.copyWith(
-              messages: messages,
-            );
-            newListContact.add(contact);
-          } else {
-            newListContact.add(contact);
-          }
+      List<Contact> newListContact = [];
+      for (Contact contact in contacts) {
+        if (contact.id == currentContactId) {
+          List<Message> messages = [
+            ...contact.messages,
+            Message(
+              text: newMessage,
+              isMy: true,
+              dateTime: DateTime.now(),
+              isRead: true,
+            ),
+          ];
+          contact = contact.copyWith(
+            messages: messages,
+          );
+          newListContact.add(contact);
+        } else {
+          newListContact.add(contact);
         }
-        contacts = newListContact;
-      });
+      }
+      contacts = newListContact;
+    });
   }
 
   @override
@@ -378,18 +374,20 @@ class _MessagesPageState extends State<MessagesPage> {
                             child: ContactsList(
                               contacts: contacts,
                               onTap: (newContact) => onTap(
-                                newContact: newContact,
+                                newContactId: newContact,
                               ),
                             ),
                           ),
                           const Gap(24.0),
                           Expanded(
                             child: ChatWidget(
-                              contact: currentContact,
+                              contact: contacts
+                                  .where((e) => e.id == currentContactId)
+                                  .firstOrNull,
                               myContact: myContact,
                               isNeedBackButton: false,
                               onTapBackButton: () => onTap(
-                                newContact: null,
+                                newContactId: null,
                               ),
                               onSubmitMessage: onSubmitMessage,
                             ),
@@ -397,20 +395,22 @@ class _MessagesPageState extends State<MessagesPage> {
                         ],
                       );
                     } else {
-                      return currentContact == null
+                      return currentContactId == null
                           ? ContactsList(
                               contacts: contacts,
                               onTap: (newContact) => onTap(
-                                newContact: newContact,
+                                newContactId: newContact,
                                 // isNeedPush: true,
                               ),
                             )
                           : ChatWidget(
-                              contact: currentContact,
+                              contact: contacts
+                                  .where((e) => e.id == currentContactId)
+                                  .firstOrNull,
                               myContact: myContact,
                               isNeedBackButton: true,
                               onTapBackButton: () => onTap(
-                                newContact: null,
+                                newContactId: null,
                               ),
                               onSubmitMessage: onSubmitMessage,
                             );
