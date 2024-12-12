@@ -45,6 +45,7 @@ class AppColors {
   static const Color grayF9 = Color(0xFFF9F9F9);
   static const Color grayF6 = Color(0xFFF6F6F6);
   static const Color grayEC = Color(0xFFECECEC);
+  static const Color gray75 = Color(0xFF757575);
   static const Color upcomingEventsTimeNowText = Color(0xFFF65E5E);
   static const Color upcomingEventsTimeNowDivider = Color(0xFFFAAEAE);
   static const Color violet = Color(0xFF725CFF);
@@ -65,6 +66,8 @@ class AppColors {
   static const Color chatActiveNowMessage = Color(0xff818891);
   static const Color chatActionButtonBackgroundWhite = Color(0xffF2F6F8);
   static const Color messageBackgroundWhite = Color(0xFFF5F6FA);
+  static const Color messageTextFieldStrokeWhite = Color(0xFFE9E9F2);
+  static const Color messageTextFieldStrokeDark = Color(0xFF333848);
 }
 
 class Primary {

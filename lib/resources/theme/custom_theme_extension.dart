@@ -67,6 +67,9 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension>
     required this.chatActionButtonBackground,
     required this.chatActionButtonIcon,
     required this.messageBackground,
+    required this.messageTextFieldStroke,
+    required this.messageTextFieldHintText,
+    required this.messageTextFieldPrefixIcon,
   });
 
   @override
@@ -179,6 +182,12 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension>
   final Color chatActionButtonIcon;
   @override
   final Color messageBackground;
+  @override
+  final Color messageTextFieldStroke;
+  @override
+  final Color messageTextFieldHintText;
+  @override
+  final Color messageTextFieldPrefixIcon;
 }
 
 final lightCustomThemeExtension = CustomThemeExtension(
@@ -237,6 +246,9 @@ final lightCustomThemeExtension = CustomThemeExtension(
   chatActionButtonBackground: AppColors.chatActionButtonBackgroundWhite,
   chatActionButtonIcon: AppColors.gray.dark4,
   messageBackground: AppColors.messageBackgroundWhite,
+  messageTextFieldStroke: AppColors.messageTextFieldStrokeWhite,
+  messageTextFieldHintText: AppColors.gray75,
+  messageTextFieldPrefixIcon: AppColors.gray75,
 );
 
 final darkCustomThemeExtension = CustomThemeExtension(
@@ -295,4 +307,7 @@ final darkCustomThemeExtension = CustomThemeExtension(
   chatActionButtonBackground: AppColors.dividerSensorDark,
   chatActionButtonIcon: AppColors.primary.white1,
   messageBackground: AppColors.backgroundDark,
+  messageTextFieldStroke: AppColors.messageTextFieldStrokeDark,
+  messageTextFieldHintText: AppColors.gray.dark4,
+  messageTextFieldPrefixIcon: AppColors.primary.white1,
 );

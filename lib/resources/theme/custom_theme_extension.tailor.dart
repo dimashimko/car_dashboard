@@ -65,6 +65,9 @@ mixin _$CustomThemeExtensionTailorMixin
   Color get chatActionButtonBackground;
   Color get chatActionButtonIcon;
   Color get messageBackground;
+  Color get messageTextFieldStroke;
+  Color get messageTextFieldHintText;
+  Color get messageTextFieldPrefixIcon;
 
   @override
   CustomThemeExtension copyWith({
@@ -123,6 +126,9 @@ mixin _$CustomThemeExtensionTailorMixin
     Color? chatActionButtonBackground,
     Color? chatActionButtonIcon,
     Color? messageBackground,
+    Color? messageTextFieldStroke,
+    Color? messageTextFieldHintText,
+    Color? messageTextFieldPrefixIcon,
   }) {
     return CustomThemeExtension(
       statisticsDivider: statisticsDivider ?? this.statisticsDivider,
@@ -195,6 +201,12 @@ mixin _$CustomThemeExtensionTailorMixin
           chatActionButtonBackground ?? this.chatActionButtonBackground,
       chatActionButtonIcon: chatActionButtonIcon ?? this.chatActionButtonIcon,
       messageBackground: messageBackground ?? this.messageBackground,
+      messageTextFieldStroke:
+          messageTextFieldStroke ?? this.messageTextFieldStroke,
+      messageTextFieldHintText:
+          messageTextFieldHintText ?? this.messageTextFieldHintText,
+      messageTextFieldPrefixIcon:
+          messageTextFieldPrefixIcon ?? this.messageTextFieldPrefixIcon,
     );
   }
 
@@ -288,6 +300,12 @@ mixin _$CustomThemeExtensionTailorMixin
           Color.lerp(chatActionButtonIcon, other.chatActionButtonIcon, t)!,
       messageBackground:
           Color.lerp(messageBackground, other.messageBackground, t)!,
+      messageTextFieldStroke:
+          Color.lerp(messageTextFieldStroke, other.messageTextFieldStroke, t)!,
+      messageTextFieldHintText: Color.lerp(
+          messageTextFieldHintText, other.messageTextFieldHintText, t)!,
+      messageTextFieldPrefixIcon: Color.lerp(
+          messageTextFieldPrefixIcon, other.messageTextFieldPrefixIcon, t)!,
     );
   }
 
@@ -391,7 +409,10 @@ mixin _$CustomThemeExtensionTailorMixin
             const DeepCollectionEquality().equals(chatContactName, other.chatContactName) &&
             const DeepCollectionEquality().equals(chatActionButtonBackground, other.chatActionButtonBackground) &&
             const DeepCollectionEquality().equals(chatActionButtonIcon, other.chatActionButtonIcon) &&
-            const DeepCollectionEquality().equals(messageBackground, other.messageBackground));
+            const DeepCollectionEquality().equals(messageBackground, other.messageBackground) &&
+            const DeepCollectionEquality().equals(messageTextFieldStroke, other.messageTextFieldStroke) &&
+            const DeepCollectionEquality().equals(messageTextFieldHintText, other.messageTextFieldHintText) &&
+            const DeepCollectionEquality().equals(messageTextFieldPrefixIcon, other.messageTextFieldPrefixIcon));
   }
 
   @override
@@ -453,6 +474,9 @@ mixin _$CustomThemeExtensionTailorMixin
       const DeepCollectionEquality().hash(chatActionButtonBackground),
       const DeepCollectionEquality().hash(chatActionButtonIcon),
       const DeepCollectionEquality().hash(messageBackground),
+      const DeepCollectionEquality().hash(messageTextFieldStroke),
+      const DeepCollectionEquality().hash(messageTextFieldHintText),
+      const DeepCollectionEquality().hash(messageTextFieldPrefixIcon),
     ]);
   }
 }
@@ -527,4 +551,10 @@ extension CustomThemeExtensionBuildContextProps on BuildContext {
       customThemeExtension.chatActionButtonBackground;
   Color get chatActionButtonIcon => customThemeExtension.chatActionButtonIcon;
   Color get messageBackground => customThemeExtension.messageBackground;
+  Color get messageTextFieldStroke =>
+      customThemeExtension.messageTextFieldStroke;
+  Color get messageTextFieldHintText =>
+      customThemeExtension.messageTextFieldHintText;
+  Color get messageTextFieldPrefixIcon =>
+      customThemeExtension.messageTextFieldPrefixIcon;
 }

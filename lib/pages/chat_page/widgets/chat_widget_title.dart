@@ -48,8 +48,9 @@ class ChatWidgetTitle extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(right: 4.0),
                     child: IconButton(
-                      icon: const Icon(
+                      icon: Icon(
                         Icons.chevron_left,
+                        color: colors(context).notesStatusBannerText,
                       ),
                       onPressed: () => onTapBackButton(),
                     ),

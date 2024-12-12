@@ -113,6 +113,9 @@ class $AssetsIconsGen {
   SvgGenImage get checkboxOn =>
       const SvgGenImage('assets/icons/checkbox_on.svg');
 
+  /// File path: assets/icons/clip.svg
+  SvgGenImage get clip => const SvgGenImage('assets/icons/clip.svg');
+
   /// File path: assets/icons/dashboard_icon.svg
   SvgGenImage get dashboardIcon =>
       const SvgGenImage('assets/icons/dashboard_icon.svg');
@@ -206,6 +209,10 @@ class $AssetsIconsGen {
   SvgGenImage get sellCarsIcon =>
       const SvgGenImage('assets/icons/sell_cars_icon.svg');
 
+  /// File path: assets/icons/send_message.svg
+  SvgGenImage get sendMessage =>
+      const SvgGenImage('assets/icons/send_message.svg');
+
   /// File path: assets/icons/service_center.svg
   SvgGenImage get serviceCenter =>
       const SvgGenImage('assets/icons/service_center.svg');
@@ -267,6 +274,7 @@ class $AssetsIconsGen {
         chatVideo,
         checkboxOff,
         checkboxOn,
+        clip,
         dashboardIcon,
         dollarSign,
         dropDown,
@@ -295,6 +303,7 @@ class $AssetsIconsGen {
         returning,
         search,
         sellCarsIcon,
+        sendMessage,
         serviceCenter,
         serviceRepair,
         serviceWashing,

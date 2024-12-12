@@ -1,3 +1,4 @@
+import 'package:car_dashboard/pages/chat_page/widgets/chat_widget_text_field.dart';
 import 'package:flutter/material.dart';
 
 import '../../../models/contact.dart';
@@ -12,12 +13,14 @@ class ChatWidget extends StatelessWidget {
     required this.myContact,
     required this.isNeedBackButton,
     required this.onTapBackButton,
+    required this.onSubmitMessage,
   });
 
   final Contact? contact;
   final Contact myContact;
   final bool isNeedBackButton;
   final VoidCallback onTapBackButton;
+  final ValueChanged<String> onSubmitMessage;
 
   @override
   Widget build(BuildContext context) {
@@ -49,6 +52,10 @@ class ChatWidget extends StatelessWidget {
                 contact: contact!,
                 myContact: myContact,
               ),
+            ),
+            // const Gap(32.0),
+            ChatWidgetTextField(
+              onSubmitMessage: onSubmitMessage,
             ),
           ],
         ),
