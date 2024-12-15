@@ -28,8 +28,7 @@ class DraggableRectanglesPage extends StatefulWidget {
   const DraggableRectanglesPage({super.key});
 
   @override
-  DraggableRectanglesPageState createState() =>
-      DraggableRectanglesPageState();
+  DraggableRectanglesPageState createState() => DraggableRectanglesPageState();
 }
 
 class DraggableRectanglesPageState extends State<DraggableRectanglesPage> {

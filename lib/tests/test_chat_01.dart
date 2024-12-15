@@ -75,7 +75,8 @@ class ChatPageState extends State<ChatPage> {
                       ? Alignment.centerRight
                       : Alignment.centerLeft,
                   child: Card(
-                    margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                    margin:
+                        const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                     child: Padding(
                       padding: const EdgeInsets.all(10),
                       child: message['type'] == 'text'

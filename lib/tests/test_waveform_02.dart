@@ -42,8 +42,7 @@ class AudioPlayerWithWaveform extends StatefulWidget {
   const AudioPlayerWithWaveform({super.key, required this.audioPath});
 
   @override
-  AudioPlayerWithWaveformState createState() =>
-      AudioPlayerWithWaveformState();
+  AudioPlayerWithWaveformState createState() => AudioPlayerWithWaveformState();
 }
 
 class AudioPlayerWithWaveformState extends State<AudioPlayerWithWaveform> {
