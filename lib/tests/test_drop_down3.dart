@@ -4,12 +4,14 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(
-    DraggableRectanglesApp(),
+    const DraggableRectanglesApp(),
     // DraggableRectanglesPage(),
   );
 }
 
 class DraggableRectanglesApp extends StatelessWidget {
+  const DraggableRectanglesApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -17,18 +19,20 @@ class DraggableRectanglesApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: DraggableRectanglesPage(),
+      home: const DraggableRectanglesPage(),
     );
   }
 }
 
 class DraggableRectanglesPage extends StatefulWidget {
+  const DraggableRectanglesPage({super.key});
+
   @override
-  _DraggableRectanglesPageState createState() =>
-      _DraggableRectanglesPageState();
+  DraggableRectanglesPageState createState() =>
+      DraggableRectanglesPageState();
 }
 
-class _DraggableRectanglesPageState extends State<DraggableRectanglesPage> {
+class DraggableRectanglesPageState extends State<DraggableRectanglesPage> {
   // List to store rectangle positions
   List<Offset> rectanglePositions = [];
 
@@ -91,7 +95,7 @@ class _DraggableRectanglesPageState extends State<DraggableRectanglesPage> {
                           left: rectanglePositions[index].dx,
                           top: rectanglePositions[index].dy,
                           child: Draggable(
-                            feedback: Text('data'),
+                            feedback: const Text('data'),
 /*                            feedback: RectangleCard(
                               index: index,
                               isDragging: true,
@@ -107,7 +111,7 @@ class _DraggableRectanglesPageState extends State<DraggableRectanglesPage> {
                                       renderBox.globalToLocal(details.offset);
                                   rectanglePositions[index] = localPosition;
 
-                                  log('*** localPosition: ${localPosition}');
+                                  log('*** localPosition: $localPosition');
                                 },
                               );
                             },
@@ -139,10 +143,6 @@ class RectangleCard extends StatelessWidget {
 
   final int index;
   final bool isDragging;
-
-  Color _generateUniqueColor(int index) {
-    return Colors.primaries[index % Colors.primaries.length].shade300;
-  }
 
   @override
   Widget build(BuildContext context) {

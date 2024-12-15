@@ -23,7 +23,7 @@ class TaskBoardEventCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(
+      padding: const EdgeInsets.only(
           // left: leftPadding,
           ),
       child: TaskBoardContainer(

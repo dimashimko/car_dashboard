@@ -139,7 +139,7 @@ class _ChatWidgetTextFieldState extends State<ChatWidgetTextField> {
                 ),
                 onPressed: () async {
                   String? newFile = await pickAndSaveFile();
-                  log('*** newFile: ${newFile}');
+                  log('*** newFile: $newFile');
                   if (newFile != null) {
                     String ext = newFile.split('.').last.toLowerCase();
                     if (['mp3'].contains(ext)) {

@@ -88,12 +88,12 @@ class ChatWidgetTitle extends StatelessWidget {
                   iconPath: Assets.icons.chatVideo.path,
                   onTap: () {},
                 ),
-                Gap(10.0),
+                const Gap(10.0),
                 ChatAction(
                   iconPath: Assets.icons.chatCall.path,
                   onTap: () {},
                 ),
-                Gap(10.0),
+                const Gap(10.0),
                 ChatAction(
                   iconPath: Assets.icons.chatThreePoint.path,
                   onTap: () {},

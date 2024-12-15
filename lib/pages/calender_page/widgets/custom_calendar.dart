@@ -115,7 +115,7 @@ class _CustomCalendarState extends State<CustomCalendar> {
                   ),
                   const Gap(24.0),
                   CustomToggleButton(
-                    options: ['Week', 'Month'],
+                    options: const ['Week', 'Month'],
                     height: 37.0,
                     background: colors(context).calendarToggleBackground,
                     color: AppColors.secondary.red,

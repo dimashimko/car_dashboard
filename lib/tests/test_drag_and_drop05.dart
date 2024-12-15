@@ -29,7 +29,11 @@ class DragDropWithLocalPositionState extends State<DragDropWithLocalPosition> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Drag & Drop with Local Position")),
+      appBar: AppBar(
+        title: const Text(
+          "Drag & Drop with Local Position",
+        ),
+      ),
       body: Column(
         children: [
           Container(
@@ -91,7 +95,7 @@ class DragDropWithLocalPositionState extends State<DragDropWithLocalPosition> {
                   top: 50,
                   child: LongPressDraggable<String>(
                     data: "My Data",
-                    feedback: Material(
+                    feedback: const Material(
                       // color: Colors.transparent,
                       color: Colors.red,
                       child: Text('data'),

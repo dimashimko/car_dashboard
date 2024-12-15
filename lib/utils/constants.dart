@@ -10,83 +10,83 @@ const int minWidthForExpandedMessages = 650;
 // const int minWidthForExpandedMessages = 450;
 
 List<Station> listStations = [
-  Station(
+  const Station(
     name: 'A1',
     isBooked: false,
   ),
-  Station(
+  const Station(
     name: 'A2',
     isBooked: false,
   ),
-  Station(
+  const Station(
     name: 'A3',
     isBooked: false,
   ),
-  Station(
+  const Station(
     name: 'A4',
     isBooked: true,
   ),
-  Station(
+  const Station(
     name: 'A5',
     isBooked: false,
   ),
-  Station(
+  const Station(
     name: 'A6',
     isBooked: false,
   ),
-  Station(
+  const Station(
     name: 'A7',
     isBooked: false,
   ),
-  Station(
+  const Station(
     name: 'A8',
     isBooked: false,
   ),
-  Station(
+  const Station(
     name: 'A9',
     isBooked: false,
   ),
-  Station(
+  const Station(
     name: 'A10',
     isBooked: true,
   ),
-  Station(
+  const Station(
     name: 'B1',
     isBooked: true,
   ),
-  Station(
+  const Station(
     name: 'B2',
     isBooked: false,
   ),
-  Station(
+  const Station(
     name: 'B3',
     isBooked: false,
   ),
-  Station(
+  const Station(
     name: 'B4',
     isBooked: false,
   ),
-  Station(
+  const Station(
     name: 'B5',
     isBooked: false,
   ),
-  Station(
+  const Station(
     name: 'B6',
     isBooked: false,
   ),
-  Station(
+  const Station(
     name: 'B7',
     isBooked: true,
   ),
-  Station(
+  const Station(
     name: 'B8',
     isBooked: false,
   ),
-  Station(
+  const Station(
     name: 'B9',
     isBooked: false,
   ),
-  Station(
+  const Station(
     name: 'B10',
     isBooked: false,
   ),

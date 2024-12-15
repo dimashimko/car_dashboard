@@ -25,9 +25,9 @@ class ChatPage extends StatelessWidget {
           onPressed: () => context.pop(),
         ),
       ),
-      body: SafeArea(
+      body: const SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(30.0),
+          padding: EdgeInsets.all(30.0),
           // child: ChatWidget(
           //   contact: contact,
           //   isNeedBackButton: true,

@@ -5,7 +5,7 @@ import '../models/calendar_event.dart';
 extension DoubleExtensions on double {
   String toCurrencyString() {
     final formatter = NumberFormat('#,###.##');
-    return '${formatter.format(this)}';
+    return formatter.format(this);
   }
 
   String toFormattedString() {
@@ -39,7 +39,7 @@ extension FormattedDateTime on DateTime {
     final now = DateTime.now();
 
     if (year == now.year && month == now.month && day == now.day) {
-      return "${_formatTime()}";
+      return _formatTime();
     }
 
     if (year == now.year) {
@@ -83,7 +83,11 @@ extension DateTimeFormatter on DateTime {
   String toFriendlyString() {
     final now = DateTime.now();
     final today = DateTime(now.year, now.month, now.day);
-    final yesterday = today.subtract(Duration(days: 1));
+    final yesterday = today.subtract(
+      const Duration(
+        days: 1,
+      ),
+    );
     final date = DateTime(year, month, day);
 
     if (date == today) {

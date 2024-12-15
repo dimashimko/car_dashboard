@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 class SplashBox extends StatelessWidget {
   const SplashBox({
-    Key? key,
+    super.key,
     this.borderRadius = BorderRadius.zero,
     required this.onTap,
-  }) : super(key: key);
+  });
 
   final BorderRadius borderRadius;
   final void Function() onTap;

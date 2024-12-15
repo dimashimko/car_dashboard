@@ -1,4 +1,4 @@
-import 'dart:developer';
+// import 'dart:developer';
 
 import 'package:car_dashboard/resources/app_colors.dart';
 import 'package:car_dashboard/resources/theme/custom_theme_extension.dart';
@@ -120,7 +120,7 @@ class _TaskBoardPlaner2State extends State<TaskBoardPlaner2> {
     required CalendarEvent calendarEvent,
     required Offset delta,
   }) {
-    log('*** calendarEvent id: ${calendarEvent.id}');
+    // log('*** calendarEvent id: ${calendarEvent.id}');
     Offset original = Offset(
       0,
       calendarEvent.startTime.toPadding(widget.scaleFactor),
@@ -235,8 +235,7 @@ class _TaskBoardPlaner2State extends State<TaskBoardPlaner2> {
       setWidthLevelToRelated(event);
     }
 
-    if (true) {
-      // if (false) {
+/*
       for (CalendarEvent event in newList) {
         log('*** event.id: ${event.id}');
         log('*** event.startTime: ${event.startTime}');
@@ -245,7 +244,7 @@ class _TaskBoardPlaner2State extends State<TaskBoardPlaner2> {
         log('*** event.relatedId: ${event.relatedId}');
         log('');
       }
-    }
+*/
 
     return newList;
   }
@@ -385,9 +384,9 @@ class _TaskBoardPlaner2State extends State<TaskBoardPlaner2> {
                               // Offset localPosition = details.localPosition;
                               // log('***  details globalPosition: ${details.globalPosition}');
                               // log('***  details  localPosition: ${details.localPosition}');
-                              log('***  details  delta: ${details.delta}');
+                              // log('***  details  delta: ${details.delta}');
                               // log('*** renderBox localPosition: ${localPosition}');
-                              log('');
+                              // log('');
 
                               // log('*** calendarEvent id: ${events[index].id}');
                               changeCalendarEventDelta(
@@ -398,7 +397,7 @@ class _TaskBoardPlaner2State extends State<TaskBoardPlaner2> {
                             onDragEnd: (details) {
                               Offset localPosition =
                                   renderBox.globalToLocal(details.offset);
-                              log('*** localPosition: ${localPosition}');
+                              // log('*** localPosition: $localPosition');
 
                               changeCalendarEvent(
                                 calendarEvent: events[index],

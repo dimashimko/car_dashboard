@@ -27,7 +27,7 @@ class InfoListCard extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 15.0),
         child: Row(
           children: [
-            Gap(14.0),
+            const Gap(14.0),
             Container(
               width: 16.0,
               height: 16.0,
@@ -36,7 +36,7 @@ class InfoListCard extends StatelessWidget {
                 color: serviceOrder.color,
               ),
             ),
-            Gap(14.0),
+            const Gap(14.0),
             Expanded(
               child: Text(
                 serviceOrder.name,
@@ -65,7 +65,7 @@ class InfoListCard extends StatelessWidget {
                 ),
               ),
             ),
-            Gap(11.0),
+            const Gap(11.0),
           ],
         ),
       ),

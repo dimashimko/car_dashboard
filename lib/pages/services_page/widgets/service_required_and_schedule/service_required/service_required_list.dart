@@ -59,7 +59,7 @@ class ServiceRequiredList extends StatelessWidget {
             color: colors(context).parametersTextColor,
           ),
         ),
-        Gap(22.0),
+        const Gap(22.0),
         Container(
           height: 330.0,
           decoration: BoxDecoration(

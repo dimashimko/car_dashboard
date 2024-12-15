@@ -19,17 +19,19 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: ChatPage(),
+      home: const ChatPage(),
     );
   }
 }
 
 class ChatPage extends StatefulWidget {
+  const ChatPage({super.key});
+
   @override
-  _ChatPageState createState() => _ChatPageState();
+  ChatPageState createState() => ChatPageState();
 }
 
-class _ChatPageState extends State<ChatPage> {
+class ChatPageState extends State<ChatPage> {
   final TextEditingController _textController = TextEditingController();
   final List<Map<String, dynamic>> _messages = []; // Message data
 
@@ -59,7 +61,7 @@ class _ChatPageState extends State<ChatPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Chat")),
+      appBar: AppBar(title: const Text("Chat")),
       body: Column(
         children: [
           Expanded(
@@ -73,9 +75,9 @@ class _ChatPageState extends State<ChatPage> {
                       ? Alignment.centerRight
                       : Alignment.centerLeft,
                   child: Card(
-                    margin: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                    margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                     child: Padding(
-                      padding: EdgeInsets.all(10),
+                      padding: const EdgeInsets.all(10),
                       child: message['type'] == 'text'
                           ? Text(message['content'])
                           : message['type'] == 'image'
@@ -92,24 +94,24 @@ class _ChatPageState extends State<ChatPage> {
             child: Row(
               children: [
                 IconButton(
-                  icon: Icon(Icons.image),
+                  icon: const Icon(Icons.image),
                   onPressed: _pickImage,
                 ),
                 IconButton(
-                  icon: Icon(Icons.attach_file),
+                  icon: const Icon(Icons.attach_file),
                   onPressed: _pickFile,
                 ),
                 Expanded(
                   child: TextField(
                     controller: _textController,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       hintText: "Type a message",
                       border: OutlineInputBorder(),
                     ),
                   ),
                 ),
                 IconButton(
-                  icon: Icon(Icons.send),
+                  icon: const Icon(Icons.send),
                   onPressed: () {
                     _sendMessage('text', _textController.text);
                     _textController.clear();

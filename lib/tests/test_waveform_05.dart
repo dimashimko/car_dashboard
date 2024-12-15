@@ -8,7 +8,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: 'Audio Waveforms',
       debugShowCheckedModeBanner: false,
       home: AudioPlayerPage(),
@@ -59,23 +59,23 @@ class _AudioPlayerPageState extends State<AudioPlayerPage> {
           onPressed: () {
             playerController.startPlayer();
           },
-          child: Text('play'),
+          child: const Text('play'),
         ),
         ElevatedButton(
           onPressed: () {
             playerController.pausePlayer();
           },
-          child: Text('pause'),
+          child: const Text('pause'),
         ),
         ElevatedButton(
           onPressed: () {
             playerController.stopPlayer();
           },
-          child: Text('Stop'),
+          child: const Text('Stop'),
         ),
         AudioFileWaveforms(
           playerController: playerController,
-          size: Size(300, 50),
+          size: const Size(300, 50),
         ),
       ],
     );

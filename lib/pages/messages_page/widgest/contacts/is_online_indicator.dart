@@ -9,7 +9,7 @@ class IsOnlineIndicator extends StatelessWidget {
     return Container(
       width: 12.0,
       height: 12.0,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         shape: BoxShape.circle,
         color: AppColors.isOnlineIndicatorBackground,
       ),
@@ -17,7 +17,7 @@ class IsOnlineIndicator extends StatelessWidget {
         child: Container(
           width: 8.0,
           height: 8.0,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             shape: BoxShape.circle,
             color: AppColors.isOnlineIndicator,
           ),

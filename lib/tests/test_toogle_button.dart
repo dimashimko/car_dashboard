@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
 class ToggleButtonExample extends StatefulWidget {
+  const ToggleButtonExample({super.key});
+
   @override
-  _ToggleButtonExampleState createState() => _ToggleButtonExampleState();
+  ToggleButtonExampleState createState() => ToggleButtonExampleState();
 }
 
-class _ToggleButtonExampleState extends State<ToggleButtonExample> {
+class ToggleButtonExampleState extends State<ToggleButtonExample> {
   // List of options
   final List<String> options = ["Option 1", "Option 2", "Option 3"];
   int selectedIndex = 0; // Track the selected index
@@ -13,7 +15,11 @@ class _ToggleButtonExampleState extends State<ToggleButtonExample> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Toggle Button Example")),
+      appBar: AppBar(
+        title: const Text(
+          "Toggle Button Example",
+        ),
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -36,7 +42,7 @@ class _ToggleButtonExampleState extends State<ToggleButtonExample> {
                       });
                     },
                     child: AnimatedContainer(
-                      duration: Duration(milliseconds: 300),
+                      duration: const Duration(milliseconds: 300),
                       width: 100,
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
@@ -66,4 +72,4 @@ class _ToggleButtonExampleState extends State<ToggleButtonExample> {
   }
 }
 
-void main() => runApp(MaterialApp(home: ToggleButtonExample()));
+void main() => runApp(const MaterialApp(home: ToggleButtonExample()));

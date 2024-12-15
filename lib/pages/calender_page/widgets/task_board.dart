@@ -82,7 +82,7 @@ class _TaskBoardState extends State<TaskBoard> {
           ),
         ),
         // TaskBoardPlaner(),
-        TaskBoardPlaner2(),
+        const TaskBoardPlaner2(),
         // TaskBoardPlaner3(),
       ],
     );

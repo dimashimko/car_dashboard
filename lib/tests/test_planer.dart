@@ -10,10 +10,12 @@ class CustomPlanner extends StatelessWidget {
   ];
   final List<String> days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'];
 
+  CustomPlanner({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Custom Planner')),
+      appBar: AppBar(title: const Text('Custom Planner')),
       body: Row(
         children: [
           // Time column
@@ -36,7 +38,7 @@ class CustomPlanner extends StatelessWidget {
               ),
               itemBuilder: (context, index) {
                 return Container(
-                  margin: EdgeInsets.all(4),
+                  margin: const EdgeInsets.all(4),
                   color: Colors.grey.shade200,
                   child: Center(
                     child: Text('Event $index'),

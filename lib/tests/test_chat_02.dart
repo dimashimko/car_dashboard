@@ -5,10 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
 void main() {
-  runApp(MultiMediaChatApp());
+  runApp(const MultiMediaChatApp());
 }
 
 class MultiMediaChatApp extends StatelessWidget {
+  const MultiMediaChatApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -17,7 +19,7 @@ class MultiMediaChatApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: ChatScreen(),
+      home: const ChatScreen(),
     );
   }
 }
@@ -39,18 +41,20 @@ class ChatMessage {
 enum MessageType { text, image, video, audio, file }
 
 class ChatScreen extends StatefulWidget {
+  const ChatScreen({super.key});
+
   @override
-  _ChatScreenState createState() => _ChatScreenState();
+  ChatScreenState createState() => ChatScreenState();
 }
 
-class _ChatScreenState extends State<ChatScreen> {
+class ChatScreenState extends State<ChatScreen> {
   final TextEditingController _textController = TextEditingController();
   final List<ChatMessage> _messages = [];
   final ImagePicker _imagePicker = ImagePicker();
 
   // final Record _audioRecorder = Record();
-  bool _isRecording = false;
-  String? _recordedAudioPath;
+  final bool _isRecording = false;
+  // String? _recordedAudioPath;
 
   void _sendMessage(
       {String? text, MessageType type = MessageType.text, String? filePath}) {
@@ -130,7 +134,7 @@ class _ChatScreenState extends State<ChatScreen> {
 
   Widget _buildMessageItem(ChatMessage message) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+      margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
       alignment: message.isMe ? Alignment.centerRight : Alignment.centerLeft,
       child: Column(
         crossAxisAlignment:
@@ -139,7 +143,7 @@ class _ChatScreenState extends State<ChatScreen> {
           // Text message
           if (message.type == MessageType.text)
             Container(
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
                 color: message.isMe ? Colors.blue[100] : Colors.grey[300],
                 borderRadius: BorderRadius.circular(10),
@@ -163,7 +167,7 @@ class _ChatScreenState extends State<ChatScreen> {
 
           // Audio message
           if (message.type == MessageType.audio)
-            Row(
+            const Row(
               mainAxisSize: MainAxisSize.min,
               children: [
                 Icon(Icons.audiotrack, color: Colors.blue),
@@ -176,7 +180,7 @@ class _ChatScreenState extends State<ChatScreen> {
             Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Icon(Icons.insert_drive_file, color: Colors.grey),
+                const Icon(Icons.insert_drive_file, color: Colors.grey),
                 Text(message.text),
               ],
             ),
@@ -189,7 +193,7 @@ class _ChatScreenState extends State<ChatScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Multimedia Chat'),
+        title: const Text('Multimedia Chat'),
       ),
       body: Column(
         children: [
@@ -205,7 +209,7 @@ class _ChatScreenState extends State<ChatScreen> {
 
           // Input area
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
+            padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
             child: Row(
               children: [
                 // Text input
@@ -223,21 +227,21 @@ class _ChatScreenState extends State<ChatScreen> {
 
                 // Send text button
                 IconButton(
-                  icon: Icon(Icons.send),
+                  icon: const Icon(Icons.send),
                   onPressed: () => _sendMessage(text: _textController.text),
                 ),
 
                 // Media buttons
                 IconButton(
-                  icon: Icon(Icons.camera_alt),
+                  icon: const Icon(Icons.camera_alt),
                   onPressed: () => _pickImage(ImageSource.camera),
                 ),
                 IconButton(
-                  icon: Icon(Icons.photo),
+                  icon: const Icon(Icons.photo),
                   onPressed: () => _pickImage(ImageSource.gallery),
                 ),
                 IconButton(
-                  icon: Icon(Icons.attach_file),
+                  icon: const Icon(Icons.attach_file),
                   onPressed: _pickFile,
                 ),
                 // Audio recording

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class ResponsiveText extends StatelessWidget {
   final String text;
 
-  const ResponsiveText(this.text, {Key? key}) : super(key: key);
+  const ResponsiveText(this.text, {super.key});
 
   @override
   Widget build(BuildContext context) {

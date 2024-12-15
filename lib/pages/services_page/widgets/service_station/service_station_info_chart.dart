@@ -19,7 +19,7 @@ class ServiceStationInfoChart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ConstrainedBox(
-      constraints: BoxConstraints(
+      constraints: const BoxConstraints(
         maxHeight: 250.0,
         maxWidth: 250.0,
       ),

@@ -25,11 +25,11 @@ class _ToggleButtonListState extends State<ToggleButtonList> {
               });
             },
             style: ButtonStyle(
-              foregroundColor: MaterialStateProperty.all(Colors.black),
-              backgroundColor: MaterialStateProperty.all(
+              foregroundColor: WidgetStateProperty.all(Colors.black),
+              backgroundColor: WidgetStateProperty.all(
                 _selectedIndex == index ? Colors.blue : Colors.grey,
               ),
-              shape: MaterialStateProperty.all(
+              shape: WidgetStateProperty.all(
                 RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10.0),
                 ),

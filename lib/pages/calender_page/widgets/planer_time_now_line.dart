@@ -30,7 +30,7 @@ class PlanerTimeNowLine extends StatelessWidget {
                 ),
               ),
             ),
-            Gap(8.0),
+            const Gap(8.0),
             Expanded(
               child: Row(
                 children: [

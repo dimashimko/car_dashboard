@@ -29,7 +29,7 @@ class PlanerTimeCard extends StatelessWidget {
                 ),
               ),
             ),
-            Gap(8.0),
+            const Gap(8.0),
             Expanded(
               child: Container(
                 color: Colors.grey,
@@ -39,7 +39,7 @@ class PlanerTimeCard extends StatelessWidget {
             ),
           ],
         ),
-        SizedBox(
+        const SizedBox(
           height: 50,
         )
       ],

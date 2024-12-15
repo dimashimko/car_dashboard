@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: 'Audio Waveforms',
       debugShowCheckedModeBanner: false,
       home: AudioPlayerPage(),
@@ -20,11 +20,13 @@ class MyApp extends StatelessWidget {
 
 // Example Usage
 class AudioPlayerPage extends StatelessWidget {
+  const AudioPlayerPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Audio Player')),
-      body: Center(
+      appBar: AppBar(title: const Text('Audio Player')),
+      body: const Center(
         child: AudioPlayerWithWaveform(
           // audioPath: 'audio/voice_message.mp3',
           audioPath: 'audio/elegant_piano.mp3',
@@ -37,15 +39,14 @@ class AudioPlayerPage extends StatelessWidget {
 class AudioPlayerWithWaveform extends StatefulWidget {
   final String audioPath;
 
-  const AudioPlayerWithWaveform({Key? key, required this.audioPath})
-      : super(key: key);
+  const AudioPlayerWithWaveform({super.key, required this.audioPath});
 
   @override
-  _AudioPlayerWithWaveformState createState() =>
-      _AudioPlayerWithWaveformState();
+  AudioPlayerWithWaveformState createState() =>
+      AudioPlayerWithWaveformState();
 }
 
-class _AudioPlayerWithWaveformState extends State<AudioPlayerWithWaveform> {
+class AudioPlayerWithWaveformState extends State<AudioPlayerWithWaveform> {
   late AudioPlayer _audioPlayer;
   PlayerState _playerState = PlayerState.stopped;
   Duration _duration = Duration.zero;
@@ -109,7 +110,7 @@ class _AudioPlayerWithWaveformState extends State<AudioPlayerWithWaveform> {
     return Column(
       children: [
         // Waveform Visualization
-        Container(
+        SizedBox(
           height: 100,
           child: CustomPaint(
             painter: WaveformPainter(_waveformData, _position, _duration),
