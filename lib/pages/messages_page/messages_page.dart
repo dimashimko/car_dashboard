@@ -81,6 +81,7 @@ class _MessagesPageState extends State<MessagesPage> {
         ),
         Message(
           text: 'no read message 01',
+          audio: Assets.audio.voiceMessage,
           isMy: false,
           dateTime: DateTime(2024, 12, 09, 15, 36, 00),
           isRead: false,
@@ -318,19 +319,14 @@ class _MessagesPageState extends State<MessagesPage> {
     });
   }
 
-  void onSubmitMessage(String newMessage) {
+  void onSubmitMessage(Message newMessage) {
     setState(() {
       List<Contact> newListContact = [];
       for (Contact contact in contacts) {
         if (contact.id == currentContactId) {
           List<Message> messages = [
             ...contact.messages,
-            Message(
-              text: newMessage,
-              isMy: true,
-              dateTime: DateTime.now(),
-              isRead: true,
-            ),
+            newMessage,
           ];
           contact = contact.copyWith(
             messages: messages,

@@ -2,6 +2,7 @@ import 'package:car_dashboard/pages/chat_page/widgets/chat_widget_text_field.dar
 import 'package:flutter/material.dart';
 
 import '../../../models/contact.dart';
+import '../../../models/message.dart';
 import '../../../resources/theme/custom_theme_extension.dart';
 import 'chat_widget_messages.dart';
 import 'chat_widget_title.dart';
@@ -20,7 +21,7 @@ class ChatWidget extends StatelessWidget {
   final Contact myContact;
   final bool isNeedBackButton;
   final VoidCallback onTapBackButton;
-  final ValueChanged<String> onSubmitMessage;
+  final ValueChanged<Message> onSubmitMessage;
 
   @override
   Widget build(BuildContext context) {
