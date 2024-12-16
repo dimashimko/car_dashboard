@@ -70,6 +70,7 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension>
     required this.messageTextFieldStroke,
     required this.messageTextFieldHintText,
     required this.messageTextFieldPrefixIcon,
+    required this.customDivider,
   });
 
   @override
@@ -188,6 +189,8 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension>
   final Color messageTextFieldHintText;
   @override
   final Color messageTextFieldPrefixIcon;
+  @override
+  final Color customDivider;
 }
 
 final lightCustomThemeExtension = CustomThemeExtension(
@@ -249,6 +252,7 @@ final lightCustomThemeExtension = CustomThemeExtension(
   messageTextFieldStroke: AppColors.messageTextFieldStrokeWhite,
   messageTextFieldHintText: AppColors.gray75,
   messageTextFieldPrefixIcon: AppColors.gray75,
+  customDivider: AppColors.customDividerWhite,
 );
 
 final darkCustomThemeExtension = CustomThemeExtension(
@@ -310,4 +314,5 @@ final darkCustomThemeExtension = CustomThemeExtension(
   messageTextFieldStroke: AppColors.messageTextFieldStrokeDark,
   messageTextFieldHintText: AppColors.gray.dark4,
   messageTextFieldPrefixIcon: AppColors.primary.white1,
+  customDivider: AppColors.dividerSensorDark,
 );

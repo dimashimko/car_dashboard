@@ -68,6 +68,7 @@ mixin _$CustomThemeExtensionTailorMixin
   Color get messageTextFieldStroke;
   Color get messageTextFieldHintText;
   Color get messageTextFieldPrefixIcon;
+  Color get customDivider;
 
   @override
   CustomThemeExtension copyWith({
@@ -129,6 +130,7 @@ mixin _$CustomThemeExtensionTailorMixin
     Color? messageTextFieldStroke,
     Color? messageTextFieldHintText,
     Color? messageTextFieldPrefixIcon,
+    Color? customDivider,
   }) {
     return CustomThemeExtension(
       statisticsDivider: statisticsDivider ?? this.statisticsDivider,
@@ -207,6 +209,7 @@ mixin _$CustomThemeExtensionTailorMixin
           messageTextFieldHintText ?? this.messageTextFieldHintText,
       messageTextFieldPrefixIcon:
           messageTextFieldPrefixIcon ?? this.messageTextFieldPrefixIcon,
+      customDivider: customDivider ?? this.customDivider,
     );
   }
 
@@ -306,6 +309,7 @@ mixin _$CustomThemeExtensionTailorMixin
           messageTextFieldHintText, other.messageTextFieldHintText, t)!,
       messageTextFieldPrefixIcon: Color.lerp(
           messageTextFieldPrefixIcon, other.messageTextFieldPrefixIcon, t)!,
+      customDivider: Color.lerp(customDivider, other.customDivider, t)!,
     );
   }
 
@@ -412,7 +416,8 @@ mixin _$CustomThemeExtensionTailorMixin
             const DeepCollectionEquality().equals(messageBackground, other.messageBackground) &&
             const DeepCollectionEquality().equals(messageTextFieldStroke, other.messageTextFieldStroke) &&
             const DeepCollectionEquality().equals(messageTextFieldHintText, other.messageTextFieldHintText) &&
-            const DeepCollectionEquality().equals(messageTextFieldPrefixIcon, other.messageTextFieldPrefixIcon));
+            const DeepCollectionEquality().equals(messageTextFieldPrefixIcon, other.messageTextFieldPrefixIcon) &&
+            const DeepCollectionEquality().equals(customDivider, other.customDivider));
   }
 
   @override
@@ -477,6 +482,7 @@ mixin _$CustomThemeExtensionTailorMixin
       const DeepCollectionEquality().hash(messageTextFieldStroke),
       const DeepCollectionEquality().hash(messageTextFieldHintText),
       const DeepCollectionEquality().hash(messageTextFieldPrefixIcon),
+      const DeepCollectionEquality().hash(customDivider),
     ]);
   }
 }
@@ -557,4 +563,5 @@ extension CustomThemeExtensionBuildContextProps on BuildContext {
       customThemeExtension.messageTextFieldHintText;
   Color get messageTextFieldPrefixIcon =>
       customThemeExtension.messageTextFieldPrefixIcon;
+  Color get customDivider => customThemeExtension.customDivider;
 }

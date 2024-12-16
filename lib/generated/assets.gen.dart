@@ -15,11 +15,30 @@ import 'package:vector_graphics/vector_graphics.dart' as _vg;
 class $AssetsAudioGen {
   const $AssetsAudioGen();
 
+  /// File path: assets/audio/audio1.mp3
+  String get audio1 => 'assets/audio/audio1.mp3';
+
+  /// File path: assets/audio/audio2.mp3
+  String get audio2 => 'assets/audio/audio2.mp3';
+
+  /// File path: assets/audio/audio3.mp3
+  String get audio3 => 'assets/audio/audio3.mp3';
+
+  /// File path: assets/audio/audio4.mp3
+  String get audio4 => 'assets/audio/audio4.mp3';
+
+  /// File path: assets/audio/elegant_piano.mp3
+  String get elegantPiano => 'assets/audio/elegant_piano.mp3';
+
+  /// File path: assets/audio/logo.mp3
+  String get logo => 'assets/audio/logo.mp3';
+
   /// File path: assets/audio/voice_message.mp3
   String get voiceMessage => 'assets/audio/voice_message.mp3';
 
   /// List of all assets
-  List<String> get values => [voiceMessage];
+  List<String> get values =>
+      [audio1, audio2, audio3, audio4, elegantPiano, logo, voiceMessage];
 }
 
 class $AssetsIconsGen {
@@ -72,6 +91,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/assets_icon.svg
   SvgGenImage get assetsIcon =>
       const SvgGenImage('assets/icons/assets_icon.svg');
+
+  /// File path: assets/icons/birthday.svg
+  SvgGenImage get birthday => const SvgGenImage('assets/icons/birthday.svg');
 
   /// File path: assets/icons/booking_icon.svg
   SvgGenImage get bookingIcon =>
@@ -127,6 +149,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/drop_down.svg
   SvgGenImage get dropDown => const SvgGenImage('assets/icons/drop_down.svg');
 
+  /// File path: assets/icons/email.svg
+  SvgGenImage get email => const SvgGenImage('assets/icons/email.svg');
+
   /// File path: assets/icons/energy.svg
   SvgGenImage get energy => const SvgGenImage('assets/icons/energy.svg');
 
@@ -143,6 +168,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/heart_on.svg
   SvgGenImage get heartOn => const SvgGenImage('assets/icons/heart_on.svg');
 
+  /// File path: assets/icons/home.svg
+  SvgGenImage get home => const SvgGenImage('assets/icons/home.svg');
+
   /// File path: assets/icons/layer01.svg
   SvgGenImage get layer01 => const SvgGenImage('assets/icons/layer01.svg');
 
@@ -154,6 +182,9 @@ class $AssetsIconsGen {
 
   /// File path: assets/icons/log_out.svg
   SvgGenImage get logOut => const SvgGenImage('assets/icons/log_out.svg');
+
+  /// File path: assets/icons/male.svg
+  SvgGenImage get male => const SvgGenImage('assets/icons/male.svg');
 
   /// File path: assets/icons/message.svg
   SvgGenImage get message => const SvgGenImage('assets/icons/message.svg');
@@ -263,6 +294,7 @@ class $AssetsIconsGen {
         arrowsLeftElongated2,
         arrowsRightElongated2,
         assetsIcon,
+        birthday,
         bookingIcon,
         breakFluid,
         buyCarIcon,
@@ -278,15 +310,18 @@ class $AssetsIconsGen {
         dashboardIcon,
         dollarSign,
         dropDown,
+        email,
         energy,
         energySmall,
         grid,
         heartOff,
         heartOn,
+        home,
         layer01,
         layer02,
         layer03,
         logOut,
+        male,
         message,
         messageSmall,
         messagesIcon,
@@ -334,6 +369,10 @@ class $AssetsImagesGen {
   /// File path: assets/images/avatar04.png
   AssetGenImage get avatar04 =>
       const AssetGenImage('assets/images/avatar04.png');
+
+  /// File path: assets/images/avatar_setting.jpg
+  AssetGenImage get avatarSetting =>
+      const AssetGenImage('assets/images/avatar_setting.jpg');
 
   /// File path: assets/images/car_assets.png
   AssetGenImage get carAssets =>
@@ -444,6 +483,7 @@ class $AssetsImagesGen {
         avatar02,
         avatar03,
         avatar04,
+        avatarSetting,
         carAssets,
         carAudiA4,
         carAudiQ5,

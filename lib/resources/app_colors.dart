@@ -68,6 +68,7 @@ class AppColors {
   static const Color messageBackgroundWhite = Color(0xFFF5F6FA);
   static const Color messageTextFieldStrokeWhite = Color(0xFFE9E9F2);
   static const Color messageTextFieldStrokeDark = Color(0xFF333848);
+  static const Color customDividerWhite = Color(0xFFE9EAEC);
 }
 
 class Primary {
