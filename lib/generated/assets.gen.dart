@@ -135,6 +135,10 @@ class $AssetsIconsGen {
   SvgGenImage get checkboxOn =>
       const SvgGenImage('assets/icons/checkbox_on.svg');
 
+  /// File path: assets/icons/checkbox_on_purple.svg
+  SvgGenImage get checkboxOnPurple =>
+      const SvgGenImage('assets/icons/checkbox_on_purple.svg');
+
   /// File path: assets/icons/clip.svg
   SvgGenImage get clip => const SvgGenImage('assets/icons/clip.svg');
 
@@ -159,6 +163,9 @@ class $AssetsIconsGen {
   SvgGenImage get energySmall =>
       const SvgGenImage('assets/icons/energy_small.svg');
 
+  /// File path: assets/icons/eye.svg
+  SvgGenImage get eye => const SvgGenImage('assets/icons/eye.svg');
+
   /// File path: assets/icons/grid.svg
   SvgGenImage get grid => const SvgGenImage('assets/icons/grid.svg');
 
@@ -182,6 +189,14 @@ class $AssetsIconsGen {
 
   /// File path: assets/icons/log_out.svg
   SvgGenImage get logOut => const SvgGenImage('assets/icons/log_out.svg');
+
+  /// File path: assets/icons/logo_facebook.svg
+  SvgGenImage get logoFacebook =>
+      const SvgGenImage('assets/icons/logo_facebook.svg');
+
+  /// File path: assets/icons/logo_google.svg
+  SvgGenImage get logoGoogle =>
+      const SvgGenImage('assets/icons/logo_google.svg');
 
   /// File path: assets/icons/male.svg
   SvgGenImage get male => const SvgGenImage('assets/icons/male.svg');
@@ -306,6 +321,7 @@ class $AssetsIconsGen {
         chatVideo,
         checkboxOff,
         checkboxOn,
+        checkboxOnPurple,
         clip,
         dashboardIcon,
         dollarSign,
@@ -313,6 +329,7 @@ class $AssetsIconsGen {
         email,
         energy,
         energySmall,
+        eye,
         grid,
         heartOff,
         heartOn,
@@ -321,6 +338,8 @@ class $AssetsIconsGen {
         layer02,
         layer03,
         logOut,
+        logoFacebook,
+        logoGoogle,
         male,
         message,
         messageSmall,

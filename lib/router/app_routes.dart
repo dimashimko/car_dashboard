@@ -14,6 +14,7 @@ import '../pages/sell_cars_page/sell_cars_page.dart';
 import '../pages/services_page/services_page.dart';
 import '../pages/setting_page/setting_page.dart';
 import '../pages/sign_in_page/sign_in_page.dart';
+import '../pages/sign_up_page/sign_up_page.dart';
 
 part 'app_routes.g.dart';
 
@@ -29,6 +30,20 @@ class SignInRoute extends GoRouteData {
     GoRouterState state,
   ) =>
       const SignInPage();
+}
+
+@TypedGoRoute<SignUpRoute>(
+  path: '/sign-up',
+)
+class SignUpRoute extends GoRouteData {
+  const SignUpRoute();
+
+  @override
+  Widget build(
+    BuildContext context,
+    GoRouterState state,
+  ) =>
+      const SignUpPage();
 }
 
 @TypedShellRoute<HomeRoute>(

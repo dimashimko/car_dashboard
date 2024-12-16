@@ -46,6 +46,7 @@ class AppColors {
   static const Color grayF6 = Color(0xFFF6F6F6);
   static const Color grayEC = Color(0xFFECECEC);
   static const Color gray75 = Color(0xFF757575);
+  static const Color gray3B = Color(0xFF3B3B3B);
   static const Color upcomingEventsTimeNowText = Color(0xFFF65E5E);
   static const Color upcomingEventsTimeNowDivider = Color(0xFFFAAEAE);
   static const Color violet = Color(0xFF725CFF);
@@ -69,6 +70,11 @@ class AppColors {
   static const Color messageTextFieldStrokeWhite = Color(0xFFE9E9F2);
   static const Color messageTextFieldStrokeDark = Color(0xFF333848);
   static const Color customDividerWhite = Color(0xFFE9EAEC);
+  static const Color googleAuthButtonWhite = Color(0xFFE6E8EC);
+  static const Color googleAuthButtonBlack = Color(0xFF323745);
+  static const Color facebookColor = Color(0xFF4776D0);
+  static const Color authContainerStrokeWhite = Color(0xFFF4F5F6);
+  static const Color rememberMeTextWhite = Color(0xFFB1B5C3);
 }
 
 class Primary {

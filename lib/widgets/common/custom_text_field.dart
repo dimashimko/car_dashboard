@@ -16,6 +16,7 @@ class CustomTextField extends StatefulWidget {
     this.hintText,
     this.prefixIconPath,
     this.suffixIconPath,
+    this.isPasswordField = false,
   });
 
   final ValueChanged<String> onSubmitMessage;
@@ -23,6 +24,7 @@ class CustomTextField extends StatefulWidget {
   final String? hintText;
   final String? prefixIconPath;
   final String? suffixIconPath;
+  final bool isPasswordField;
 
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
@@ -30,6 +32,7 @@ class CustomTextField extends StatefulWidget {
 
 class _CustomTextFieldState extends State<CustomTextField> {
   late final TextEditingController _controller;
+  bool obscureText = false;
 
   @override
   void initState() {
@@ -37,6 +40,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
     _controller = TextEditingController(
       text: widget.initialText ?? "",
     );
+    if (widget.isPasswordField) obscureText = true;
   }
 
   void _handleSubmitText() {
@@ -63,6 +67,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
       height: 48.0,
       child: TextField(
         controller: _controller,
+        obscureText: obscureText,
         onSubmitted: (value) => _handleSubmitText(),
         cursorColor: AppColors.searchOrange,
         style: TextStyle(
@@ -109,7 +114,11 @@ class _CustomTextFieldState extends State<CustomTextField> {
                     icon: SvgPicture.asset(
                       widget.suffixIconPath!,
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      setState(() {
+                        obscureText = !obscureText;
+                      });
+                    },
                   ),
                 ),
         ),

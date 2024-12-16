@@ -12,22 +12,22 @@ import '../../widgets/buttons/facebook_auth_button.dart';
 import '../../widgets/buttons/google_auth_button.dart';
 import '../../widgets/buttons/purple_button.dart';
 
-class SignInPage extends StatefulWidget {
-  const SignInPage({super.key});
+class SignUpPage extends StatefulWidget {
+  const SignUpPage({super.key});
 
   @override
-  State<SignInPage> createState() => _SignInPageState();
+  State<SignUpPage> createState() => _SignUpPageState();
 }
 
-class _SignInPageState extends State<SignInPage> {
+class _SignUpPageState extends State<SignUpPage> {
   bool isChecked = false;
 
   void onTapSignIn(BuildContext context) {
     const DashboardRoute().go(context);
   }
 
-  void goToSignUp(BuildContext context) {
-    const SignUpRoute().go(context);
+  void goToSignIn(BuildContext context) {
+    const SignInRoute().go(context);
   }
 
   @override
@@ -61,10 +61,10 @@ class _SignInPageState extends State<SignInPage> {
                       ),
                       InkWell(
                         onTap: () {
-                          goToSignUp(context);
+                          goToSignIn(context);
                         },
                         child: Text(
-                          'Sign up',
+                          'Sign in',
                           style: AppTypography.title18M.copyWith(
                             color: AppColors.primary.purple,
                           ),
@@ -137,6 +137,30 @@ class _SignInPageState extends State<SignInPage> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
+                          Text(
+                            'First Name',
+                            style: AppTypography.title16m.copyWith(
+                              color: colors(context).notesStatusBannerText,
+                            ),
+                          ),
+                          const Gap(12.0),
+                          CustomTextField(
+                            onSubmitMessage: (String newEmail) {},
+                            initialText: 'Delowar',
+                          ),
+                          const Gap(12.0),
+                          Text(
+                            'Last Name',
+                            style: AppTypography.title16m.copyWith(
+                              color: colors(context).notesStatusBannerText,
+                            ),
+                          ),
+                          const Gap(12.0),
+                          CustomTextField(
+                            onSubmitMessage: (String newEmail) {},
+                            initialText: 'Hossen',
+                          ),
+                          const Gap(12.0),
                           Text(
                             'Email',
                             style: AppTypography.title16m.copyWith(

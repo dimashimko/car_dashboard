@@ -71,6 +71,9 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension>
     required this.messageTextFieldHintText,
     required this.messageTextFieldPrefixIcon,
     required this.customDivider,
+    required this.googleAuthButton,
+    required this.authContainerStroke,
+    required this.rememberMeText,
   });
 
   @override
@@ -191,6 +194,12 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension>
   final Color messageTextFieldPrefixIcon;
   @override
   final Color customDivider;
+  @override
+  final Color googleAuthButton;
+  @override
+  final Color authContainerStroke;
+  @override
+  final Color rememberMeText;
 }
 
 final lightCustomThemeExtension = CustomThemeExtension(
@@ -253,6 +262,9 @@ final lightCustomThemeExtension = CustomThemeExtension(
   messageTextFieldHintText: AppColors.gray75,
   messageTextFieldPrefixIcon: AppColors.gray75,
   customDivider: AppColors.customDividerWhite,
+  googleAuthButton: AppColors.googleAuthButtonWhite,
+  authContainerStroke: AppColors.authContainerStrokeWhite,
+  rememberMeText: AppColors.rememberMeTextWhite,
 );
 
 final darkCustomThemeExtension = CustomThemeExtension(
@@ -315,4 +327,7 @@ final darkCustomThemeExtension = CustomThemeExtension(
   messageTextFieldHintText: AppColors.gray.dark4,
   messageTextFieldPrefixIcon: AppColors.primary.white1,
   customDivider: AppColors.dividerSensorDark,
+  googleAuthButton: AppColors.googleAuthButtonBlack,
+  authContainerStroke: AppColors.transparent,
+  rememberMeText: AppColors.gray.dark6,
 );

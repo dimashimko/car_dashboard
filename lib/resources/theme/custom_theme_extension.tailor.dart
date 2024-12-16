@@ -69,6 +69,9 @@ mixin _$CustomThemeExtensionTailorMixin
   Color get messageTextFieldHintText;
   Color get messageTextFieldPrefixIcon;
   Color get customDivider;
+  Color get googleAuthButton;
+  Color get authContainerStroke;
+  Color get rememberMeText;
 
   @override
   CustomThemeExtension copyWith({
@@ -131,6 +134,9 @@ mixin _$CustomThemeExtensionTailorMixin
     Color? messageTextFieldHintText,
     Color? messageTextFieldPrefixIcon,
     Color? customDivider,
+    Color? googleAuthButton,
+    Color? authContainerStroke,
+    Color? rememberMeText,
   }) {
     return CustomThemeExtension(
       statisticsDivider: statisticsDivider ?? this.statisticsDivider,
@@ -210,6 +216,9 @@ mixin _$CustomThemeExtensionTailorMixin
       messageTextFieldPrefixIcon:
           messageTextFieldPrefixIcon ?? this.messageTextFieldPrefixIcon,
       customDivider: customDivider ?? this.customDivider,
+      googleAuthButton: googleAuthButton ?? this.googleAuthButton,
+      authContainerStroke: authContainerStroke ?? this.authContainerStroke,
+      rememberMeText: rememberMeText ?? this.rememberMeText,
     );
   }
 
@@ -310,6 +319,11 @@ mixin _$CustomThemeExtensionTailorMixin
       messageTextFieldPrefixIcon: Color.lerp(
           messageTextFieldPrefixIcon, other.messageTextFieldPrefixIcon, t)!,
       customDivider: Color.lerp(customDivider, other.customDivider, t)!,
+      googleAuthButton:
+          Color.lerp(googleAuthButton, other.googleAuthButton, t)!,
+      authContainerStroke:
+          Color.lerp(authContainerStroke, other.authContainerStroke, t)!,
+      rememberMeText: Color.lerp(rememberMeText, other.rememberMeText, t)!,
     );
   }
 
@@ -417,7 +431,10 @@ mixin _$CustomThemeExtensionTailorMixin
             const DeepCollectionEquality().equals(messageTextFieldStroke, other.messageTextFieldStroke) &&
             const DeepCollectionEquality().equals(messageTextFieldHintText, other.messageTextFieldHintText) &&
             const DeepCollectionEquality().equals(messageTextFieldPrefixIcon, other.messageTextFieldPrefixIcon) &&
-            const DeepCollectionEquality().equals(customDivider, other.customDivider));
+            const DeepCollectionEquality().equals(customDivider, other.customDivider) &&
+            const DeepCollectionEquality().equals(googleAuthButton, other.googleAuthButton) &&
+            const DeepCollectionEquality().equals(authContainerStroke, other.authContainerStroke) &&
+            const DeepCollectionEquality().equals(rememberMeText, other.rememberMeText));
   }
 
   @override
@@ -483,6 +500,9 @@ mixin _$CustomThemeExtensionTailorMixin
       const DeepCollectionEquality().hash(messageTextFieldHintText),
       const DeepCollectionEquality().hash(messageTextFieldPrefixIcon),
       const DeepCollectionEquality().hash(customDivider),
+      const DeepCollectionEquality().hash(googleAuthButton),
+      const DeepCollectionEquality().hash(authContainerStroke),
+      const DeepCollectionEquality().hash(rememberMeText),
     ]);
   }
 }
@@ -564,4 +584,7 @@ extension CustomThemeExtensionBuildContextProps on BuildContext {
   Color get messageTextFieldPrefixIcon =>
       customThemeExtension.messageTextFieldPrefixIcon;
   Color get customDivider => customThemeExtension.customDivider;
+  Color get googleAuthButton => customThemeExtension.googleAuthButton;
+  Color get authContainerStroke => customThemeExtension.authContainerStroke;
+  Color get rememberMeText => customThemeExtension.rememberMeText;
 }
