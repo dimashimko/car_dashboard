@@ -1,3 +1,4 @@
+import 'package:car_dashboard/widgets/common/row_scrollable.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -27,7 +28,8 @@ class FacebookAuthButton extends StatelessWidget {
             Radius.circular(8.0),
           ),
         ),
-        child: Row(
+        child: RowScrollable(
+          crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Assets.icons.logoFacebook.svg(),
@@ -37,6 +39,7 @@ class FacebookAuthButton extends StatelessWidget {
               style: AppTypography.title16m.copyWith(
                 color: AppColors.gray.white,
               ),
+              overflow: TextOverflow.ellipsis,
             ),
           ],
         ),

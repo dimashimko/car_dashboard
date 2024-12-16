@@ -1,3 +1,4 @@
+import 'package:car_dashboard/widgets/common/row_scrollable.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -31,8 +32,9 @@ class GoogleAuthButton extends StatelessWidget {
             width: 1,
           ),
         ),
-        child: Row(
+        child: RowScrollable(
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Assets.icons.logoGoogle.svg(),
             const Gap(8.0),
@@ -41,6 +43,7 @@ class GoogleAuthButton extends StatelessWidget {
               style: AppTypography.title16m.copyWith(
                 color: colors(context).notesStatusBannerText,
               ),
+              overflow: TextOverflow.ellipsis,
             ),
           ],
         ),
