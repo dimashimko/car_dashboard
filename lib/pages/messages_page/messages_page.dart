@@ -95,7 +95,7 @@ class _MessagesPageState extends State<MessagesPage> {
       ],
     ),
     Contact(
-      id: 2,
+      id: 99,
       name: 'Test',
       avatar: Assets.images.photo02.path,
       isTyping: false,
