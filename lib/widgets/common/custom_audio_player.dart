@@ -7,37 +7,9 @@ import 'package:flutter/services.dart';
 import 'package:gap/gap.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:just_waveform/just_waveform.dart';
-import "package:path/path.dart" as p;
+import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
 import 'package:rxdart/rxdart.dart';
-
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Audio Player with Waveform',
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Audio Player with Waveform'),
-        ),
-        body: const Center(
-          child: AudioPlayerWithWaveform(
-            audioAsset: 'assets/audio/elegant_piano.mp3',
-            // audioAsset: 'assets/audio/audio2.mp3',
-            // audioAsset: 'assets/audio/audio3.mp3',
-            // audioAsset: 'assets/audio/audio4.mp3',
-          ),
-        ),
-      ),
-    );
-  }
-}
 
 class AudioPlayerWithWaveform extends StatefulWidget {
   final String audioAsset;
@@ -48,11 +20,10 @@ class AudioPlayerWithWaveform extends StatefulWidget {
   });
 
   @override
-  _AudioPlayerWithWaveformState createState() =>
-      _AudioPlayerWithWaveformState();
+  AudioPlayerWithWaveformState createState() => AudioPlayerWithWaveformState();
 }
 
-class _AudioPlayerWithWaveformState extends State<AudioPlayerWithWaveform> {
+class AudioPlayerWithWaveformState extends State<AudioPlayerWithWaveform> {
   late AudioPlayer _audioPlayer;
   bool _isCompleted = false;
   bool _isPlaying = false; // Track playing state
@@ -133,7 +104,6 @@ class _AudioPlayerWithWaveformState extends State<AudioPlayerWithWaveform> {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        // Play/Pause Button
         Container(
           height: 39.0,
           width: 39.0,
@@ -226,10 +196,10 @@ class AudioWaveformWidget extends StatefulWidget {
   });
 
   @override
-  _AudioWaveformState createState() => _AudioWaveformState();
+  AudioWaveformState createState() => AudioWaveformState();
 }
 
-class _AudioWaveformState extends State<AudioWaveformWidget> {
+class AudioWaveformState extends State<AudioWaveformWidget> {
   @override
   Widget build(BuildContext context) {
     return ClipRect(

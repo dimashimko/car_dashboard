@@ -72,14 +72,15 @@ class MessageCard extends StatelessWidget {
                             AudioPlayerWithWaveform(
                               audioAsset: message.audio!,
                             ),
-                          Text(
-                            message.text,
-                            style: TextStyle(
-                              color: message.isMy
-                                  ? AppColors.white
-                                  : colors(context).notesStatusBannerText,
+                          if (message.text.isNotEmpty)
+                            Text(
+                              message.text,
+                              style: TextStyle(
+                                color: message.isMy
+                                    ? AppColors.white
+                                    : colors(context).notesStatusBannerText,
+                              ),
                             ),
-                          ),
                         ],
                       ),
                     ),

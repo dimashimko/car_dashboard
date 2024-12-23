@@ -57,6 +57,7 @@ dependencies:
   freezed: ^2.5.7
   freezed_annotation: ^2.4.4
   calendar_view: ^1.2.0
+  rxdart: ^0.28.0
 
 dev_dependencies:
   flutter_test:
