@@ -3,6 +3,7 @@ import 'package:car_dashboard/resources/app_colors.dart';
 import 'package:car_dashboard/resources/app_typography.dart';
 import 'package:car_dashboard/resources/theme/custom_theme_extension.dart';
 import 'package:car_dashboard/utils/extensions.dart';
+import 'package:car_dashboard/widgets/common/custom_audio_player.dart';
 import 'package:flutter/material.dart';
 
 import '../../../models/contact.dart';
@@ -64,13 +65,22 @@ class MessageCard extends StatelessWidget {
                         vertical: 10.0,
                         horizontal: 14.0,
                       ),
-                      child: Text(
-                        message.text,
-                        style: TextStyle(
-                          color: message.isMy
-                              ? AppColors.white
-                              : colors(context).notesStatusBannerText,
-                        ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          if (message.audio?.isNotEmpty ?? false)
+                            AudioPlayerWithWaveform(
+                              audioAsset: message.audio!,
+                            ),
+                          Text(
+                            message.text,
+                            style: TextStyle(
+                              color: message.isMy
+                                  ? AppColors.white
+                                  : colors(context).notesStatusBannerText,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ),

@@ -49,6 +49,7 @@ dependencies:
   permission_handler: ^11.0.1
   just_audio: ^0.9.7 # For audio playback
 #  audio_waveforms: ^0.4.0 # For visualizing waveforms
+  just_waveform: ^0.0.5
 
   #Other
   desktop_window: ^0.4.1

@@ -87,7 +87,14 @@ class _MessagesPageState extends State<MessagesPage> {
           isRead: false,
         ),
         Message(
-          text: 'no read message 02 last',
+          text: 'no read message 02',
+          isMy: false,
+          dateTime: DateTime(2024, 12, 09, 15, 38, 00),
+          isRead: false,
+        ),
+        Message(
+          text: '',
+          audio: 'assets/audio/elegant_piano.mp3',
           isMy: false,
           dateTime: DateTime(2024, 12, 09, 15, 38, 00),
           isRead: false,
