@@ -158,13 +158,18 @@ class AudioPlayerWithWaveformState extends State<AudioPlayerWithWaveform> {
                     ),
                   );
                 }
-                return AudioWaveformWidget(
-                  waveColor: AppColors.primary.purple,
-                  waveform: waveform,
-                  start: Duration.zero,
-                  duration: waveform.duration,
-                  strokeWidth: 2.0,
-                  pixelsPerStep: 3.0,
+                print('*** waveform.duration: ${waveform.duration}');
+
+                return CustomPaint(
+                  painter: AudioWaveformPainter(
+                    waveColor: AppColors.primary.purple,
+                    waveform: waveform,
+                    start: Duration.zero,
+                    duration: waveform.duration,
+                    strokeWidth: 2.0,
+                    pixelsPerStep: 3.0,
+                    scale: 1.0,
+                  ),
                 );
               },
             ),
@@ -175,54 +180,12 @@ class AudioPlayerWithWaveformState extends State<AudioPlayerWithWaveform> {
   }
 }
 
-class AudioWaveformWidget extends StatefulWidget {
-  final Color waveColor;
-  final double scale;
-  final double strokeWidth;
-  final double pixelsPerStep;
-  final Waveform waveform;
-  final Duration start;
-  final Duration duration;
-
-  const AudioWaveformWidget({
-    super.key,
-    required this.waveform,
-    required this.start,
-    required this.duration,
-    this.waveColor = Colors.blue,
-    this.scale = 1.0,
-    this.strokeWidth = 5.0,
-    this.pixelsPerStep = 8.0,
-  });
-
-  @override
-  AudioWaveformState createState() => AudioWaveformState();
-}
-
-class AudioWaveformState extends State<AudioWaveformWidget> {
-  @override
-  Widget build(BuildContext context) {
-    return ClipRect(
-      child: CustomPaint(
-        painter: AudioWaveformPainter(
-          waveColor: widget.waveColor,
-          waveform: widget.waveform,
-          start: widget.start,
-          duration: widget.duration,
-          scale: widget.scale,
-          strokeWidth: widget.strokeWidth,
-          pixelsPerStep: widget.pixelsPerStep,
-        ),
-      ),
-    );
-  }
-}
-
 class AudioWaveformPainter extends CustomPainter {
   final double scale;
   final double strokeWidth;
   final double pixelsPerStep;
   final Paint wavePaint;
+  final Paint wavePaintGray;
   final Waveform waveform;
   final Duration start;
   final Duration duration;
@@ -235,7 +198,12 @@ class AudioWaveformPainter extends CustomPainter {
     this.scale = 1.0,
     this.strokeWidth = 5.0,
     this.pixelsPerStep = 8.0,
-  }) : wavePaint = Paint()
+  })  : wavePaint = Paint()
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = strokeWidth
+          ..strokeCap = StrokeCap.round
+          ..color = waveColor,
+        wavePaintGray = Paint()
           ..style = PaintingStyle.stroke
           ..strokeWidth = strokeWidth
           ..strokeCap = StrokeCap.round
@@ -243,17 +211,21 @@ class AudioWaveformPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
+    print('*** paint');
+
     if (duration == Duration.zero) return;
 
     double width = size.width;
     double height = size.height;
 
-    final waveformPixelsPerWindow = waveform.positionToPixel(duration).toInt();
-    final waveformPixelsPerDevicePixel = waveformPixelsPerWindow / width;
-    final waveformPixelsPerStep = waveformPixelsPerDevicePixel * pixelsPerStep;
-    final sampleOffset = waveform.positionToPixel(start);
-    final sampleStart = -sampleOffset % waveformPixelsPerStep;
-    for (var i = sampleStart.toDouble();
+    final int waveformPixelsPerWindow =
+        waveform.positionToPixel(duration).toInt();
+    final double waveformPixelsPerDevicePixel = waveformPixelsPerWindow / width;
+    final double waveformPixelsPerStep =
+        waveformPixelsPerDevicePixel * pixelsPerStep;
+    final double sampleOffset = waveform.positionToPixel(start);
+    final double sampleStart = -sampleOffset % waveformPixelsPerStep;
+    for (double i = sampleStart;
         i <= waveformPixelsPerWindow + 1.0;
         i += waveformPixelsPerStep) {
       final sampleIdx = (sampleOffset + i).toInt();
