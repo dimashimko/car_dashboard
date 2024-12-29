@@ -1,7 +1,9 @@
 import 'dart:io';
-import 'dart:math';
 
 import 'package:car_dashboard/resources/app_colors.dart';
+import 'package:car_dashboard/resources/app_typography.dart';
+import 'package:car_dashboard/utils/extensions.dart';
+import 'package:car_dashboard/widgets/common/audio_waveform_painter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:gap/gap.dart';
@@ -10,6 +12,8 @@ import 'package:just_waveform/just_waveform.dart';
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
 import 'package:rxdart/rxdart.dart';
+
+import '../../resources/app_fonts.dart';
 
 class AudioPlayerWithWaveform extends StatefulWidget {
   final String audioAsset;
@@ -26,7 +30,9 @@ class AudioPlayerWithWaveform extends StatefulWidget {
 class AudioPlayerWithWaveformState extends State<AudioPlayerWithWaveform> {
   late AudioPlayer _audioPlayer;
   bool _isCompleted = false;
-  bool _isPlaying = false; // Track playing state
+  bool _isPlaying = false;
+  int _currentPosition = 0x7FFFFFFFFFFFFFFF;
+  // int _currentPosition = 1000000000;
 
   final progressStream = BehaviorSubject<WaveformProgress>();
 
@@ -42,13 +48,23 @@ class AudioPlayerWithWaveformState extends State<AudioPlayerWithWaveform> {
     _loadAudio();
     _init();
 
-    // Listen to player state changes to update the button state
+    _audioPlayer.positionStream.listen((Duration event) {
+      int newCurrentPosition = event.inMilliseconds;
+      if (newCurrentPosition == 0) return;
+      int difference = newCurrentPosition - _currentPosition;
+      if (difference > 100 || difference < 100) {
+        setState(() {
+          _currentPosition = event.inMilliseconds;
+        });
+      }
+    });
+
     _audioPlayer.playerStateStream.listen((state) {
       setState(() {
         _isPlaying = state.playing;
         if (state.processingState == ProcessingState.completed) {
           _isCompleted = true;
-          _isPlaying = false; // Reset to false when audio completes
+          _isPlaying = false;
         }
       });
     });
@@ -158,18 +174,37 @@ class AudioPlayerWithWaveformState extends State<AudioPlayerWithWaveform> {
                     ),
                   );
                 }
-                print('*** waveform.duration: ${waveform.duration}');
 
-                return CustomPaint(
-                  painter: AudioWaveformPainter(
-                    waveColor: AppColors.primary.purple,
-                    waveform: waveform,
-                    start: Duration.zero,
-                    duration: waveform.duration,
-                    strokeWidth: 2.0,
-                    pixelsPerStep: 3.0,
-                    scale: 1.0,
-                  ),
+                return Row(
+                  children: [
+                    Expanded(
+                      child: SizedBox(
+                        height: 59.0,
+                        child: Builder(builder: (context) {
+                          return CustomPaint(
+                            painter: AudioWaveformPainter(
+                              waveColor: AppColors.primary.purple,
+                              waveform: waveform,
+                              start: Duration.zero,
+                              duration: waveform.duration,
+                              currentPosition: _currentPosition,
+                              strokeWidth: 2.0,
+                              pixelsPerStep: 3.0,
+                              scale: 1.0,
+                            ),
+                          );
+                        }),
+                      ),
+                    ),
+                    const Gap(10.0),
+                    Text(
+                      waveform.duration.toMinutesSeconds(),
+                      style: AppTypography.title13m.copyWith(
+                        fontWeight: AppFonts.regular,
+                        color: AppColors.gray.dark6,
+                      ),
+                    ),
+                  ],
                 );
               },
             ),
@@ -177,81 +212,5 @@ class AudioPlayerWithWaveformState extends State<AudioPlayerWithWaveform> {
         ),
       ],
     );
-  }
-}
-
-class AudioWaveformPainter extends CustomPainter {
-  final double scale;
-  final double strokeWidth;
-  final double pixelsPerStep;
-  final Paint wavePaint;
-  final Paint wavePaintGray;
-  final Waveform waveform;
-  final Duration start;
-  final Duration duration;
-
-  AudioWaveformPainter({
-    required this.waveform,
-    required this.start,
-    required this.duration,
-    Color waveColor = Colors.blue,
-    this.scale = 1.0,
-    this.strokeWidth = 5.0,
-    this.pixelsPerStep = 8.0,
-  })  : wavePaint = Paint()
-          ..style = PaintingStyle.stroke
-          ..strokeWidth = strokeWidth
-          ..strokeCap = StrokeCap.round
-          ..color = waveColor,
-        wavePaintGray = Paint()
-          ..style = PaintingStyle.stroke
-          ..strokeWidth = strokeWidth
-          ..strokeCap = StrokeCap.round
-          ..color = waveColor;
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    print('*** paint');
-
-    if (duration == Duration.zero) return;
-
-    double width = size.width;
-    double height = size.height;
-
-    final int waveformPixelsPerWindow =
-        waveform.positionToPixel(duration).toInt();
-    final double waveformPixelsPerDevicePixel = waveformPixelsPerWindow / width;
-    final double waveformPixelsPerStep =
-        waveformPixelsPerDevicePixel * pixelsPerStep;
-    final double sampleOffset = waveform.positionToPixel(start);
-    final double sampleStart = -sampleOffset % waveformPixelsPerStep;
-    for (double i = sampleStart;
-        i <= waveformPixelsPerWindow + 1.0;
-        i += waveformPixelsPerStep) {
-      final sampleIdx = (sampleOffset + i).toInt();
-      final x = i / waveformPixelsPerDevicePixel;
-      final minY = normalise(waveform.getPixelMin(sampleIdx), height);
-      final maxY = normalise(waveform.getPixelMax(sampleIdx), height);
-      canvas.drawLine(
-        Offset(x + strokeWidth / 2, max(strokeWidth * 0.75, minY)),
-        Offset(x + strokeWidth / 2, min(height - strokeWidth * 0.75, maxY)),
-        wavePaint,
-      );
-    }
-  }
-
-  @override
-  bool shouldRepaint(covariant AudioWaveformPainter oldDelegate) {
-    return false;
-  }
-
-  double normalise(int s, double height) {
-    if (waveform.flags == 0) {
-      final y = 32768 + (scale * s).clamp(-32768.0, 32767.0).toDouble();
-      return height - 1 - y * height / 65536;
-    } else {
-      final y = 128 + (scale * s).clamp(-128.0, 127.0).toDouble();
-      return height - 1 - y * height / 256;
-    }
   }
 }

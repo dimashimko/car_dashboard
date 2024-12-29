@@ -131,6 +131,19 @@ extension DateTimeFormatter on DateTime {
 }
 
 extension DurationExtension on Duration {
+  String toMinutesSeconds() {
+    try {
+      final totalMinutes = inMinutes;
+      final seconds = inSeconds % 60;
+
+      final formattedSeconds = seconds.toString().padLeft(2, '0');
+
+      return '$totalMinutes:$formattedSeconds';
+    } catch (e) {
+      return '0:00';
+    }
+  }
+
   double toHeight(scaleFactor) {
     return (inMinutes * scaleFactor) / 60;
   }

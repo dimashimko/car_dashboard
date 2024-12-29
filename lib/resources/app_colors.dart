@@ -47,6 +47,7 @@ class AppColors {
   static const Color grayEC = Color(0xFFECECEC);
   static const Color gray75 = Color(0xFF757575);
   static const Color gray3B = Color(0xFF3B3B3B);
+  static const Color grayAudio = Color(0xFFD1D2D6);
   static const Color upcomingEventsTimeNowText = Color(0xFFF65E5E);
   static const Color upcomingEventsTimeNowDivider = Color(0xFFFAAEAE);
   static const Color violet = Color(0xFF725CFF);
