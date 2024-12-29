@@ -1,5 +1,7 @@
 // import 'dart:developer';
 
+import 'dart:developer';
+
 import 'package:car_dashboard/resources/app_colors.dart';
 import 'package:car_dashboard/resources/theme/custom_theme_extension.dart';
 import 'package:car_dashboard/utils/extensions.dart';
@@ -280,7 +282,9 @@ class _TaskBoardPlaner2State extends State<TaskBoardPlaner2> {
             widthLevel: event.widthLevel,
           );
         }
-        setWidthLevelToRelated(newList[indexOfRelated]);
+        setWidthLevelToRelated(
+          newList[indexOfRelated],
+        );
       }
     }
   }
@@ -366,16 +370,12 @@ class _TaskBoardPlaner2State extends State<TaskBoardPlaner2> {
                             left: cardLeftPadding,
                           ),
                           child: Draggable<CalendarEvent>(
-                            // hitTestBehavior: HitTestBehavior.opaque,
-                            // hitTestBehavior: HitTestBehavior.translucent,
-                            hitTestBehavior: HitTestBehavior.deferToChild,
                             data: events[index],
                             feedback: Opacity(
                               opacity: 0.5,
                               // opacity: 0,
                               child: card,
                             ),
-                            // feedback: const SizedBox(),
                             childWhenDragging: const SizedBox(),
                             child: card,
                             onDragUpdate: (DragUpdateDetails details) {
@@ -388,7 +388,7 @@ class _TaskBoardPlaner2State extends State<TaskBoardPlaner2> {
                               // log('*** renderBox localPosition: ${localPosition}');
                               // log('');
 
-                              // log('*** calendarEvent id: ${events[index].id}');
+                              log('*** calendarEvent id: ${events[index].id}');
                               changeCalendarEventDelta(
                                 calendarEvent: events[index],
                                 delta: details.delta,
