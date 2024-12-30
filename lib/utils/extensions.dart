@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:intl/intl.dart';
 
 import '../models/calendar_event.dart';
@@ -14,6 +16,17 @@ extension DoubleExtensions on double {
 }
 
 extension ListCalendarEventX on List<CalendarEvent> {
+  print() {
+    for (CalendarEvent event in this) {
+      log('*** event.id: ${event.id}');
+      log('*** event.startTime: ${event.startTime}');
+      log('*** event.columnNumber: ${event.columnNumber}');
+      log('*** event.widthLevel: ${event.widthLevel}');
+      log('*** event.relatedId: ${event.relatedId}');
+      log('');
+    }
+  }
+
   List<CalendarEvent> get sorted {
     final sortedList = [...this];
     sortedList.sort((a, b) => a.startTime.compareTo(b.startTime));

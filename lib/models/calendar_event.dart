@@ -16,7 +16,7 @@ class CalendarEvent with _$CalendarEvent {
     required String type,
     String? info,
     required List<String> participants,
-    @Default(1) int columnNumber,
+    @Default(1) int columnNumber, // position in row
     @Default(1) int widthLevel,
     @Default([]) List<int> relatedId,
   }) = _CalendarEvent;
