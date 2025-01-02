@@ -35,6 +35,7 @@ dependencies:
   syncfusion_flutter_charts: ^27.1.52
   flutter_toggle_button: ^0.0.3
   dotted_border: ^2.1.0
+  auto_size_text: ^3.0.0
 
   #Media
   flutter_svg: ^2.0.10+1

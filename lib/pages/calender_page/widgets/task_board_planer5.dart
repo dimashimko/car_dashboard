@@ -34,8 +34,8 @@ class _TaskBoardPlaner5State extends State<TaskBoardPlaner5> {
     super.initState();
     taskManager = TaskManager(
       scaleFactor: widget.scaleFactor,
-      // events: events,
-      events: events0,
+      events: events,
+      // events: events0,
     );
     taskManager.init();
     hourlyList = generateHourlyTimestamps(

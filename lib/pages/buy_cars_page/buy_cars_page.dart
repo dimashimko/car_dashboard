@@ -16,7 +16,7 @@ class BuyCarsPage extends StatelessWidget {
             child: Column(
               children: [
                 Text(
-                  'BuyCarsPage',
+                  '',
                   style: TextStyle(
                     color: colors(context).textPrimary,
                   ),
