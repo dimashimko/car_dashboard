@@ -1,6 +1,5 @@
 **Car Dashboard - Desktop app for MacOS, Windows
 (UI only)
-**<img width="171" height="105" alt="car_suzuki_ertiga" src="https://github.com/user-attachments/assets/cacce83b-0a2d-4ba1-8051-7147743b9a1a" />
 <img width="734" height="957" alt="Screenshot at Sep 18 17-53-55" src="https://github.com/user-attachments/assets/2bd2b11f-3455-4584-ae38-240b8f504467" />
 <img width="1721" height="962" alt="Screenshot at Sep 18 17-50-54" src="https://github.com/user-attachments/assets/a850cb0c-1408-495b-b27c-c23fadabaa2b" />
 <img width="1721" height="961" alt="Screenshot at Sep 18 17-51-13" src="https://github.com/user-attachments/assets/e9860914-d157-4439-b0c0-f9336e37e444" />
